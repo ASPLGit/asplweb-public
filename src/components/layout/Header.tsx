@@ -508,7 +508,15 @@ export default function Header() {
     };
 
     const isServicesActive = pathname.startsWith("/services");
-    const isInsightsActive = pathname.startsWith("/insights");
+    // const isInsightsActive = pathname.startsWith("/insights");
+
+    const headerWhiteRoutes = [
+        (path: string) => path.startsWith("/careers/"),
+    ];
+
+    const headerWhite = headerWhiteRoutes.some((check) =>
+        check(pathname)
+    );
 
 
     return (
@@ -519,14 +527,14 @@ export default function Header() {
           fixed -top-0.5 left-0 z-40 w-full
           transition-all duration-500 ease-in-out
           ${showHeader ? "translate-y-0" : "-translate-y-24"}
-          ${isScrolled ? "bg-white shadow-md" : "bg-transparent"}
+          ${isScrolled || headerWhite ? "bg-white shadow-md" : "bg-transparent"}
         `}
             >
                 <div className="container mx-auto flex items-center justify-between sm:py-6 py-4">
                     {/* LOGO */}
                     <Link href="/">
                         <Image
-                            src={isScrolled ? "/logo-dark.svg" : "/logo-light.svg"}
+                            src={isScrolled || headerWhite ? "/logo-dark.svg" : "/logo-light.svg"}
                             alt="Logo"
                             className="h-8 w-[150px]"
                             width={150}
@@ -536,7 +544,7 @@ export default function Header() {
 
 
                     <div className={`hidden lg:flex items-center gap-6 text-sm
-    ${isScrolled ? "text-slate-800" : "text-white"}`}>
+    ${isScrolled || headerWhite ? "text-slate-800" : "text-white"}`}>
                         <Link
                             href="/"
                             onClick={() => {
@@ -546,10 +554,10 @@ export default function Header() {
                             }}
                             className={`relative px-2 py-1 transition
       ${pathname === "/"
-                                    ? isScrolled
+                                    ? isScrolled || headerWhite
                                         ? "text-blue-600 font-semibold underline underline-offset-8"
                                         : "text-white underline underline-offset-8"
-                                    : isScrolled
+                                    : isScrolled || headerWhite
                                         ? "text-slate-600 hover:text-blueTheme"
                                         : "text-white/70 hover:text-white"
                                 }`}
@@ -567,10 +575,10 @@ export default function Header() {
                             }}
                             className={`relative px-2 py-1 transition
       ${pathname.startsWith("/about")
-                                    ? isScrolled
+                                    ? isScrolled || headerWhite
                                         ? "text-blue-600 font-semibold underline underline-offset-8"
                                         : "text-white underline underline-offset-8"
-                                    : isScrolled
+                                    : isScrolled || headerWhite
                                         ? "text-slate-600 hover:text-blueTheme"
                                         : "text-white/70 hover:text-white"
                                 }`}
@@ -587,17 +595,17 @@ export default function Header() {
                             }}
                             className={`flex items-center gap-1 px-2 py-1 transition
               ${activeMenu === "services" || isServicesActive
-                                    ? isScrolled
+                                    ? isScrolled || headerWhite
                                         ? "text-blue-600 font-semibold underline underline-offset-8"
                                         : "text-white underline underline-offset-8"
-                                    : isScrolled
+                                    : isScrolled || headerWhite
                                         ? "text-slate-600 hover:text-blueTheme"
                                         : "text-white/70 hover:text-white"
                                 }`}
                         >
                             Services
                             <Image
-                                src={isScrolled ? '/images/icons/chev-down-black.svg' : '/images/icons/chev-down.svg'}
+                                src={isScrolled || headerWhite ? '/images/icons/chev-down-black.svg' : '/images/icons/chev-down.svg'}
                                 className={`w-4 h-4 transition-transform ${activeMenu === "services" ? "rotate-180" : ""
                                     }`}
                                 alt="chev icon"
@@ -615,10 +623,10 @@ export default function Header() {
                             }}
                             className={`relative px-2 py-1 transition
       ${pathname.startsWith("/careers")
-                                    ? isScrolled
+                                    ? isScrolled || headerWhite
                                         ? "text-blue-600 font-semibold underline underline-offset-8"
                                         : "text-white underline underline-offset-8"
-                                    : isScrolled
+                                    : isScrolled || headerWhite
                                         ? "text-slate-600 hover:text-blueTheme"
                                         : "text-white/70 hover:text-white"
                                 }`}
@@ -660,7 +668,7 @@ export default function Header() {
                     <div className="flex items-center gap-4">
                         <Link href="/contact"
                             className={`hidden sm:inline-flex px-4 py-2 rounded-md text-sm transition
-              ${isScrolled
+              ${isScrolled || headerWhite
                                     ? "bg-[linear-gradient(131.31deg,#007BFF_50.33%,#00D4FF_100.33%)] text-white"
                                     : "bg-white text-black hover:bg-transparent border border-white hover:text-white"
                                 }`}
@@ -672,7 +680,7 @@ export default function Header() {
                         <button className="lg:hidden" onClick={() => setOpen(true)}>
                             <Image
                                 src={
-                                    isScrolled
+                                    isScrolled || headerWhite
                                         ? "/images/icons/menu-blue.svg"
                                         : "/images/icons/menu.svg"
                                 }

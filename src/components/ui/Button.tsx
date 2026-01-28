@@ -42,19 +42,22 @@ export default function Button({
       hover:text-white
     `,
     black: `
-      bg-black text-white
+      bg-black text-white border
       shadow-md
+      hover:text-black
+       hover:border-black
+      hover:bg-transparent
       hover:shadow-[inset_0_0_0_9999px_rgba(255,255,255,0.06)]
     `,
   };
 
   const classes = `${base} ${size} ${variants[variant]} ${className}`;
 
-    if (to) {
+  if (to) {
     return (
       <Link
         href={to}
-        onClick={onClick}  
+        onClick={onClick}
         className={classes}
       >
         {children}

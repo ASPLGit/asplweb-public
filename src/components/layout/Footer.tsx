@@ -10,9 +10,8 @@ export default function Footer() {
                 className="
             absolute inset-0
             bg-[url('/images/layer4.webp')]
-            bg-cover bg-bottom bg-no-repeat
-            sm:blur-[2px]
-            scale-110
+            bg-cover bg-right-top bg-no-repeat
+            sm:blur-[0px]
             opacity-50
         "
             />

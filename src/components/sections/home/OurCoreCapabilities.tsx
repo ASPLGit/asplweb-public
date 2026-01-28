@@ -119,10 +119,13 @@ export default function OurCoreCapabilities() {
     return (
         <section className="bg-[linear-gradient(180deg,#f0f9ff_0%,#ffffff_60%)] py-10 sm:py-14 2xl:py-20">
             <div className="space-y-0 sm:space-y-10">
-                <h3 className="heading-lg text-center">
+                <h3 className="heading-lg text-center sm:hidden block">
                     Our Core Capabilities
                 </h3>
-                <div className="2xl:pl-[10%] sm:pl-[7%] pl-0">
+                <div className="flex items-center gap-10">
+                    <h3 className="heading-lg pl-[5%] hidden sm:block">
+                        Our Core Capabilities
+                    </h3>
                     <Swiper
                         modules={[Autoplay]}
                         spaceBetween={24}
@@ -218,7 +221,7 @@ function CapabilitySlide({ title, desc, img, href }: CapabilityCardProps) {
                 <Link
                     href={href}
                     className="
-                        mt-4 inline-flex items-center gap-2
+                        mt-4 inline-flex items-center gap-2 hover:text-blue-500
                         sm:text-sm text-xs font-medium
                         underline underline-offset-4
                         opacity-90

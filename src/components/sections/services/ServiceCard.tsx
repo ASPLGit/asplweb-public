@@ -18,54 +18,65 @@ export default function ServiceCard({
     <Link
       href={href}
       className="
-        group
-        relative
-        block
-        h-[300px]
-        w-full
+        group relative block
+        h-[320px] w-full
         overflow-hidden
-        rounded-2xl
+        rounded-3xl
+        bg-black
+        shadow-[0_30px_60px_-30px_rgba(0,0,0,0.45)]
+        transition-all duration-300
+        sm:hover:-translate-y-2
       "
     >
       {/* BACKGROUND IMAGE */}
-      <div className="absolute inset-0">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className="
-            object-cover
-          "
-        />
-      </div>
+      <Image
+        src={image}
+        alt={title}
+        fill
+        className="
+          object-cover
+          transition-transform duration-700
+          sm:group-hover:scale-110
+        "
+      />
 
-      {/* DARK + GRADIENT OVERLAY */}
+      {/* BASE OVERLAY */}
+      <div className="absolute inset-0 bg-black/30" />
+
+      {/* GRADIENT */}
       <div
         className="
-          absolute bottom-0 left-0 w-full h-[60%]
-          bg-gradient-to-t from-black/100 via-black/50 to-transparent
+          absolute inset-0
+          bg-gradient-to-t
+          from-black/90 via-black/55 to-transparent
         "
       />
 
       {/* CONTENT */}
-      <div className="relative z-10 flex h-full flex-col gap-5 sm:p-6 p-4 justify-end">
-        {/* TOP */}
-        <h3 className="text-xl font-semibold text-white">
+      <div className="relative z-10 flex h-full flex-col justify-end gap-5 sm:p-6 p-4 text-white">
+
+        {/* TITLE */}
+        <h3 className="text-xl font-semibold leading-snug">
           {title}
         </h3>
 
-        {/* BOTTOM */}
-        <div className="flex items-end justify-between sm:gap-5 gap-0">
-          {/* CHIPS */}
-          <div className="flex flex-wrap sm:gap-5 gap-2">
+        {/* BOTTOM ROW */}
+        <div className="flex items-end justify-between gap-4">
+
+          {/* SERVICE CHIPS */}
+          <div className="flex flex-wrap gap-2">
             {services.map((item, index) => (
               <span
                 key={index}
                 className="
-                  sm:rounded-lg rounded-md
-                  border border-white
-                  sm:p-3 p-1
-                  text-xs text-white
+                  rounded-md
+                  border border-white/70
+                  bg-white/5 backdrop-blur
+                  px-3 py-1
+                  text-xs font-medium
+                  text-white/90
+                  transition
+                  group-hover:border-white
                 "
               >
                 {item}
@@ -73,24 +84,28 @@ export default function ServiceCard({
             ))}
           </div>
 
-          {/* ARROW BUTTON */}
+          {/* ARROW CTA */}
           <div
             className="
-              flex min-h-10 min-w-10 items-center justify-center
+              flex h-11 w-11 shrink-0
+              items-center justify-center
               rounded-full
               bg-white
+              text-black
               transition-all duration-300
-              group-hover:translate-x-1
-              group-hover:rotate-45
+              sm:group-hover:translate-x-1
+              sm:group-hover:-translate-y-1
+              sm:group-hover:rotate-45
             "
           >
             <Image
               src="/images/icons/arrow-up-right-black.svg"
               alt="arrow"
-              width={20}
-              height={20}
+              width={18}
+              height={18}
             />
           </div>
+
         </div>
       </div>
     </Link>

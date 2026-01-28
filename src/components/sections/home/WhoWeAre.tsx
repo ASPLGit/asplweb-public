@@ -7,7 +7,7 @@ export default function WhoWeAre() {
             <SectionHeading
                 sectionLabel="Who we are"
                 heading="A Technology Partner You Can Rely On."
-                subheading="We focus on building reliable, scalable solutions through clear communication, proven processes, and experienced teams."
+                subheading="We work closely with businesses to design and build dependable, scalable digital solutions. Our approach is simple clear communication, practical processes, and experienced teams focused on delivering real results."
             />
             <StatsStrip
                 items={[

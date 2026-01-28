@@ -6,18 +6,18 @@ export default function HeroSectionHomepage() {
         <>
             <section className="relative">
                 <div className="bg-[url('/images/bg.webp')] relative bg-cover bg-center bg-no-repeat 2xl:py-[200px] h-screen 2xl:h-auto w-full flex flex-col items-center justify-center">
-                         <div
-                className="
+                    <div
+                        className="
             absolute inset-0
             sm:bg-[url('/images/layer1.webp')] bg-[url('/images/layer4.webp')]
             bg-cover bg-top bg-no-repeat
             sm:blur-[0px]
             opacity-70
         "
-            />
+                    />
 
-            {/* Dark Overlay */}
-            {/* <div
+                    {/* Dark Overlay */}
+                    {/* <div
                 className="
             absolute inset-0
             bg-black/0

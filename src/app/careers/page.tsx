@@ -1,5 +1,6 @@
 import SectionHeading from "@/components/common/SectionHeading";
 import CareersHeroSection from "@/components/sections/careers/CareersHeroSection";
+import OpenPositions from "@/components/sections/careers/OpenPositions";
 
 export default function About() {
     return (
@@ -10,6 +11,7 @@ export default function About() {
                 heading="Be a Part of Our Innovative Team"
                 subheading="At Aplombsoft, we are always on the lookout for talented individuals who are passionate about technology and eager to make a difference. Join our dynamic team and help us build cutting-edge solutions that drive success for our clients worldwide."  
             />
+             <OpenPositions />
         </section>
     );
 }
