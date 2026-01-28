@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --color-darkblue: #062D57;
+  --color-mainbody: #314158;
+  --color-bodylight: #62748E;
+  --color-lightblue: #F4F9FF;
+  --gradient-primary: linear-gradient(131.31deg,
+      #007BFF 50.33%,
+      #00D4FF 100.33%);
+}
+
+
+
+
+
+
+@layer components {
+
+  .heading-xl {
+    @apply 2xl:text-6xl lg:text-5xl sm:text-4xl text-4xl sm:font-medium font-semibold text-white !leading-normal;
+  }
+
+  .heading-lg {
+    @apply text-2xl sm:text-3xl 2xl:text-5xl lg:text-4xl sm:font-normal font-semibold text-slate-900 leading-tight !leading-normal;
+  }
+
+  .heading-md {
+    @apply text-sm sm:text-base font-medium text-slate-800 leading-tight;
+  }
+
+  .text-body-white {
+    @apply sm:text-base text-sm text-white font-normal leading-relaxed;
+  }
+
+  .text-body {
+    @apply 2xl:text-lg sm:text-base text-sm text-bodylight font-normal leading-relaxed;
+  }
+  .text-body-md {
+    @apply sm:text-sm text-xs text-mainbody font-normal leading-relaxed;
+  }
+
+  .section-label {
+    @apply text-sm font-medium uppercase tracking-wide text-gradient;
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .bg-gradient {
+    background: linear-gradient(131.31deg, #007BFF 50.33%, #00D4FF 100.33%);
+  }
+}
+
+
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+
+.trusted-slider .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
