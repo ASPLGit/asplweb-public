@@ -25,7 +25,7 @@ export default function FAQSection({ data, href }: FAQSectionProps) {
             className="
                 relative
                 bg-[linear-gradient(180deg,#f0f9ff_0%,#ffffff_60%)]
-                sm:pt-24 pt-10 pb-10
+                sm:pt-24 pt-10 sm:pb-10 pb-0
             "
         >
             <div className="container">
@@ -54,7 +54,7 @@ export default function FAQSection({ data, href }: FAQSectionProps) {
 
                         {/* CTA CARD */}
                         <div
-                            className="
+                            className=" sm:block hidden
                                 bg-[#F4F6FF]
                                 border border-blue-100
                                 rounded-2xl
@@ -186,6 +186,53 @@ export default function FAQSection({ data, href }: FAQSectionProps) {
                             );
                         })}
                     </div>
+                </div>
+                <div
+                    className=" sm:hidden block mt-4
+                                bg-[#F4F6FF]
+                                border border-blue-100
+                                rounded-2xl
+                                p-6
+                                max-w-sm
+                            "
+                >
+                    <h4 className="font-medium text-slate-900 mb-2">
+                        Still have questions?
+                    </h4>
+
+                    <p className="text-sm text-slate-600 mb-4">
+                        Can’t find the answer you’re looking for?
+                        Reach out and we’ll be happy to help.
+                    </p>
+                    {href && (
+                        <Link
+                            href={href}
+                            onClick={(e) => {
+                                if (!data.href?.startsWith("#")) return;
+
+                                e.preventDefault();
+                                const el = document.getElementById("contact");
+                                if (el) {
+                                    el.scrollIntoView({ behavior: "smooth" });
+                                }
+                            }}
+                            className="
+      bg-[linear-gradient(131.31deg,#007BFF_50.33%,#00D4FF_100.33%)]
+      text-white
+      shadow-md
+      hover:shadow-[inset_0_0_0_9999px_rgba(0,0,0,0.08)]
+      px-10 py-3
+      text-sm
+      inline-flex items-center justify-center
+      rounded-lg
+      font-medium
+      transition-all duration-300 ease-out
+    "
+                        >
+                            Contact Us
+                        </Link>
+                    )}
+
                 </div>
             </div>
         </section>
