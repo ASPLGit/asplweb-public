@@ -38,13 +38,13 @@ export default function BusinessPhilosophySection() {
                         <p className="text-body max-w-lg">
                             At AplombSoft, we believe real value is created when technology
                             decisions are made with clarity and purpose. Every project we take
-                            on is evaluated through a practical lens — ensuring what we build
+                            on is evaluated through a practical lens ensuring what we build
                             today continues to deliver value tomorrow.
                         </p>
 
                         {/* QUOTE */}
                         <div className="mt-10 border-l-4 border-blue-600 pl-6">
-                            <p className="text-lg font-medium text-gradient font-lora leading-relaxed italic">
+                            <p className="text-lg font-medium text-slate-800 font-lora leading-relaxed italic">
                                 “We build for today,
                                 <br />
                                 with tomorrow in mind.”

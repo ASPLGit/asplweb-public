@@ -9,9 +9,9 @@ export default function Footer() {
             <div
                 className="
             absolute inset-0
-            bg-[url('/images/layer4.webp')]
-            bg-cover bg-right-top bg-no-repeat
-            sm:blur-[0px]
+            bg-[url('/images/layer6.webp')]
+            bg-cover bg-center bg-no-repeat
+            sm:blur-[2px]
             opacity-50
         "
             />
@@ -29,7 +29,7 @@ export default function Footer() {
                             className="h-10 w-auto"
                         />
 
-                        <p className="mt-4 text-sm text-slate-400 leading-relaxed">
+                        <p className="mt-4 text-sm text-slate-200 leading-relaxed">
                             We build smart IT solutions that help growing brands and
                             businesses scale with confidence.
                         </p>
@@ -105,7 +105,7 @@ export default function Footer() {
                             <h4 className="text-sm font-semibold mb-4 text-white">
                                 Company
                             </h4>
-                            <ul className="space-y-3 text-sm text-slate-400">
+                            <ul className="space-y-3 text-sm text-slate-300">
                                 <li>
                                     <Link
                                         href="/about"
@@ -138,7 +138,7 @@ export default function Footer() {
                             <h4 className="text-sm font-semibold mb-4 text-white">
                                 Services
                             </h4>
-                            <ul className="space-y-3 text-sm text-slate-400">
+                            <ul className="space-y-3 text-sm text-slate-300">
                                 <li>
                                     <Link
                                         href="/services/web-development"
@@ -187,7 +187,7 @@ export default function Footer() {
                             <h4 className="text-sm font-semibold mb-4 text-white">
                                 Contact
                             </h4>
-                            <ul className="space-y-3 text-sm text-slate-400 leading-relaxed">
+                            <ul className="space-y-3 text-sm text-slate-300 leading-relaxed">
                                 <li>
                                     <a
                                         href="tel:+916352737547"
@@ -240,7 +240,7 @@ export default function Footer() {
                 </div> */}
 
                 {/* COPYRIGHT */}
-                <div className="mt-10 border-t border-slate-700 pt-6 text-center text-xs text-slate-500">
+                <div className="mt-10 border-t border-slate-500 pt-6 text-center text-xs text-slate-300">
                     ©2026 AplombSoft Pvt Ltd. All rights reserved.
                 </div>
             </div>

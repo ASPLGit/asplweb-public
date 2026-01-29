@@ -12,7 +12,7 @@ export default function Service() {
                 <SectionHeading
                     sectionLabel="Our Services"
                     heading="What We Bring to the Table"
-                    subheading="These are the core services we provide to help businesses grow and scale."
+                    subheading="These are the core services we offer to help businesses build reliable digital products, scale efficiently, and adapt to evolving technology needs."
                 />
                 <ServiceSection />
                 <IndustriesWeServe />

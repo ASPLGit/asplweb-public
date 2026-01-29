@@ -98,7 +98,7 @@ export default function Testimonials() {
                         >
                             {TESTIMONIALS.map((item, index) => (
                                 <SwiperSlide key={index}>
-                                    <div className="h-full rounded-2xl bg-white sm:p-8 p-4 shadow-lg">
+                                    <div className="h-full rounded-2xl bg-white sm:p-6 p-4 shadow-lg">
 
                                         {/* Stars */}
                                         <div className="flex gap-1 text-orange-400">

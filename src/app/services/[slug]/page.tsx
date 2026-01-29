@@ -1,13 +1,12 @@
 import { notFound } from "next/navigation";
-import { services } from "@/data/services";
 import SectionHeading from "@/components/common/SectionHeading";
-import FeatureGrid from "@/components/sections/ServicePage/FeatureGrid";
+import FeatureGrid from "@/components/sections/singleServicePage/FeatureGrid";
 import StatsStrip from "@/components/common/StatsStrip";
-import TechnologyGrid from "@/components/sections/ServicePage/TechnologyGrid";
+import TechnologyGrid from "@/components/sections/singleServicePage/TechnologyGrid";
 import FAQSection from "@/components/common/FAQ";
-import { softwareFAQ } from "@/data/faqSectionData";
-import OtherServicesNav from "@/components/sections/ServicePage/OtherServicesNav";
+import OtherServicesNav from "@/components/sections/singleServicePage/OtherServicesNav";
 import HeroSection from "@/components/common/HeroSection";
+import { services } from "@/data/singleServicePage";
 
 interface ServicePageProps {
     params: Promise<{
@@ -135,7 +134,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 subheading='A modern, reliable technology stack chosen to build secure, scalable, and high-performance software solutions.'
             />
             <TechnologyGrid data={service.TechnologySection} />
-            <FAQSection data={softwareFAQ} />
+                <FAQSection data={service.faq} href="/contact" />
             <OtherServicesNav />
         </div>
     );

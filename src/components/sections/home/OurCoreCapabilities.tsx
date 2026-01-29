@@ -110,7 +110,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
-import { CAPABILITIES } from "@/data/capabilities";
+import { CAPABILITIES } from "@/data/coreCapabilities";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/ui/Button";

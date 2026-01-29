@@ -12,7 +12,7 @@ export default function HeroSectionHomepage() {
             sm:bg-[url('/images/layer1.webp')] bg-[url('/images/layer4.webp')]
             bg-cover bg-top bg-no-repeat
             sm:blur-[0px]
-            opacity-70
+            opacity-50
         "
                     />
 

@@ -1,42 +1,51 @@
 import SectionHeading from "@/components/common/SectionHeading";
-import Button from "@/components/ui/Button";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function CaseStudy() {
     return (
         <section className="bg-white">
             <div className="container">
                 {/* Heading */}
-               <SectionHeading
-                               sectionLabel="Case Studies"
-                               heading="Our Work in Action"
-                               subheading="Real-world projects where design, technology, and performance come together."
-                           />
+                <SectionHeading
+                    sectionLabel="Case Studies"
+                    heading="Our Work in Action"
+                    subheading="Real-world projects where design, technology, and performance come together."
+                />
                 {/* Featured Case Study */}
                 <div
-                   
+
                     className="
                         group sm:mt-16 mt-10 grid gap-10 lg:grid-cols-2 grid-cols-1
                         rounded-3xl
-                        bg-sky-50
+                        bg-[url('/images/bg.webp')] relative
+            bg-cover bg-center bg-no-repeat
                         p-6 lg:p-12
                         border border-sky-100
                         transition-all duration-300
                         hover:-translate-y-1
                     "
                 >
+                    <div
+                        className="
+            absolute inset-0
+            bg-[url('/images/layer6.webp')]
+            bg-cover bg-center bg-no-repeat
+            sm:blur-[5px]
+            opacity-50
+            rounded-3xl
+        "
+                    />
                     {/* Left Content */}
-                    <div className="flex flex-col justify-center">
-                        <span className="text-xs uppercase tracking-widest text-slate-500">
+                    <div className="flex flex-col justify-center relative z-10">
+                        <span className="text-xs uppercase tracking-widest text-gradient">
                             FinTech Platform
                         </span>
 
-                        <h3 className="mt-3 text-2xl lg:text-3xl font-medium text-slate-800">
+                        <h3 className="mt-3 text-2xl lg:text-3xl font-medium text-white">
                             Scalable KYC & Identity Verification
                         </h3>
 
-                        <p className="mt-4 text-body text-slate-600 max-w-xl">
+                        <p className="mt-4 text-body text-slate-300 max-w-xl">
                             Built a reusable, privacy-first identity verification system that
                             eliminated repeated KYC, reduced onboarding friction, and improved
                             regulatory compliance.
@@ -49,7 +58,6 @@ export default function CaseStudy() {
                                     rounded-xl
                                     bg-gradient
                                     backdrop-blur-sm
-                                    border border-sky-200
                                     sm:px-5 px-3 py-3
                                     sm:min-w-[150px]
                                 "
@@ -63,9 +71,8 @@ export default function CaseStudy() {
                             <div
                                 className="
                                     rounded-xl
-                                    bg-white/70
+                                    bg-white
                                     backdrop-blur-sm
-                                    border border-sky-200
                                     sm:px-5 px-3 py-3
                                     sm:min-w-[150px]
                                 "

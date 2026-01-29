@@ -5,7 +5,7 @@ const VALUES = [
   {
     title: "Partnership Over Projects",
     description:
-      "We believe in building long-term relationships, working as an extension of our clients’ teams rather than just delivering one-time projects.",
+      "We focus on long-term partnerships, collaborating closely with our clients as an extended team to drive continuous growth and shared success.",
     icon: "/images/values/core1.svg",
   },
   {
@@ -23,7 +23,7 @@ const VALUES = [
   {
     title: "Transparency & Trust",
     description:
-      "Open communication, clear processes, and honest collaboration are central to how we work — ensuring clients always know where things stand.",
+      "Open communication, clear processes, and honest collaboration are central to how we work ensuring clients always know where things stand.",
     icon: "/images/values/core4.svg",
   },
   {
@@ -62,7 +62,7 @@ export default function CoreValuesSection() {
               text-center
             "
           >
-            <blockquote className="text-2xl italic font-medium text-gradient leading-relaxed font-lora">
+            <blockquote className="text-2xl italic font-medium text-slate-800 leading-relaxed font-lora">
               “We don’t just deliver solutions
               <br />
               we build relationships that last.”
@@ -113,31 +113,41 @@ export default function CoreValuesSection() {
               relative
               overflow-hidden
               rounded-2xl
-              bg-gradient
+              bg-[url('/images/bg.webp')]
+              bg-cover bg-center
               p-8
               text-white
-              shadow-[0_30px_80px_-30px_rgba(0,123,255,0.6)]
               flex flex-col justify-center
             "
           >
-            <h4 className="text-xl font-semibold leading-snug">
-              How We Turn Values
-              <br />
-              Into Services
-            </h4>
-
-            <Link
-              href="/services"
+            <div
               className="
+            absolute inset-0
+            bg-[url('/images/layer3.webp')]
+            bg-cover bg-right-top bg-no-repeat
+            sm:blur-[0px]
+            opacity-50
+        "
+            />
+            <div className=" relative z-10">
+              <h4 className="text-xl font-semibold leading-snug">
+                How We Turn Values
+                <br />
+                Into Services
+              </h4>
+
+              <Link
+                href="/services"
+                className="
                 mt-6 inline-block
                 text-sm font-medium
                 underline underline-offset-4
                 hover:opacity-90
               "
-            >
-              Explore Our Services
-            </Link>
-
+              >
+                Explore Our Services
+              </Link>
+            </div>
             {/* Decorative glow */}
             <div className="absolute -bottom-16 -right-16 h-40 w-40 rounded-full bg-white/10 blur-3xl" />
           </div>

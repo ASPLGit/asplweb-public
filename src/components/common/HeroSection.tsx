@@ -28,7 +28,7 @@ export default function HeroSection({
             absolute inset-0
             sm:bg-[url('/images/layer2.webp')] bg-[url('/images/layer4.webp')]
             bg-cover bg-bottom bg-no-repeat
-            sm:blur-[2px]
+            sm:blur-[1px]
             opacity-50
         "
                 />

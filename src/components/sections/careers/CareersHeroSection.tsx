@@ -9,8 +9,8 @@ export default function CareersHeroSection() {
                         className="
             absolute inset-0
             bg-[url('/images/layer3.webp')]
-            bg-cover bg-top bg-no-repeat
-            sm:blur-[12px]
+            bg-cover bg-bottom bg-no-repeat
+            sm:blur-[7px]
             opacity-50
         "
                     />

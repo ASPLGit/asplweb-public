@@ -1,8 +1,8 @@
-import { FAQSectionData } from "@/types/faq";
+import { FAQSectionData } from "@/types/app";
+
+
 
 export const homepageFAQ: FAQSectionData = {
-    label: "FAQ",
-    heading: "Frequently Asked Questions",
     items: [
         {
             title: "What services do you offer?",
@@ -28,29 +28,6 @@ export const homepageFAQ: FAQSectionData = {
             title: "How is project communication handled?",
             content:
                 "We maintain transparent communication through regular updates, milestone-based reviews, dedicated points of contact, and collaborative tools to ensure clarity at every stage.",
-        },
-    ],
-};
-
-
-export const softwareFAQ: FAQSectionData = {
-    label: "FAQ",
-    heading: "Frequently Asked Questions",
-    items: [
-        {
-            title: "What services do you offer?",
-            content:
-                "We provide end-to-end IT solutions including web and mobile development, cloud & SaaS platforms, blockchain & Web3, AI automation, and cybersecurity.",
-        },
-        {
-            title: "Do you work with startups and enterprises?",
-            content:
-                "Yes. We work with startups, scale-ups, and enterprises, delivering scalable and secure solutions.",
-        },
-        {
-            title: "Can you modernize legacy systems?",
-            content:
-                "Absolutely. We upgrade legacy systems with modern architectures, cloud migration, and improved UX.",
         },
     ],
 };

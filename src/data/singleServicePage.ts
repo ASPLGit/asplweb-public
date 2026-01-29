@@ -1,4 +1,4 @@
-import { Service } from "@/types/service";
+import { Service } from "@/types/app";
 
 export const services: Service[] = [
     {
@@ -11,11 +11,7 @@ export const services: Service[] = [
             primary: {
                 label: "Get a Quote",
                 href: "/contact",
-            },
-            secondary: {
-                label: "View Case Studies",
-                href: "/case-studies",
-            },
+            }
         },
 
         section: {
@@ -90,6 +86,25 @@ export const services: Service[] = [
                 { logo: "/images/tech/typescript.svg" },
                 { logo: "/images/tech/python.svg" },
                 { logo: "/images/tech/sql-server.svg" },
+            ],
+        },
+        faq: {
+            items: [
+                {
+                    title: "What type of software do you develop?",
+                    content:
+                        "We build custom software including enterprise systems, SaaS platforms, APIs, and modern web applications.",
+                },
+                {
+                    title: "Can you scale existing software?",
+                    content:
+                        "Yes, we optimize and scale existing software for performance, security, and long-term growth.",
+                },
+                {
+                    title: "Do you provide post-launch support?",
+                    content:
+                        "Absolutely. We offer ongoing maintenance, updates, and performance optimization.",
+                },
             ],
         }
     },
@@ -180,6 +195,20 @@ export const services: Service[] = [
                 { logo: "/images/tech/python.svg" },
                 { logo: "/images/tech/sql-server.svg" },
             ],
+        },
+        faq: {
+            items: [
+                {
+                    title: "Do you build responsive websites?",
+                    content:
+                        "Yes, all our websites are mobile-first, responsive, and optimized for all screen sizes.",
+                },
+                {
+                    title: "Can you redesign an existing website?",
+                    content:
+                        "We modernize existing websites with improved UI/UX, performance, and SEO best practices.",
+                },
+            ],
         }
     },
     {
@@ -269,9 +298,22 @@ export const services: Service[] = [
                 { logo: "/images/tech/python.svg" },
                 { logo: "/images/tech/sql-server.svg" },
             ],
+        },
+        faq: {
+            items: [
+                {
+                    title: "Do you develop iOS and Android apps?",
+                    content:
+                        "Yes, we build native and cross-platform apps for both iOS and Android.",
+                },
+                {
+                    title: "Do you offer app maintenance?",
+                    content:
+                        "We provide long-term maintenance, updates, and feature enhancements.",
+                },
+            ],
         }
     },
-
     {
         slug: "cloud-solutions",
         title: "Microsoft & Cloud Solutions",
@@ -340,7 +382,7 @@ export const services: Service[] = [
             { value: "24/7", label: "Monitoring" },
         ],
 
-      TechnologySection: {
+        TechnologySection: {
             items: [
                 { logo: "/images/tech/react-native.svg" },
                 { logo: "/images/tech/nodejs.svg" },
@@ -358,6 +400,25 @@ export const services: Service[] = [
                 { logo: "/images/tech/typescript.svg" },
                 { logo: "/images/tech/python.svg" },
                 { logo: "/images/tech/sql-server.svg" },
+            ],
+        },
+        faq: {
+            items: [
+                {
+                    title: "Which cloud platforms do you work with?",
+                    content:
+                        "We primarily work with Microsoft Azure along with other major cloud platforms to deliver scalable and secure cloud solutions.",
+                },
+                {
+                    title: "Can you migrate existing systems to the cloud?",
+                    content:
+                        "Yes. We handle complete cloud migration, ensuring minimal downtime, data security, and optimized performance.",
+                },
+                {
+                    title: "Do you offer managed cloud services?",
+                    content:
+                        "We provide ongoing cloud monitoring, optimization, security, and maintenance support.",
+                },
             ],
         }
     },
@@ -430,7 +491,7 @@ export const services: Service[] = [
             { value: "24/7", label: "Monitoring" },
         ],
 
-            TechnologySection: {
+        TechnologySection: {
             items: [
                 { logo: "/images/tech/react-native.svg" },
                 { logo: "/images/tech/nodejs.svg" },
@@ -448,6 +509,25 @@ export const services: Service[] = [
                 { logo: "/images/tech/typescript.svg" },
                 { logo: "/images/tech/python.svg" },
                 { logo: "/images/tech/sql-server.svg" },
+            ],
+        },
+        faq: {
+            items: [
+                {
+                    title: "What DevOps services do you provide?",
+                    content:
+                        "We implement CI/CD pipelines, infrastructure automation, monitoring, release management, and cloud optimization.",
+                },
+                {
+                    title: "Can DevOps improve deployment speed?",
+                    content:
+                        "Yes. DevOps practices significantly reduce deployment time while improving reliability and scalability.",
+                },
+                {
+                    title: "Do you support existing DevOps setups?",
+                    content:
+                        "We can optimize, automate, or fully redesign your current DevOps infrastructure.",
+                },
             ],
         }
     },
@@ -520,7 +600,7 @@ export const services: Service[] = [
             { value: "24/7", label: "Network Availability" },
         ],
 
-       TechnologySection: {
+        TechnologySection: {
             items: [
                 { logo: "/images/tech/react-native.svg" },
                 { logo: "/images/tech/nodejs.svg" },
@@ -538,6 +618,25 @@ export const services: Service[] = [
                 { logo: "/images/tech/typescript.svg" },
                 { logo: "/images/tech/python.svg" },
                 { logo: "/images/tech/sql-server.svg" },
+            ],
+        },
+        faq: {
+            items: [
+                {
+                    title: "What blockchain solutions do you build?",
+                    content:
+                        "We develop smart contracts, decentralized applications (DApps), NFT platforms, token systems, and Web3 integrations tailored to business needs.",
+                },
+                {
+                    title: "Which blockchain networks do you support?",
+                    content:
+                        "We work with Ethereum, Polygon, BNB Chain, and other leading blockchain networks based on project requirements.",
+                },
+                {
+                    title: "Is blockchain suitable for my business?",
+                    content:
+                        "Yes. We help evaluate use cases and implement blockchain where transparency, security, and decentralization add real value.",
+                },
             ],
         }
     },
@@ -610,7 +709,7 @@ export const services: Service[] = [
             { value: "24/7", label: "AI Monitoring" },
         ],
 
-         TechnologySection: {
+        TechnologySection: {
             items: [
                 { logo: "/images/tech/react-native.svg" },
                 { logo: "/images/tech/nodejs.svg" },
@@ -628,6 +727,25 @@ export const services: Service[] = [
                 { logo: "/images/tech/typescript.svg" },
                 { logo: "/images/tech/python.svg" },
                 { logo: "/images/tech/sql-server.svg" },
+            ],
+        },
+        faq: {
+            items: [
+                {
+                    title: "What AI solutions do you offer?",
+                    content:
+                        "We build AI-powered systems including predictive analytics, automation tools, data-driven insights, and machine learning models.",
+                },
+                {
+                    title: "Can AI be integrated into existing systems?",
+                    content:
+                        "Yes. We integrate AI and ML capabilities into existing platforms to enhance efficiency and decision-making.",
+                },
+                {
+                    title: "Do you work with business data securely?",
+                    content:
+                        "Absolutely. Data privacy and security are integral to all our AI and ML implementations.",
+                },
             ],
         }
     },
@@ -700,7 +818,7 @@ export const services: Service[] = [
             { value: "ISO", label: "Compliance Ready" },
         ],
 
-         TechnologySection: {
+        TechnologySection: {
             items: [
                 { logo: "/images/tech/react-native.svg" },
                 { logo: "/images/tech/nodejs.svg" },
@@ -718,6 +836,25 @@ export const services: Service[] = [
                 { logo: "/images/tech/typescript.svg" },
                 { logo: "/images/tech/python.svg" },
                 { logo: "/images/tech/sql-server.svg" },
+            ],
+        },
+        faq: {
+            items: [
+                {
+                    title: "What cybersecurity services do you provide?",
+                    content:
+                        "We offer application security, network security, vulnerability assessments, risk management, and compliance solutions.",
+                },
+                {
+                    title: "Can you secure existing applications?",
+                    content:
+                        "Yes. We audit, strengthen, and secure existing systems against modern security threats.",
+                },
+                {
+                    title: "Do you help with compliance requirements?",
+                    content:
+                        "We assist with security best practices and compliance standards relevant to your industry.",
+                },
             ],
         }
     },

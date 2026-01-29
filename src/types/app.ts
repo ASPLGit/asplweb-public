@@ -16,6 +16,15 @@ export interface TechnologyItem {
     logo: string;
 }
 
+export interface FAQSectionData {
+    items: FAQItem[];
+    href?: string;
+}
+
+export interface FAQItem {
+    title: string;
+    content: string;
+}
 
 export interface Service {
     slug: string;
@@ -43,5 +52,8 @@ export interface Service {
     stats?: StatItem[];
     TechnologySection: {
         items: TechnologyItem[];
+    }
+    faq: {
+        items: FAQItem[];
     }
 }

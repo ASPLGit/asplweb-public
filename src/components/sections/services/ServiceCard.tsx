@@ -35,8 +35,6 @@ export default function ServiceCard({
         fill
         className="
           object-cover
-          transition-transform duration-700
-          sm:group-hover:scale-110
         "
       />
 
@@ -76,7 +74,6 @@ export default function ServiceCard({
                   text-xs font-medium
                   text-white/90
                   transition
-                  group-hover:border-white
                 "
               >
                 {item}

@@ -1,5 +1,4 @@
 import Button from "@/components/ui/Button";
-import ServicesTicker from "./ServicesTicker";
 
 export default function ServicesHeroSection() {
     return (
@@ -9,10 +8,10 @@ export default function ServicesHeroSection() {
                     <div
                         className="
             absolute inset-0
-            bg-[url('/images/layer1.webp')]
-            bg-cover bg-top bg-no-repeat
-            sm:blur-[15px]
-            opacity-40
+            bg-[url('/images/layer6.webp')]
+            bg-cover bg-center bg-no-repeat
+            sm:blur-[1px]
+            opacity-50
         "
                     />
 

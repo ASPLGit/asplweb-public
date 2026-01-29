@@ -9,7 +9,7 @@ import IndustriesWeServe from "@/components/sections/home/IndustriesWeServe";
 import OurCoreCapabilities from "@/components/sections/home/OurCoreCapabilities";
 import Testimonials from "@/components/sections/home/Testimonials";
 import WhoWeAre from "@/components/sections/home/WhoWeAre";
-import { homepageFAQ } from "@/data/faqSectionData";
+import { homepageFAQ } from "@/data/homePageFAQ";
 
 export default function Home() {
   return (
@@ -24,10 +24,9 @@ export default function Home() {
       <WhoWeAre />
       <TrustedBy />
       <Testimonials />
-
       <IndustriesWeServe />
       <CaseStudy />
-      <FAQSection data={homepageFAQ} />
+      <FAQSection data={homepageFAQ} href= "#contact" />
       <ContactSection />
       <OfficeLocations />
     </section>
