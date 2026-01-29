@@ -57,7 +57,7 @@ export default function TrustedBy() {
                                         alt="Logo"
                                         width={200}
                                         height={28}
-                                        className="h-7 sm:w-[200px] w-[100px] object-contain opacity-80 hover:opacity-100 transition"
+                                        className="h-7 sm:w-[200px] w-[120px] object-contain opacity-80 hover:opacity-100 transition"
                                     />
 
                                 </SwiperSlide>

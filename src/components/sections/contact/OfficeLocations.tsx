@@ -10,7 +10,7 @@ const LOCATIONS = [
         phone: "+91 635-273-7547",
     },
     {
-        title: "Sales Office (Cayman Islands)",
+        title: "Cayman Islands",
         address:
             "48 Honey Hill Crescent, Savannah, Grand Cayman, Cayman Islands KY1-1106",
         phone: "+1 345-926-6408",

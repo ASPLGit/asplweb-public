@@ -4,30 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import Image from "next/image";
+import { TESTIMONIALS } from "@/data/testimonials";
 
-const TESTIMONIALS = [
-    {
-        rating: 5,
-        text:"Guys done greater job in my projects. They are always ready to take challenging work and successfully completed. Also support us to maintain our website and server. I got daily/weekly work update from my hired developers. I am really impressed.",
-        name: "John",
-        role: "",
-        avatar: "/images/clients/Avatar.png",
-    },
-    {
-        rating: 5,
-        text:"Great communication throughout the project, and the final design functionality were exactly what I wanted. Don't settle for second-best when you can connect this team for best output. I am still working with this excellent team.",
-        name: "Coray",
-        role: "CEO, IPS",
-        avatar: "/images/clients/Avatar.png",
-    },
-    {
-        rating: 5,
-        text:"They always deliver the best in market solutions! Thank you very much Aplomb Soft to provide me such fantastic and knowledgeable team based on our business needs. Keep it up.",
-        name: "Humberto",
-        role: "Doctor",
-        avatar: "/images/clients/Avatar.png",
-    },
-];
 
 export default function Testimonials() {
     return (
@@ -36,8 +14,6 @@ export default function Testimonials() {
   bg-[linear-gradient(180deg,#f0f9ff_0%,#ffffff_60%)]
   sm:pt-24 pt-10
 ">
-
-
             <div className="container">
                 <div className="grid lg:grid-cols-12 grid-cols-1 sm:gap-14 gap-10 relative">
 
@@ -119,8 +95,8 @@ export default function Testimonials() {
                                             <Image
                                                 src={item.avatar}
                                                 alt={item.name}
-                                                width={12}
-                                                height={12}
+                                                width={200}
+                                                height={200}
                                                 className="h-12 w-12 rounded-full object-cover"
                                             />
 

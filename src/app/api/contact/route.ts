@@ -3,10 +3,6 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
     try {
-        console.log("EMAIL_USER:", process.env.EMAIL_USER);
-        console.log("EMAIL_TO:", process.env.EMAIL_TO);
-        console.log("EMAIL_PASS exists:", !!process.env.EMAIL_PASS);
-
         const { name, email, message } = await req.json();
 
         if (!name || !email || !message) {
@@ -48,3 +44,4 @@ export async function POST(req: Request) {
         );
     }
 }
+

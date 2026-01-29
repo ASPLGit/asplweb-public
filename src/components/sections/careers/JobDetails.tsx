@@ -94,6 +94,8 @@ export default function JobDetails({ job }: Props) {
                 open={open}
                 onClose={() => setOpen(false)}
                 jobTitle={job.title}
+                location={job.location}
+                experience={job.experience}
             />
         </>
     );

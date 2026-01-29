@@ -39,6 +39,7 @@
   .text-body {
     @apply 2xl:text-lg sm:text-base text-sm text-bodylight font-normal leading-relaxed;
   }
+
   .text-body-md {
     @apply sm:text-sm text-xs text-mainbody font-normal leading-relaxed;
   }
@@ -58,8 +59,16 @@
   .bg-gradient {
     background: linear-gradient(131.31deg, #007BFF 50.33%, #00D4FF 100.33%);
   }
+
 }
 
+
+.parallax-bg {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 
 
 html,
@@ -72,4 +81,3 @@ body {
 .trusted-slider .swiper-wrapper {
   transition-timing-function: linear !important;
 }
-

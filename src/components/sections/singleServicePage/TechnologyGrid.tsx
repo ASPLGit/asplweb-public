@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Service } from "@/types/service";
+import { Service } from "@/types/app";
 
 interface TechnologyGridProps {
     data: Service["TechnologySection"];

@@ -1,208 +1,3 @@
-// "use client";
-
-// import Button from "@/components/ui/Button";
-// import Image from "next/image";
-// import { useState } from "react";
-
-// export default function ContactSection() {
-
-//     const [form, setForm] = useState({
-//         name: "",
-//         email: "",
-//         message: "",
-//     });
-
-//     const [loading, setLoading] = useState(false);
-//     const [success, setSuccess] = useState(false);
-
-//     const handleChange = (
-//         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-//     ) => {
-//         setForm({ ...form, [e.target.name]: e.target.value });
-//     };
-
-//     const handleSubmit = async (e: React.FormEvent) => {
-//         e.preventDefault();
-//         setLoading(true);
-
-//         const res = await fetch("/api/contact", {
-//             method: "POST",
-//             headers: { "Content-Type": "application/json" },
-//             body: JSON.stringify(form),
-//         });
-
-//         if (res.ok) {
-//             setSuccess(true);
-//             setForm({ name: "", email: "", message: "" });
-//         }
-
-//         setLoading(false);
-//     };
-//     return (
-//         <section className="bg-white">
-//             <div className="container">
-//                 <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-20 sm:gap-14 gap-10 items-center">
-
-//                     {/* LEFT CONTENT */}
-//                     <div className="space-y-6 max-w-xl">
-//                         <p className="section-label">
-//                             Contact Us
-//                         </p>
-
-//                         <h2 className="heading-lg">
-//                             Let’s Start a Conversation
-//                         </h2>
-
-//                         <p className="text-body">
-//                             Have a project, question, or idea in mind? Reach out and
-//                             let’s discuss how we can help you move forward.
-//                         </p>
-
-//                         {/* CONTACT INFO */}
-//                         <div className="space-y-4 pt-4">
-//                             {/* Email */}
-//                             <div
-//                                 className="
-//                                     flex items-center gap-4
-//                                     rounded-xl border border-blue-400/40
-//                                     px-5 py-4
-//                                 "
-//                             >
-//                                 <Image
-//                                     src="/images/icons/message.svg"
-//                                     alt="email"
-//                                     width={22}
-//                                     height={22}
-//                                 />
-//                                 <span className="heading-md">
-//                                     sales@aplombsoft.com
-//                                 </span>
-//                             </div>
-
-//                             {/* Phone */}
-//                             <div
-//                                 className="
-//                                     flex items-center gap-4
-//                                     rounded-xl border border-slate-300
-//                                     px-5 py-4
-//                                 "
-//                             >
-//                                 <Image
-//                                     src="/images/icons/phone.svg"
-//                                     alt="phone"
-//                                     width={22}
-//                                     height={22}
-//                                 />
-//                                 <span className="heading-sm">
-//                                     +91 635-273-7547
-//                                 </span>
-//                             </div>
-//                         </div>
-//                     </div>
-
-//                     {/* RIGHT FORM */}
-//                     <div
-//                         className="
-//         rounded-2xl
-//         bg-sky-50
-//         p-8 sm:p-10
-//         border border-sky-100
-//         shadow-[0_20px_50px_-30px_rgba(15,23,42,0.12)]
-//     "
-//                     >
-//                         <h3 className="heading-lg mb-6">
-//                             Get in Touch
-//                         </h3>
-
-//                         <form className="space-y-7" onSubmit={handleSubmit}>
-//                             {/* Name */}
-//                             <div>
-//                                 <input
-//                                     name="name"
-//                                     value={form.name}
-//                                     onChange={handleChange}
-//                                     placeholder="Your full name"
-//                                     className="
-//                     w-full bg-transparent
-//                     border-b border-slate-300
-//                     py-3 px-2
-//                     text-sm text-slate-900
-//                     placeholder-slate-500
-//                     focus:outline-none
-//                     focus:border-blue-600
-//                     transition
-//                 "
-//                                 />
-//                             </div>
-
-//                             {/* Email */}
-//                             <div>
-//                                 <input
-//                                     type="email"
-//                                     name="email"
-//                                     value={form.email}
-//                                     onChange={handleChange}
-//                                     placeholder="you@example.com"
-//                                     className="
-//                     w-full bg-transparent
-//                     border-b border-slate-300
-//                     py-3 px-2
-//                     text-sm text-slate-900
-//                     placeholder-slate-500
-//                     focus:outline-none
-//                     focus:border-blue-600
-//                     transition
-//                 "
-//                                 />
-//                             </div>
-
-//                             {/* Message */}
-//                             <div>
-//                                 <textarea
-//                                     name="message"
-//                                     value={form.message}
-//                                     onChange={handleChange}
-//                                     rows={3}
-//                                     placeholder="Your message"
-//                                     className="
-//                     w-full bg-transparent
-//                     border-b border-slate-300
-//                     py-3 px-2
-//                     text-sm text-slate-900
-//                     placeholder-slate-500
-//                     focus:outline-none
-//                     focus:border-blue-600
-//                     resize-none
-//                     transition
-//                 "
-//                                 />
-//                             </div>
-
-//                             {/* Button */}
-//                             <div className="pt-4">
-//                                 <Button variant="blue" type="submit">
-//                                     {loading ? "Sending..." : "Send message"}
-//                                 </Button>
-//                             </div>
-//                             {success && (
-//                                 <p className="text-sm text-green-600 pt-2">
-//                                     Message sent successfully!
-//                                 </p>
-//                             )}
-//                         </form>
-
-
-//                     </div>
-
-
-//                 </div>
-//             </div>
-//         </section>
-//     );
-// }
-
-
-
 "use client";
 
 import { useState } from "react";
@@ -216,32 +11,73 @@ export default function ContactSection() {
         message: "",
     });
 
+    const [errors, setErrors] = useState<{
+        name?: string;
+        email?: string;
+        message?: string;
+    }>({});
+
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
+    const [error, setError] = useState(false);
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
     ) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+        setForm((prev) => ({ ...prev, [name]: value }));
+        setErrors((prev) => ({ ...prev, [name]: undefined }));
+        setError(false);
+    };
+
+
+    const validate = () => {
+        const newErrors: typeof errors = {};
+
+        if (!form.name.trim()) newErrors.name = "Full name is required";
+        if (!form.email.trim())
+            newErrors.email = "Email address is required";
+        else if (!/^\S+@\S+\.\S+$/.test(form.email))
+            newErrors.email = "Enter a valid email address";
+        if (!form.message.trim())
+            newErrors.message = "Message is required";
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setSuccess(false);
+        setError(false);
+
+        // ⛔ STOP HERE if validation fails
+        if (!validate()) return;
+
         setLoading(true);
 
-        const res = await fetch("/api/contact", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(form),
-        });
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(form),
+            });
 
-        if (res.ok) {
+            if (!res.ok) {
+                throw new Error("Request failed");
+            }
+
             setSuccess(true);
             setForm({ name: "", email: "", message: "" });
-        }
 
-        setLoading(false);
+        } catch (err) {
+            setError(true); // ✅ ONLY technical/API errors
+        } finally {
+            setLoading(false);
+        }
     };
+
+
 
     return (
         <section id="contact">
@@ -262,12 +98,11 @@ export default function ContactSection() {
                         >
                             <div
                                 className="
-            absolute inset-0
-            bg-[url('/images/layer4.webp')]
-            bg-cover bg-right-top bg-no-repeat
-            sm:blur-[0px]
-            opacity-50
-        "
+                                    absolute inset-0
+                                    bg-[url('/images/layer4.webp')]
+                                    bg-cover bg-right-top
+                                    opacity-50
+                                "
                             />
 
                             <div className="relative z-10 space-y-4">
@@ -275,7 +110,7 @@ export default function ContactSection() {
                                     Contact Us
                                 </p>
 
-                                <h2 className="sm:text-2xl text-xl font-semibold leading-tight">
+                                <h2 className="sm:text-2xl text-xl font-semibold">
                                     Let’s Start a Conversation
                                 </h2>
 
@@ -318,27 +153,26 @@ export default function ContactSection() {
                                 Get in Touch
                             </h3>
 
-                            <form
-                                onSubmit={handleSubmit}
-                                className="space-y-4"
-                            >
+                            <form onSubmit={handleSubmit} className="space-y-4">
+
                                 {/* NAME */}
                                 <div className="space-y-1">
                                     <label className="text-xs font-medium text-slate-600">
-                                        Full Name
+                                        Full Name *
                                     </label>
                                     <Input
                                         name="name"
                                         value={form.name}
                                         onChange={handleChange}
                                         placeholder="John Doe"
+                                        error={errors.name}
                                     />
                                 </div>
 
                                 {/* EMAIL */}
                                 <div className="space-y-1">
                                     <label className="text-xs font-medium text-slate-600">
-                                        Email Address
+                                        Email Address *
                                     </label>
                                     <Input
                                         type="email"
@@ -346,13 +180,14 @@ export default function ContactSection() {
                                         value={form.email}
                                         onChange={handleChange}
                                         placeholder="you@example.com"
+                                        error={errors.email}
                                     />
                                 </div>
 
                                 {/* MESSAGE */}
                                 <div className="space-y-1">
                                     <label className="text-xs font-medium text-slate-600">
-                                        Message
+                                        Message *
                                     </label>
                                     <textarea
                                         name="message"
@@ -360,21 +195,30 @@ export default function ContactSection() {
                                         onChange={handleChange}
                                         rows={4}
                                         placeholder="Tell us about your project or question"
-                                        className="
-                    w-full rounded-lg
-                    border border-slate-300
-                    px-3 py-2.5 text-sm
-                    outline-none resize-none
-                    focus:border-blueTheme
-                    focus:ring-1 focus:ring-blueTheme/30
-                "
+                                        className={`
+                                            w-full rounded-lg
+                                            border px-3 py-2.5 text-sm
+                                            outline-none resize-none
+                                            ${errors.message
+                                                ? "border-red-400 focus:ring-red-400/30"
+                                                : "border-slate-300 focus:border-blueTheme focus:ring-blueTheme/30"
+                                            }
+                                        `}
                                     />
+                                    {errors.message && (
+                                        <p className="text-xs text-red-500">
+                                            {errors.message}
+                                        </p>
+                                    )}
                                 </div>
 
                                 {/* ACTION */}
                                 <div className="pt-3">
-                                    <Button variant="blue" type="submit">
-                                        {loading ? "Sending..." : "Send Message"}
+                                    <Button
+                                        variant="blue"
+                                        type="submit"
+                                    >
+                                        {loading ? "Submitting..." : "Send Message"}
                                     </Button>
                                 </div>
 
@@ -383,6 +227,13 @@ export default function ContactSection() {
                                         Message sent successfully!
                                     </p>
                                 )}
+
+                                {error && (
+                                    <p className="text-sm text-red-600">
+                                        Message failed. Please try again or reach us at sales@aplombsoft.com
+                                    </p>
+                                )}
+
                             </form>
                         </div>
 
@@ -400,28 +251,38 @@ function Input({
     value,
     onChange,
     placeholder,
+    error,
 }: {
     type?: string;
     name: string;
     value: string;
     onChange: React.ChangeEventHandler<HTMLInputElement>;
     placeholder: string;
+    error?: string;
 }) {
     return (
-        <input
-            type={type}
-            name={name}
-            value={value}
-            onChange={onChange}
-            placeholder={placeholder}
-            className="
-                w-full rounded-lg
-                border border-slate-300
-                px-3 py-2.5 text-sm
-                outline-none
-                focus:border-blueTheme
-                focus:ring-1 focus:ring-blueTheme/30
-            "
-        />
+        <div>
+            <input
+                type={type}
+                name={name}
+                value={value}
+                onChange={onChange}
+                placeholder={placeholder}
+                className={`
+                    w-full rounded-lg
+                    border px-3 py-2.5 text-sm
+                    outline-none
+                    ${error
+                        ? "border-red-400 focus:ring-red-400/30"
+                        : "border-slate-300 focus:border-blueTheme focus:ring-blueTheme/30"
+                    }
+                `}
+            />
+            {error && (
+                <p className="mt-1 text-xs text-red-500">
+                    {error}
+                </p>
+            )}
+        </div>
     );
 }

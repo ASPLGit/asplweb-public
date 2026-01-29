@@ -15,9 +15,9 @@ export default function StatsStrip({ items }: StatsStripProps) {
             <div className="bg-[url('/images/bg.webp')] relative w-full rounded-3xl overflow-hidden
             bg-cover bg-center bg-no-repeat">
                 <div
-                    className="
+                    className=" parallax-bg
             absolute inset-0
-            bg-[url('/images/layer2.webp')]
+            bg-[url('/images/layer3.webp')]
             bg-cover bg-right-bottom bg-no-repeat
             sm:blur-[0px]
             opacity-50
