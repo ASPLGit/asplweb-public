@@ -11,12 +11,6 @@ interface FAQSectionProps {
 
 export default function FAQSection({ data, href }: FAQSectionProps) {
     const [activeIndex, setActiveIndex] = useState<number | null>(0);
-
-    const canHover =
-        typeof window !== "undefined" &&
-        window.matchMedia("(hover: hover)").matches;
-
-    const openItem = (index: number) => setActiveIndex(index);
     const toggleItem = (index: number) =>
         setActiveIndex(activeIndex === index ? null : index);
 
@@ -110,11 +104,7 @@ export default function FAQSection({ data, href }: FAQSectionProps) {
                             return (
                                 <div
                                     key={index}
-                                    onMouseEnter={
-                                        canHover
-                                            ? () => openItem(index)
-                                            : undefined
-                                    }
+                                    onClick={() => toggleItem(index)}
                                     className="border border-[#E6F2FF] rounded-xl p-2"
                                 >
                                     <div
@@ -130,11 +120,7 @@ export default function FAQSection({ data, href }: FAQSectionProps) {
                                     >
                                         {/* HEADER */}
                                         <button
-                                            onClick={
-                                                !canHover
-                                                    ? () => toggleItem(index)
-                                                    : undefined
-                                            }
+                                            onClick={() => toggleItem(index)}
                                             className="
                                                 flex w-full items-center justify-between
                                                 p-6 text-left

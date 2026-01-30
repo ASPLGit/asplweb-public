@@ -11,9 +11,10 @@ export default function SectionHeading({
 }: SectionHeadingProps) {
     return (
         <div className="container">
-            <div className="grid grid-cols-12 gap-4 sm:gap-20 items-center">
+            <div className="grid grid-cols-1
+        lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-20 items-center">
                 {/* LEFT */}
-                <div className="md:col-span-5 2xl:col-span-6 col-span-12">
+                <div className="lg:col-span-5 2xl:col-span-6">
                     <span className="section-label">
                         {sectionLabel}
                     </span>
@@ -24,7 +25,7 @@ export default function SectionHeading({
                 </div>
 
                 {/* RIGHT */}
-                <div className="md:col-span-7 2xl:col-span-6 col-span-12">
+                <div className="lg:col-span-7 2xl:col-span-6">
                     <p className="text-body">
                         {subheading}
                     </p>

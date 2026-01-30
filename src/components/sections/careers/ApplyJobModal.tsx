@@ -75,7 +75,6 @@ export default function ApplyJobModal({
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setSuccess(false);
         setError(false);
 
         if (!validate()) return;
@@ -88,7 +87,6 @@ export default function ApplyJobModal({
                 if (typeof value === "string") {
                     payload.append(key, value);
                 }
-
                 if (value instanceof File) {
                     payload.append(key, value);
                 }
@@ -104,22 +102,21 @@ export default function ApplyJobModal({
             if (!res.ok) throw new Error("Failed");
 
             setSuccess(true);
-            setFormData({
-                firstName: "",
-                lastName: "",
-                email: "",
-                phone: "",
-                company: "",
-                experience: "",
-                relocation: "",
-                resume: null,
-            });
+
+            // 🔥 Show success for a moment, then reset & close
+            setTimeout(() => {
+                resetForm();
+                setSuccess(false);
+                onClose(); // ✅ CLOSE MODAL
+            }, 1500);
+
         } catch {
             setError(true);
         } finally {
             setLoading(false);
         }
     };
+
 
     const resetForm = () => {
         setFormData({
@@ -133,10 +130,8 @@ export default function ApplyJobModal({
             resume: null,
         });
         setErrors({});
-        setSuccess(false);
-        setError(false);
-        setLoading(false);
     };
+
 
 
     if (!open) return null;
@@ -253,7 +248,7 @@ export default function ApplyJobModal({
 
                             {/* ACTION */}
                             <div className="pt-4 flex items-center sm:justify-end justify-center gap-3">
-                                <Button type="button" variant="black" onClick={()=>{
+                                <Button type="button" variant="black" onClick={() => {
                                     onClose()
                                     resetForm()
                                 }}>

@@ -3,11 +3,20 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
     try {
-        const { name, email, message } = await req.json();
+        const formData = await req.formData();
+        const jobTitle = formData.get("jobTitle") as string;
+        const firstName = formData.get("firstName") as string;
+        const lastName = formData.get("lastName") as string;
+        const email = formData.get("email") as string;
+        const phone = formData.get("phone") as string;
+        const company = formData.get("company") as string;
+        const experience = formData.get("experience") as string;
+        const relocation = formData.get("relocation") as string;
+        const resume = formData.get("resume") as File | null;
 
-        if (!name || !email || !message) {
+        if (!firstName || !email || !jobTitle) {
             return NextResponse.json(
-                { error: "All fields are required" },
+                { error: "Required fields missing" },
                 { status: 400 }
             );
         }
@@ -21,6 +30,18 @@ export async function POST(req: Request) {
                 pass: process.env.EMAIL_PASS!,
             },
         });
+
+        const attachments = [];
+
+        if (resume) {
+            const buffer = Buffer.from(await resume.arrayBuffer());
+
+            attachments.push({
+                filename: resume.name,
+                content: buffer,
+                contentType: resume.type,
+            });
+        }
 
         const infoRow = (label: string, value: string) => `
 <div style="
@@ -40,9 +61,6 @@ export async function POST(req: Request) {
         font-size: 14px;
         color: #0f172a;
         font-weight: 600;
-        text-align: right;
-        max-width: 60%;
-        word-break: break-word;
     ">
         ${value}
     </span>
@@ -51,10 +69,10 @@ export async function POST(req: Request) {
 
 
         await transporter.sendMail({
-            from: `"Aplombsoft Website" <${process.env.EMAIL_USER}>`,
+            from: `"Careers – Aplombsoft" <${process.env.EMAIL_USER}>`,
             to: process.env.EMAIL_TO!,
             replyTo: email,
-            subject: "New Contact Form Submission",
+            subject: `Job Application – ${jobTitle}`,
             html: `
 <div style="
     font-family: Arial, Helvetica, sans-serif;
@@ -80,43 +98,25 @@ export async function POST(req: Request) {
                 font-size: 20px;
                 font-weight: 600;
             ">
-                New Contact Message
+                New Job Application
             </h2>
             <p style="
                 margin: 6px 0 0;
                 font-size: 14px;
                 opacity: 0.9;
             ">
-                Someone reached out from the website
+                Position: ${jobTitle}
             </p>
         </div>
 
         <!-- Content -->
         <div style="padding: 24px;">
-            ${infoRow("Name :- ", name)}
-            ${infoRow(
-                "Email :- ",
-                `<a href="mailto:${email}" style="color:#007BFF;text-decoration:none">${email}</a>`
-            )}
-
-            <!-- Message -->
-            <div style="
-                margin-top: 20px;
-                padding: 16px;
-                background-color: #f8fafc;
-                border-left: 4px solid #007BFF;
-                border-radius: 6px;
-            ">
-                <p style="
-                    margin: 0;
-                    font-size: 14px;
-                    color: #334155;
-                    line-height: 1.6;
-                    white-space: pre-line;
-                ">
-                    ${message}
-                </p>
-            </div>
+            ${infoRow("Name:- ", `${firstName} ${lastName}`)}
+            ${infoRow("Email:- ", email)}
+            ${infoRow("Phone:- ", phone || "-")}
+            ${infoRow("Experience:- ", experience || "-")}
+            ${infoRow("Company:- ", company || "-")}
+            ${infoRow("Relocation:- ", relocation || "-")}
         </div>
 
         <!-- Footer -->
@@ -127,21 +127,21 @@ export async function POST(req: Request) {
             color: #64748b;
             text-align: center;
         ">
-            Sent from Aplombsoft Contact Form
+            Sent from Aplombsoft Careers Portal
         </div>
     </div>
 </div>
 `,
 
+            attachments,
         });
 
         return NextResponse.json({ success: true });
     } catch (error) {
-        console.error("MAIL ERROR:", error);
+        console.error("APPLY JOB ERROR:", error);
         return NextResponse.json(
-            { error: "Mail sending failed" },
+            { error: "Failed to submit application" },
             { status: 500 }
         );
     }
 }
-
