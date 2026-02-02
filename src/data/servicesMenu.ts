@@ -3,7 +3,7 @@ export const SERVICE_GROUPS = [
     category: "Application Development",
     items: [
       {
-        title: "Software Development",
+        title: "Enterprise Software Development",
         slug: "software-development",
         services: [
           "SaaS Platforms",

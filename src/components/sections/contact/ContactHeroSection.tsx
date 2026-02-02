@@ -17,7 +17,7 @@ export default function ContactHeroSection() {
                         absolute inset-0
                         bg-[url('/images/layer6.webp')]
                         bg-cover bg-center bg-no-repeat
-                        sm:blur-[7px]
+                        sm:blur-[10px]
                         opacity-50
                     "
                 />

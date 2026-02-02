@@ -37,7 +37,7 @@ export default function AboutHeroSection() {
             absolute inset-0
             sm:bg-[url('/images/layer3.webp')] bg-[url('/images/layer4.webp')]
             bg-cover bg-bottom bg-no-repeat
-            sm:blur-[7px]
+            sm:blur-[1px]
             opacity-50
         "
                 />

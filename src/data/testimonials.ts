@@ -3,7 +3,7 @@ export const TESTIMONIALS = [
         rating: 5,
         text: "The team did excellent work on Yomoken. They clearly understood compliance, identity verification, and privacy requirements. Delivery was smooth, communication was consistent, and the overall quality exceeded expectations.",
         name: "Kenneth Adumekwe",
-        role: "Senior Compliance Professional",
+        role: "CEO at Avantgarde Solutions Ltd",
         avatar: "/images/clients/kenneth-adumekwe-sm.webp",
     },
     {

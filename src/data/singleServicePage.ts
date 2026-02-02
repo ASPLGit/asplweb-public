@@ -3,7 +3,7 @@ import { Service } from "@/types/app";
 export const services: Service[] = [
     {
         slug: "software-development",
-        title: "Software Development",
+        title: "Enterprise Software Development",
         description:
             "Scalable, secure, and high-performance software solutions tailored for modern businesses.",
 

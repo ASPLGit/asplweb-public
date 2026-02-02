@@ -28,18 +28,10 @@ export default function HeroSection({
             absolute inset-0
             sm:bg-[url('/images/layer3.webp')] bg-[url('/images/layer4.webp')]
             bg-cover bg-bottom bg-no-repeat
-            sm:blur-[7px]
+            sm:blur-[1px]
             opacity-50
         "
                 />
-
-                {/* Dark Overlay */}
-                {/* <div
-                    className="
-            absolute inset-0
-            bg-black/0
-        "
-                /> */}
                 <div className="container relative z-10">
                     <div className="flex flex-col 2xl:gap-8 sm:gap-6 gap-4 max-w-5xl mx-auto text-center items-center justify-center">
 
