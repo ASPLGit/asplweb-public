@@ -108,7 +108,6 @@ export const services: Service[] = [
             ],
         }
     },
-
     {
         slug: "mobile-development",
         title: "Mobile App Development",
@@ -422,7 +421,6 @@ export const services: Service[] = [
             ],
         }
     },
-
     {
         slug: "devops",
         title: "DevOps & Cloud Automation",
@@ -531,7 +529,6 @@ export const services: Service[] = [
             ],
         }
     },
-
     {
         slug: "blockchain",
         title: "Blockchain & Web3",
@@ -640,7 +637,6 @@ export const services: Service[] = [
             ],
         }
     },
-
     {
         slug: "ai-ml",
         title: "AI & Machine Learning",
@@ -749,7 +745,6 @@ export const services: Service[] = [
             ],
         }
     },
-
     {
         slug: "cybersecurity",
         title: "Cybersecurity Solutions",
@@ -858,4 +853,109 @@ export const services: Service[] = [
             ],
         }
     },
+    {
+        slug: "salesforce",
+        title: "Enterprise Salesforce Solutions",
+        description:
+            "We help organizations design, customize, and optimize Salesforce platforms to improve sales performance, customer engagement, and operational efficiency.",
+
+        cta: {
+            primary: {
+                label: "Talk to a Salesforce Expert",
+                href: "/contact",
+            },
+        },
+
+        section: {
+            label: "Overview",
+            heading: "Salesforce Built Around Your Business",
+            subheading:
+                "From CRM customization to complex integrations, we deliver Salesforce solutions that align with your business goals and scale as you grow.",
+        },
+
+        featureSection: {
+            items: [
+                {
+                    id: "01",
+                    title: "Salesforce Development & Customization",
+                    description:
+                        "Custom Salesforce applications, workflows, automations, and integrations designed to match your unique business processes.",
+                },
+                {
+                    id: "02",
+                    title: "Sales Cloud & Service Cloud",
+                    description:
+                        "Optimized sales and customer service operations using Salesforce Sales Cloud and Service Cloud to improve productivity and customer satisfaction.",
+                },
+                {
+                    id: "03",
+                    title: "Partner & Customer Communities",
+                    description:
+                        "Design and implementation of Salesforce Partner and Customer Communities to enable collaboration, self-service, and engagement.",
+                },
+                {
+                    id: "04",
+                    title: "Salesforce Platform Optimization",
+                    description:
+                        "Performance tuning, configuration optimization, data quality improvements, and workflow enhancements for scalable Salesforce platforms.",
+                },
+                {
+                    id: "05",
+                    title: "Conga Solutions Integration",
+                    description:
+                        "Implementation and integration of Conga Composer, Conga Sign, Conga CPQ, and Conga CLM to streamline documents, contracts, and quoting workflows.",
+                },
+                {
+                    id: "06",
+                    title: "CRM Data Migration to Salesforce",
+                    description:
+                        "Secure and seamless data migration from Dynamics CRM and other platforms to Salesforce with data integrity and minimal business disruption.",
+                },
+            ],
+        },
+
+        stats: [
+            { value: "100%", label: "Salesforce-Centric Solutions" },
+            { value: "10+", label: "CRM Projects Delivered" },
+            { value: "24/7", label: "Support & Optimization" },
+            { value: "0", label: "Data Loss in Migration" },
+        ],
+
+        TechnologySection: {
+            items: [
+                { logo: "/images/tech/salesforce.svg" },
+                { logo: "/images/tech/apex.svg" },
+                { logo: "/images/tech/lwc.svg" },
+                { logo: "/images/tech/javascript.svg" },
+                { logo: "/images/tech/nodejs.svg" },
+                { logo: "/images/tech/integration.svg" },
+                { logo: "/images/tech/api.svg" },
+            ],
+        },
+
+        faq: {
+            items: [
+                {
+                    title: "What Salesforce services do you offer?",
+                    content:
+                        "We provide Salesforce development and customization, Sales Cloud and Service Cloud implementation, community portals, platform optimization, Conga solutions integration, and CRM data migration.",
+                },
+                {
+                    title: "Do you customize Salesforce for specific business needs?",
+                    content:
+                        "Yes. We design Salesforce solutions around your workflows, automation requirements, and integration needs rather than using one-size-fits-all configurations.",
+                },
+                {
+                    title: "Can you migrate data from Dynamics CRM to Salesforce?",
+                    content:
+                        "Absolutely. We manage the complete migration process, including data mapping, validation, and secure transfer, while ensuring data accuracy and continuity.",
+                },
+                {
+                    title: "Do you provide ongoing Salesforce support?",
+                    content:
+                        "Yes. We offer post-implementation support, optimization, and enhancements to ensure your Salesforce platform continues to perform as your business evolves.",
+                },
+            ],
+        },
+    }
 ];

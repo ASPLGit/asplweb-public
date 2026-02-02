@@ -13,63 +13,70 @@ interface Props {
 }
 
 export default function FounderCard({ data }: Props) {
-    const isReverse = data.reverse;
-
     return (
         <div className="container">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                {/* IMAGE */}
-                <div className={`lg:col-span-4 ${isReverse ? "lg:order-2" : ""}`}>
-                    <div className="relative rounded-2xl overflow-hidden bg-slate-100">
-                        <Image
-                            src={data.image}
-                            alt={data.name}
-                            width={600}
-                            height={700}
-                            className="h-[300px] w-full object-cover object-top"
-                        />
-
-                        {/* Role badge */}
-                        <span className="absolute bottom-4 left-4 rounded-lg bg-white/90 px-3 py-1 text-xs text-slate-600 backdrop-blur">
-                            {data.role}
-                        </span>
+            <div className="max-w-4xl mx-auto">
+                <div
+                    className="
+                        grid grid-cols-1 sm:grid-cols-[120px_1fr]
+                        gap-6
+                        items-start
+                        rounded-2xl
+                        border border-slate-200
+                        bg-white
+                        p-6 sm:p-8
+                        shadow-sm
+                    "
+                >
+                    {/* IMAGE */}
+                    <div className="flex justify-center sm:justify-start">
+                        <div className="relative h-[110px] w-[110px] rounded-xl overflow-hidden bg-slate-100">
+                            <Image
+                                src={data.image}
+                                alt={data.name}
+                                fill
+                                className="object-cover object-top"
+                            />
+                        </div>
                     </div>
-                </div>
 
-                {/* CONTENT */}
-                <div className={`lg:col-span-8 ${isReverse ? "lg:order-1" : ""}`}>
-                    <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
-                        <h3 className="text-2xl font-semibold text-slate-900">
+                    {/* CONTENT */}
+                    <div>
+                        <h3 className="text-xl font-semibold text-slate-900">
                             {data.name}
                         </h3>
 
-                        {/* Quote strip */}
-                        <div className="mt-3 border-l-2 border-blue-500 pl-4">
-                            <p className="text-sm italic text-slate-600 font-semibold">
-                                “{data.quote}”
-                            </p>
-                        </div>
+                        <p className="mt-1 text-sm text-slate-500">
+                            {data.role}
+                        </p>
 
+                        {/* QUOTE */}
+                        <p className="mt-3 text-sm italic text-slate-600">
+                            “{data.quote}”
+                        </p>
+
+                        {/* DESCRIPTION */}
                         {data.description.map((text, i) => (
                             <p
                                 key={i}
-                                className="mt-4 text-base leading-relaxed text-slate-600"
+                                className="mt-3 text-sm leading-relaxed text-slate-600"
                             >
                                 {text}
                             </p>
                         ))}
 
+                        {/* LINK */}
                         <a
                             href={data.linkedin}
                             target="_blank"
-                            className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700"
+                            className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700"
                         >
-                            View LinkedIn
+                            LinkedIn
                             <Image
                                 src="/images/icons/linkedin.svg"
                                 alt="LinkedIn"
-                                width={16}
-                                height={16}
+                                width={14}
+                                height={14}
                             />
                         </a>
                     </div>

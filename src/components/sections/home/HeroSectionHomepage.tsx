@@ -5,7 +5,7 @@ export default function HeroSectionHomepage() {
     return (
         <>
             <section className="relative">
-                <div className="bg-[url('/images/bg.webp')] relative bg-cover bg-center bg-no-repeat 2xl:py-[200px] sm:h-screen h-[90vh] 2xl:h-auto w-full flex flex-col items-center justify-center">
+                <div className="bg-[url('/images/bg.webp')] relative bg-cover bg-center bg-no-repeat 2xl:py-[250px] sm:h-screen h-[90vh] 2xl:h-auto w-full flex flex-col items-center justify-center">
                     <div
                         className="
             absolute inset-0

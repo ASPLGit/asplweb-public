@@ -7,6 +7,7 @@ const SERVICES = [
     { title: "Software Development", slug: "software-development" },
     { title: "Website Development", slug: "web-development" },
     { title: "Mobile App Development", slug: "mobile-development" },
+    { title: "Enterprise Salesforce", slug: "salesforce" },
     { title: "Cloud Solutions", slug: "cloud-solutions" },
     { title: "DevOps Solutions", slug: "devops" },
     { title: "Cybersecurity", slug: "cybersecurity" },

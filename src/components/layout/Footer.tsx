@@ -11,7 +11,7 @@ export default function Footer() {
             absolute inset-0
             bg-[url('/images/layer6.webp')]
             bg-cover bg-center bg-no-repeat
-            sm:blur-[0px]
+            sm:blur-[7px]
             opacity-50
         "
             />

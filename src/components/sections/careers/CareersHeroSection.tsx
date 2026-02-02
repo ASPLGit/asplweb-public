@@ -4,13 +4,13 @@ export default function CareersHeroSection() {
     return (
         <>
             <section className="relative">
-                <div className="bg-[url('/images/bg.webp')] relative bg-cover bg-center bg-no-repeat 2xl:py-[200px] h-screen 2xl:h-auto w-full flex flex-col items-center justify-center">
+                <div className="bg-[url('/images/bg.webp')] relative bg-cover bg-center bg-no-repeat 2xl:py-[250px] h-screen 2xl:h-auto w-full flex flex-col items-center justify-center">
                     <div
                         className="
             absolute inset-0
-            bg-[url('/images/layer3.webp')]
+            bg-[url('/images/layer2.webp')]
             bg-cover bg-bottom bg-no-repeat
-            sm:blur-[7px]
+            sm:blur-[1px]
             opacity-50
         "
                     />

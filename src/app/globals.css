@@ -21,11 +21,11 @@
 @layer components {
 
   .heading-xl {
-    @apply 2xl:text-6xl lg:text-5xl sm:text-4xl text-4xl sm:font-medium font-semibold text-white !leading-normal;
+    @apply 2xl:text-6xl lg:text-5xl sm:text-4xl text-4xl font-semibold !leading-normal bg-[linear-gradient(90deg,#A8A8A8_0%,#FFFFFF_47%)] bg-clip-text text-transparent;
   }
 
   .heading-lg {
-    @apply text-2xl sm:text-3xl 2xl:text-5xl lg:text-4xl sm:font-normal font-semibold text-slate-900 leading-tight !leading-normal;
+    @apply text-2xl sm:text-3xl 2xl:text-5xl lg:text-4xl sm:font-normal font-semibold text-slate-900 !leading-normal;
   }
 
   .heading-md {

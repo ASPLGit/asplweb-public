@@ -22,13 +22,13 @@ export default function HeroSection({
 
     return (
         <section>
-            <div className="bg-[url('/images/bg.webp')] relative bg-cover bg-center bg-no-repeat 2xl:py-[200px] h-screen 2xl:h-auto w-full flex flex-col items-center justify-center">
+            <div className="bg-[url('/images/bg.webp')] relative bg-cover bg-center bg-no-repeat 2xl:py-[250px] h-screen 2xl:h-auto w-full flex flex-col items-center justify-center">
                 <div
                     className="
             absolute inset-0
-            sm:bg-[url('/images/layer2.webp')] bg-[url('/images/layer4.webp')]
+            sm:bg-[url('/images/layer3.webp')] bg-[url('/images/layer4.webp')]
             bg-cover bg-bottom bg-no-repeat
-            sm:blur-[1px]
+            sm:blur-[7px]
             opacity-50
         "
                 />
