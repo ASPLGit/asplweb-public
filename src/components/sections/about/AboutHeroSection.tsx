@@ -1,3 +1,5 @@
+'use client';
+
 import Button from "@/components/ui/Button";
 
 
@@ -28,6 +30,12 @@ const ABOUT_CARDS = [
 
 
 export default function AboutHeroSection() {
+    const handleScroll = () => {
+        const el = document.getElementById("about");
+        if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+        }
+    };
 
     return (
         <section>
@@ -43,7 +51,7 @@ export default function AboutHeroSection() {
                 />
                 <div className="container relative z-10">
                     <div className="grid md:grid-cols-2 grid-cols-1 gap-10">
-                        <div className="flex flex-col 2xl:gap-8 sm:gap-6 gap-4 max-w-5xl mx-auto">
+                        <div className="flex flex-col 2xl:gap-8 sm:gap-6 gap-4 max-w-5xl mx-auto sm:items-start sm:text-start text-center">
                             <h2 className="heading-xl">
                                 <span className="italic font-lora">Who We Are <br /></span>
                             </h2>
@@ -52,7 +60,7 @@ export default function AboutHeroSection() {
                                 A global software development partner helping businesses design, build, and scale reliable digital products through cost-effective and innovative technology solutions.
                             </p>
 
-                            <div className="flex gap-4">
+                            <div className="flex justify-center sm:justify-start gap-4">
                                 <Button variant="blue" to='/Services'>
                                     Services
                                 </Button>
@@ -90,6 +98,41 @@ export default function AboutHeroSection() {
                         </div>
                     </div>
                 </div>
+                {/* SCROLL INDICATOR */}
+                <button
+                    onClick={handleScroll}
+                    className="
+                        absolute bottom-8
+                        flex flex-col items-center gap-2
+                        text-white/80
+                        text-sm font-medium
+                        hover:text-white
+                        transition
+                    "
+                    aria-label="Scroll to contact form"
+                >
+                    <span>Explore Leadership</span>
+
+                    {/* Mouse Icon */}
+                    <span
+                        className="
+                            w-6 h-10
+                            rounded-full
+                            border border-white/50
+                            flex items-start justify-center
+                            p-1
+                        "
+                    >
+                        <span
+                            className="
+                                w-1.5 h-1.5
+                                rounded-full
+                                bg-white
+                                animate-bounce
+                            "
+                        />
+                    </span>
+                </button>
             </div>
         </section>
     );

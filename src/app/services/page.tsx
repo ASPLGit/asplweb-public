@@ -9,11 +9,13 @@ export default function Service() {
         <>
             <section className="space-y-[40px] sm:space-y-[80px] 2xl:space-y-[120px] pb-10 sm:pb-20">
                 <ServicesHeroSection />
-                <SectionHeading
-                    sectionLabel="Our Services"
-                    heading="What We Bring to the Table"
-                    subheading="These are the core services we offer to help businesses build reliable digital products, scale efficiently, and adapt to evolving technology needs."
-                />
+                <div id="services">
+                    <SectionHeading
+                        sectionLabel="Our Services"
+                        heading="What We Bring to the Table"
+                        subheading="These are the core services we offer to help businesses build reliable digital products, scale efficiently, and adapt to evolving technology needs."
+                    />
+                </div>
                 <ServiceSection />
                 <IndustriesWeServe />
             </section>

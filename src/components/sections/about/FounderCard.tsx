@@ -13,13 +13,13 @@ interface Props {
 
 export default function FounderCard({ data }: Props) {
     return (
-        <div className="container">
+        <div className="container" id="about">
             <div className="max-w-5xl mx-auto">
                 <div
                     className="
                         group
                         relative
-                        rounded-3xl
+                        rounded-2xl
                         border border-slate-200
                         bg-white
                         overflow-hidden

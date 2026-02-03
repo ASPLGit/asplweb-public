@@ -1,3 +1,5 @@
+'use client';
+
 import Button from "@/components/ui/Button";
 
 interface HeroSectionProps {
@@ -20,8 +22,15 @@ export default function HeroSection({
     secondaryCta,
 }: HeroSectionProps) {
 
+    const handleScroll = () => {
+        const el = document.getElementById("service");
+        if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
-        <section>
+        <section className="flex flex-col items-center justify-center relative">
             <div className="bg-[url('/images/bg.webp')] relative bg-cover bg-center bg-no-repeat 2xl:py-[250px] h-screen 2xl:h-auto w-full flex flex-col items-center justify-center">
                 <div
                     className="
@@ -59,6 +68,41 @@ export default function HeroSection({
                     </div>
                 </div>
             </div>
+            {/* SCROLL INDICATOR */}
+            <button
+                onClick={handleScroll}
+                className="
+                        absolute bottom-8
+                        flex flex-col items-center gap-2
+                        text-white/80
+                        text-sm font-medium
+                        hover:text-white
+                        transition
+                    "
+                aria-label="Scroll to contact form"
+            >
+                <span>Services</span>
+
+                {/* Mouse Icon */}
+                <span
+                    className="
+                            w-6 h-10
+                            rounded-full
+                            border border-white/50
+                            flex items-start justify-center
+                            p-1
+                        "
+                >
+                    <span
+                        className="
+                                w-1.5 h-1.5
+                                rounded-full
+                                bg-white
+                                animate-bounce
+                            "
+                    />
+                </span>
+            </button>
         </section>
     );
 }
