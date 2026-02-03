@@ -14,6 +14,7 @@ export interface FeatureSection {
 }
 export interface TechnologyItem {
     logo: string;
+    name :string;
 }
 
 export interface FAQSectionData {

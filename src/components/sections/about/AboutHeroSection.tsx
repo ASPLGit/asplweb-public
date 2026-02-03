@@ -62,7 +62,7 @@ export default function AboutHeroSection() {
                             </div>
                         </div>
 
-                        <div className="max-w-5xl z-20">
+                        <div className="max-w-5xl z-20 sm:block hidden">
                             <div className="grid grid-cols-2 sm:grid-cols-2 sm:gap-4 gap-2">
                                 {ABOUT_CARDS.map((item, index) => (
                                     <div

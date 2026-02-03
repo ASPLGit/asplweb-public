@@ -24,11 +24,8 @@ const PHILOSOPHY = [
 export default function BusinessPhilosophySection() {
     return (
         <section className="relative bg-slate-50 py-10 sm:py-14 2xl:py-20 overflow-hidden">
-            {/* Soft background accent */}
-            <div className="absolute inset-0 bg-[radial-gradient(60%_40%_at_20%_20%,#e0f2fe_0%,transparent_60%)]" />
-
             <div className="container relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 sm:gap-20 gap-10 items-center">
                     {/* LEFT CONTENT */}
                     <div>
                         <h2 className="heading-lg">

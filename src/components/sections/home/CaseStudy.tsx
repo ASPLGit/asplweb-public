@@ -7,7 +7,7 @@ export default function CaseStudy() {
             <div className="container">
                 {/* Heading */}
                 <SectionHeading
-                    sectionLabel="Case Studies"
+                    sectionLabel="Recent Case Studies"
                     heading="Our Work in Action"
                     subheading="Real-world projects where design, technology, and performance come together."
                 />

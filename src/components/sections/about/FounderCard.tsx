@@ -8,77 +8,96 @@ interface Props {
         quote: string;
         linkedin: string;
         description: string[];
-        reverse?: boolean;
     };
 }
 
 export default function FounderCard({ data }: Props) {
     return (
         <div className="container">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-5xl mx-auto">
                 <div
                     className="
-                        grid grid-cols-1 sm:grid-cols-[120px_1fr]
-                        gap-6
-                        items-start
-                        rounded-2xl
+                        group
+                        relative
+                        rounded-3xl
                         border border-slate-200
                         bg-white
-                        p-6 sm:p-8
-                        shadow-sm
+                        overflow-hidden
+                        shadow-[0_20px_50px_rgba(15,23,42,0.08)]
+                        transition-all duration-300
+                        hover:-translate-y-1
+                        hover:shadow-[0_35px_80px_rgba(15,23,42,0.14)]
                     "
                 >
-                    {/* IMAGE */}
-                    <div className="flex justify-center sm:justify-start">
-                        <div className="relative h-[110px] w-[110px] rounded-xl overflow-hidden bg-slate-100">
+                    <div className="grid grid-cols-1 sm:grid-cols-[260px_1fr]">
+
+                        {/* IMAGE – FULL HEIGHT */}
+                        <div className="relative h-full min-h-[320px] sm:min-h-full">
                             <Image
                                 src={data.image}
                                 alt={data.name}
                                 fill
-                                className="object-cover object-top"
+                                className="
+                                    object-cover object-top
+                                "
                             />
+
+                            {/* subtle overlay for readability */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
                         </div>
-                    </div>
 
-                    {/* CONTENT */}
-                    <div>
-                        <h3 className="text-xl font-semibold text-slate-900">
-                            {data.name}
-                        </h3>
+                        {/* CONTENT */}
+                        <div className="p-6 sm:p-10">
+                            {/* NAME */}
+                            <h3 className="text-2xl font-semibold text-slate-900">
+                                {data.name}
+                            </h3>
 
-                        <p className="mt-1 text-sm text-slate-500">
-                            {data.role}
-                        </p>
-
-                        {/* QUOTE */}
-                        <p className="mt-3 text-sm italic text-slate-600">
-                            “{data.quote}”
-                        </p>
-
-                        {/* DESCRIPTION */}
-                        {data.description.map((text, i) => (
-                            <p
-                                key={i}
-                                className="mt-3 text-sm leading-relaxed text-slate-600"
-                            >
-                                {text}
+                            {/* ROLE */}
+                            <p className="mt-1 text-sm font-medium text-slate-500">
+                                {data.role}
                             </p>
-                        ))}
 
-                        {/* LINK */}
-                        <a
-                            href={data.linkedin}
-                            target="_blank"
-                            className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700"
-                        >
-                            LinkedIn
-                            <Image
-                                src="/images/icons/linkedin.svg"
-                                alt="LinkedIn"
-                                width={14}
-                                height={14}
-                            />
-                        </a>
+                            {/* QUOTE */}
+                            <div className="relative mt-5 pl-4">
+                                <span className="absolute left-0 top-0 h-full w-[3px] rounded-full bg-gradient-to-b from-blue-500 to-cyan-400" />
+                                <p className="text-sm italic text-slate-600">
+                                    “{data.quote}”
+                                </p>
+                            </div>
+
+                            {/* DESCRIPTION */}
+                            {data.description.map((text, i) => (
+                                <p
+                                    key={i}
+                                    className="mt-4 text-sm leading-relaxed text-slate-600"
+                                >
+                                    {text}
+                                </p>
+                            ))}
+
+                            {/* LINK */}
+                            <a
+                                href={data.linkedin}
+                                target="_blank"
+                                className="
+                                    mt-6
+                                    inline-flex items-center gap-2
+                                    text-sm font-medium
+                                    text-blue-600
+                                    transition
+                                    hover:text-blue-700
+                                "
+                            >
+                                View LinkedIn
+                                <Image
+                                    src="/images/icons/linkedin.svg"
+                                    alt="LinkedIn"
+                                    width={14}
+                                    height={14}
+                                />
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

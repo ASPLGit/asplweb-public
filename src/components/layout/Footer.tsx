@@ -15,6 +15,12 @@ export default function Footer() {
             opacity-50
         "
             />
+            <div
+                className="
+            absolute inset-0
+            bg-black/40
+        "
+            />
             <div className="container pt-20 pb-10 relative z-10">
                 {/* TOP CONTENT */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -99,9 +105,9 @@ export default function Footer() {
                     </div>
 
                     {/* RIGHT – LINKS */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-10">
+                    <div className="grid grid-cols-2 sm:grid-cols-12 sm:gap-10">
                         {/* COMPANY */}
-                        <div>
+                        <div className="sm:col-span-3">
                             <h4 className="text-sm font-semibold mb-4 text-white">
                                 Company
                             </h4>
@@ -134,7 +140,7 @@ export default function Footer() {
                         </div>
 
                         {/* SERVICES */}
-                        <div>
+                        <div className="sm:col-span-5">
                             <h4 className="text-sm font-semibold mb-4 text-white">
                                 Services
                             </h4>
@@ -179,11 +185,19 @@ export default function Footer() {
                                         Cloud & DevOps
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link
+                                        href="/services/salesforce"
+                                        className="hover:text-blue-400 transition"
+                                    >
+                                        Salesforce Solutions
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
 
                         {/* CONTACT */}
-                        <div>
+                        <div className="sm:col-span-4">
                             <h4 className="text-sm font-semibold mb-4 text-white">
                                 Contact
                             </h4>
@@ -209,38 +223,8 @@ export default function Footer() {
                     </div>
 
                 </div>
-
-                {/* EMAIL CTA */}
-                {/* <div className="mt-16 rounded-2xl bg-slate-900 border border-slate-800 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                    <p className="text-sm text-slate-300 max-w-md">
-                        Have an idea or a challenge in mind?
-                        Let’s discuss how we can help.
-                    </p>
-
-                    <div className="flex w-full sm:w-auto gap-3">
-                        <input
-                            type="email"
-                            placeholder="Your email address"
-                            className="
-                                w-full sm:w-72
-                                rounded-lg
-                                border border-slate-700
-                                bg-slate-950
-                                px-4 py-3
-                                text-sm text-white
-                                placeholder-slate-500
-                                focus:outline-none
-                                focus:border-blue-500
-                            "
-                        />
-                        <Button variant="blue">
-                            Let’s Talk
-                        </Button>
-                    </div>
-                </div> */}
-
                 {/* COPYRIGHT */}
-                <div className="mt-10 border-t border-slate-500 pt-6 text-center text-xs text-slate-300">
+                <div className="mt-10 border-t border-slate-600 pt-6 text-center text-xs text-slate-300">
                     ©2026 AplombSoft Pvt Ltd. All rights reserved.
                 </div>
             </div>

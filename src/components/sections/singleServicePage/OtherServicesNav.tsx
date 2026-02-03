@@ -46,7 +46,7 @@ export default function OtherServicesNav() {
                                     transition-all duration-300
                                     ${
                                         isActive
-                                            ? "bg-gradient text-white"
+                                            ? "bg-black text-white"
                                             : "bg-slate-100 text-slate-700"
                                     }
                                 `}

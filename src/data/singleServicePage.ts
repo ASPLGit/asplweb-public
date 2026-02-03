@@ -70,23 +70,24 @@ export const services: Service[] = [
         ],
         TechnologySection: {
             items: [
-                { logo: "/images/tech/react-native.svg" },
-                { logo: "/images/tech/nodejs.svg" },
-                { logo: "/images/tech/nextjs.svg" },
-                { logo: "/images/tech/tailwind.svg" },
-                { logo: "/images/tech/javascript.svg" },
-                { logo: "/images/tech/vue.svg" },
-
-                { logo: "/images/tech/mongodb.svg" },
-                { logo: "/images/tech/mysql.svg" },
-                { logo: "/images/tech/react.svg" },
-                { logo: "/images/tech/angular.svg" },
-
-                { logo: "/images/tech/dotnet.svg" },
-                { logo: "/images/tech/typescript.svg" },
-                { logo: "/images/tech/python.svg" },
-                { logo: "/images/tech/sql-server.svg" },
+                { logo: "/images/tech/dotnet.svg", name: ".NET" },
+                { logo: "/images/tech/nodejs.svg", name: "Node.js" },
+                { logo: "/images/tech/java.svg", name: "Java" },
+                { logo: "/images/tech/nextjs.svg", name: "Next.js" },
+                { logo: "/images/tech/react.svg", name: "React" },
+                { logo: "/images/tech/tailwind.svg", name: "Tailwind CSS" },
+                { logo: "/images/tech/javascript.svg", name: "JavaScript" },
+                { logo: "/images/tech/vue.svg", name: "Vue.js" },
+                { logo: "/images/tech/mongodb.svg", name: "MongoDB" },
+                { logo: "/images/tech/mysql.svg", name: "MySQL" },
+                { logo: "/images/tech/angular.svg", name: "Angular" },
+                { logo: "/images/tech/typescript.svg", name: "TypeScript" },
+                { logo: "/images/tech/sql-server.svg", name: "SQL Server" },
+                { logo: "/images/tech/docker.svg", name: "Docker" },
+                { logo: "/images/tech/aws.svg", name: "Amazon Web Services" },
+                { logo: "/images/tech/postgresql.svg", name: "PostgreSQL" },
             ],
+
         },
         faq: {
             items: [
@@ -177,23 +178,19 @@ export const services: Service[] = [
         ],
         TechnologySection: {
             items: [
-                { logo: "/images/tech/react-native.svg" },
-                { logo: "/images/tech/nodejs.svg" },
-                { logo: "/images/tech/nextjs.svg" },
-                { logo: "/images/tech/tailwind.svg" },
-                { logo: "/images/tech/javascript.svg" },
-                { logo: "/images/tech/vue.svg" },
-
-                { logo: "/images/tech/mongodb.svg" },
-                { logo: "/images/tech/mysql.svg" },
-                { logo: "/images/tech/react.svg" },
-                { logo: "/images/tech/angular.svg" },
-
-                { logo: "/images/tech/dotnet.svg" },
-                { logo: "/images/tech/typescript.svg" },
-                { logo: "/images/tech/python.svg" },
-                { logo: "/images/tech/sql-server.svg" },
+                { logo: "/images/tech/react-native.svg", name: "React Native" },
+                { logo: "/images/tech/android.svg", name: "Android" },
+                { logo: "/images/tech/nodejs.svg", name: "Node.js" },
+                { logo: "/images/tech/tailwind.svg", name: "Tailwind CSS" },
+                { logo: "/images/tech/javascript.svg", name: "JavaScript" },
+                { logo: "/images/tech/nextjs.svg", name: "Next.js" },
+                { logo: "/images/tech/vue.svg", name: "Vue.js" },
+                { logo: "/images/tech/mongodb.svg", name: "MongoDB" },
+                { logo: "/images/tech/firebase.svg", name: "Firebase" },
+                { logo: "/images/tech/typescript.svg", name: "TypeScript" },
+                { logo: "/images/tech/aws.svg", name: "Amazon Web Services" },
             ],
+
         },
         faq: {
             items: [
@@ -280,23 +277,20 @@ export const services: Service[] = [
 
         TechnologySection: {
             items: [
-                { logo: "/images/tech/react-native.svg" },
-                { logo: "/images/tech/nodejs.svg" },
-                { logo: "/images/tech/nextjs.svg" },
-                { logo: "/images/tech/tailwind.svg" },
-                { logo: "/images/tech/javascript.svg" },
-                { logo: "/images/tech/vue.svg" },
-
-                { logo: "/images/tech/mongodb.svg" },
-                { logo: "/images/tech/mysql.svg" },
-                { logo: "/images/tech/react.svg" },
-                { logo: "/images/tech/angular.svg" },
-
-                { logo: "/images/tech/dotnet.svg" },
-                { logo: "/images/tech/typescript.svg" },
-                { logo: "/images/tech/python.svg" },
-                { logo: "/images/tech/sql-server.svg" },
+                { logo: "/images/tech/react.svg", name: "React" },
+                { logo: "/images/tech/nodejs.svg", name: "Node.js" },
+                { logo: "/images/tech/nextjs.svg", name: "Next.js" },
+                { logo: "/images/tech/tailwind.svg", name: "Tailwind CSS" },
+                { logo: "/images/tech/javascript.svg", name: "JavaScript" },
+                { logo: "/images/tech/vue.svg", name: "Vue.js" },
+                { logo: "/images/tech/mongodb.svg", name: "MongoDB" },
+                { logo: "/images/tech/mysql.svg", name: "MySQL" },
+                { logo: "/images/tech/angular.svg", name: "Angular" },
+                { logo: "/images/tech/dotnet.svg", name: ".NET" },
+                { logo: "/images/tech/typescript.svg", name: "TypeScript" },
+                { logo: "/images/tech/python.svg", name: "Python" },
             ],
+
         },
         faq: {
             items: [
@@ -383,23 +377,14 @@ export const services: Service[] = [
 
         TechnologySection: {
             items: [
-                { logo: "/images/tech/react-native.svg" },
-                { logo: "/images/tech/nodejs.svg" },
-                { logo: "/images/tech/nextjs.svg" },
-                { logo: "/images/tech/tailwind.svg" },
-                { logo: "/images/tech/javascript.svg" },
-                { logo: "/images/tech/vue.svg" },
-
-                { logo: "/images/tech/mongodb.svg" },
-                { logo: "/images/tech/mysql.svg" },
-                { logo: "/images/tech/react.svg" },
-                { logo: "/images/tech/angular.svg" },
-
-                { logo: "/images/tech/dotnet.svg" },
-                { logo: "/images/tech/typescript.svg" },
-                { logo: "/images/tech/python.svg" },
-                { logo: "/images/tech/sql-server.svg" },
+                { logo: "/images/tech/docker.svg", name: "Docker" },
+                { logo: "/images/tech/mysql.svg", name: "MySQL" },
+                { logo: "/images/tech/azure.svg", name: "Microsoft Azure" },
+                { logo: "/images/tech/dotnet.svg", name: ".NET" },
+                { logo: "/images/tech/kubernetes.svg", name: "Kubernetes" },
+                { logo: "/images/tech/sql-server.svg", name: "SQL Server" },
             ],
+
         },
         faq: {
             items: [
@@ -491,23 +476,17 @@ export const services: Service[] = [
 
         TechnologySection: {
             items: [
-                { logo: "/images/tech/react-native.svg" },
-                { logo: "/images/tech/nodejs.svg" },
-                { logo: "/images/tech/nextjs.svg" },
-                { logo: "/images/tech/tailwind.svg" },
-                { logo: "/images/tech/javascript.svg" },
-                { logo: "/images/tech/vue.svg" },
-
-                { logo: "/images/tech/mongodb.svg" },
-                { logo: "/images/tech/mysql.svg" },
-                { logo: "/images/tech/react.svg" },
-                { logo: "/images/tech/angular.svg" },
-
-                { logo: "/images/tech/dotnet.svg" },
-                { logo: "/images/tech/typescript.svg" },
-                { logo: "/images/tech/python.svg" },
-                { logo: "/images/tech/sql-server.svg" },
+                { logo: "/images/tech/docker.svg", name: "Docker" },
+                { logo: "/images/tech/mysql.svg", name: "MySQL" },
+                { logo: "/images/tech/azure.svg", name: "Microsoft Azure" },
+                { logo: "/images/tech/github.svg", name: "GitHub" },
+                { logo: "/images/tech/aws.svg", name: "Amazon Web Services" },
+                { logo: "/images/tech/jenkins.svg", name: "Jenkins" },
+                { logo: "/images/tech/dotnet.svg", name: ".NET" },
+                { logo: "/images/tech/kubernetes.svg", name: "Kubernetes" },
+                { logo: "/images/tech/sql-server.svg", name: "SQL Server" },
             ],
+
         },
         faq: {
             items: [
@@ -599,23 +578,21 @@ export const services: Service[] = [
 
         TechnologySection: {
             items: [
-                { logo: "/images/tech/react-native.svg" },
-                { logo: "/images/tech/nodejs.svg" },
-                { logo: "/images/tech/nextjs.svg" },
-                { logo: "/images/tech/tailwind.svg" },
-                { logo: "/images/tech/javascript.svg" },
-                { logo: "/images/tech/vue.svg" },
-
-                { logo: "/images/tech/mongodb.svg" },
-                { logo: "/images/tech/mysql.svg" },
-                { logo: "/images/tech/react.svg" },
-                { logo: "/images/tech/angular.svg" },
-
-                { logo: "/images/tech/dotnet.svg" },
-                { logo: "/images/tech/typescript.svg" },
-                { logo: "/images/tech/python.svg" },
-                { logo: "/images/tech/sql-server.svg" },
+                { logo: "/images/tech/ethereum.svg", name: "Ethereum" },
+                { logo: "/images/tech/solana.svg", name: "Solana" },
+                { logo: "/images/tech/solidity.svg", name: "Solidity" },
+                { logo: "/images/tech/ipfs.svg", name: "IPFS" },
+                { logo: "/images/tech/nodejs.svg", name: "Node.js" },
+                { logo: "/images/tech/nextjs.svg", name: "Next.js" },
+                { logo: "/images/tech/tailwind.svg", name: "Tailwind CSS" },
+                { logo: "/images/tech/javascript.svg", name: "JavaScript" },
+                { logo: "/images/tech/vue.svg", name: "Vue.js" },
+                { logo: "/images/tech/mongodb.svg", name: "MongoDB" },
+                { logo: "/images/tech/mysql.svg", name: "MySQL" },
+                { logo: "/images/tech/react.svg", name: "React" },
+                { logo: "/images/tech/typescript.svg", name: "TypeScript" },
             ],
+
         },
         faq: {
             items: [
@@ -707,23 +684,14 @@ export const services: Service[] = [
 
         TechnologySection: {
             items: [
-                { logo: "/images/tech/react-native.svg" },
-                { logo: "/images/tech/nodejs.svg" },
-                { logo: "/images/tech/nextjs.svg" },
-                { logo: "/images/tech/tailwind.svg" },
-                { logo: "/images/tech/javascript.svg" },
-                { logo: "/images/tech/vue.svg" },
-
-                { logo: "/images/tech/mongodb.svg" },
-                { logo: "/images/tech/mysql.svg" },
-                { logo: "/images/tech/react.svg" },
-                { logo: "/images/tech/angular.svg" },
-
-                { logo: "/images/tech/dotnet.svg" },
-                { logo: "/images/tech/typescript.svg" },
-                { logo: "/images/tech/python.svg" },
-                { logo: "/images/tech/sql-server.svg" },
+                { logo: "/images/tech/python.svg", name: "Python" },
+                { logo: "/images/tech/pytorch.svg", name: "PyTorch" },
+                { logo: "/images/tech/tensorflow.svg", name: "TensorFlow" },
+                { logo: "/images/tech/python.svg", name: "Python" },
+                { logo: "/images/tech/aws.svg", name: "Amazon Web Services" },
+                { logo: "/images/tech/pandas.svg", name: "Pandas" },
             ],
+
         },
         faq: {
             items: [
@@ -815,23 +783,17 @@ export const services: Service[] = [
 
         TechnologySection: {
             items: [
-                { logo: "/images/tech/react-native.svg" },
-                { logo: "/images/tech/nodejs.svg" },
-                { logo: "/images/tech/nextjs.svg" },
-                { logo: "/images/tech/tailwind.svg" },
-                { logo: "/images/tech/javascript.svg" },
-                { logo: "/images/tech/vue.svg" },
-
-                { logo: "/images/tech/mongodb.svg" },
-                { logo: "/images/tech/mysql.svg" },
-                { logo: "/images/tech/react.svg" },
-                { logo: "/images/tech/angular.svg" },
-
-                { logo: "/images/tech/dotnet.svg" },
-                { logo: "/images/tech/typescript.svg" },
-                { logo: "/images/tech/python.svg" },
-                { logo: "/images/tech/sql-server.svg" },
+                { logo: "/images/tech/docker.svg", name: "Docker" },
+                { logo: "/images/tech/mysql.svg", name: "MySQL" },
+                { logo: "/images/tech/azure.svg", name: "Microsoft Azure" },
+                { logo: "/images/tech/github.svg", name: "GitHub" },
+                { logo: "/images/tech/aws.svg", name: "Amazon Web Services" },
+                { logo: "/images/tech/jenkins.svg", name: "Jenkins" },
+                { logo: "/images/tech/dotnet.svg", name: ".NET" },
+                { logo: "/images/tech/kubernetes.svg", name: "Kubernetes" },
+                { logo: "/images/tech/sql-server.svg", name: "SQL Server" },
             ],
+
         },
         faq: {
             items: [
@@ -923,14 +885,11 @@ export const services: Service[] = [
 
         TechnologySection: {
             items: [
-                { logo: "/images/tech/salesforce.svg" },
-                { logo: "/images/tech/apex.svg" },
-                { logo: "/images/tech/lwc.svg" },
-                { logo: "/images/tech/javascript.svg" },
-                { logo: "/images/tech/nodejs.svg" },
-                { logo: "/images/tech/integration.svg" },
-                { logo: "/images/tech/api.svg" },
+                { logo: "/images/tech/salesforce.svg", name: "Salesforce" },
+                { logo: "/images/tech/conga.png", name: "Conga" },
+                { logo: "/images/tech/service-cloud.svg", name: "Salesforce Service Cloud" },
             ],
+
         },
 
         faq: {
