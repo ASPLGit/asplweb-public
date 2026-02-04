@@ -10,7 +10,29 @@ export default function CareersHeroSection() {
     return (
         <>
             <section className="relative flex flex-col items-center">
-                <div className="bg-[url('/images/bg.webp')] relative bg-cover bg-center bg-no-repeat 2xl:py-[250px] h-screen 2xl:h-auto w-full flex flex-col items-center justify-center">
+                <div
+                    className="
+    relative
+    bg-[url('/images/bg.webp')]
+    bg-cover bg-center bg-no-repeat
+    h-screen 2xl:py-[250px] 2xl:h-auto
+    w-full
+    flex flex-col items-center justify-center
+
+    after:content-['']
+    after:absolute
+    after:inset-0
+    after:bg-[url('/images/layer2.webp')]
+    after:bg-cover
+    after:bg-bottom
+    after:bg-no-repeat
+    sm:after:blur-[1px]
+    after:opacity-50
+    after:pointer-events-none
+  "
+                >
+
+                    {/* <div className="bg-[url('/images/bg.webp')] relative bg-cover bg-center bg-no-repeat 2xl:py-[250px] h-screen 2xl:h-auto w-full flex flex-col items-center justify-center">
                     <div
                         className="
             absolute inset-0
@@ -19,7 +41,7 @@ export default function CareersHeroSection() {
             sm:blur-[1px]
             opacity-50
         "
-                    />
+                    /> */}
                     {/* <div
                         className="
             absolute inset-0

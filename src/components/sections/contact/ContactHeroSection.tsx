@@ -10,8 +10,28 @@ export default function ContactHeroSection() {
 
     return (
         <section className="relative">
-            <div className="bg-[url('/images/bg.webp')] relative bg-cover bg-center bg-no-repeat 2xl:py-[250px] sm:h-screen h-[90vh] 2xl:h-auto w-full flex flex-col items-center justify-center">
-                {/* Background Layer */}
+            <div
+                className="
+    relative
+    bg-[url('/images/bg.webp')]
+    bg-cover bg-center bg-no-repeat
+    sm:h-screen h-[90vh] 2xl:py-[250px] 2xl:h-auto
+    w-full
+    flex flex-col items-center justify-center
+    after:content-['']
+    after:absolute
+    after:inset-0
+    after:bg-[url('/images/layer6.webp')]
+    after:bg-cover
+    after:bg-center
+    after:bg-no-repeat
+    sm:after:blur-[10px]
+    after:opacity-50
+    after:pointer-events-none
+  "
+            >
+
+                {/* <div className="bg-[url('/images/bg.webp')] relative bg-cover bg-center bg-no-repeat 2xl:py-[250px] sm:h-screen h-[90vh] 2xl:h-auto w-full flex flex-col items-center justify-center">
                 <div
                     className="
                         absolute inset-0
@@ -20,7 +40,7 @@ export default function ContactHeroSection() {
                         sm:blur-[10px]
                         opacity-50
                     "
-                />
+                /> */}
 
                 {/* Dark Overlay */}
                 <div className="absolute inset-0 bg-black/10" />

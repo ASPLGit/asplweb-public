@@ -31,7 +31,33 @@ export default function HeroSection({
 
     return (
         <section className="flex flex-col items-center justify-center relative">
-            <div className="bg-[url('/images/bg.webp')] relative bg-cover bg-center bg-no-repeat 2xl:py-[250px] h-screen 2xl:h-auto w-full flex flex-col items-center justify-center">
+            <div
+                className="
+    relative
+    bg-[url('/images/bg.webp')]
+    bg-cover bg-center bg-no-repeat
+    h-screen 2xl:py-[250px] 2xl:h-auto
+    w-full
+    flex flex-col items-center justify-center
+
+    after:content-['']
+    after:absolute
+    after:inset-0
+
+    after:bg-[url('/images/layer4.webp')]
+    sm:after:bg-[url('/images/layer3.webp')]
+
+    after:bg-cover
+    after:bg-bottom
+    after:bg-no-repeat
+
+    sm:after:blur-[1px]
+    after:opacity-50
+    after:pointer-events-none
+  "
+            >
+
+                {/* <div className="bg-[url('/images/bg.webp')] relative bg-cover bg-center bg-no-repeat 2xl:py-[250px] h-screen 2xl:h-auto w-full flex flex-col items-center justify-center">
                 <div
                     className="
             absolute inset-0
@@ -40,7 +66,7 @@ export default function HeroSection({
             sm:blur-[1px]
             opacity-50
         "
-                />
+                /> */}
                 <div className="container relative z-10">
                     <div className="flex flex-col 2xl:gap-8 sm:gap-6 gap-4 max-w-5xl mx-auto text-center items-center justify-center">
 

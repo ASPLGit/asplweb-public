@@ -5,6 +5,8 @@ import Header from "@/components/layout/Header";
 import "leaflet/dist/leaflet.css";
 import Footer from "@/components/layout/Footer";
 
+
+
 /* Main UI font */
 const inter = Inter({
   subsets: ["latin"],
