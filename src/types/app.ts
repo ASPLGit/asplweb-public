@@ -58,3 +58,10 @@ export interface Service {
         items: FAQItem[];
     }
 }
+
+
+export interface Technology {
+  slug: string;
+  title: string;
+  description: string;
+}

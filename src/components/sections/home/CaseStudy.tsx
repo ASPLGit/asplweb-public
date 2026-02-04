@@ -45,7 +45,7 @@ export default function CaseStudy() {
                             Scalable KYC & Identity Verification
                         </h3>
 
-                        <p className="mt-4 text-body text-slate-300 max-w-xl">
+                        <p className="mt-4 subheading max-w-xl !text-sm">
                             Built a reusable, privacy-first identity verification system that
                             eliminated repeated KYC, reduced onboarding friction, and improved
                             regulatory compliance.

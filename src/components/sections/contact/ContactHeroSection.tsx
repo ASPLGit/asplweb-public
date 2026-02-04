@@ -31,17 +31,6 @@ export default function ContactHeroSection() {
   "
             >
 
-                {/* <div className="bg-[url('/images/bg.webp')] relative bg-cover bg-center bg-no-repeat 2xl:py-[250px] sm:h-screen h-[90vh] 2xl:h-auto w-full flex flex-col items-center justify-center">
-                <div
-                    className="
-                        absolute inset-0
-                        bg-[url('/images/layer6.webp')]
-                        bg-cover bg-center bg-no-repeat
-                        sm:blur-[10px]
-                        opacity-50
-                    "
-                /> */}
-
                 {/* Dark Overlay */}
                 <div className="absolute inset-0 bg-black/10" />
 
@@ -53,7 +42,7 @@ export default function ContactHeroSection() {
                             About Your Project.
                         </h2>
 
-                        <p className="text-body-white max-w-xl">
+                        <p className="subheading max-w-xl">
                             Have an idea or a challenge in mind? Reach out to us
                             and let’s discuss how we can help bring it to life
                             with the right technology and expertise.
@@ -65,10 +54,10 @@ export default function ContactHeroSection() {
                 <button
                     onClick={handleScroll}
                     className="
-                        absolute bottom-8
+                        absolute bottom-8 z-50
                         flex flex-col items-center gap-2
                         text-white/80
-                        text-sm font-medium
+                        text-sm font-normal
                         hover:text-white
                         transition
                     "

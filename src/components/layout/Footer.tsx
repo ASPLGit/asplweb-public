@@ -3,18 +3,24 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="relative overflow-hidden  bg-[url('/images/bg.webp')]
-            bg-cover bg-center bg-no-repeat">
-            {/* Background Image */}
-            <div
-                className="
-            absolute inset-0
-            bg-[url('/images/layer6.webp')]
-            bg-cover bg-center bg-no-repeat
-            sm:blur-[7px]
-            opacity-50
-        "
-            />
+        <footer
+            className="
+    relative
+    overflow-hidden
+    bg-[url('/images/bg.webp')]
+    bg-cover bg-center bg-no-repeat
+    after:content-['']
+    after:absolute
+    after:inset-0
+    after:bg-[url('/images/layer6.webp')]
+    after:bg-cover
+    after:bg-center
+    after:bg-no-repeat
+    sm:after:blur-[7px]
+    after:opacity-50
+    after:pointer-events-none
+  "
+        >
             <div
                 className="
             absolute inset-0
@@ -35,7 +41,7 @@ export default function Footer() {
                             className="h-10 w-auto"
                         />
 
-                        <p className="mt-4 text-sm text-slate-200 leading-relaxed">
+                        <p className="mt-4 subheading">
                             We build smart IT solutions that help growing brands and
                             businesses scale with confidence.
                         </p>

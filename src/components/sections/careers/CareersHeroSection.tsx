@@ -18,7 +18,6 @@ export default function CareersHeroSection() {
     h-screen 2xl:py-[250px] 2xl:h-auto
     w-full
     flex flex-col items-center justify-center
-
     after:content-['']
     after:absolute
     after:inset-0
@@ -31,23 +30,6 @@ export default function CareersHeroSection() {
     after:pointer-events-none
   "
                 >
-
-                    {/* <div className="bg-[url('/images/bg.webp')] relative bg-cover bg-center bg-no-repeat 2xl:py-[250px] h-screen 2xl:h-auto w-full flex flex-col items-center justify-center">
-                    <div
-                        className="
-            absolute inset-0
-            bg-[url('/images/layer2.webp')]
-            bg-cover bg-bottom bg-no-repeat
-            sm:blur-[1px]
-            opacity-50
-        "
-                    /> */}
-                    {/* <div
-                        className="
-            absolute inset-0
-            bg-black/0
-        "
-                    /> */}
                     <div className="container text-center relative z-10">
                         <div className="flex flex-col items-center 2xl:gap-8 sm:gap-6 gap-4 max-w-3xl mx-auto">
 
@@ -56,7 +38,7 @@ export default function CareersHeroSection() {
 
                             </h2>
 
-                            <p className="text-body-white max-w-xl mx-auto">
+                            <p className="subheading max-w-xl mx-auto">
                                 Join a team of designers, developers, and problem-solvers building scalable, real-world software products for global clients.
                             </p>
                         </div>
@@ -67,10 +49,10 @@ export default function CareersHeroSection() {
                 <button
                     onClick={handleScroll}
                     className="
-                        absolute bottom-8
+                        absolute bottom-8 z-50
                         flex flex-col items-center gap-2
                         text-white/80
-                        text-sm font-medium
+                        text-sm font-normal
                         hover:text-white
                         transition
                     "

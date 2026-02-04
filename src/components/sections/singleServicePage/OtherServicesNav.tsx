@@ -13,6 +13,7 @@ const SERVICES = [
     { title: "Cybersecurity", slug: "cybersecurity" },
     { title: "Blockchain & Web3", slug: "blockchain" },
     { title: "AI & ML", slug: "ai-ml" },
+    { title: "QA & Software Testing", slug: "qa-testing" },
 ];
 
 export default function OtherServicesNav() {
@@ -44,10 +45,9 @@ export default function OtherServicesNav() {
                                     rounded-full px-6 py-3
                                     text-sm font-medium
                                     transition-all duration-300
-                                    ${
-                                        isActive
-                                            ? "bg-black text-white"
-                                            : "bg-slate-100 text-slate-700"
+                                    ${isActive
+                                        ? "bg-black text-white"
+                                        : "bg-slate-100 text-slate-700"
                                     }
                                 `}
                             >

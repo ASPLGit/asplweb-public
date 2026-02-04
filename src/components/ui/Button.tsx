@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 
 interface ButtonProps {
@@ -21,10 +22,9 @@ export default function Button({
   type = "button",
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-300 ease-out";
+    "group inline-flex items-center justify-center gap-3 rounded-lg font-medium transition-all duration-300 ease-out";
 
-  // ✅ MATCHES YOUR GOOD BUTTON EXACTLY
-  const size = "px-10 py-3 text-sm";
+  const size = "sm:pl-10 sm:pr-8 pl-8 pr-6 py-3 text-sm";
 
   const variants = {
     blue: `
@@ -34,7 +34,7 @@ export default function Button({
       hover:shadow-[inset_0_0_0_9999px_rgba(0,0,0,0.08)]
     `,
     white: `
-      bg-white text-black
+      bg-transparent text-white
       border border-slate-200
       shadow-md
       hover:border-white
@@ -45,7 +45,7 @@ export default function Button({
       bg-black text-white border
       shadow-md
       hover:text-black
-       hover:border-black
+      hover:border-black
       hover:bg-transparent
       hover:shadow-[inset_0_0_0_9999px_rgba(255,255,255,0.06)]
     `,
@@ -53,21 +53,35 @@ export default function Button({
 
   const classes = `${base} ${size} ${variants[variant]} ${className}`;
 
+  const content = (
+    <>
+      <span>{children}</span>
+
+      {/* ICON */}
+      <Image
+        src="/images/icons/arrow-up.svg"
+        alt=""
+        width={20}
+        height={20}
+        className="
+          transition-transform duration-300 ease-out
+          group-hover:translate-x-1
+        "
+      />
+    </>
+  );
+
   if (to) {
     return (
-      <Link
-        href={to}
-        onClick={onClick}
-        className={classes}
-      >
-        {children}
+      <Link href={to} onClick={onClick} className={classes}>
+        {content}
       </Link>
     );
   }
 
   return (
     <button type={type} onClick={onClick} className={classes}>
-      {children}
+      {content}
     </button>
   );
 }

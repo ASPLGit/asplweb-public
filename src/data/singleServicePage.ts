@@ -916,5 +916,108 @@ export const services: Service[] = [
                 },
             ],
         },
+    },
+    {
+        slug: "qa-testing",
+        title: "QA & Software Testing",
+        description:
+            "We ensure software quality, performance, and reliability through comprehensive testing strategies that reduce risk and deliver confidence at scale.",
+
+        cta: {
+            primary: {
+                label: "Talk to a QA Expert",
+                href: "/contact",
+            },
+        },
+
+        section: {
+            label: "Overview",
+            heading: "Quality Built Into Every Release",
+            subheading:
+                "From early-stage testing to post-release validation, we help you ship stable, secure, and high-performing software with confidence.",
+        },
+
+        featureSection: {
+            items: [
+                {
+                    id: "01",
+                    title: "Manual & Exploratory Testing",
+                    description:
+                        "Thorough manual testing to validate real-world user flows, edge cases, and usability across devices and platforms.",
+                },
+                {
+                    id: "02",
+                    title: "Automated Testing",
+                    description:
+                        "Automation frameworks for regression, smoke, and functional testing to improve test coverage and reduce release cycles.",
+                },
+                {
+                    id: "03",
+                    title: "Functional & Regression Testing",
+                    description:
+                        "Ensuring core features work as expected and existing functionality remains stable after updates or enhancements.",
+                },
+                {
+                    id: "04",
+                    title: "Performance & Load Testing",
+                    description:
+                        "Testing application performance under real-world load conditions to identify bottlenecks and scalability risks.",
+                },
+                {
+                    id: "05",
+                    title: "Security & Compliance Testing",
+                    description:
+                        "Identifying vulnerabilities, validating data protection, and ensuring compliance with security best practices.",
+                },
+                {
+                    id: "06",
+                    title: "QA Strategy & Consulting",
+                    description:
+                        "Defining test strategies, QA processes, and quality metrics aligned with your product roadmap and business goals.",
+                },
+            ],
+        },
+
+        stats: [
+            { value: "99%", label: "Defect Detection Rate" },
+            { value: "50%", label: "Faster Release Cycles" },
+            { value: "0", label: "Critical Bugs in Production" },
+            { value: "24/7", label: "QA Support" },
+        ],
+
+        TechnologySection: {
+            items: [
+                { logo: "/images/tech/selenium.svg", name: "Selenium" },
+                { logo: "/images/tech/cypress.svg", name: "Cypress" },
+                { logo: "/images/tech/postman.svg", name: "Postman" },
+                { logo: "/images/tech/github.svg", name: "GitHub" },
+            ],
+        },
+
+        faq: {
+            items: [
+                {
+                    title: "What types of testing do you provide?",
+                    content:
+                        "We offer manual testing, automated testing, functional and regression testing, performance and load testing, security testing, and QA consulting.",
+                },
+                {
+                    title: "Can QA be integrated into our existing development process?",
+                    content:
+                        "Yes. We seamlessly integrate QA into your Agile or DevOps workflows to ensure continuous quality throughout the development lifecycle.",
+                },
+                {
+                    title: "Do you support test automation for existing applications?",
+                    content:
+                        "Absolutely. We design and implement automation frameworks for existing products to improve efficiency and test coverage.",
+                },
+                {
+                    title: "Do you provide ongoing QA support after release?",
+                    content:
+                        "Yes. We provide continuous testing, regression validation, and quality monitoring for long-term product stability.",
+                },
+            ],
+        },
     }
+
 ];

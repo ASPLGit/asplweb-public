@@ -21,7 +21,7 @@
 @layer components {
 
   .heading-xl {
-    @apply 2xl:text-6xl lg:text-5xl sm:text-4xl text-4xl font-semibold !leading-normal bg-[linear-gradient(90deg,#A8A8A8_0%,#FFFFFF_47%)] bg-clip-text text-transparent;
+    @apply 2xl:text-6xl lg:text-5xl sm:text-4xl text-4xl font-semibold !leading-tight bg-[linear-gradient(90deg,#A8A8A8_0%,#FFFFFF_47%)] bg-clip-text text-transparent;
   }
 
   .heading-lg {
@@ -32,8 +32,8 @@
     @apply text-sm sm:text-base font-medium text-slate-800 leading-tight;
   }
 
-  .text-body-white {
-    @apply sm:text-base text-sm text-white font-normal leading-relaxed;
+  .subheading {
+    @apply 2xl:text-lg sm:text-base text-sm text-slate-300 font-normal leading-relaxed md:max-w-[70%] max-w-full;
   }
 
   .text-body {

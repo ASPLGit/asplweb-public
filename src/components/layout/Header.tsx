@@ -5,8 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import MegaMenu from "./MegaMenu";
 import ServicesMenu from "./ServicesMenu";
-import InsightMenu from "./InsightMenu";
 import Image from "next/image";
+import TechnologiesMenu from "./TechnologiesMenu";
 
 
 export default function Header() {
@@ -17,10 +17,10 @@ export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
 
     // Desktop mega menu
-    const [activeMenu, setActiveMenu] = useState<null | "services" | "insights">(null);
+    const [activeMenu, setActiveMenu] = useState<null | "services" | "technologies">(null);
 
     // Mobile accordion menu
-    const [mobileMenu, setMobileMenu] = useState<null | "services" | "insights">(null);
+    const [mobileMenu, setMobileMenu] = useState<null | "services" | "technologies">(null);
 
     const NAV_ITEMS = [
         { label: "Home", href: "/" },
@@ -58,16 +58,16 @@ export default function Header() {
 
 
     /* ================= Helpers ================= */
-    const toggleDesktopMenu = (menu: "services" | "insights" | null) => {
+    const toggleDesktopMenu = (menu: "services" | "technologies" | null) => {
         setActiveMenu((prev) => (prev === menu ? null : menu));
     };
 
-    const toggleMobileMenu = (menu: "services" | "insights" | null) => {
+    const toggleMobileMenu = (menu: "services" | "technologies" | null) => {
         setMobileMenu((prev) => (prev === menu ? null : menu));
     };
 
     const isServicesActive = pathname.startsWith("/services");
-    // const isInsightsActive = pathname.startsWith("/insights");
+    const isTechnologiesActive = pathname.startsWith("/technologies");
 
     const headerWhiteRoutes = [
         (path: string) => path.startsWith("/careers/"),
@@ -89,9 +89,9 @@ export default function Header() {
           ${isScrolled || headerWhite ? "bg-white shadow-md" : "bg-transparent"}
         `}
             >
-                <div className="container mx-auto grid grid-cols-12 sm:py-6 py-4">
+                <div className="container mx-auto flex items-center justify-between sm:py-6 py-4">
                     {/* LOGO */}
-                    <div className="lg:col-span-3 col-span-6">
+                    <div>
                         <Link href="/">
                             <Image
                                 src={isScrolled || headerWhite ? "/logo-dark.svg" : "/logo-light.svg"}
@@ -102,7 +102,7 @@ export default function Header() {
                             />
                         </Link>
                     </div>
-                 
+                    <div className="flex items-center gap-8">
                         <div className={`hidden col-span-6 lg:flex items-center justify-center gap-6 text-sm
     ${isScrolled || headerWhite ? "text-slate-800" : "text-white"}`}>
                             <Link
@@ -173,6 +173,34 @@ export default function Header() {
                                     height={16}
                                 />
                             </button>
+                            {/* DESKTOP Technologies */}
+                            <button
+                                type="button"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    toggleDesktopMenu("technologies");
+                                }}
+                                className={`flex items-center gap-1 px-2 py-1 transition
+              ${activeMenu === "technologies" || isTechnologiesActive
+                                        ? isScrolled
+                                            ? "text-blue-600 font-semibold underline underline-offset-8"
+                                            : "text-white underline underline-offset-8"
+                                        : isScrolled
+                                            ? "text-slate-600 hover:text-blueTheme"
+                                            : "text-white/70 hover:text-white"
+                                    }`}
+                            >
+                                Technologies
+                                <Image
+
+                                    src={isScrolled ? '/images/icons/chev-down-black.svg' : '/images/icons/chev-down.svg'}
+                                    className={`w-4 h-4 transition-transform ${activeMenu === "technologies" ? "rotate-180" : ""
+                                        }`}
+                                    alt="chev icon"
+                                    width={16}
+                                    height={16}
+                                />
+                            </button>
                             {/* CAREERS */}
                             <Link
                                 href="/careers"
@@ -193,62 +221,30 @@ export default function Header() {
                             >
                                 Careers
                             </Link>
-                            {/* DESKTOP INSIGHTS */}
-                            {/* <button
-                            type="button"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                toggleDesktopMenu("insights");
-                            }}
-                            className={`flex items-center gap-1 px-2 py-1 transition
-              ${activeMenu === "insights" || isInsightsActive
-                                    ? isScrolled
-                                        ? "text-blue-600 font-semibold underline underline-offset-8"
-                                        : "text-white underline underline-offset-8"
-                                    : isScrolled
-                                        ? "text-slate-600 hover:text-blueTheme"
-                                        : "text-white/70 hover:text-white"
-                                }`}
-                        >
-                            Insights
-                            <Image
-
-                                src={isScrolled ? '/images/icons/chev-down-black.svg' : '/images/icons/chev-down.svg'}
-                                className={`w-4 h-4 transition-transform ${activeMenu === "insights" ? "rotate-180" : ""
-                                    }`}
-                                alt="chev icon"
-                                width={16}
-                                height={16}
-                            />
-                        </button> */}
                         </div>
-                    
-
-                    {/* ================= ACTIONS ================= */}
-                    <div className="flex items-center justify-end gap-4 lg:col-span-3 col-span-6">
-                        <Link href="/contact"
-                            className={`hidden sm:inline-flex px-4 py-2 rounded-md text-sm transition
+                        <div className="flex items-center justify-end gap-4">
+                            <Link href="/contact"
+                                className={`hidden sm:inline-flex px-4 py-2 rounded-md text-sm transition
               ${isScrolled || headerWhite
-                                    ? "bg-[linear-gradient(131.31deg,#007BFF_50.33%,#00D4FF_100.33%)] text-white"
-                                    : "bg-white text-black hover:bg-transparent border border-white hover:text-white"
-                                }`}
-                        >
-                            Contact Us
-                        </Link>
-
-                        {/* MOBILE MENU BUTTON */}
-                        <button className="lg:hidden" onClick={() => setOpen(true)}>
-                            <Image
-                                src={
-                                    isScrolled || headerWhite
-                                        ? "/images/icons/menu-blue.svg"
-                                        : "/images/icons/menu.svg"
-                                }
-                                alt="menu icon"
-                                width={24}
-                                height={24}
-                            />
-                        </button>
+                                        ? "bg-[linear-gradient(131.31deg,#007BFF_50.33%,#00D4FF_100.33%)] text-white"
+                                        : "bg-white text-black hover:bg-transparent border border-white hover:text-white"
+                                    }`}
+                            >
+                                Contact Us
+                            </Link>
+                            <button className="lg:hidden" onClick={() => setOpen(true)}>
+                                <Image
+                                    src={
+                                        isScrolled || headerWhite
+                                            ? "/images/icons/menu-blue.svg"
+                                            : "/images/icons/menu.svg"
+                                    }
+                                    alt="menu icon"
+                                    width={24}
+                                    height={24}
+                                />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -257,8 +253,8 @@ export default function Header() {
             <MegaMenu open={activeMenu === "services"} onClose={closeAllMenus}>
                 <ServicesMenu onNavigate={closeAllMenus} />
             </MegaMenu>
-            <MegaMenu open={activeMenu === "insights"} onClose={closeAllMenus}>
-                <InsightMenu />
+            <MegaMenu open={activeMenu === "technologies"} onClose={closeAllMenus}>
+                <TechnologiesMenu onNavigate={closeAllMenus}/>
             </MegaMenu>
 
 
@@ -414,36 +410,36 @@ export default function Header() {
                                 </div>
                             )}
                         </div>
-                        {/* MOBILE INSIGHTS */}
-                        {/* <div className="relative">
+                        {/* MOBILE technologies */}
+                        <div className="relative">
                             <button
-                                onClick={() => toggleMobileMenu("insights")}
+                                onClick={() => toggleMobileMenu("technologies")}
                                 className={`flex w-full items-center gap-2 px-3 py-2 rounded relative z-10 transition
-                                 ${isInsightsActive
+                                 ${isTechnologiesActive
                                         ? "bg-sky-100 text-sky-700 font-medium"
                                         : "text-slate-700 hover:bg-slate-100"
                                     }
                                    `}
 
                             >
-                                Insights
+                                Technologies
                                 <Image
                                     src="/images/icons/chev-down-black.svg"
-                                    className={`w-4 h-4 transition-transform ${mobileMenu === "insights" ? "rotate-180" : ""
+                                    className={`w-4 h-4 transition-transform ${mobileMenu === "technologies" ? "rotate-180" : ""
                                         }`}
                                     alt="black"
                                     width={20}
                                     height={20}
                                 />
                             </button>
-                            {mobileMenu === "insights" && (
+                            {mobileMenu === "technologies" && (
                                 <div className="ml-4 space-y-2 text-slate-600">
                                     <Link href="/insights/blogs" onClick={() => setOpen(false)}>Blogs</Link>
                                     <Link href="/insights/case-studies" onClick={() => setOpen(false)}>Case Studies</Link>
                                     <Link href="/insights/news" onClick={() => setOpen(false)}>News</Link>
                                 </div>
                             )}
-                        </div> */}
+                        </div>
                     </nav>
                     {/* MOBILE BOTTOM ACTIONS */}
                     <div className="border-t border-slate-200 bg-white px-4 py-4">

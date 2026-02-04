@@ -38,7 +38,8 @@ export const SERVICES = [
     {
         title: "Blockchain & Web3",
         image: "/images/img4.jpg",
-        href: "/services/web-development",
+
+        href: "/services/blockchain",
         services: [
             "Smart Contracts",
             "DApps",
@@ -50,7 +51,7 @@ export const SERVICES = [
     {
         title: "Microsoft & Cloud Solutions",
         image: "/images/img5.webp",
-        href: "/services/web-development",
+        href: "/services/cloud-solutions",
         services: [
             "Cloud Migration",
             "Azure Services",
@@ -60,9 +61,21 @@ export const SERVICES = [
         ],
     },
     {
+        title: "Enterprise Salesforce Solutions",
+        image: "/images/img9.jpg",
+        href: "/services/salesforce",
+        services: [
+            "Salesforce Development",
+            "Sales Cloud",
+            "Service Cloud",
+            "Conga Products",
+            "CRM to Salesforce",
+        ],
+    },
+    {
         title: "DevOps & Cloud Automation",
         image: "/images/img6.jpg",
-        href: "/services/web-development",
+        href: "/services/devops",
         services: [
             "CI/CD Pipelines",
             "Cloud Automation",
@@ -74,7 +87,7 @@ export const SERVICES = [
     {
         title: "AI & Machine Learning",
         image: "/images/img7.jpg",
-        href: "/services/web-development",
+        href: "/services/ai-ml",
         services: [
             "Predictive Analytics",
             "Data Modeling",
@@ -86,13 +99,25 @@ export const SERVICES = [
     {
         title: "Cybersecurity Solutions",
         image: "/images/img8.jpg",
-        href: "/services/web-development",
+        href: "/services/cybersecurity",
         services: [
             "Application Security",
             "Network Security",
             "Vulnerability Testing",
             "Risk Management",
             "Compliance",
+        ],
+    },
+    {
+        title: "QA & Software Testing",
+        image: "/images/img10.jpg",
+        href: "/services/qa-testing",
+        services: [
+            "Manual & Automated Testing",
+            "Functional & Regression Testing",
+            "Performance & Load Testing",
+            "Security & Compliance Testing",
+            "Test Strategy & QA Consulting",
         ],
     },
 ];

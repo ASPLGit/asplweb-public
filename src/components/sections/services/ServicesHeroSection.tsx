@@ -21,7 +21,6 @@ export default function ServicesHeroSection() {
     h-screen 2xl:py-[250px] 2xl:h-auto
     w-full
     flex flex-col items-center justify-center
-
     after:content-['']
     after:absolute
     after:inset-0
@@ -34,17 +33,6 @@ export default function ServicesHeroSection() {
     after:pointer-events-none
   "
                 >
-
-                    {/* <div className="bg-[url('/images/bg.webp')] relative bg-cover bg-center bg-no-repeat 2xl:py-[250px] h-screen 2xl:h-auto w-full flex flex-col items-center justify-center">
-                    <div
-                        className="
-            absolute inset-0
-            bg-[url('/images/layer6.webp')]
-            bg-cover bg-center bg-no-repeat
-            sm:blur-[7px]
-            opacity-50
-        "
-                    /> */}
 
                     {/* Dark Overlay */}
                     <div
@@ -60,7 +48,7 @@ export default function ServicesHeroSection() {
                                 <span className="font-lora italic">What We Do Best</span>
                             </h2>
 
-                            <p className="text-body-white max-w-xl">
+                            <p className="subheading max-w-xl">
                                 We offer a comprehensive range of technology services designed to help businesses build reliable digital products, scale efficiently, and adapt to evolving technology needs.
                             </p>
 
@@ -79,10 +67,10 @@ export default function ServicesHeroSection() {
                     <button
                         onClick={handleScroll}
                         className="
-                        absolute bottom-8
+                        absolute bottom-8 z-50
                         flex flex-col items-center gap-2
                         text-white/80
-                        text-sm font-medium
+                        text-sm font-normal
                         hover:text-white
                         transition
                     "
