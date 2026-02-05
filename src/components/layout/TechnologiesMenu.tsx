@@ -11,7 +11,7 @@ export default function TechnologiesMenu({
 }: TechnologiesMenuProps) {
   return (
     <div className="relative">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
         {TECHNOLOGY_GROUPS.map((group) => (
           <div key={group.category}>
             {/* CATEGORY */}

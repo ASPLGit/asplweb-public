@@ -9,6 +9,10 @@ interface ExpertiseItem {
 }
 
 interface TechnologyExpertiseSectionProps {
+    image?: {
+        src: string;
+        alt: string;
+    };
     items: ExpertiseItem[];
 }
 
@@ -22,18 +26,28 @@ const CHIP_STYLES = [
 ];
 
 export default function TechnologyExpertiseSection({
-    items,
+    items, image
 }: TechnologyExpertiseSectionProps) {
     return (
-        <section className="relative bg-white pt-10 pb-32" id="explore-more">
-            <Image src='/images/tech/react.svg' alt="react img" width={400} height={400} className="absolute -bottom-20 -right-10 sm:w-[400px] sm:h-[400px] w-[200px] h-[200px] z-10 opacity-50"/>
+        <section className="relative bg-white sm:pt-10 pt-5 pb-32" id="explore-more">
+            {image && (
+                <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width={400}
+                    height={400}
+                    className="
+                        absolute
+                        bottom-0 -right-10
+                        w-[200px] h-[200px]
+                        z-10
+                        opacity-50
+                        pointer-events-none
+                    "
+                />
+            )}
             <div className="container mx-auto">
                 <div className="relative z-20">
-                    {/* Background glow */}
-                    <div className="absolute inset-0 flex justify-center pointer-events-none">
-                        <div className="w-[520px] h-[520px] rounded-full bg-blue-400/10 blur-[140px]" />
-                    </div>
-
                     {/* Grid */}
                     <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {items.map((item, index) => {

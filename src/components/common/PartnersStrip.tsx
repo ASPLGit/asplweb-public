@@ -3,11 +3,11 @@
 import Image from "next/image";
 
 const PARTNERS = [
-    { name: "Google Cloud", logo: "/images/partners/p-3.svg" },
-  { name: "Microsoft", logo: "/images/partners/p-1.svg" },
-  { name: "AWS", logo: "/images/partners/p-2.svg" },
-  { name: "Azure", logo: "/images/partners/p-4.svg" },
-  { name: "Docker", logo: "/images/partners/p-5.svg" },
+  { name: "AWS", logo: "/images/partners/aws.svg" },
+  { name: "Microsoft", logo: "/images/partners/microsoft.svg" },
+  { name: "WEB3", logo: "/images/partners/web3.svg" },
+  { name: "Google Cloud", logo: "/images/partners/cloud.svg" },
+  { name: "Azure", logo: "/images/partners/azure.svg" },
 ];
 
 export default function PartnersStrip() {

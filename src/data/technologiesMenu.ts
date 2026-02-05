@@ -24,13 +24,8 @@ export const TECHNOLOGY_GROUPS = [
         category: "Backend",
         items: [
             {
-                name: ".NET",
+                name: ".NET Core",
                 slug: "dotnet",
-                icon: "/images/tech/dotnet.svg",
-            },
-            {
-                name: "ASP.NET Core",
-                slug: "aspnet-core",
                 icon: "/images/tech/dotnet.svg",
             },
             {
@@ -40,7 +35,6 @@ export const TECHNOLOGY_GROUPS = [
             },
         ],
     },
-
     {
         category: "Cloud & DevOps",
         items: [
@@ -56,7 +50,6 @@ export const TECHNOLOGY_GROUPS = [
             },
         ],
     },
-
     {
         category: "Database",
         items: [
@@ -72,4 +65,19 @@ export const TECHNOLOGY_GROUPS = [
             },
         ],
     },
+    {
+        category: "Blockchain",
+        items: [
+            {
+                name: "Solidity",
+                slug: "solidity",
+                icon: "/images/tech/solidity.svg",
+            },
+            {
+                name: "Ethereum",
+                slug: "ethereum",
+                icon: "/images/tech/ethereum.svg",
+            }
+        ],
+    }
 ];

@@ -1,17 +1,17 @@
 import { notFound } from "next/navigation";
 import { technologies } from "@/data/singleTechnologyPage";
-import TechnologiesHeroSection from "@/components/sections/technologies/technologiesHeroSection";
+
 import SectionHeading from "@/components/common/SectionHeading";
-import TechnologyExpertiseSection from "@/components/sections/technologies/TechnologyExpertiseSection";
 import FAQSection from "@/components/common/FAQ";
-import { REACT_SERVICE } from "@/data/reactExpertise";
+import FeaturedCaseStudy from "@/components/common/FeaturedCaseStudy";
+import TechnologyExpertiseSection from "@/components/sections/technologies/TechnologyExpertiseSection";
+import TechnologiesHeroSection from "@/components/sections/technologies/TechnologiesHeroSection";
 
 interface TechnologyPageProps {
     params: {
         slug: string;
     };
 }
-
 
 export const TECHNOLOGY_META: Record<
     string,
@@ -27,28 +27,7 @@ export const TECHNOLOGY_META: Record<
         description:
             "Production-grade Next.js solutions with server rendering, SEO optimization, and high performance.",
     },
-    nodejs: {
-        title: "Node.js Development",
-        description:
-            "Scalable backend solutions using Node.js for APIs, microservices, and real-time applications.",
-    },
-    dotnet: {
-        title: ".NET & ASP.NET Development",
-        description:
-            "Enterprise-grade applications built with .NET and ASP.NET Core for security, performance, and scalability.",
-    },
-    angular: {
-        title: "Angular Development",
-        description:
-            "Robust frontend applications using Angular for complex enterprise and business systems.",
-    },
-    python: {
-        title: "Python Development",
-        description:
-            "Python-powered applications for data-driven systems, automation, and backend services.",
-    },
 };
-
 
 export async function generateMetadata({
     params,
@@ -67,10 +46,11 @@ export async function generateMetadata({
     };
 }
 
-
-
-export default async function TechnologyPage({ params }: TechnologyPageProps) {
+export default async function TechnologyPage({
+    params,
+}: TechnologyPageProps) {
     const { slug } = await params;
+
     const technology = technologies.find(
         (item) => item.slug === slug
     );
@@ -82,20 +62,29 @@ export default async function TechnologyPage({ params }: TechnologyPageProps) {
     return (
         <div className="space-y-[40px] sm:space-y-[80px] 2xl:space-y-[120px] sm:pb-20 pb-10">
             {/* HERO */}
-            <TechnologiesHeroSection {...REACT_SERVICE.hero} />
+            <TechnologiesHeroSection {...technology.hero} />
+
             <div id="explore-more">
                 <SectionHeading
-                    sectionLabel={REACT_SERVICE.sectionHeading.sectionLabel}
-                    heading={REACT_SERVICE.sectionHeading.heading}
-                    subheading={REACT_SERVICE.sectionHeading.subheading}
+                    sectionLabel={technology.sectionHeading.sectionLabel}
+                    heading={technology.sectionHeading.heading}
+                    subheading={technology.sectionHeading.subheading}
                 />
             </div>
-
-            {/* EXPERTISE CARDS */}
-            <div className="overflow-hidden">
-                <TechnologyExpertiseSection items={REACT_SERVICE.expertise} />
-                <FAQSection data={REACT_SERVICE.faq} href="/contact" />
-            </div>
+            <div>
+                {/* EXPERTISE */}
+                <div className="overflow-hidden">
+                    <TechnologyExpertiseSection
+                        items={technology.expertise}
+                        image={technology.expertiseImage}
+                    />
+                    {/* CASE STUDY (OPTIONAL) */}
+                    {technology.caseStudy && (
+                        <FeaturedCaseStudy {...technology.caseStudy} />
+                    )}
+                </div>
+                   <FAQSection data={technology.faq} href="/contact" />
+            </div>         
         </div>
     );
 }

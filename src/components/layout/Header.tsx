@@ -7,6 +7,7 @@ import MegaMenu from "./MegaMenu";
 import ServicesMenu from "./ServicesMenu";
 import Image from "next/image";
 import TechnologiesMenu from "./TechnologiesMenu";
+import { TECHNOLOGY_GROUPS } from "@/data/technologiesMenu";
 
 
 export default function Header() {
@@ -182,10 +183,10 @@ export default function Header() {
                                 }}
                                 className={`flex items-center gap-1 px-2 py-1 transition
               ${activeMenu === "technologies" || isTechnologiesActive
-                                        ? isScrolled
+                                        ? isScrolled || headerWhite
                                             ? "text-blue-600 font-semibold underline underline-offset-8"
                                             : "text-white underline underline-offset-8"
-                                        : isScrolled
+                                        : isScrolled || headerWhite
                                             ? "text-slate-600 hover:text-blueTheme"
                                             : "text-white/70 hover:text-white"
                                     }`}
@@ -193,7 +194,7 @@ export default function Header() {
                                 Technologies
                                 <Image
 
-                                    src={isScrolled ? '/images/icons/chev-down-black.svg' : '/images/icons/chev-down.svg'}
+                                    src={isScrolled || headerWhite ? '/images/icons/chev-down-black.svg' : '/images/icons/chev-down.svg'}
                                     className={`w-4 h-4 transition-transform ${activeMenu === "technologies" ? "rotate-180" : ""
                                         }`}
                                     alt="chev icon"
@@ -254,7 +255,7 @@ export default function Header() {
                 <ServicesMenu onNavigate={closeAllMenus} />
             </MegaMenu>
             <MegaMenu open={activeMenu === "technologies"} onClose={closeAllMenus}>
-                <TechnologiesMenu onNavigate={closeAllMenus}/>
+                <TechnologiesMenu onNavigate={closeAllMenus} />
             </MegaMenu>
 
 
@@ -415,31 +416,96 @@ export default function Header() {
                             <button
                                 onClick={() => toggleMobileMenu("technologies")}
                                 className={`flex w-full items-center gap-2 px-3 py-2 rounded relative z-10 transition
-                                 ${isTechnologiesActive
+      ${isTechnologiesActive
                                         ? "bg-sky-100 text-sky-700 font-medium"
                                         : "text-slate-700 hover:bg-slate-100"
                                     }
-                                   `}
-
+    `}
                             >
                                 Technologies
                                 <Image
                                     src="/images/icons/chev-down-black.svg"
                                     className={`w-4 h-4 transition-transform ${mobileMenu === "technologies" ? "rotate-180" : ""
                                         }`}
-                                    alt="black"
+                                    alt="black icon"
                                     width={20}
                                     height={20}
                                 />
                             </button>
+
+                            {/* LEFT VERTICAL LINE (same as Services) */}
                             {mobileMenu === "technologies" && (
-                                <div className="ml-4 space-y-2 text-slate-600">
-                                    <Link href="/insights/blogs" onClick={() => setOpen(false)}>Blogs</Link>
-                                    <Link href="/insights/case-studies" onClick={() => setOpen(false)}>Case Studies</Link>
-                                    <Link href="/insights/news" onClick={() => setOpen(false)}>News</Link>
+                                <span
+                                    className="
+        absolute
+        left-10
+        top-[20px]
+        bottom-0
+        w-[2px]
+        bg-sky-200
+        rounded-full
+        z-0
+      "
+                                />
+                            )}
+
+                            {/* TECHNOLOGY GROUPS */}
+                            {mobileMenu === "technologies" && (
+                                <div className="ml-4 mt-3 space-y-4">
+                                    {TECHNOLOGY_GROUPS.map((group) => (
+                                        <div
+                                            key={group.category}
+                                            className="relative rounded-lg bg-sky-50 px-4 py-3"
+                                        >
+                                            {/* GROUP TITLE */}
+                                            <p className="mb-2 text-sm font-semibold text-slate-800">
+                                                {group.category}
+                                            </p>
+
+                                            {/* TECHNOLOGY LINKS */}
+                                            <div className="space-y-1">
+                                                {group.items.map((tech) => (
+                                                    <Link
+                                                        key={tech.slug}
+                                                        href={`/technologies/${tech.slug}`}
+                                                        onClick={() => setOpen(false)}
+                                                        className={`
+                  group flex items-center justify-between
+                  rounded-md px-2 py-1.5 text-sm transition
+                  ${pathname === `/technologies/${tech.slug}`
+                                                                ? "bg-white text-sky-700 font-medium"
+                                                                : "text-slate-700 hover:bg-white/70"
+                                                            }
+                `}
+                                                    >
+                                                        <div className="flex items-center gap-2">
+                                                            <Image
+                                                                src={tech.icon}
+                                                                alt={tech.name}
+                                                                width={16}
+                                                                height={16}
+                                                                className="opacity-80"
+                                                            />
+                                                            <span>{tech.name}</span>
+                                                        </div>
+
+                                                        {/* RIGHT ARROW */}
+                                                        <Image
+                                                            src="/images/icons/chev-right.svg"
+                                                            alt="arrow"
+                                                            width={20}
+                                                            height={20}
+                                                            className="h-5 w-5"
+                                                        />
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
                             )}
                         </div>
+
                     </nav>
                     {/* MOBILE BOTTOM ACTIONS */}
                     <div className="border-t border-slate-200 bg-white px-4 py-4">

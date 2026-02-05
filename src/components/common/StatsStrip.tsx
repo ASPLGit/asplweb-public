@@ -1,5 +1,7 @@
 "use client";
 
+import CountUp from "../ui/CountUp";
+
 interface StatItem {
     value: string;
     label: string;
@@ -50,7 +52,7 @@ export default function StatsStrip({ items }: StatsStripProps) {
                             `}
                         >
                             <span className="heading-lg !text-white">
-                                {item.value}
+                                <CountUp value={item.value} />
                             </span>
 
                             <span className="mt-2 text-sm text-white/85">

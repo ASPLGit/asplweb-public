@@ -14,7 +14,7 @@ export interface FeatureSection {
 }
 export interface TechnologyItem {
     logo: string;
-    name :string;
+    name: string;
 }
 
 export interface FAQSectionData {
@@ -60,8 +60,61 @@ export interface Service {
 }
 
 
-export interface Technology {
-  slug: string;
-  title: string;
-  description: string;
+
+export interface TechnologyService {
+    slug: string;
+
+    hero: {
+        title: string;
+        description: string;
+        stats: {
+            label: string;
+            value: string;
+        }[];
+    };
+
+    sectionHeading: {
+        sectionLabel: string;
+        heading: string;
+        subheading: string;
+    };
+
+    expertiseImage: {
+        src: string;
+        alt: string;
+    };
+
+    expertise: {
+        chip: string;
+        title: string;
+        description: string;
+    }[];
+
+    faq: {
+        items: {
+            title: string;
+            content: string;
+        }[];
+    };
+
+    caseStudy?: {
+        sectionHeading: {
+            sectionLabel: string;
+            heading: string;
+            subheading: string;
+        };
+        category: string;
+        title: string;
+        description: string;
+        metrics: {
+            value: string;
+            label: string;
+            variant?: "dark";
+        }[];
+        backgroundLayerImage: string;
+        caseImage: {
+            src: string;
+            alt: string;
+        };
+    };
 }

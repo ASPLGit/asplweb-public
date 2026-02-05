@@ -581,6 +581,7 @@ export const services: Service[] = [
                 { logo: "/images/tech/ethereum.svg", name: "Ethereum" },
                 { logo: "/images/tech/solana.svg", name: "Solana" },
                 { logo: "/images/tech/solidity.svg", name: "Solidity" },
+                { logo: "/images/tech/tron.webp", name: "Tron" },
                 { logo: "/images/tech/ipfs.svg", name: "IPFS" },
                 { logo: "/images/tech/nodejs.svg", name: "Node.js" },
                 { logo: "/images/tech/nextjs.svg", name: "Next.js" },

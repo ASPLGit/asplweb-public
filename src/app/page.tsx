@@ -1,9 +1,9 @@
 import FAQSection from "@/components/common/FAQ";
+import FeaturedCaseStudy from "@/components/common/FeaturedCaseStudy";
 import SectionHeading from "@/components/common/SectionHeading";
 import TrustedBy from "@/components/common/TrustedBy";
 import ContactSection from "@/components/sections/contact/ContactSection";
 import OfficeLocations from "@/components/sections/contact/OfficeLocations";
-import CaseStudy from "@/components/sections/home/CaseStudy";
 import HeroSectionHomepage from "@/components/sections/home/HeroSectionHomepage";
 import IndustriesWeServe from "@/components/sections/home/IndustriesWeServe";
 import OurCoreCapabilities from "@/components/sections/home/OurCoreCapabilities";
@@ -25,8 +25,34 @@ export default function Home() {
       <TrustedBy />
       <Testimonials />
       <IndustriesWeServe />
-      <CaseStudy />
-      <FAQSection data={homepageFAQ} href= "#contact" />
+      <FeaturedCaseStudy
+        sectionHeading={{
+          sectionLabel: "Recent Case Studies",
+          heading: "Our Work in Action",
+          subheading:
+            "Real-world projects where design, technology, and performance come together.",
+        }}
+        category="FinTech Platform"
+        title="Scalable KYC & Identity Verification"
+        description="Built a reusable, privacy-first identity verification system that eliminated repeated KYC, reduced onboarding friction, and improved regulatory compliance."
+        metrics={[
+          {
+            value: "65%",
+            label: "Faster onboarding",
+          },
+          {
+            value: "40%",
+            variant: "dark",
+            label: "Cost reduction",
+          },
+        ]}
+        backgroundLayerImage="/images/layer6.webp"
+        caseImage={{
+          src: "/images/caseStudy/case1.jpg",
+          alt: "KYC Case Study",
+        }}
+      />
+      <FAQSection data={homepageFAQ} href="#contact" />
       <ContactSection />
       <OfficeLocations />
     </section>

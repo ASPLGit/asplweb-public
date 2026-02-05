@@ -12,7 +12,7 @@ export default function SectionHeading({
     dark = false,
 }: SectionHeadingProps) {
     return (
-        <div className="container">
+        <div className="container relative z-10">
             <div
                 className="
                     grid grid-cols-1

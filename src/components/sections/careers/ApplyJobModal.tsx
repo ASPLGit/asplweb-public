@@ -248,12 +248,19 @@ export default function ApplyJobModal({
 
                             {/* ACTION */}
                             <div className="pt-4 flex items-center sm:justify-end justify-center gap-3">
-                                <Button type="button" variant="black" onClick={() => {
-                                    onClose()
-                                    resetForm()
-                                }}>
-                                    Cancel
-                                </Button>
+                                <button className="bg-black
+                                text-white
+                                shadow-md
+                                hover:shadow-[inset_0_0_0_9999px_rgba(0,0,0,0.08)]
+                                px-10 py-3
+                                text-sm
+                                inline-flex items-center justify-center
+                                rounded-lg
+                                font-medium
+                                transition-all duration-300 ease-out" onClick={() => {
+                                        onClose()
+                                        resetForm()
+                                    }}>Cancel</button>
                                 <Button type="submit" variant="blue">
                                     {loading ? "Submitting..." : "Submit"}
                                 </Button>

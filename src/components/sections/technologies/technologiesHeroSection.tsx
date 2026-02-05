@@ -1,15 +1,6 @@
 "use client";
 
-import Button from "@/components/ui/Button";
-
-
-interface HeroCard {
-    chip: string;
-    heading: string;
-    description: string;
-    ctaLabel: string;
-    ctaHref: string;
-}
+import CountUp from "@/components/ui/CountUp";
 
 interface TechnologiesHeroSectionProps {
     title: string;
@@ -58,8 +49,8 @@ export default function TechnologiesHeroSection({
                     after:pointer-events-none
                 "
             >
-                <div className="container relative z-10">
-                    <div className="grid md:grid-cols-2 grid-cols-1 gap-10">
+                <div className="container relative z-10 mt-24 sm:mt-0">
+                    <div className="grid md:grid-cols-2 grid-cols-1 sm:gap-10">
                         {/* LEFT */}
                         <div className="flex flex-col 2xl:gap-8 sm:gap-6 gap-4 max-w-5xl mx-auto justify-center sm:text-start text-center">
                             <h2 className="heading-xl">
@@ -72,7 +63,7 @@ export default function TechnologiesHeroSection({
                         </div>
 
                         {/* RIGHT — GLASS CARD */}
-                        <div className="relative hidden sm:flex items-center justify-center">
+                        <div className="relative flex items-center justify-center">
                             {/* Glow */}
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <div className="w-[520px] h-[520px] rounded-full bg-cyan-400/10 blur-[140px]" />
@@ -80,33 +71,41 @@ export default function TechnologiesHeroSection({
                             <div className="relative w-[420px] h-[420px] rounded-full border border-white/10 flex items-center justify-center">
                                 <div className="w-[320px] h-[320px] rounded-full border border-white/15 flex items-center justify-center">
                                     {/* Card */}
-                                    <div className="w-[340px] rounded-2xl bg-white/5 backdrop-blur-sm border border-white/20 px-6 py-7 text-center shadow-[0_40px_90px_-40px_rgba(0,0,0,0.6)] transition-all duration-300 hover:bg-white/15">
-                                        <span className="inline-block mb-4 text-[11px] tracking-wide uppercase px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white/80">
+                                    <div
+                                        className="
+        w-[360px]
+        rounded-2xl
+        bg-white
+        border border-slate-200
+        px-7 py-8
+        text-left
+        shadow-[0_40px_80px_-30px_rgba(0,0,0,0.25)]
+        transition-all duration-300
+        hover:-translate-y-1
+    "
+                                    >
+                                        {/* Section label */}
+                                        <span className="inline-block mb-6 section-label">
                                             Delivery at Scale
                                         </span>
 
-                                        <div className="grid grid-cols-2 gap-5">
+                                        {/* Stats */}
+                                        <div className="grid grid-cols-2 gap-x-8 gap-y-6">
                                             {stats.map((stat, index) => (
-                                                <div
-                                                    key={index}
-                                                    className="rounded-xl bg-white/10 border border-white/15 px-4 py-3"
-                                                >
-                                                    <p className="text-2xl font-semibold text-white leading-none">
-                                                        {stat.value}
+                                                <div key={index}>
+                                                    <p className="text-3xl font-semibold text-slate-900 leading-none">
+                                                        <CountUp value={stat.value} />
                                                     </p>
-                                                    <p className="mt-1 text-[11px] uppercase tracking-wide text-slate-300">
+                                                    <p className="mt-2 text-xs text-slate-600 leading-snug">
                                                         {stat.label}
                                                     </p>
                                                 </div>
                                             ))}
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
 
@@ -115,11 +114,11 @@ export default function TechnologiesHeroSection({
                     onClick={handleScroll}
                     className="
                         absolute bottom-8
-                        flex flex-col items-center gap-2
+                        sm:flex flex-col items-center gap-2
                         text-white/80
                         text-sm font-normal
                         hover:text-white
-                        transition z-50
+                        transition z-50 hidden 
                     "
                     aria-label="Scroll to content"
                 >
