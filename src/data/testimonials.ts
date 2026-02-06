@@ -18,13 +18,13 @@ export const TESTIMONIALS = [
         text: "Great communication throughout the project, and the final design functionality were exactly what I wanted. Don't settle for second-best when you can connect this team for best output. I am still working with this excellent team.",
         name: "Coray",
         role: "CEO, IPS",
-        avatar: "/images/clients/Avatar.png",
+        avatar: "/images/clients/Avatar.svg",
     },
     {
         rating: 5,
         text: "They always deliver the best in market solutions! Thank you very much Aplomb Soft to provide me such fantastic and knowledgeable team based on our business needs. Keep it up.",
         name: "Humberto",
         role: "Doctor",
-        avatar: "/images/clients/Avatar.png",
+        avatar: "/images/clients/Avatar.svg",
     },
 ];

@@ -45,13 +45,12 @@ export default function TrustedBy() {
                                 delay: 0,
                                 disableOnInteraction: false,
                             }}
-                            className="trusted-slider !py-4"
+                            className="trusted-slider !py-8"
                         >
                             {LOGOS.map((logo, index) => (
                                 <SwiperSlide
                                     key={index}
-                                    className="!w-auto flex items-center"
-                                >
+                                    className="!w-auto flex items-center">
                                     <div
                                         className="
         group
@@ -74,9 +73,7 @@ export default function TrustedBy() {
                                             className="
           h-7 sm:w-[200px] w-[120px]
           object-contain
-          opacity-70
           transition
-          group-hover:opacity-100
         "
                                         />
                                     </div>

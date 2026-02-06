@@ -52,7 +52,7 @@ export default function Footer() {
     after:bg-cover
     after:bg-center
     after:bg-no-repeat
-    sm:after:blur-[7px]
+    sm:after:blur-[1px]
     after:opacity-50
     after:pointer-events-none
   "
@@ -275,7 +275,7 @@ export default function Footer() {
                     onClick={scrollToTop}
                     aria-label="Back to top"
                     className="
-      fixed bottom-6 right-6 z-50
+      fixed bottom-6 right-6 z-40
       w-11 h-11
       rounded-full
       bg-white/90 backdrop-blur
@@ -288,7 +288,7 @@ export default function Footer() {
     "
                 >
                     <svg
-                        className="absolute inset-0 -rotate-90"
+                        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-90"
                         width="44"
                         height="44"
                         viewBox="0 0 44 44"

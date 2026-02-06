@@ -15,7 +15,7 @@ export default function Testimonials() {
   sm:pt-24 pt-10
 ">
             <div className="container">
-                <div className="grid lg:grid-cols-12 grid-cols-1 sm:gap-14 gap-10 relative">
+                <div className="grid lg:grid-cols-12 grid-cols-1 sm:gap-14 gap-4 relative">
 
                     {/* LEFT – FIXED CONTENT */}
                     <div className="lg:col-span-5">
@@ -33,24 +33,50 @@ export default function Testimonials() {
                         {/* Navigation Buttons */}
                         <div className="mt-10 flex gap-4">
                             <button
-                                className="testimonial-prev flex h-12 w-12 items-center justify-center rounded-xl bg-white text-blue-600 shadow hover:scale-105 transition"
+                                className="
+                                                            testimonial-prev
+                                                            group
+                                                            flex h-12 w-12 items-center justify-center
+                                                            rounded-xl
+                                                            border border-slate-200
+                                                            bg-white
+                                                            text-slate-700
+                                                            shadow-sm
+                                                            transition-all
+                                                            hover:border-sky-500
+                                                            hover:bg-sky-50
+                                                            active:scale-95
+                                                            disabled:cursor-not-allowed
+                                                        "
                             >
                                 <Image
                                     src="/images/icons/left-arrow.svg"
-                                    alt="left-arrow"
-                                    width={20}
-                                    height={20}
+                                    alt="Previous"
+                                    width={18}
+                                    height={18}
                                 />
                             </button>
 
                             <button
-                                className="testimonial-next flex h-12 w-12 items-center justify-center rounded-xl bg-gradient text-white shadow hover:scale-105 transition"
+                                className="
+                                testimonial-next
+                                group
+                                flex h-12 w-12 items-center justify-center
+                                rounded-xl
+                                bg-[linear-gradient(131.31deg,#007BFF_50.33%,#00D4FF_100.33%)]
+                                text-white
+                                shadow-md
+                                transition-all
+                                hover:shadow-lg
+                                active:scale-95
+                                disabled:cursor-not-allowed
+                            "
                             >
                                 <Image
                                     src="/images/icons/right-arrow.svg"
-                                    alt="left-arrow"
-                                    width={20}
-                                    height={20}
+                                    alt="Next"
+                                    width={18}
+                                    height={18}
                                 />
                             </button>
                         </div>
@@ -64,11 +90,13 @@ export default function Testimonials() {
                                 prevEl: ".testimonial-prev",
                                 nextEl: ".testimonial-next",
                             }}
+                            loop
                             spaceBetween={32}
                             slidesPerView={2}
                             breakpoints={{
                                 0: { slidesPerView: 1 },
-                                1024: { slidesPerView: 2 },
+                                1024: { slidesPerView: 1.5 },
+                                1440: { slidesPerView: 2 }
                             }}
                             className="!p-6"
                         >

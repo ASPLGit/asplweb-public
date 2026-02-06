@@ -144,7 +144,7 @@ export default function ApplyJobModal({
             />
 
             {/* MODAL */}
-            <div className="relative z-10 w-full max-w-4xl overflow-hidden rounded-2xl bg-white shadow-2xl">
+            <div className="relative z-10 w-full max-w-4xl overflow-hidden sm:rounded-2xl rounded-xl bg-white shadow-2xl">
                 <div className="grid grid-cols-1 md:grid-cols-[1.1fr_2fr]">
 
                     {/* LEFT PANEL */}

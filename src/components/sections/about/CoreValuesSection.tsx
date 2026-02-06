@@ -75,7 +75,7 @@ export default function CoreValuesSection() {
               key={index}
               className="
                 group
-                rounded-xl
+                sm:rounded-2xl rounded-xl
                 bg-white
                 sm:p-6 p-4
                 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.12)]

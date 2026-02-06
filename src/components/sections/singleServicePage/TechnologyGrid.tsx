@@ -9,7 +9,7 @@ export default function TechnologyGrid({ data }: TechnologyGridProps) {
     return (
         <section>
             <div className="container">
-                <div className="rounded-3xl border border-slate-200 bg-white p-4 sm:p-10 md:p-14">
+                <div className="sm:rounded-3xl rounded-xl border border-slate-200 bg-white p-4 sm:p-10 md:p-14">
                     <div
                         className="
                             grid
@@ -30,7 +30,7 @@ export default function TechnologyGrid({ data }: TechnologyGridProps) {
                                     flex-col
                                     items-center
                                     justify-center
-                                    rounded-2xl
+                                    sm:rounded-2xl rounded-xl
                                     border border-slate-200
                                     bg-slate-50
                                     px-5 py-6

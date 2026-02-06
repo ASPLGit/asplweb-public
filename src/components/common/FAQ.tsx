@@ -143,7 +143,7 @@ export default function FAQSection({ data, href }: FAQSectionProps) {
                                 hidden sm:block
                                 bg-[#F4F6FF]
                                 border border-blue-100
-                                rounded-2xl
+                                sm:rounded-2xl rounded-xl
                                 p-6
                                 max-w-sm
                             "

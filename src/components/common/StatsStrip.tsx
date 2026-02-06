@@ -14,15 +14,21 @@ interface StatsStripProps {
 export default function StatsStrip({ items }: StatsStripProps) {
     return (
         <section className="container">
-            <div className="bg-[url('/images/bg.webp')] relative w-full rounded-3xl overflow-hidden
+            <div className="bg-[url('/images/bg.webp')] relative w-full sm:rounded-3xl rounded-xl overflow-hidden
             bg-cover bg-center bg-no-repeat">
                 <div
                     className="
-            absolute inset-0
+            absolute inset-0 sm:rounded-3xl rounded-xl
             bg-[url('/images/layer2.webp')]
             bg-cover bg-right-bottom bg-no-repeat
             sm:blur-[0px]
             opacity-50
+        "
+                />
+                <div
+                    className="
+            absolute inset-0
+            bg-black/20
         "
                 />
                 <div
@@ -36,7 +42,7 @@ export default function StatsStrip({ items }: StatsStripProps) {
                             key={index}
                             className={`
                                 flex flex-col items-center justify-center
-                                rounded-2xl
+                                sm:rounded-2xl rounded-xl
                                 px-6 py-8
                                 text-center
                                 transition-all duration-300

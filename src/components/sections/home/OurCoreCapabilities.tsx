@@ -1,9 +1,8 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
-
 import { CAPABILITIES } from "@/data/coreCapabilities";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,15 +12,125 @@ export default function OurCoreCapabilities() {
     return (
         <section className="bg-[linear-gradient(180deg,#f0f9ff_0%,#ffffff_60%)] py-10 sm:py-14">
             <div className="space-y-0 sm:space-y-10">
-                <h3 className="heading-lg text-center sm:hidden block">
-                    Our Core Capabilities
-                </h3>
-                <div className="flex items-center gap-10">
-                    <h3 className="heading-lg pl-[5%] hidden sm:block">
+                <div className="container lg:hidden block">
+                    <h3 className="heading-lg">
                         Our Core Capabilities
                     </h3>
+                    {/* Navigation Buttons */}
+                    <div className="mt-5 flex items-center gap-4">
+                        {/* PREV */}
+                        <button
+                            aria-label="Previous slide"
+                            className="
+                                capability-prev
+                                group
+                                flex h-12 w-12 items-center justify-center
+                                rounded-xl
+                                border border-slate-200
+                                bg-white
+                                text-slate-700
+                                shadow-sm
+                                transition-all
+                                hover:border-sky-500
+                                hover:bg-sky-50
+                                active:scale-95
+                                disabled:cursor-not-allowed
+                            "
+                        >
+                            <Image
+                                src="/images/icons/left-arrow.svg"
+                                alt="Previous"
+                                width={18}
+                                height={18}
+                            />
+                        </button>
+
+                        {/* NEXT */}
+                        <button
+                            aria-label="Next slide"
+                            className="
+                                capability-next
+                                group
+                                flex h-12 w-12 items-center justify-center
+                                rounded-xl
+                                bg-[linear-gradient(131.31deg,#007BFF_50.33%,#00D4FF_100.33%)]
+                                text-white
+                                shadow-md
+                                transition-all
+                                hover:shadow-lg
+                                active:scale-95
+                                disabled:cursor-not-allowed
+                            "
+                        >
+                            <Image
+                                src="/images/icons/right-arrow.svg"
+                                alt="Next"
+                                width={18}
+                                height={18}
+                            />
+                        </button>
+                    </div>
+                </div>
+                <div className="flex items-center gap-10">
+                    <div className="lg:flex flex-col pl-[5%] hidden">
+                        <h3 className="heading-lg">
+                            Our Core Capabilities
+                        </h3>
+                        {/* Navigation Buttons */}
+                        <div className="mt-10 flex items-center gap-4">
+                            {/* PREV */}
+                            <button
+                                className="
+                                capability-prev
+                                group
+                                flex h-12 w-12 items-center justify-center
+                                rounded-xl
+                                border border-slate-200
+                                bg-white
+                                text-slate-700
+                                shadow-sm
+                                transition-all
+                                hover:border-sky-500
+                                hover:bg-sky-50
+                                active:scale-95
+                                disabled:cursor-not-allowed
+                            "
+                            >
+                                <Image
+                                    src="/images/icons/left-arrow.svg"
+                                    alt="Previous"
+                                    width={18}
+                                    height={18}
+                                />
+                            </button>
+
+                            {/* NEXT */}
+                            <button
+                                className="
+                                capability-next
+                                group
+                                flex h-12 w-12 items-center justify-center
+                                rounded-xl
+                                bg-[linear-gradient(131.31deg,#007BFF_50.33%,#00D4FF_100.33%)]
+                                text-white
+                                shadow-md
+                                transition-all
+                                hover:shadow-lg
+                                active:scale-95
+                                disabled:cursor-not-allowed
+                            "
+                            >
+                                <Image
+                                    src="/images/icons/right-arrow.svg"
+                                    alt="Next"
+                                    width={18}
+                                    height={18}
+                                />
+                            </button>
+                        </div>
+                    </div>
                     <Swiper
-                        modules={[Autoplay]}
+                        modules={[Autoplay, Navigation]}
                         spaceBetween={24}
                         speed={800}
                         autoplay={{
@@ -30,11 +139,15 @@ export default function OurCoreCapabilities() {
                             pauseOnMouseEnter: true,
                         }}
                         loop
+                        navigation={{
+                            prevEl: ".capability-prev",
+                            nextEl: ".capability-next",
+                        }}
                         slidesPerView={1.1}
                         breakpoints={{
                             640: { slidesPerView: 1.3, centeredSlides: true },
                             768: { slidesPerView: 2, centeredSlides: true },
-                            1024: { slidesPerView: 2.5, centeredSlides: false },
+                            1200: { slidesPerView: 2.5, centeredSlides: false },
                         }}
                         className="sm:!p-14 !p-10"
                     >
@@ -73,7 +186,7 @@ function CapabilitySlide({ title, desc, img, href }: CapabilityCardProps) {
                 overflow-hidden
                 rounded-3xl
                 bg-black
-                shadow-[0_30px_60px_-30px_rgba(0,0,0,0.4)]
+                shadow-[0_30px_60px_-30px_rgba(0,0,0,0.2)]
                 transition-transform duration-300
                 sm:hover:-translate-y-2
             "

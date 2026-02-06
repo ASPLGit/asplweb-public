@@ -16,7 +16,7 @@ export default function FeatureGrid({ data }: FeatureGridProps) {
                                 className="
                                     group
                                     relative
-                                    rounded-2xl
+                                    sm:rounded-2xl rounded-xl
                                     border border-slate-200
                                     bg-white
                                     p-6 sm:p-8
@@ -30,7 +30,7 @@ export default function FeatureGrid({ data }: FeatureGridProps) {
                                     className="
                                         absolute left-0 top-6
                                         h-8 w-[3px]
-                                        rounded-full
+                                        sm:rounded-2xl rounded-xl
                                         bg-gradient-to-b
                                         from-sky-500
                                         to-cyan-400

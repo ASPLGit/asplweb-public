@@ -1,7 +1,5 @@
 'use client';
 
-import Button from "@/components/ui/Button";
-
 export default function AboutHeroSection() {
     const handleScroll = () => {
         const el = document.getElementById("about");
@@ -17,13 +15,13 @@ export default function AboutHeroSection() {
     relative
     bg-[url('/images/bg.webp')]
     bg-cover bg-center bg-no-repeat
-    h-screen 2xl:py-[250px] 2xl:h-auto
+    sm:h-screen h-[90vh] 2xl:py-[250px] 2xl:h-auto
     w-full
     flex items-center justify-center
     after:content-['']
     after:absolute
     after:inset-0
-    after:bg-[url('/images/layer3.webp')]
+    after:bg-[url('/images/layer1.webp')]
     after:bg-cover
     after:bg-bottom
     after:bg-no-repeat

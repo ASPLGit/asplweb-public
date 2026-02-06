@@ -15,7 +15,7 @@ export default function CareersHeroSection() {
     relative
     bg-[url('/images/bg.webp')]
     bg-cover bg-center bg-no-repeat
-    h-screen 2xl:py-[250px] 2xl:h-auto
+    sm:h-screen h-[90vh] 2xl:py-[250px] 2xl:h-auto
     w-full
     flex flex-col items-center justify-center
     after:content-['']
@@ -64,7 +64,7 @@ export default function CareersHeroSection() {
                     "
                     aria-label="Scroll to contact form"
                 >
-                    <span>Explore Leadership</span>
+                    <span>Explore Openings</span>
 
                     {/* Mouse Icon */}
                     <span

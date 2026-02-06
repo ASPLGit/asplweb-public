@@ -22,7 +22,7 @@ export default function OpenPositions() {
                             className="
         group relative
         flex flex-col justify-between
-        rounded-2xl
+        sm:rounded-2xl rounded-xl
         border border-slate-200
         bg-white
         p-6

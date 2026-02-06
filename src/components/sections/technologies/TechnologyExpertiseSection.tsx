@@ -60,7 +60,7 @@ export default function TechnologyExpertiseSection({
                                     className="
                                         group
                                         relative
-                                        rounded-2xl
+                                        sm:rounded-2xl rounded-xl
                                         bg-white/80 backdrop-blur-xl
                                         border border-slate-200
                                         px-6 pt-12 pb-8

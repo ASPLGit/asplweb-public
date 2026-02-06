@@ -19,7 +19,7 @@ export default function FounderCard({ data }: Props) {
                     className="
                         group
                         relative
-                        rounded-2xl
+                        sm:rounded-2xl rounded-xl
                         border border-slate-200
                         bg-white
                         overflow-hidden

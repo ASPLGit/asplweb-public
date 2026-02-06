@@ -50,7 +50,7 @@ export default function FeaturedCaseStudy({
                 <div
                     className="
                         group sm:mt-16 mt-10 grid gap-10 lg:grid-cols-2 grid-cols-1
-                        rounded-3xl
+                        sm:rounded-3xl rounded-xl
                         relative
                         bg-cover bg-center bg-no-repeat
                         p-6 lg:p-12
@@ -61,12 +61,18 @@ export default function FeaturedCaseStudy({
                 >
                     {/* Background layer */}
                     <div
-                        className="absolute inset-0 rounded-3xl opacity-50 sm:blur-[5px]"
+                        className="absolute inset-0 sm:rounded-3xl rounded-xl opacity-50 sm:blur-[5px]"
                         style={{
                             backgroundImage: `url(${backgroundLayerImage})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                         }}
+                    />
+                    <div
+                        className="
+            absolute inset-0 sm:rounded-3xl rounded-xl
+            bg-black/50
+        "
                     />
 
                     {/* Left Content */}
