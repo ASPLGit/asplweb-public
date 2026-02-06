@@ -1,7 +1,43 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Footer() {
+    const [showTopBtn, setShowTopBtn] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setShowTopBtn(window.scrollY > 200);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    const [scrollProgress, setScrollProgress] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = window.scrollY;
+            const docHeight =
+                document.documentElement.scrollHeight -
+                document.documentElement.clientHeight;
+
+            const progress = (scrollTop / docHeight) * 100;
+            setScrollProgress(progress);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+
     return (
         <footer
             className="
@@ -177,7 +213,7 @@ export default function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href="/services/cybersecurity"
+                                        href="/services/qa-testing"
                                         className="hover:text-blue-400 transition"
                                     >
                                         Quality Assurance
@@ -234,6 +270,66 @@ export default function Footer() {
                     ©2026 AplombSoft Pvt Ltd. All rights reserved.
                 </div>
             </div>
+            {showTopBtn && (
+                <button
+                    onClick={scrollToTop}
+                    aria-label="Back to top"
+                    className="
+      fixed bottom-6 right-6 z-50
+      w-11 h-11
+      rounded-full
+      bg-white/90 backdrop-blur
+      border border-slate-200
+      shadow-lg
+      flex items-center justify-center
+      text-slate-800
+      hover:scale-105
+      transition
+    "
+                >
+                    <svg
+                        className="absolute inset-0 -rotate-90"
+                        width="44"
+                        height="44"
+                        viewBox="0 0 44 44"
+                    >
+                        <circle
+                            cx="22"
+                            cy="22"
+                            r="20"
+                            stroke="rgba(0,0,0,0.1)"
+                            strokeWidth="2"
+                            fill="none"
+                        />
+                        <circle
+                            cx="22"
+                            cy="22"
+                            r="20"
+                            stroke="#007BFF"
+                            strokeWidth="2"
+                            fill="none"
+                            strokeDasharray={2 * Math.PI * 20}
+                            strokeDashoffset={
+                                2 * Math.PI * 20 -
+                                (scrollProgress / 100) * 2 * Math.PI * 20
+                            }
+                            strokeLinecap="round"
+                            style={{ transition: "stroke-dashoffset 0.15s linear" }}
+                        />
+                    </svg>
+
+                    {/* Icon */}
+                    <Image
+                        src="/images/icons/up.svg"
+                        alt="arrow icon"
+                        width={16}
+                        height={16}
+                        className="relative z-10"
+                    />
+                </button>
+            )}
+
+
         </footer>
     );
 }

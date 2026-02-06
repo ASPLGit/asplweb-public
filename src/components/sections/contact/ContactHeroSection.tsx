@@ -25,12 +25,18 @@ export default function ContactHeroSection() {
     after:bg-cover
     after:bg-center
     after:bg-no-repeat
-    sm:after:blur-[10px]
+    sm:after:blur-[1px]
     after:opacity-50
     after:pointer-events-none
   "
             >
 
+                <div
+                    className="
+            absolute inset-0
+            bg-black/50
+        "
+                />
                 {/* Dark Overlay */}
                 <div className="absolute inset-0 bg-black/10" />
 

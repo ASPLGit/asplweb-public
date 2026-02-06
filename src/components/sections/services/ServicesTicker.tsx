@@ -6,10 +6,12 @@ import "swiper/css";
 
 const SERVICES = [
   "Enterprise Software Development",
+  "Salesforce Solutions",
   "Web Design & Development",
   "Mobile App Development",
   "Cloud & Azure Solutions",
   "DevOps & Automation",
+  "QA & Software Testing",
   "Cybersecurity",
   "Blockchain & Web3",
   "AI & Machine Learning",
@@ -49,7 +51,6 @@ export default function ServicesTicker() {
                 font-medium
                 text-slate-700
                 shadow-sm
-                hover:shadow-md
                 transition
               "
             >

@@ -7,13 +7,13 @@ const SERVICES = [
     { title: "Software Development", slug: "software-development" },
     { title: "Website Development", slug: "web-development" },
     { title: "Mobile App Development", slug: "mobile-development" },
+    { title: "QA & Software Testing", slug: "qa-testing" },
     { title: "Enterprise Salesforce", slug: "salesforce" },
     { title: "Cloud Solutions", slug: "cloud-solutions" },
     { title: "DevOps Solutions", slug: "devops" },
     { title: "Cybersecurity", slug: "cybersecurity" },
-    { title: "Blockchain & Web3", slug: "blockchain" },
     { title: "AI & ML", slug: "ai-ml" },
-    { title: "QA & Software Testing", slug: "qa-testing" },
+    { title: "Blockchain & Web3", slug: "blockchain" },
 ];
 
 export default function OtherServicesNav() {

@@ -45,23 +45,44 @@ export default function TrustedBy() {
                                 delay: 0,
                                 disableOnInteraction: false,
                             }}
-                            className="trusted-slider"
+                            className="trusted-slider !py-4"
                         >
                             {LOGOS.map((logo, index) => (
                                 <SwiperSlide
                                     key={index}
                                     className="!w-auto flex items-center"
                                 >
-                                    <Image
-                                        src={logo}
-                                        alt="Logo"
-                                        width={200}
-                                        height={28}
-                                        className="h-7 sm:w-[200px] w-[120px] object-contain opacity-80 hover:opacity-100 transition"
-                                    />
-
+                                    <div
+                                        className="
+        group
+        flex items-center justify-center
+        rounded-xl
+        border border-slate-200/70
+        bg-white/70 backdrop-blur-sm
+        px-6 py-4
+        shadow-[0_10px_25px_-15px_rgba(0,0,0,0.15)]
+        transition-all duration-300
+        hover:-translate-y-0.5
+        hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.25)]
+      "
+                                    >
+                                        <Image
+                                            src={logo}
+                                            alt="Brand logo"
+                                            width={200}
+                                            height={28}
+                                            className="
+          h-7 sm:w-[200px] w-[120px]
+          object-contain
+          opacity-70
+          transition
+          group-hover:opacity-100
+        "
+                                        />
+                                    </div>
                                 </SwiperSlide>
                             ))}
+
                         </Swiper>
 
                     </div>

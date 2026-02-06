@@ -5,8 +5,8 @@ import StatsStrip from "@/components/common/StatsStrip";
 import TechnologyGrid from "@/components/sections/singleServicePage/TechnologyGrid";
 import FAQSection from "@/components/common/FAQ";
 import OtherServicesNav from "@/components/sections/singleServicePage/OtherServicesNav";
-import HeroSection from "@/components/common/HeroSection";
 import { services } from "@/data/singleServicePage";
+import SingleServiceHeroSection from "@/components/sections/singleServicePage/SingleServiceHeroSection";
 
 interface ServicePageProps {
     params: Promise<{
@@ -107,7 +107,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         <div className="space-y-[40px] sm:space-y-[80px] 2xl:space-y-[120px] sm:pb-20 pb-10">
             {/* HERO */}
             <div>
-                <HeroSection
+                <SingleServiceHeroSection
                     title={service.title}
                     description={service.description}
                     primaryCta={service.cta?.primary}
@@ -134,7 +134,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 subheading='A modern, reliable technology stack chosen to build secure, scalable, and high-performance software solutions.'
             />
             <TechnologyGrid data={service.TechnologySection} />
-                <FAQSection data={service.faq} href="/contact" />
+            <FAQSection data={service.faq} href="/contact" />
             <OtherServicesNav />
         </div>
     );

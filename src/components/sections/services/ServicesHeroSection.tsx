@@ -28,7 +28,7 @@ export default function ServicesHeroSection() {
     after:bg-cover
     after:bg-center
     after:bg-no-repeat
-    sm:after:blur-[7px]
+    sm:after:blur-[1px]
     after:opacity-50
     after:pointer-events-none
   "
@@ -38,11 +38,11 @@ export default function ServicesHeroSection() {
                     <div
                         className="
             absolute inset-0
-            bg-black/10
+            bg-black/50
         "
                     />
                     <div className="container relative z-10">
-                        <div className="flex items-center justify-center flex-col  2xl:gap-8 sm:gap-6 gap-4 max-w-5xl mx-auto text-center">
+                        <div className="flex items-center justify-center flex-col  2xl:gap-8 sm:gap-6 gap-4 mx-auto text-center">
 
                             <h2 className="heading-xl">
                                 <span className="font-lora italic">What We Do Best</span>
@@ -76,7 +76,7 @@ export default function ServicesHeroSection() {
                     "
                         aria-label="Scroll to contact form"
                     >
-                        <span>Services</span>
+                        <span>Explore Services</span>
 
                         {/* Mouse Icon */}
                         <span

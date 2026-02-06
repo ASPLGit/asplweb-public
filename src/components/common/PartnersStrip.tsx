@@ -3,10 +3,10 @@
 import Image from "next/image";
 
 const PARTNERS = [
-  { name: "AWS", logo: "/images/partners/aws.svg" },
   { name: "Microsoft", logo: "/images/partners/microsoft.svg" },
-  { name: "WEB3", logo: "/images/partners/web3.svg" },
+  { name: "AWS", logo: "/images/partners/aws.svg" },
   { name: "Google Cloud", logo: "/images/partners/cloud.svg" },
+  { name: "WEB3", logo: "/images/partners/web3.svg" },
   { name: "Azure", logo: "/images/partners/azure.svg" },
 ];
 

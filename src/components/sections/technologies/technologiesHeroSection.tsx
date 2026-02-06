@@ -49,6 +49,12 @@ export default function TechnologiesHeroSection({
                     after:pointer-events-none
                 "
             >
+                <div
+                    className="
+            absolute inset-0
+            bg-black/50
+        "
+                />
                 <div className="container relative z-10 mt-24 sm:mt-0">
                     <div className="grid md:grid-cols-2 grid-cols-1 sm:gap-10">
                         {/* LEFT */}
@@ -57,7 +63,7 @@ export default function TechnologiesHeroSection({
                                 <span className="italic font-lora">{title}</span>
                             </h2>
 
-                            <p className="subheading max-w-xl">
+                            <p className="subheading max-w-md">
                                 {description}
                             </p>
                         </div>
@@ -122,7 +128,7 @@ export default function TechnologiesHeroSection({
                     "
                     aria-label="Scroll to content"
                 >
-                    <span>Explore</span>
+                    <span>Explore More</span>
                     <span className="w-6 h-10 rounded-full border border-white/50 flex items-start justify-center p-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-white animate-bounce" />
                     </span>

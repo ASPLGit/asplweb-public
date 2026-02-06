@@ -21,9 +21,8 @@
 @layer components {
 
   .heading-xl {
-    @apply 2xl:text-6xl lg:text-5xl sm:text-4xl text-4xl font-semibold !leading-tight bg-[linear-gradient(90deg,#A8A8A8_0%,#FFFFFF_47%)] bg-clip-text text-transparent;
+    @apply 2xl:text-[80px] lg:text-[60px] sm:text-4xl text-4xl font-medium !leading-tight gradient-text-animate;
   }
-
   .heading-lg {
     @apply text-2xl sm:text-3xl 2xl:text-5xl lg:text-4xl sm:font-normal font-semibold text-slate-900 !leading-normal;
   }
@@ -33,7 +32,7 @@
   }
 
   .subheading {
-    @apply 2xl:text-lg sm:text-base text-sm text-slate-300 font-normal leading-relaxed md:max-w-[70%] max-w-full;
+    @apply 2xl:text-lg sm:text-base text-sm text-slate-300 font-normal leading-relaxed md:max-w-[50%] max-w-full;
   }
 
   .text-body {
@@ -61,6 +60,33 @@
   }
 
 }
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-text-animate {
+  background-image: linear-gradient(90deg,
+      #b3e9fd 0%,
+      #ffffff 45%,
+      #a1e6ff 100%);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient-move 8s ease-in-out infinite;
+}
+
 
 
 html,

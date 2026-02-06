@@ -195,14 +195,14 @@ export const services: Service[] = [
         faq: {
             items: [
                 {
-                    title: "Do you build responsive websites?",
+                    title: "Do you develop iOS and Android apps?",
                     content:
-                        "Yes, all our websites are mobile-first, responsive, and optimized for all screen sizes.",
+                        "Yes, we build native and cross-platform apps for both iOS and Android.",
                 },
                 {
-                    title: "Can you redesign an existing website?",
+                    title: "Do you offer app maintenance?",
                     content:
-                        "We modernize existing websites with improved UI/UX, performance, and SEO best practices.",
+                        "We provide long-term maintenance, updates, and feature enhancements.",
                 },
             ],
         }
@@ -295,14 +295,14 @@ export const services: Service[] = [
         faq: {
             items: [
                 {
-                    title: "Do you develop iOS and Android apps?",
+                    title: "Do you build responsive websites?",
                     content:
-                        "Yes, we build native and cross-platform apps for both iOS and Android.",
+                        "Yes, all our websites are mobile-first, responsive, and optimized for all screen sizes.",
                 },
                 {
-                    title: "Do you offer app maintenance?",
+                    title: "Can you redesign an existing website?",
                     content:
-                        "We provide long-term maintenance, updates, and feature enhancements.",
+                        "We modernize existing websites with improved UI/UX, performance, and SEO best practices.",
                 },
             ],
         }
@@ -989,8 +989,13 @@ export const services: Service[] = [
         TechnologySection: {
             items: [
                 { logo: "/images/tech/selenium.svg", name: "Selenium" },
-                { logo: "/images/tech/cypress.svg", name: "Cypress" },
+                { logo: "/images/tech/playwright.svg", name: "Playwright" },
+                { logo: "/images/tech/python.svg", name: "Python" },
+                { logo: "/images/tech/java.svg", name: "Java" },
+                { logo: "/images/tech/jenkins.svg", name: "Jenkins" },
+                { logo: "/images/tech/maven.svg", name: "Maven" },
                 { logo: "/images/tech/postman.svg", name: "Postman" },
+                { logo: "/images/tech/appium.svg", name: "Appium" },
                 { logo: "/images/tech/github.svg", name: "GitHub" },
             ],
         },

@@ -31,7 +31,6 @@ export const SERVICE_GROUPS = [
       },
     ],
   },
-
   {
     category: "Cloud & DevOps",
     items: [
@@ -60,38 +59,8 @@ export const SERVICE_GROUPS = [
     ],
   },
   {
-    category: "Enterprise Salesforce",
-    items: [
-      {
-        title: "Salesforce Solutions",
-        slug: "salesforce",
-        services: [
-          "Salesforce Development & Customization",
-          "Sales Cloud",
-          "Service Cloud",
-          "Communities (Partner & Customer)",
-          "Platform Optimization",
-          "Conga (CPQ, CLM, Composer)",
-          "CRM Data Migration",
-        ],
-      },
-    ],
-  },
-
-  {
     category: "Emerging Technologies",
     items: [
-      {
-        title: "Blockchain & Web3",
-        slug: "blockchain",
-        services: [
-          "Smart Contracts",
-          "DApps",
-          "NFT Platforms",
-          "Token Development",
-          "Web3 Integration",
-        ],
-      },
       {
         title: "AI & Machine Learning",
         slug: "ai-ml",
@@ -111,6 +80,56 @@ export const SERVICE_GROUPS = [
           "Vulnerability Testing",
           "Risk Management",
           "Compliance",
+        ],
+      },
+    ],
+  },
+  {
+    category: "Quality Assurance & Testing",
+    items: [
+      {
+        title: "QA & Software Testing",
+        slug: "qa-testing",
+        services: [
+          "Manual & Automated Testing",
+          "Functional & Regression Testing",
+          "Performance & Load Testing",
+          "Security & Compliance Testing",
+          "Mobile & API Automation Testing",
+        ],
+      },
+    ],
+  },
+  {
+    category: "Enterprise Salesforce",
+    items: [
+      {
+        title: "Salesforce Solutions",
+        slug: "salesforce",
+        services: [
+          "Salesforce Development & Customization",
+          "Sales Cloud",
+          "Service Cloud",
+          "Communities (Partner & Customer)",
+          "Platform Optimization",
+          "Conga (CPQ, CLM, Composer)",
+          "CRM Data Migration",
+        ],
+      },
+    ],
+  },
+  {
+    category: "Blockchain & Web3",
+    items: [
+      {
+        title: "Blockchain Solutions",
+        slug: "blockchain",
+        services: [
+          "Smart Contracts",
+          "DApps",
+          "NFT Platforms",
+          "Token Development",
+          "Web3 Integration",
         ],
       },
     ],

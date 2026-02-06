@@ -11,6 +11,7 @@ import Testimonials from "@/components/sections/home/Testimonials";
 import WhoWeAre from "@/components/sections/home/WhoWeAre";
 import { homepageFAQ } from "@/data/homePageFAQ";
 
+
 export default function Home() {
   return (
     <section className="space-y-[40px] sm:space-y-[80px] 2xl:space-y-[120px] pb-10 sm:pb-20">

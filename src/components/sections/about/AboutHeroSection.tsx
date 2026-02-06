@@ -2,33 +2,6 @@
 
 import Button from "@/components/ui/Button";
 
-
-
-const ABOUT_CARDS = [
-    {
-        title: "Product & Business Focused",
-        description:
-            "We align technology decisions with real business goals, not just features or trends.",
-    },
-    {
-        title: "Global Team",
-        description:
-            "Distributed teams working across time zones with shared standards and accountability.",
-    },
-    {
-        title: "Salesforce & Enterprise Platforms",
-        description:
-            "Experience building, customizing, and integrating Salesforce and other enterprise systems.",
-    },
-    {
-        title: "Cloud & Modern Tech Stack",
-        description:
-            "Proven expertise across cloud platforms, APIs, and modern frontend frameworks.",
-    },
-];
-
-
-
 export default function AboutHeroSection() {
     const handleScroll = () => {
         const el = document.getElementById("about");
@@ -59,52 +32,32 @@ export default function AboutHeroSection() {
     after:pointer-events-none
   "
             >
+                <div
+                    className="
+            absolute inset-0
+            bg-black/50
+        "
+                />
                 <div className="container relative z-10">
-                    <div className="grid md:grid-cols-2 grid-cols-1 gap-10">
-                        <div className="flex flex-col 2xl:gap-8 sm:gap-6 gap-4 max-w-5xl mx-auto sm:items-start sm:text-start text-center">
-                            <h2 className="heading-xl">
-                                <span className="italic font-lora">Who We Are <br /></span>
-                            </h2>
+                    <div className="flex flex-col 2xl:gap-8 sm:gap-6 gap-4 max-w-5xl mx-auto items-center justify-center text-center">
+                        <h2 className="heading-xl">
+                            We Are a <br />
+                            <span className="italic font-lora ">Full Service</span> <br /> 
+                            Technology Partner
+                        </h2>
 
-                            <p className="subheading max-w-xl">
-                                A global software development partner helping businesses design, build, and scale reliable digital products through cost-effective and innovative technology solutions.
-                            </p>
+                        <p className="subheading max-w-xl">
+                            A global software development partner helping businesses design, build, and scale reliable digital products through cost-effective and innovative technology solutions.
+                        </p>
 
-                            <div className="flex justify-center sm:justify-start gap-4">
-                                <Button variant="blue" to='/Services'>
-                                    Services
-                                </Button>
-                                <Button variant="white" to='/Contact'>
-                                    Contact
-                                </Button>
-                            </div>
-                        </div>
-
-                        <div className="max-w-5xl z-20 sm:block hidden">
-                            <div className="grid grid-cols-2 sm:grid-cols-2 sm:gap-4 gap-2">
-                                {ABOUT_CARDS.map((item, index) => (
-                                    <div
-                                        key={index}
-                                        className="
-                rounded-lg
-                bg-white/5 backdrop-blur
-                border border-white/15
-                sm:px-4 px-2 sm:py-4 py-3
-                text-center
-                transition
-                hover:bg-white/0
-            "
-                                    >
-                                        <p className="sm:text-sm text-xs font-semibold text-white">
-                                            {item.title}
-                                        </p>
-                                        <p className="mt-1 text-xs text-slate-300">
-                                            {item.description}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+                        {/* <div className="flex justify-center sm:justify-start gap-4">
+                            <Button variant="blue" to='/services'>
+                                Services
+                            </Button>
+                            <Button variant="white" to='/careers'>
+                                Careers
+                            </Button>
+                        </div> */}
                     </div>
                 </div>
                 {/* SCROLL INDICATOR */}

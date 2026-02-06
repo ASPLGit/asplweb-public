@@ -343,6 +343,12 @@ export default function Header() {
                                             ],
                                         },
                                         {
+                                            title: "Quality Assurance & Testing",
+                                            links: [
+                                                { label: "QA & Software Testing", href: "/services/qa-testing" },
+                                            ],
+                                        },
+                                        {
                                             title: "Cloud & DevOps",
                                             links: [
                                                 { label: "Microsoft & Cloud Solutions", href: "/services/cloud-solutions" },
@@ -358,14 +364,14 @@ export default function Header() {
                                         {
                                             title: "Emerging Technologies",
                                             links: [
-                                                { label: "Blockchain & Web3", href: "/services/blockchain" },
+                                                { label: "Cybersecurity Solutions", href: "/services/cybersecurity" },
                                                 { label: "AI & Machine Learning", href: "/services/ai-ml" },
                                             ],
                                         },
                                         {
-                                            title: "Security & Compliance",
+                                            title: "Blockchain & Web3",
                                             links: [
-                                                { label: "Cybersecurity Solutions", href: "/services/cybersecurity" },
+                                                { label: "Blockchain & Web3", href: "/services/blockchain" },
                                             ],
                                         },
                                     ].map((group) => (

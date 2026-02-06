@@ -117,7 +117,7 @@ export const SERVICES = [
             "Functional & Regression Testing",
             "Performance & Load Testing",
             "Security & Compliance Testing",
-            "Test Strategy & QA Consulting",
+            "Mobile & API Automation Testing",
         ],
     },
 ];

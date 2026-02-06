@@ -10,7 +10,7 @@ interface ServicesMenuProps {
 export default function ServicesMenu({ onNavigate }: ServicesMenuProps) {
   return (
     <div className="relative">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {SERVICE_GROUPS.map((group) => (
           <div key={group.category}>
             {/* CATEGORY */}
@@ -59,7 +59,7 @@ export default function ServicesMenu({ onNavigate }: ServicesMenuProps) {
       </div>
 
       {/* FOOTER CTA */}
-      <div className="mt-8 flex justify-end">
+      <div className="flex justify-end">
         <Button
           variant="blue"
           to="/services"

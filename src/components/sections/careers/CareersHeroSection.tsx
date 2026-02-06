@@ -30,6 +30,12 @@ export default function CareersHeroSection() {
     after:pointer-events-none
   "
                 >
+                    <div
+                        className="
+            absolute inset-0
+            bg-black/50
+        "
+                    />
                     <div className="container text-center relative z-10">
                         <div className="flex flex-col items-center 2xl:gap-8 sm:gap-6 gap-4 max-w-3xl mx-auto">
 
