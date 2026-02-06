@@ -5,7 +5,7 @@ import SectionHeading from "@/components/common/SectionHeading";
 import FAQSection from "@/components/common/FAQ";
 import FeaturedCaseStudy from "@/components/common/FeaturedCaseStudy";
 import TechnologyExpertiseSection from "@/components/sections/technologies/TechnologyExpertiseSection";
-import TechnologiesHeroSection from "@/components/sections/technologies/TechnologiesHeroSection";
+import TechnologiesHeroSection from "@/components/sections/technologies/TechnologyHeroSection";
 
 interface TechnologyPageProps {
     params: {
