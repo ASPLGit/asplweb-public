@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import "leaflet/dist/leaflet.css";
 import Footer from "@/components/layout/Footer";
+import RecaptchaProvider from "@/components/providers/RecaptchaProvider";
 
 
 
@@ -106,7 +107,9 @@ export default function RootLayout({
         className={`${inter.variable} ${lora.variable} font-inter antialiased bg-white text-slate-900`}
       >
         <Header />
-        <main>{children}</main>
+        <RecaptchaProvider>
+          <main>{children}</main>
+        </RecaptchaProvider>
         <Footer />
       </body>
     </html>

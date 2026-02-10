@@ -34,7 +34,7 @@ export default function TechnologiesHeroSection({
                     relative
                     bg-[url('/images/bg.webp')]
                     bg-cover bg-center bg-no-repeat
-                    sm:h-screen h-[90vh] 2xl:py-[250px] 2xl:h-auto
+                    sm:h-screen h-auto py-[40px] sm:py-0 2xl:py-[250px] 2xl:h-auto
                     w-full
                     flex items-center justify-center
                     after:content-['']

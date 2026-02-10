@@ -3,15 +3,35 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
     try {
-        const { name, email, message } = await req.json();
+        const { name, email, message, captchaToken } = await req.json();
 
-        if (!name || !email || !message) {
+        if (!name || !email || !message || !captchaToken) {
             return NextResponse.json(
                 { error: "All fields are required" },
                 { status: 400 }
             );
         }
 
+        const captchaRes = await fetch(
+            "https://www.google.com/recaptcha/api/siteverify",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${captchaToken}`,
+            }
+        );
+
+        const captchaData = await captchaRes.json();
+
+
+        if (!captchaData.success || captchaData.score < 0.5) {
+            return NextResponse.json(
+                { error: "Bot detected" },
+                { status: 403 }
+            );
+        }
         const transporter = nodemailer.createTransport({
             host: "smtp.gmail.com",
             port: 465,

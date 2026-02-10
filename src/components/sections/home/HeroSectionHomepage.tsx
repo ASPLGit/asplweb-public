@@ -13,7 +13,6 @@ export default function HeroSectionHomepage() {
     sm:h-screen h-[90vh] 2xl:py-[250px] 2xl:h-auto
     w-full
     flex flex-col items-center justify-center
-
     after:content-['']
     after:absolute
     after:inset-0
@@ -36,7 +35,8 @@ export default function HeroSectionHomepage() {
                         <div className="flex flex-col items-center 2xl:gap-8 sm:gap-6 gap-4">
 
                             <h2 className="heading-xl">
-                                <span className="italic font-lora">Purpose Driven IT Solutions</span>
+                                <span className="italic font-lora">
+                                    Purpose Driven IT Solutions</span>
                                 <br />
                                 for Competitive Growth.
                             </h2>

@@ -86,7 +86,7 @@ export default function Header() {
                 className={`
           fixed -top-0.5 left-0 z-40 w-full
           transition-all duration-500 ease-in-out
-          ${showHeader ? "translate-y-0" : "-translate-y-24"}
+          ${showHeader ? "sm:translate-y-0" : "sm:-translate-y-24"}
           ${isScrolled || headerWhite ? "bg-white shadow-md" : "bg-transparent"}
         `}
             >

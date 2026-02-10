@@ -3,8 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 export default function ContactSection() {
+    const { executeRecaptcha } = useGoogleReCaptcha();
+
     const [form, setForm] = useState({
         name: "",
         email: "",
@@ -51,16 +54,23 @@ export default function ContactSection() {
         setSuccess(false);
         setError(false);
 
-        // ⛔ STOP HERE if validation fails
         if (!validate()) return;
+        if (!executeRecaptcha) {
+            setError(true);
+            return;
+        }
 
         setLoading(true);
 
         try {
+            const token = await executeRecaptcha("contact_form");
             const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(form),
+                body: JSON.stringify({
+                    ...form,
+                    captchaToken: token,
+                }),
             });
 
             if (!res.ok) {
@@ -70,8 +80,8 @@ export default function ContactSection() {
             setSuccess(true);
             setForm({ name: "", email: "", message: "" });
 
-        } catch (err) {
-            setError(true); // ✅ ONLY technical/API errors
+        } catch {
+            setError(true);
         } finally {
             setLoading(false);
         }
