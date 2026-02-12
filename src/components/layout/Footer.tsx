@@ -254,10 +254,10 @@ export default function Footer() {
                                 </li>
                                 <li>
                                     <a
-                                        href="mailto:sales@aplomsoft.com"
+                                        href="mailto:biz@aplombsoft.com"
                                         className="hover:text-blue-400 transition"
                                     >
-                                        sales@aplomsoft.com
+                                        biz@aplombsoft.com
                                     </a>
                                 </li>
                             </ul>

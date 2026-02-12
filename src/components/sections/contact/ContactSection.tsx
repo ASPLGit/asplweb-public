@@ -4,19 +4,24 @@ import { useState } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { PhoneField } from "@/components/ui/PhoneField";
 
 export default function ContactSection() {
     const { executeRecaptcha } = useGoogleReCaptcha();
 
-    const [form, setForm] = useState({
+    const initialForm = {
         name: "",
         email: "",
+        phone: "91", // ✅ keep default country code (India)
         message: "",
-    });
+    };
+
+    const [form, setForm] = useState(initialForm);
 
     const [errors, setErrors] = useState<{
         name?: string;
         email?: string;
+        phone?: string;
         message?: string;
     }>({});
 
@@ -33,15 +38,21 @@ export default function ContactSection() {
         setError(false);
     };
 
-
     const validate = () => {
         const newErrors: typeof errors = {};
 
         if (!form.name.trim()) newErrors.name = "Full name is required";
+
         if (!form.email.trim())
             newErrors.email = "Email address is required";
         else if (!/^\S+@\S+\.\S+$/.test(form.email))
             newErrors.email = "Enter a valid email address";
+        const digits = form.phone.replace(/\D/g, "");
+        const localPhone = digits.length > 2 ? digits.slice(2) : "";
+
+        if (localPhone.length > 0 && localPhone.length < 7) {
+            newErrors.phone = "Enter a valid phone number";
+        }
         if (!form.message.trim())
             newErrors.message = "Message is required";
 
@@ -55,6 +66,7 @@ export default function ContactSection() {
         setError(false);
 
         if (!validate()) return;
+
         if (!executeRecaptcha) {
             setError(true);
             return;
@@ -64,6 +76,7 @@ export default function ContactSection() {
 
         try {
             const token = await executeRecaptcha("contact_form");
+
             const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -73,12 +86,10 @@ export default function ContactSection() {
                 }),
             });
 
-            if (!res.ok) {
-                throw new Error("Request failed");
-            }
+            if (!res.ok) throw new Error("Request failed");
 
             setSuccess(true);
-            setForm({ name: "", email: "", message: "" });
+            setForm(initialForm);
 
         } catch {
             setError(true);
@@ -86,8 +97,6 @@ export default function ContactSection() {
             setLoading(false);
         }
     };
-
-
 
     return (
         <section id="contact">
@@ -137,7 +146,7 @@ export default function ContactSection() {
                                             width={18}
                                             height={18}
                                         />
-                                        <span>sales@aplombsoft.com</span>
+                                        <span>biz@aplombsoft.com</span>
                                     </div>
 
                                     <div className="flex items-center gap-3">
@@ -167,70 +176,36 @@ export default function ContactSection() {
 
                                 {/* NAME */}
                                 <div className="space-y-1">
-                                    <label className="text-xs font-medium text-slate-600">
-                                        Full Name *
-                                    </label>
-                                    <Input
-                                        name="name"
-                                        value={form.name}
-                                        onChange={handleChange}
-                                        placeholder="John Doe"
-                                        error={errors.name}
-                                    />
+                                    <label className="text-xs font-medium text-slate-600"> Full Name * </label>
+                                    <Input name="name" value={form.name} onChange={handleChange} placeholder="John Doe" error={errors.name} />
                                 </div>
 
                                 {/* EMAIL */}
-                                <div className="space-y-1">
-                                    <label className="text-xs font-medium text-slate-600">
-                                        Email Address *
-                                    </label>
-                                    <Input
-                                        type="email"
-                                        name="email"
-                                        value={form.email}
-                                        onChange={handleChange}
-                                        placeholder="you@example.com"
-                                        error={errors.email}
+                                <div className=" grid sm:grid-cols-2 grid-cols-1 gap-4">
+                                    <div className="space-y-1">
+                                        <label className="text-xs font-medium text-slate-600"> Email Address * </label>
+                                        <Input type="email" name="email" value={form.email} onChange={handleChange} placeholder="you@example.com" error={errors.email} />
+                                    </div>
+                                    {/* PHONE */}
+                                    <PhoneField
+                                        label="Phone Number (Optional)"
+                                        value={form.phone}
+                                        onChange={(value) =>
+                                            setForm((prev) => ({ ...prev, phone: value }))
+                                        }
+                                        error={errors.phone}
                                     />
                                 </div>
-
                                 {/* MESSAGE */}
                                 <div className="space-y-1">
-                                    <label className="text-xs font-medium text-slate-600">
-                                        Message *
-                                    </label>
-                                    <textarea
-                                        name="message"
-                                        value={form.message}
-                                        onChange={handleChange}
-                                        rows={4}
-                                        placeholder="Tell us about your project or question"
-                                        className={`
-                                            w-full rounded-lg
-                                            border px-3 py-2.5 text-sm
-                                            outline-none resize-none
-                                            ${errors.message
-                                                ? "border-red-400 focus:ring-red-400/30"
-                                                : "border-slate-300 focus:border-blueTheme focus:ring-blueTheme/30"
-                                            }
-                                        `}
-                                    />
-                                    {errors.message && (
-                                        <p className="text-xs text-red-500">
-                                            {errors.message}
-                                        </p>
-                                    )}
+                                    <label className="text-xs font-medium text-slate-600"> Message * </label>
+                                    <textarea name="message" value={form.message} onChange={handleChange} rows={4} placeholder="Tell us about your project or question" className={`w-full rounded-lg border px-3 py-2.5 text-base outline-none resize-none ${errors.message ? "border-red-400 focus:ring-red-400/30" : "!border-slate-300 focus:!border-blueTheme focus:!ring-2 focus:!ring-blueTheme/30"} `} />
+                                    {errors.message && (<p className="text-xs text-red-500"> {errors.message} </p>)}
                                 </div>
 
-                                {/* ACTION */}
-                                <div className="pt-3">
-                                    <Button
-                                        variant="blue"
-                                        type="submit"
-                                    >
-                                        {loading ? "Submitting..." : "Send Message"}
-                                    </Button>
-                                </div>
+                                <Button variant="blue" type="submit">
+                                    {loading ? "Submitting..." : "Send Message"}
+                                </Button>
 
                                 {success && (
                                     <p className="text-sm text-green-600">
@@ -240,13 +215,11 @@ export default function ContactSection() {
 
                                 {error && (
                                     <p className="text-sm text-red-600">
-                                        Message failed. Please try again or reach us at sales@aplombsoft.com
+                                        Message failed. Please try again.
                                     </p>
                                 )}
-
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -254,7 +227,7 @@ export default function ContactSection() {
     );
 }
 
-/* INPUT */
+/* INPUT COMPONENT */
 function Input({
     type = "text",
     name,
@@ -278,15 +251,10 @@ function Input({
                 value={value}
                 onChange={onChange}
                 placeholder={placeholder}
-                className={`
-                    w-full rounded-lg
-                    border px-3 py-2.5 text-sm
-                    outline-none
-                    ${error
-                        ? "border-red-400 focus:ring-red-400/30"
-                        : "border-slate-300 focus:border-blueTheme focus:ring-blueTheme/30"
-                    }
-                `}
+                className={`w-full rounded-lg border px-3 py-2.5 text-base outline-none ${error
+                    ? "border-red-400"
+                    : "border-slate-300 focus:border-blueTheme focus:ring-2 focus:ring-blueTheme/30"
+                    }`}
             />
             {error && (
                 <p className="mt-1 text-xs text-red-500">

@@ -10,7 +10,7 @@ import Button from "@/components/ui/Button";
 
 export default function OurCoreCapabilities() {
     return (
-        <section className="bg-[linear-gradient(180deg,#f0f9ff_0%,#ffffff_60%)] py-10 sm:py-14">
+        <section className="bg-[linear-gradient(180deg,#f0f9ff_0%,#ffffff_60%)] pt-10 sm:pt-10">
             <div className="space-y-0 sm:space-y-10">
                 <div className="container lg:hidden block">
                     <h3 className="heading-lg">
@@ -128,6 +128,24 @@ export default function OurCoreCapabilities() {
                                 />
                             </button>
                         </div>
+                        <div className="mt-6">
+                            <Link
+                                href="/services"
+                                className="
+      inline-flex items-center gap-2
+      text-sm font-medium text-black underline
+      hover:text-blue-500
+      transition
+      group
+    "
+                            >
+                                View all services
+                                <span className="transition-transform group-hover:translate-x-1">
+                                    <Image src="/images/icons/arrow-up-right-black.svg" alt="right icon" width={20} height={20} />
+                                </span>
+                            </Link>
+                        </div>
+
                     </div>
                     <Swiper
                         modules={[Autoplay, Navigation]}
@@ -158,7 +176,7 @@ export default function OurCoreCapabilities() {
                         ))}
                     </Swiper>
                 </div>
-                <div className="flex justify-center">
+                <div className="flex sm:hidden justify-center">
                     <Button variant="blue" to="/services">
                         View All Services
                     </Button>

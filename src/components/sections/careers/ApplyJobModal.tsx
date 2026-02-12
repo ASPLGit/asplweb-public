@@ -274,7 +274,7 @@ export default function ApplyJobModal({
 
                             {error && (
                                 <p className="text-sm text-red-600">
-                                    Submission failed. Please try again or email us at sales@aplombsoft.com
+                                    Submission failed. Please try again or email us at biz@aplombsoft.com
                                 </p>
                             )}
                         </form>

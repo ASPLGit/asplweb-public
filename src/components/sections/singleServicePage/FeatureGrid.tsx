@@ -91,12 +91,11 @@ export default function FeatureGrid({ data }: FeatureGridProps) {
                                     mb-6 inline-flex items-center justify-center
                                     h-9 w-9
                                     rounded-lg
-                                    bg-black
+                                    bg-slate-400
                                     text-sm font-semibold
                                     text-white
                                     transition-all duration-500
-                                    group-hover:bg-white
-                                    group-hover:text-slate-600
+                                    group-hover:bg-slate-400
                                 "
                             >
                                 {String(index + 1).padStart(2, "0")}

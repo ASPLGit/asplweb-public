@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
     try {
-        const { name, email, message, captchaToken } = await req.json();
+        const { name, email, phone, message, captchaToken } = await req.json();
 
         if (!name || !email || !message || !captchaToken) {
             return NextResponse.json(
@@ -41,6 +41,12 @@ export async function POST(req: Request) {
                 pass: process.env.EMAIL_PASS!,
             },
         });
+
+        const cleanPhone = (phone || "").replace(/\D/g, "");
+
+        // if only country code (e.g., 91) or empty → ignore
+        const hasRealPhone =
+            cleanPhone.length > 2;
 
         const infoRow = (label: string, value: string) => `
 <div style="
@@ -118,10 +124,11 @@ export async function POST(req: Request) {
                 "Email :- ",
                 `<a href="mailto:${email}" style="color:#007BFF;text-decoration:none">${email}</a>`
             )}
-
+            ${hasRealPhone
+                    ? infoRow("Phone :- ", phone)
+                    : ""}
             <!-- Message -->
             <div style="
-                margin-top: 20px;
                 padding: 16px;
                 background-color: #f8fafc;
                 border-left: 4px solid #007BFF;

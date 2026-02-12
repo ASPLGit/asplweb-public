@@ -68,47 +68,59 @@ export default function TechnologiesHeroSection({
                             </p>
                         </div>
 
-                        {/* RIGHT — GLASS CARD */}
+                        {/* RIGHT PREMIUM ORBIT CARD */}
                         <div className="relative flex items-center justify-center">
-                            {/* Glow */}
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-[520px] h-[520px] rounded-full bg-cyan-400/10 blur-[140px]" />
-                            </div> {/* Rings */}
-                            <div className="relative w-[420px] h-[420px] rounded-full border border-white/10 flex items-center justify-center">
-                                <div className="w-[320px] h-[320px] rounded-full border border-white/15 flex items-center justify-center">
-                                    {/* Card */}
+
+                            {/* Outer glow */}
+                            <div className="absolute w-[600px] h-[600px] rounded-full bg-cyan-400/10 blur-[150px]" />
+
+                            {/* Outer ring */}
+                            <div className="relative w-[460px] h-[460px] rounded-full border border-white/10 flex items-center justify-center">
+
+                                {/* Middle ring */}
+                                <div className="w-[360px] h-[360px] rounded-full border border-white/10 flex items-center justify-center">
+
+                                    {/* Glass Card */}
                                     <div
                                         className="
-        w-[360px]
-        sm:rounded-2xl rounded-xl
-        bg-white
-        border border-slate-200
-        px-7 py-8
-        text-left
-        shadow-[0_40px_80px_-30px_rgba(0,0,0,0.25)]
-        transition-all duration-300
-        hover:-translate-y-1
-    "
+                                            w-[380px]
+                                            rounded-2xl
+                                            bg-white/5
+                                            backdrop-blur-lg
+                                            border border-white/10
+                                            px-8 py-9
+                                            text-left
+                                            shadow-[0_40px_120px_-20px_rgba(0,123,255,0.4)]
+                                            transition-all duration-500
+                                            hover:-translate-y-2
+                                        "
                                     >
                                         {/* Section label */}
-                                        <span className="inline-block mb-6 section-label">
+                                        <span className="inline-block mb-6 text-xs tracking-widest uppercase text-cyan-300">
                                             Delivery at Scale
                                         </span>
 
                                         {/* Stats */}
-                                        <div className="grid grid-cols-2 gap-x-8 gap-y-6">
+                                        <div className="grid grid-cols-2 gap-x-10 gap-y-8">
                                             {stats.map((stat, index) => (
                                                 <div key={index}>
-                                                    <p className="text-3xl font-semibold text-slate-900 leading-none">
+                                                    <p className="
+                                                        text-4xl font-semibold
+                                                        bg-[linear-gradient(131deg,#007BFF,#00D4FF)]
+                                                        bg-clip-text text-transparent
+                                                        leading-none
+                                                    ">
                                                         <CountUp value={stat.value} />
                                                     </p>
-                                                    <p className="mt-2 text-xs text-slate-600 leading-snug">
+
+                                                    <p className="mt-3 text-xs text-white/70 leading-snug max-w-[120px]">
                                                         {stat.label}
                                                     </p>
                                                 </div>
                                             ))}
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
