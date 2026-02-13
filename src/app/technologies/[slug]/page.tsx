@@ -6,6 +6,7 @@ import FAQSection from "@/components/common/FAQ";
 import FeaturedCaseStudy from "@/components/common/FeaturedCaseStudy";
 import TechnologyExpertiseSection from "@/components/sections/technologies/TechnologyExpertiseSection";
 import TechnologiesHeroSection from "@/components/sections/technologies/TechnologyHeroSection";
+import DatabaseComparisonSection from "@/components/sections/technologies/DatabaseComparisonSection";
 
 interface TechnologyPageProps {
     params: {
@@ -73,18 +74,20 @@ export default async function TechnologyPage({
             </div>
             <div>
                 {/* EXPERTISE */}
-                <div className="overflow-hidden">
-                    <TechnologyExpertiseSection
-                        items={technology.expertise}
-                        image={technology.expertiseImage}
-                    />
-                    {/* CASE STUDY (OPTIONAL) */}
-                    {technology.caseStudy && (
-                        <FeaturedCaseStudy {...technology.caseStudy} />
-                    )}
-                </div>
-                   <FAQSection data={technology.faq} href="/contact" />
-            </div>         
+                <TechnologyExpertiseSection
+                    items={technology.expertise}
+                    image={technology.expertiseImage}
+                />
+                {/* CASE STUDY (OPTIONAL) */}
+                {technology.caseStudy && (
+                    <FeaturedCaseStudy {...technology.caseStudy} />
+                )}
+                {technology.comparison && (
+                    <DatabaseComparisonSection data={technology.comparison} />
+                )}
+
+                <FAQSection data={technology.faq} href="/contact" />
+            </div>
         </div>
     );
 }

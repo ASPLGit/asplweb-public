@@ -21,7 +21,7 @@
 @layer components {
 
   .heading-xl {
-    @apply 2xl:text-[78px] lg:text-[52px] text-4xl font-medium !leading-tight text-white;
+    @apply 2xl:text-[78px] lg:text-[52px] text-4xl font-normal !leading-tight text-white;
   }
 
   .heading-lg {

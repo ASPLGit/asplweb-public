@@ -67,7 +67,7 @@ export interface TechnologyService {
     hero: {
         title: string;
         description: string;
-        stats: {
+        stats?: {
             label: string;
             value: string;
         }[];
@@ -88,6 +88,11 @@ export interface TechnologyService {
         chip: string;
         title: string;
         description: string;
+    }[];
+    comparison?: {
+        title: string;
+        sql: string;
+        mongodb: string;
     }[];
 
     faq: {

@@ -21,7 +21,7 @@ export default function ContactHeroSection() {
     after:content-['']
     after:absolute
     after:inset-0
-    after:bg-[url('/images/layer6.webp')]
+    after:bg-[url('/images/layer5.webp')]
     after:bg-cover
     after:bg-center
     after:bg-no-repeat
@@ -34,7 +34,7 @@ export default function ContactHeroSection() {
                 <div
                     className="
             absolute inset-0
-            bg-black/50
+            bg-black/70
         "
                 />
                 {/* Dark Overlay */}

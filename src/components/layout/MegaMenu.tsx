@@ -27,7 +27,7 @@ export default function MegaMenu({ open, onClose, children }: MegaMenuProps) {
             bg-gradient-to-br from-sky-50 via-white to-sky-100
             shadow-[0_40px_80px_-30px_rgba(2,132,199,0.35)]
             p-10
-            text-slate-900
+            text-slate-900 z-40
           "
           onClick={(e) => e.stopPropagation()}
         >

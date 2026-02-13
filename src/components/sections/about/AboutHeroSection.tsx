@@ -33,7 +33,7 @@ export default function AboutHeroSection() {
                 <div
                     className="
             absolute inset-0
-            bg-black/50
+            bg-black/70
         "
                 />
                 <div className="container relative z-10">

@@ -54,9 +54,9 @@ export const TECHNOLOGY_GROUPS = [
         category: "Database",
         items: [
             {
-                name: "MySQL",
-                slug: "mysql",
-                icon: "/images/tech/sql.svg",
+                name: "Microsoft SQL Server",
+                slug: "sql-server",
+                icon: "/images/tech/sql-server-logo.svg",
             },
             {
                 name: "MongoDB",

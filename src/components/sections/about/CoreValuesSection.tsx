@@ -5,40 +5,42 @@ const VALUES = [
   {
     title: "Partnership Over Projects",
     description:
-      "We focus on long-term partnerships, collaborating closely with our clients as an extended team to drive continuous growth and shared success.",
+      "At AplombSoft, we don’t see ourselves as a vendor delivering isolated tasks. We work alongside you as a long-term technology partner, staying involved beyond delivery and helping your systems grow as your business grows.",
     icon: "/images/values/core1.svg",
   },
   {
-    title: "Cost-Effective Innovation",
+    title: "Practical Innovation",
     description:
-      "We balance innovation with practicality, delivering solutions that provide real value while remaining cost-efficient and sustainable.",
+      "We enjoy building modern solutions, but only when they make business sense. At AplombSoft, innovation means solving real problems in a cost-conscious way not adding complexity for the sake of trends.",
     icon: "/images/values/core2.svg",
   },
   {
-    title: "Quality as a Standard",
+    title: "Quality Is Built In",
     description:
-      "Quality is not an afterthought. From planning to delivery, we prioritize reliability, performance, and maintainability in everything we build.",
+      "From architecture decisions to final deployment, quality is part of how we work. Clean code, thoughtful structure, and reliable performance are not extras they’re standard practice here.",
     icon: "/images/values/core3.svg",
   },
   {
-    title: "Transparency & Trust",
+    title: "Transparent Collaboration",
     description:
-      "Open communication, clear processes, and honest collaboration are central to how we work ensuring clients always know where things stand.",
+      "You’ll always know where things stand. We believe in open communication, clear timelines, and honest conversations. That’s how trust is built and how strong technical partnerships last.",
     icon: "/images/values/core4.svg",
   },
   {
-    title: "Scalability with Purpose",
+    title: "Designed to Scale",
     description:
-      "We design solutions with growth in mind, making sure systems are flexible and ready to evolve as businesses scale.",
+      "At AplombSoft, we build with the future in mind. Whether it’s application logic, database design, or infrastructure setup, we make sure your systems are ready to evolve without constant rebuilds.",
     icon: "/images/values/core5.svg",
   },
   {
-    title: "Thoughtful Technology Choices",
+    title: "Technology with Purpose",
     description:
-      "We stay technology-agnostic and focus on selecting the right tools and architectures that genuinely serve business needs, not trends.",
+      "We don’t push tools because they’re popular. We choose technologies carefully based on your goals, your team, and your long-term roadmap. The right choice today should still make sense tomorrow.",
     icon: "/images/values/core6.svg",
   },
 ];
+
+
 
 export default function CoreValuesSection() {
   return (

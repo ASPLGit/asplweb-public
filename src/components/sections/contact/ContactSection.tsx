@@ -162,7 +162,7 @@ export default function ContactSection() {
                             </div>
 
                             <p className="relative z-10 text-xs text-white/50 mt-10">
-                                We usually respond within 24 hours.
+                                Your details are safe with us. We use them only to respond to your message.
                             </p>
                         </div>
 

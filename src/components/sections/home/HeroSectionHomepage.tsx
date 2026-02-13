@@ -16,7 +16,7 @@ export default function HeroSectionHomepage() {
     after:content-['']
     after:absolute
     after:inset-0
-    after:bg-[url('/images/layer3.webp')]
+    after:bg-[url('/images/layer5.webp')]
     after:bg-cover
     after:blur-[1px]
     after:bg-top
@@ -28,7 +28,7 @@ export default function HeroSectionHomepage() {
                     <div
                         className="
             absolute inset-0
-            bg-black/50
+            bg-black/70
         "
                     />
                     <div className="container text-center relative z-10">

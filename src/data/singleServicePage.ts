@@ -619,100 +619,113 @@ export const services: Service[] = [
         slug: "ai-ml",
         title: "AI & Machine Learning",
         description:
-            "Data-driven intelligence and automation to enhance decision-making and efficiency.",
+            "Practical AI systems designed to improve decision-making, automate workflows, and turn business data into measurable value.",
 
         cta: {
             primary: {
-                label: "Explore AI Solutions",
+                label: "Discuss Your AI Initiative",
                 href: "/contact",
             },
         },
 
         section: {
             label: "Overview",
-            heading: "Intelligent Systems Powered by Data",
+            heading: "Intelligent Digital Solutions Powered by AI",
             subheading:
-                "We build AI and machine learning solutions that deliver actionable insights and automation.",
+                "We develop AI-enabled web platforms, mobile apps, and enterprise systems that transform data into actionable intelligence. Our solutions combine machine learning, automation, and advanced analytics to enhance performance, efficiency, and customer experience.",
         },
+
 
         featureSection: {
             items: [
                 {
                     id: "01",
-                    title: "Predictive Analytics",
+                    title: "AI Consulting & Strategy",
                     description:
-                        "Forecast trends using data-driven models.",
+                        "We help you define a clear AI adoption strategy aligned with your business objectives. From identifying high-impact use cases to planning scalable implementation, we ensure your AI investments deliver measurable results.",
                 },
                 {
                     id: "02",
-                    title: "AI Automation",
+                    title: "Machine Learning Solutions",
                     description:
-                        "Process automation using AI-powered systems.",
+                        "Design and deploy machine learning systems that transform raw data into actionable insights. We build predictive, classification, and recommendation models tailored to real-world business environments.",
                 },
                 {
                     id: "03",
-                    title: "Machine Learning Models",
+                    title: "Generative AI Applications",
                     description:
-                        "Custom ML models tailored to your data.",
+                        "Develop intelligent applications powered by large language models and generative AI. From AI chatbots to content automation systems, we create secure and scalable generative experiences.",
                 },
                 {
                     id: "04",
-                    title: "Business Intelligence",
+                    title: "AI-Powered Software Development",
                     description:
-                        "Actionable insights from complex datasets.",
+                        "Integrate AI capabilities directly into web and enterprise software. Whether it’s smart dashboards, automated workflows, or predictive analytics, we embed intelligence into your digital platforms.",
                 },
                 {
                     id: "05",
-                    title: "Data Engineering",
+                    title: "AI MVP Development",
                     description:
-                        "Reliable data pipelines and processing.",
+                        "Rapidly design and launch AI-driven MVPs to validate your product idea in the real market. We focus on core intelligent features, fast iteration cycles, and measurable user feedback to reduce risk and accelerate product-market fit.",
                 },
                 {
                     id: "06",
-                    title: "Model Optimization",
+                    title: "AI Mobile App Development",
                     description:
-                        "Performance tuning and optimization.",
+                        "Build mobile applications enhanced with AI features such as real-time recommendations, image recognition, voice interaction, and personalized user experiences.",
+                },
+                {
+                    id: "07",
+                    title: "Data Engineering for AI Systems",
+                    description:
+                        "Establish reliable data pipelines, storage systems, and processing frameworks that power high-performance AI models with clean, structured, and scalable data infrastructure.",
                 },
             ],
         },
-
-        stats: [
-            { value: "5x", label: "Faster Insights" },
-            { value: "90%", label: "Prediction Accuracy" },
-            { value: "40%", label: "Efficiency Gain" },
-            { value: "24/7", label: "AI Monitoring" },
-        ],
-
         TechnologySection: {
             items: [
                 { logo: "/images/tech/python.svg", name: "Python" },
                 { logo: "/images/tech/pytorch.svg", name: "PyTorch" },
                 { logo: "/images/tech/tensorflow.svg", name: "TensorFlow" },
-                { logo: "/images/tech/python.svg", name: "Python" },
-                { logo: "/images/tech/aws.svg", name: "Amazon Web Services" },
-                { logo: "/images/tech/pandas.svg", name: "Pandas" },
+                { logo: "/images/tech/openai.svg", name: "OpenAI" },
+                { logo: "/images/tech/grok.svg", name: "Grok" },
+                { logo: "/images/tech/docker.svg", name: "Docker" },
+                { logo: "/images/tech/hugging-face.svg", name: "HuggingFace" },
+                { logo: "/images/tech/aws.svg", name: "AWS AI Services" },
+                { logo: "/images/tech/pandas.svg", name: "Pandas & Data Tools" },
+                { logo: "/images/tech/azure.svg", name: "Azure Machine Learning" },
             ],
-
         },
+
         faq: {
             items: [
                 {
-                    title: "What AI solutions do you offer?",
+                    title: "What types of AI and machine learning solutions do you deliver?",
                     content:
-                        "We build AI-powered systems including predictive analytics, automation tools, data-driven insights, and machine learning models.",
+                        "We design and deploy production-ready AI systems including predictive analytics engines, recommendation systems, intelligent automation workflows, computer vision solutions, and LLM-powered applications. Every solution is engineered around measurable business objectives — not proof-of-concept experiments.",
                 },
                 {
-                    title: "Can AI be integrated into existing systems?",
+                    title: "Can AI be embedded into our existing web, mobile, or enterprise software?",
                     content:
-                        "Yes. We integrate AI and ML capabilities into existing platforms to enhance efficiency and decision-making.",
+                        "Absolutely. We specialize in integrating AI capabilities directly into existing platforms, whether it’s a SaaS product, internal enterprise system, or mobile application. Our approach ensures seamless deployment without disrupting your current architecture or operations.",
                 },
                 {
-                    title: "Do you work with business data securely?",
+                    title: "How do you ensure data security and regulatory compliance?",
                     content:
-                        "Absolutely. Data privacy and security are integral to all our AI and ML implementations.",
+                        "We implement secure development environments, role-based access controls, encrypted data pipelines, and compliance-aligned governance practices. From data collection to model deployment, security and privacy are embedded into every stage of the AI lifecycle.",
+                },
+                {
+                    title: "What happens after the AI system goes live?",
+                    content:
+                        "AI models evolve alongside your data. We provide continuous monitoring, performance evaluation, retraining pipelines, and optimization strategies to prevent model drift and maintain long-term accuracy, reliability, and business value.",
+                },
+                {
+                    title: "How long does it take to build an AI solution?",
+                    content:
+                        "Timelines depend on complexity, data readiness, and integration scope. MVP-level AI solutions can be delivered in weeks, while enterprise-grade systems may require phased development. We define a clear roadmap upfront to balance speed, scalability, and performance.",
                 },
             ],
-        }
+        },
     },
     {
         slug: "cybersecurity",

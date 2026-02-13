@@ -18,8 +18,8 @@ export default function Home() {
       <HeroSectionHomepage />
       <SectionHeading
         sectionLabel="Our Expertise"
-        heading="18+ Years of Proven Technical Expertise"
-        subheading="Our experts having 18+ years of experience in custom software development with suitable architecture, latest technology and with extreme security implementation and management."
+        heading="11+ Years of Proven Technical Expertise"
+        subheading="Our experts having 11+ years of experience in custom software development with suitable architecture, latest technology and with extreme security implementation and management."
       />
       <OurCoreCapabilities />
       <WhoWeAre />

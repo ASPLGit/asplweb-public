@@ -24,9 +24,9 @@ export default function ServicesHeroSection() {
     after:content-['']
     after:absolute
     after:inset-0
-    after:bg-[url('/images/layer6.webp')]
+    after:bg-[url('/images/layer2.webp')]
     after:bg-cover
-    after:bg-center
+    after:bg-bottom
     after:bg-no-repeat
     sm:after:blur-[1px]
     after:opacity-50
@@ -38,7 +38,7 @@ export default function ServicesHeroSection() {
                     <div
                         className="
             absolute inset-0
-            bg-black/50
+            bg-black/70
         "
                     />
                     <div className="container relative z-10">

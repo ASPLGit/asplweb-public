@@ -48,9 +48,9 @@ export default function Footer() {
     after:content-['']
     after:absolute
     after:inset-0
-    after:bg-[url('/images/layer6.webp')]
+    after:bg-[url('/images/layer5.webp')]
     after:bg-cover
-    after:bg-center
+    sm:after:bg-center after:bg-left
     after:bg-no-repeat
     sm:after:blur-[1px]
     after:opacity-50
@@ -60,7 +60,7 @@ export default function Footer() {
             <div
                 className="
             absolute inset-0
-            bg-black/40
+            bg-black/70
         "
             />
             <div className="container pt-20 pb-10 relative z-10">

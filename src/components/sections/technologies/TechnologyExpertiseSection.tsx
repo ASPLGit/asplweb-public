@@ -29,23 +29,7 @@ export default function TechnologyExpertiseSection({
     items, image
 }: TechnologyExpertiseSectionProps) {
     return (
-        <section className="relative bg-white sm:pt-10 pt-5 pb-32" id="explore-more">
-            {image && (
-                <Image
-                    src={image.src}
-                    alt={image.alt}
-                    width={400}
-                    height={400}
-                    className="
-                        absolute
-                        bottom-0 -right-10
-                        w-[200px] h-[200px]
-                        z-10
-                        opacity-50
-                        pointer-events-none
-                    "
-                />
-            )}
+        <section className="relative py-10" id="explore-more">
             <div className="container mx-auto">
                 <div className="relative z-20">
                     {/* Grid */}
@@ -58,38 +42,82 @@ export default function TechnologyExpertiseSection({
                                 <div
                                     key={index}
                                     className="
-                                        group
-                                        relative
-                                        sm:rounded-2xl rounded-xl
-                                        bg-white/80 backdrop-blur-xl
-                                        border border-slate-200
-                                        px-6 pt-12 pb-8
-                                        transition-all duration-300
-                                        hover:-translate-y-2
-                                        hover:shadow-[0_35px_85px_-30px_rgba(0,0,0,0.25)]
-                                    "
+    group
+    relative
+    sm:rounded-2xl rounded-xl
+    border border-slate-200
+    bg-white
+    px-6 pt-12 pb-10
+    transition-all duration-500
+    sm:hover:-translate-y-2
+    sm:hover:shadow-[0_40px_90px_-25px_rgba(0,123,255,0.25)]
+  "
                                 >
-                                    {/* Floating chip */}
+
+                                    {/* Floating Chip */}
                                     <span
                                         className={`
-                                            absolute -top-3 left-6
-                                            px-3 py-1
-                                            text-[11px] font-semibold
-                                            rounded-full
-                                            ${chipStyle}
-                                        `}
+      absolute -top-3 left-6
+      px-3 py-1
+      text-[11px] font-semibold
+      rounded-full
+      ${chipStyle}
+      z-20
+    `}
                                     >
                                         {item.chip}
                                     </span>
 
-                                    <h3 className="text-lg font-semibold text-slate-900">
-                                        {item.title}
-                                    </h3>
+                                    {/* Content */}
+                                    <div className="relative z-10">
+                                        <h3 className="text-lg font-semibold text-slate-900 transition-colors duration-300 group-hover:text-blue-600">
+                                            {item.title}
+                                        </h3>
 
-                                    <p className="mt-2 text-sm text-slate-700 leading-relaxed">
-                                        {item.description}
-                                    </p>
+                                        <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                                            {item.description}
+                                        </p>
+                                    </div>
+
+                                    {/* React Glow Background */}
+                                    {image && (
+                                        <>
+                                            <div
+                                                className=" sm:block hidden
+          absolute -bottom-10 -right-10
+          w-40 h-40
+          bg-blue-500/10
+          rounded-full
+          blur-3xl
+          opacity-0
+          group-hover:opacity-100
+          transition duration-500
+        "
+                                            />
+
+                                            {/* React Logo */}
+                                            <Image
+                                                src={image.src}
+                                                alt={image.alt}
+                                                width={120}
+                                                height={120}
+                                                className="
+          absolute
+          bottom-4 right-4
+          w-16 h-16
+          opacity-0
+          group-hover:opacity-20
+          pointer-events-none
+          transition-all duration-700
+          rotate-[20deg]
+          group-hover:rotate-[0deg]
+          group-hover:scale-110
+        "
+                                            />
+                                        </>
+                                    )}
                                 </div>
+
                             );
                         })}
                     </div>

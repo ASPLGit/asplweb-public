@@ -61,7 +61,7 @@ export default function SingleServiceHeroSection({
                 <div className="container relative z-10">
                     <div className="flex flex-col 2xl:gap-8 sm:gap-6 gap-4 mx-auto text-center items-center justify-center">
 
-                        <h2 className="heading-xl italic font-lora max-w-4xl">
+                        <h2 className="heading-xl !font-normal max-w-4xl">
                             {title}
                         </h2>
 

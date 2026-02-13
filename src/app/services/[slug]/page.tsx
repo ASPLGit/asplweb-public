@@ -113,7 +113,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                     primaryCta={service.cta?.primary}
                     secondaryCta={service.cta?.secondary}
                 />
-                <div className="bg-[#F4F9FF] sm:py-20 py-10 flex flex-col sm:gap-20 gap-10" id="service">
+                <div className="bg-[#F4F9FF] sm:pt-20 pt-10 flex flex-col sm:gap-20 gap-10" id="service">
                     {/* SECTION HEADING */}
                     <SectionHeading
                         sectionLabel={service.section.label}

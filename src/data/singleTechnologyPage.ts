@@ -7,12 +7,12 @@ export const technologies: TechnologyService[] = [
     hero: {
       title: "React Development",
       description:
-        "We build fast, scalable, and maintainable user interfaces using React, powering modern web apps, dashboards, and enterprise platforms.",
+        "We design and build scalable React applications that are engineered for performance, clarity, and long-term growth from modern web platforms to enterprise dashboards that businesses rely on daily.",
       stats: [
-        { label: "React Projects Delivered", value: "120+" },
-        { label: "Years with React", value: "6+" },
-        { label: "Lighthouse Performance Score", value: "90+" },
-        { label: "Clean Code & Review Coverage", value: "100%" },
+        { label: "React Projects Delivered", value: "10+" },
+        { label: "Years with React Engineering", value: "6+" },
+        { label: "Average Lighthouse Performance", value: "90+" },
+        { label: "Code Review & Quality Coverage", value: "100%" },
       ],
     },
 
@@ -20,7 +20,7 @@ export const technologies: TechnologyService[] = [
       sectionLabel: "React Expertise",
       heading: "What We Build with React",
       subheading:
-        "From responsive marketing websites to complex enterprise applications, we use React to deliver fast, scalable, and maintainable user experiences tailored to real business needs.",
+        "From customer-facing platforms to complex enterprise systems, we use React to build structured, maintainable applications that support long-term business growth not short-term launches.",
     },
 
     expertiseImage: {
@@ -33,37 +33,37 @@ export const technologies: TechnologyService[] = [
         chip: "UI/UX",
         title: "Responsive React Interfaces",
         description:
-          "High-performance, responsive React interfaces that adapt seamlessly across devices.",
+          "Thoughtfully designed, high-performance interfaces that adapt seamlessly across devices while maintaining speed, usability, and visual clarity.",
       },
       {
         chip: "Performance",
         title: "Optimized React Performance",
         description:
-          "Code-splitting, lazy loading, and rendering optimizations for blazing-fast apps.",
+          "Strategic code-splitting, lazy loading, and rendering optimizations to ensure consistent performance as your product scales.",
       },
       {
         chip: "Scalable",
         title: "Scalable Component Architecture",
         description:
-          "Modular, reusable component systems that scale with your business.",
+          "Well-structured, reusable component systems built for long-term maintainability and predictable growth.",
       },
       {
         chip: "Integration",
         title: "API & Backend Integration",
         description:
-          "Seamless integration with REST, GraphQL, and third-party services.",
+          "Reliable integration with REST, GraphQL, and third-party systems to keep your ecosystem connected and efficient.",
       },
       {
         chip: "Enterprise",
         title: "Enterprise React Solutions",
         description:
-          "Admin dashboards, SaaS platforms, and enterprise-grade SPAs.",
+          "Secure, scalable dashboards, SaaS platforms, and enterprise applications designed for operational stability.",
       },
       {
         chip: "Modern Stack",
         title: "Modern React Stack",
         description:
-          "TypeScript, Redux / Context, and modern tooling for future-ready apps.",
+          "TypeScript-driven development, structured state management, and modern tooling to ensure clarity, scalability, and cost efficiency.",
       },
     ],
 
@@ -72,12 +72,12 @@ export const technologies: TechnologyService[] = [
         {
           title: "What React development services do you offer?",
           content:
-            "End-to-end React development including SPAs, dashboards, UI systems, and performance optimization.",
+            "We provide end-to-end React development from UI architecture and application builds to performance optimization and long-term technical support.",
         },
         {
           title: "Can you work on existing React projects?",
           content:
-            "Yes. We can refactor, optimize, scale, or extend existing React applications.",
+            "Yes. We frequently step into existing React applications to refactor, stabilize, optimize, or extend them with a long-term improvement roadmap.",
         },
       ],
     },
@@ -87,15 +87,15 @@ export const technologies: TechnologyService[] = [
         sectionLabel: "React Case Study",
         heading: "Our Work in Action",
         subheading:
-          "A real-world React platform built for scale, performance, and long-term maintainability.",
+          "A real-world React platform engineered for scale, measurable performance improvements, and long-term operational reliability.",
       },
       category: "React Web Platform",
-      title: "Scalable KYC & Identity Verification",
+      title: "Scalable KYC & Identity Verification Platform",
       description:
-        "A high-performance React platform built with modern tooling and clean architecture.",
+        "A performance-focused React platform built with structured architecture and modern tooling to support secure onboarding and sustainable growth.",
       metrics: [
         { value: "65%", label: "Faster onboarding" },
-        { value: "90%", label: "Improved performance", variant: "dark" },
+        { value: "90%", label: "Performance improvement", variant: "dark" },
       ],
       backgroundLayerImage: "/images/layer1.webp",
       caseImage: {
@@ -104,26 +104,26 @@ export const technologies: TechnologyService[] = [
       },
     },
   },
+
   {
     slug: "nextjs",
-
     hero: {
       title: "Next.js Development",
       description:
-        "We build high-performance, SEO-optimized, and production-ready web applications using Next.js, designed for scalability, speed, and long-term maintainability.",
+        "We build structured, production-ready web applications using Next.js engineered for performance, search visibility, and long-term scalability. Our focus is not just speed at launch, but stability and growth over time.",
       stats: [
-        { label: "Next.js Projects Delivered", value: "80+" },
-        { label: "Years with Next.js", value: "5+" },
-        { label: "Average Lighthouse Score", value: "95+" },
-        { label: "Production-Grade Deployments", value: "100%" },
+        { label: "Next.js Projects Delivered", value: "5+" },
+        { label: "Years Engineering with Next.js", value: "6+" },
+        { label: "Average Lighthouse Performance", value: "95+" },
+        { label: "Stable Production Deployments", value: "100%" },
       ],
     },
 
     sectionHeading: {
       sectionLabel: "Next.js Expertise",
-      heading: "What We Build with Next.js",
+      heading: "How We Build with Next.js",
       subheading:
-        "From SEO-driven marketing sites to complex enterprise platforms, we use Next.js to deliver fast, secure, and scalable web experiences backed by modern architecture.",
+        "From search-focused marketing platforms to large-scale enterprise systems, we use Next.js to create fast, secure, and maintainable web applications built on clean architecture and practical performance strategy.",
     },
 
     expertiseImage: {
@@ -134,88 +134,86 @@ export const technologies: TechnologyService[] = [
     expertise: [
       {
         chip: "SSR & SSG",
-        title: "Server-Side & Static Rendering",
+        title: "Server-Side & Static Rendering Strategy",
         description:
-          "Leverage SSR, SSG, and ISR to deliver lightning-fast pages, improved SEO, and optimal performance across global audiences.",
+          "We implement SSR, SSG, and incremental strategies thoughtfully balancing performance, SEO, and infrastructure cost efficiency based on your real business needs.",
       },
       {
         chip: "App Router",
         title: "Modern App Router Architecture",
         description:
-          "Build scalable applications using the Next.js App Router with layouts, nested routes, streaming, and server components.",
+          "Structured applications using the Next.js App Router, layouts, nested routing, streaming, and server components to maintain clarity as your platform evolves.",
       },
       {
         chip: "Performance",
-        title: "Performance Optimization",
+        title: "Performance Engineering",
         description:
-          "Advanced image optimization, code-splitting, caching strategies, and edge rendering for exceptional Core Web Vitals.",
+          "Optimized image handling, intelligent caching, edge rendering, and code-splitting techniques to consistently deliver strong Core Web Vitals.",
       },
       {
         chip: "SEO",
-        title: "SEO & Metadata Optimization",
+        title: "Built-In SEO & Metadata Architecture",
         description:
-          "Structured metadata, Open Graph, schema markup, and SEO best practices baked directly into the application.",
+          "Clean metadata management, Open Graph structure, schema markup, and technical SEO integrated directly into the application not added as an afterthought.",
       },
       {
         chip: "Full-Stack",
-        title: "Full-Stack Next.js Solutions",
+        title: "Full-Stack Next.js Applications",
         description:
-          "API routes, server actions, authentication, and backend integrations for complete full-stack applications.",
+          "API routes, server actions, authentication systems, and backend integrations designed to keep your architecture streamlined and maintainable.",
       },
       {
         chip: "Deployment",
-        title: "Scalable Deployment & Hosting",
+        title: "Scalable Deployment & Infrastructure",
         description:
-          "Optimized deployments on Vercel, cloud platforms, and custom infrastructures with CI/CD and monitoring.",
+          "Reliable deployments on Vercel, cloud platforms, or custom environments with CI/CD pipelines, monitoring, and long-term infrastructure planning.",
       },
     ],
 
     faq: {
       items: [
         {
-          title: "Why choose Next.js over traditional React?",
+          title: "Why choose Next.js instead of traditional React setups?",
           content:
-            "Next.js enhances React with built-in SSR, SSG, routing, performance optimizations, and SEO capabilities, making it ideal for production-ready applications.",
+            "Next.js extends React with structured routing, server-side rendering, static generation, and built-in performance optimizations. It reduces architectural complexity and makes production deployment more predictable.",
         },
         {
           title: "Is Next.js suitable for large-scale applications?",
           content:
-            "Yes. Next.js is widely used for enterprise-grade platforms thanks to its scalable architecture, server components, and performance tooling.",
+            "Yes. With server components, modular routing, and scalable deployment options, Next.js supports enterprise-grade systems while keeping the codebase organized and maintainable.",
         },
         {
-          title: "Do you use the Next.js App Router?",
+          title: "Do you build with the latest Next.js App Router?",
           content:
-            "Yes. We build modern applications using the App Router, server components, layouts, and streaming where appropriate.",
+            "Yes. We adopt the App Router, server components, streaming, and layout patterns where they provide clear architectural and performance advantages.",
         },
         {
-          title: "Can you migrate an existing React app to Next.js?",
+          title: "Can you migrate an existing React application to Next.js?",
           content:
-            "Absolutely. We can migrate or refactor existing React applications into Next.js while preserving functionality and improving performance and SEO.",
+            "Absolutely. We carefully migrate or refactor existing React applications into Next.js while preserving business logic and improving performance, SEO, and long-term maintainability.",
         },
       ],
     },
-  }
-  ,
+  },
   {
     slug: "angular",
-
     hero: {
       title: "Angular Development",
       description:
-        "We build robust, scalable, and enterprise-ready web applications using Angular, designed for long-term maintainability, performance, and complex business workflows.",
+        "We engineer structured, enterprise-focused Angular applications built to handle complex workflows, long product lifecycles, and evolving business requirements. Our approach prioritizes clarity, stability, and predictable scalability.",
       stats: [
-        { label: "Angular Projects Delivered", value: "60+" },
-        { label: "Years with Angular", value: "5+" },
-        { label: "Enterprise Applications Built", value: "40+" },
-        { label: "Code Quality & Testing Coverage", value: "95%+" },
+        { label: "Angular Projects Delivered", value: "10+" },
+        { label: "Years Engineering with Angular", value: "10+" },
+        { label: "Enterprise Systems Delivered", value: "5+" },
+        { label: "Code Quality & Test Coverage", value: "95%" },
       ],
     },
 
     sectionHeading: {
       sectionLabel: "Angular Expertise",
-      heading: "What We Build with Angular",
+      heading: "How We Architect with Angular",
       subheading:
-        "From large-scale enterprise platforms to data-intensive dashboards, we use Angular to deliver structured, maintainable, and high-performance applications.",
+        "From enterprise platforms to data-heavy internal systems, we use Angular to build disciplined, maintainable applications where structure, performance, and long-term sustainability matter.",
     },
 
     expertiseImage: {
@@ -226,200 +224,199 @@ export const technologies: TechnologyService[] = [
     expertise: [
       {
         chip: "Architecture",
-        title: "Enterprise-Grade Architecture",
+        title: "Structured Enterprise Architecture",
         description:
-          "Well-structured Angular architectures using modules, services, and strict typing to support complex business logic.",
+          "Well-defined Angular module structures, services, and strict typing patterns designed to manage complex business rules without creating technical debt.",
       },
       {
         chip: "TypeScript",
-        title: "TypeScript-First Development",
+        title: "TypeScript-Driven Development",
         description:
-          "Strongly typed Angular applications that improve code reliability, readability, and long-term maintainability.",
+          "Strongly typed systems that improve reliability, reduce runtime issues, and make large codebases easier to scale and maintain over time.",
       },
       {
         chip: "Performance",
-        title: "High-Performance Angular Apps",
+        title: "Performance-Focused Angular Engineering",
         description:
-          "Optimized change detection, lazy loading, and efficient state handling for fast and responsive user experiences.",
+          "Optimized change detection strategies, lazy-loaded modules, and efficient state handling to maintain responsive user experiences even in large applications.",
       },
       {
         chip: "State",
-        title: "State Management",
+        title: "Predictable State Management",
         description:
-          "Predictable state management using RxJS patterns and NgRx for large-scale applications.",
+          "RxJS-driven reactive patterns and NgRx architecture where structured, scalable state control is required for enterprise environments.",
       },
       {
         chip: "UI Systems",
-        title: "Reusable UI Component Systems",
+        title: "Reusable UI & Design Systems",
         description:
-          "Custom Angular component libraries and design systems for consistent, scalable user interfaces.",
+          "Custom Angular component libraries and scalable design systems to maintain consistency across dashboards, portals, and enterprise tools.",
       },
       {
         chip: "Integration",
-        title: "API & Enterprise Integrations",
+        title: "Enterprise API & System Integrations",
         description:
-          "Seamless integration with REST APIs, GraphQL services, authentication providers, and enterprise backends.",
+          "Reliable integration with REST APIs, GraphQL services, authentication providers, and enterprise backends while maintaining clean separation of concerns.",
       },
     ],
 
     faq: {
       items: [
         {
-          title: "When should I choose Angular over React?",
+          title: "When should I choose Angular instead of React?",
           content:
-            "Angular is ideal for large, enterprise-scale applications that require a structured framework, strong typing, and built-in tooling.",
+            "Angular is well-suited for large-scale applications that benefit from a structured framework, built-in architectural conventions, and strong TypeScript enforcement from the ground up.",
         },
         {
-          title: "Is Angular suitable for enterprise applications?",
+          title: "Is Angular a good choice for enterprise applications?",
           content:
-            "Yes. Angular is widely adopted for enterprise systems due to its opinionated architecture, TypeScript foundation, and scalability.",
+            "Yes. Angular’s opinionated architecture, dependency injection system, and reactive programming model make it particularly effective for enterprise-grade systems with complex workflows.",
         },
         {
-          title: "Do you use RxJS and NgRx?",
+          title: "Do you use RxJS and NgRx in Angular projects?",
           content:
-            "Yes. We use RxJS extensively and NgRx when predictable, scalable state management is required.",
+            "Yes. We use RxJS as a core reactive pattern and implement NgRx where centralized, predictable state management is essential for long-term scalability.",
         },
         {
           title: "Can you maintain or upgrade existing Angular applications?",
           content:
-            "Absolutely. We modernize, refactor, and upgrade legacy Angular applications while improving performance and code quality.",
+            "Absolutely. We assess legacy Angular systems, modernize architecture, upgrade framework versions, and improve performance while preserving business continuity.",
         },
       ],
     },
   },
   {
     slug: "dotnet",
-
     hero: {
       title: ".NET & ASP.NET Development",
       description:
-        "We build secure, scalable, and high-performance web applications and APIs using the .NET platform and ASP.NET Core, tailored to enterprise requirements and modern deployment environments.",
+        "We engineer secure and scalable applications using the .NET platform and ASP.NET Core, designed to support complex enterprise requirements, modern deployment environments, and long-term operational reliability.",
       stats: [
-        { label: ".NET Projects Delivered", value: "80+" },
-        { label: "Years with .NET Expertise", value: "8+" },
-        { label: "Enterprise Systems Built", value: "60+" },
-        { label: "Security & Compliance Ready", value: "100%" },
+        { label: ".NET Projects Delivered", value: "20+" },
+        { label: "Years of .NET Engineering", value: "10+" },
+        { label: "Enterprise Platforms Delivered", value: "12+" },
+        { label: "High-Traffic Systems Deployed", value: "100%" },
       ],
     },
 
     sectionHeading: {
       sectionLabel: ".NET Expertise",
-      heading: "What We Build with .NET & ASP.NET",
+      heading: "How We Build with .NET & ASP.NET",
       subheading:
-        "From backend APIs to full-stack systems and microservices, our .NET solutions are built for performance, reliability, and business scale.",
+        "From high-performance backend APIs to full enterprise systems and distributed architectures, our .NET solutions are structured for reliability, maintainability, and long-term business growth.",
     },
 
     expertiseImage: {
-      src: "/images/tech/dotnet.svg",
+      src: "/images/tech/dotnet-logo.svg",
       alt: ".NET framework technology",
     },
 
     expertise: [
       {
         chip: "Web & APIs",
-        title: "ASP.NET Core Web Apps & APIs",
+        title: "ASP.NET Core Applications & APIs",
         description:
-          "Design and develop secure, RESTful APIs and web applications with ASP.NET Core, optimized for performance and scalability across platforms.",
+          "Designing secure, well-structured RESTful APIs and web platforms using ASP.NET Core, optimized for performance, maintainability, and cross-platform deployment.",
       },
       {
         chip: "Cross-Platform",
-        title: "Cross-Platform Development",
+        title: "Cross-Platform .NET Development",
         description:
-          "Build applications that run on Windows, Linux, and macOS using .NET’s cross-platform runtime and tooling.",
+          "Building applications that operate reliably across Windows, Linux, and macOS environments using .NET’s unified runtime and tooling ecosystem.",
       },
       {
         chip: "Microservices",
-        title: "Microservices & Distributed Systems",
+        title: "Microservices & Distributed Architecture",
         description:
-          "Architect and deliver modular microservices using .NET with containerization support, ideal for cloud and enterprise ecosystems.",
+          "Developing modular, container-ready microservices using .NET, enabling scalable cloud-native systems within enterprise ecosystems.",
       },
       {
         chip: "Cloud Ready",
         title: "Cloud & Azure Integration",
         description:
-          "Seamlessly integrate .NET applications with cloud services, serverless functions, and CI/CD pipelines for modern deployment workflows.",
-      }, {
+          "Integrating .NET systems with cloud infrastructure, serverless workflows, monitoring tools, and CI/CD pipelines for predictable and efficient deployments.",
+      },
+      {
         chip: "Web Apps",
         title: "Structured MVC Web Platforms",
         description:
-          "Developing clean, maintainable web applications using proven MVC patterns that separate business logic, data handling, and presentation for long-term stability.",
+          "Implementing proven MVC patterns to clearly separate business logic, data layers, and presentation — ensuring maintainable and stable applications over time.",
       },
       {
         chip: "Enterprise",
         title: "Enterprise Resource Planning Systems",
         description:
-          "Design and build end-to-end ERP solutions that unify operations, finance, inventory, and reporting into a single, secure, and scalable system.",
+          "Designing secure ERP platforms that centralize operations, finance, inventory, and reporting into unified, scalable systems aligned with business workflows.",
       },
       {
         chip: "Modernization",
         title: "Legacy System Modernization",
         description:
-          "Upgrade and transform existing ASP.NET applications to modern architectures, improving performance, security, and maintainability without disrupting business workflows.",
+          "Upgrading and restructuring existing ASP.NET applications into modern architectures, improving performance and security while minimizing operational disruption.",
       },
       {
         chip: "Advisory",
         title: "Architecture & Technical Advisory",
         description:
-          "Provide expert guidance on .NET architecture decisions, technology selection, scalability planning, and best practices for complex enterprise systems.",
+          "Providing strategic guidance on .NET architecture, scalability planning, system design decisions, and technology roadmaps for complex enterprise solutions.",
       },
       {
         chip: "Performance",
-        title: "High Performance & Optimization",
+        title: "High-Performance Optimization",
         description:
-          "Leverage ASP.NET Core’s efficient runtime and asynchronous patterns for responsive and scalable application performance.}",
+          "Leveraging asynchronous programming models, efficient middleware pipelines, and optimized database interactions to maintain responsive and scalable systems.",
       },
     ],
 
     faq: {
       items: [
         {
-          title: "What is ASP.NET and when should I choose it?",
+          title: "What is ASP.NET and when is it the right choice?",
           content:
-            "ASP.NET is a modern web framework built on the .NET platform for developing secure, scalable, and high-performance web applications and APIs. It is an excellent choice for enterprise systems, data-driven platforms, and applications that require long-term stability and strong security standards.",
+            "ASP.NET is a powerful web framework within the .NET ecosystem used to build secure, scalable, and high-performance applications. It is particularly well-suited for enterprise systems, data-intensive platforms, and applications that require long-term stability and structured architecture.",
         },
         {
-          title: "What types of applications can be built using ASP.NET?",
+          title: "What types of applications can be developed using ASP.NET?",
           content:
-            "ASP.NET is well suited for building enterprise web applications, RESTful APIs, ERP systems, admin dashboards, SaaS platforms, and backend services that handle complex business logic and high user traffic.",
+            "ASP.NET supports enterprise portals, ERP platforms, RESTful APIs, SaaS products, internal dashboards, and backend services designed to handle complex business rules and high traffic environments.",
         },
         {
-          title: "Why choose your team for ASP.NET development?",
+          title: "Why choose your team for .NET development?",
           content:
-            "We focus on building maintainable, secure, and scalable .NET solutions backed by clean architecture, performance optimization, and industry best practices. Our approach emphasizes long-term reliability, not just short-term delivery.",
+            "We approach .NET development with an architectural mindset — prioritizing maintainability, security, scalability, and cost efficiency. Our focus is on building systems that remain reliable and adaptable as your business evolves.",
         },
         {
-          title: "Can you modernize or migrate existing ASP.NET applications?",
+          title: "Can you modernize or migrate legacy ASP.NET systems?",
           content:
-            "Yes. We help modernize legacy ASP.NET applications by upgrading frameworks, improving performance, enhancing security, and transitioning systems to modern architectures or cloud-ready environments.",
+            "Yes. We assess existing systems, upgrade framework versions, refactor architecture, enhance security standards, and transition applications to modern, cloud-ready environments while ensuring business continuity.",
         },
         {
-          title: "How much does ASP.NET development typically cost?",
+          title: "How is ASP.NET project cost determined?",
           content:
-            "The cost depends on factors such as project complexity, application size, integrations, and timelines. We provide flexible engagement models and transparent estimates after understanding your business requirements.",
+            "Project cost depends on complexity, integration requirements, performance needs, and delivery timelines. We provide transparent estimates and flexible engagement models aligned with your long-term business objectives.",
         },
       ],
     }
   },
   {
     slug: "nodejs",
-
     hero: {
       title: "Node.js Development",
       description:
-        "We build fast, scalable, and event-driven backend systems using Node.js, designed for real-time applications, APIs, and high-concurrency workloads.",
+        "We engineer scalable, event-driven backend systems using Node.js — built to handle real-time workloads, API ecosystems, and high-concurrency environments with predictable performance and long-term stability.",
       stats: [
-        { label: "Node.js Projects Delivered", value: "90+" },
-        { label: "Years with Node.js", value: "7+" },
-        { label: "APIs & Services Built", value: "120+" },
-        { label: "High-Availability Systems", value: "100%" },
+        { label: "Node.js Projects Delivered", value: "12+" },
+        { label: "Years of Node.js Engineering", value: "10+" },
+        { label: "APIs & Backend Services Built", value: "100%" },
+        { label: "Full-Stack Node & React Systems", value: "8+" },
       ],
     },
 
     sectionHeading: {
       sectionLabel: "Node.js Expertise",
-      heading: "What We Build with Node.js",
+      heading: "How We Build with Node.js",
       subheading:
-        "From real-time applications to scalable backend platforms, we use Node.js to deliver efficient, non-blocking systems that handle growth with ease.",
+        "From real-time platforms to distributed backend systems, we use Node.js to create efficient, non-blocking architectures that scale smoothly as traffic and business complexity grow.",
     },
 
     expertiseImage: {
@@ -430,63 +427,63 @@ export const technologies: TechnologyService[] = [
     expertise: [
       {
         chip: "APIs",
-        title: "Scalable API Development",
+        title: "Scalable API Architecture",
         description:
-          "Design and build high-performance REST and GraphQL APIs using Node.js, optimized for scalability and clean data flow.",
+          "Designing structured REST and GraphQL APIs with clean routing, modular services, and optimized data handling to support evolving product ecosystems.",
       },
       {
         chip: "Real-Time",
-        title: "Real-Time Applications",
+        title: "Real-Time & Event-Driven Systems",
         description:
-          "Develop real-time systems such as chat platforms, live dashboards, and notification services using event-driven architectures.",
+          "Building event-based systems such as live dashboards, messaging platforms, and notification engines using asynchronous and socket-driven architectures.",
       },
       {
         chip: "Microservices",
-        title: "Microservices Architecture",
+        title: "Modular Microservices Design",
         description:
-          "Build modular microservices with Node.js that enable independent scaling, faster deployments, and flexible system evolution.",
+          "Developing container-ready microservices that allow independent scaling, faster deployment cycles, and flexible system expansion.",
       },
       {
         chip: "Backend",
-        title: "Backend for Web & Mobile Apps",
+        title: "Backend for Web & Mobile Platforms",
         description:
-          "Reliable backend services that power web and mobile applications with authentication, business logic, and data processing.",
+          "Creating secure backend layers that manage authentication, business logic, data validation, and integration workflows for modern applications.",
       },
       {
         chip: "Performance",
-        title: "High-Concurrency Systems",
+        title: "High-Concurrency Optimization",
         description:
-          "Efficient handling of concurrent requests using non-blocking I/O, making Node.js ideal for high-traffic applications.",
+          "Built on Node.js’s non-blocking architecture to handle high traffic and concurrent workloads without performance bottlenecks.",
       },
       {
         chip: "Integration",
-        title: "Third-Party & System Integrations",
+        title: "System & Third-Party Integrations",
         description:
-          "Seamless integration with databases, payment gateways, cloud services, and external APIs.",
+          "Integrating databases, payment systems, cloud services, and external APIs with structured error handling and performance monitoring.",
       },
     ],
 
     faq: {
       items: [
         {
-          title: "What makes Node.js suitable for backend development?",
+          title: "Why is Node.js a strong choice for backend development?",
           content:
-            "Node.js uses an event-driven, non-blocking architecture that allows it to handle large numbers of concurrent requests efficiently, making it ideal for scalable backend systems.",
+            "Node.js uses an event-driven, asynchronous architecture that allows applications to handle many concurrent connections efficiently. This makes it especially suitable for APIs, real-time platforms, and scalable backend systems.",
         },
         {
-          title: "Is Node.js a good choice for enterprise applications?",
+          title: "Is Node.js appropriate for enterprise systems?",
           content:
-            "Yes. When designed with proper architecture, Node.js is widely used in enterprise environments for APIs, microservices, and real-time platforms.",
+            "Yes. When implemented with disciplined architecture and modular design, Node.js supports enterprise-grade APIs, microservices, and distributed applications with strong performance characteristics.",
         },
         {
-          title: "Can Node.js handle high-traffic applications?",
+          title: "Can Node.js support high-traffic applications?",
           content:
-            "Absolutely. Node.js is well suited for high-traffic and real-time applications due to its lightweight runtime and asynchronous processing model.",
+            "Absolutely. Its lightweight runtime and non-blocking model make it effective for high-traffic environments, particularly where real-time communication or rapid API responses are required.",
         },
         {
-          title: "Do you work with existing Node.js projects?",
+          title: "Do you improve or maintain existing Node.js applications?",
           content:
-            "Yes. We can extend, refactor, optimize, or modernize existing Node.js applications while improving performance and maintainability.",
+            "Yes. We assess existing systems, refactor inefficient modules, optimize performance bottlenecks, and modernize architecture to ensure long-term maintainability and scalability.",
         },
       ],
     },
@@ -497,20 +494,20 @@ export const technologies: TechnologyService[] = [
     hero: {
       title: "Microsoft Azure Cloud Solutions",
       description:
-        "We design, build, and manage secure, scalable, and cloud-native solutions on Microsoft Azure, helping businesses modernize infrastructure and operate with confidence.",
+        "We architect and manage secure, cloud-native systems on Microsoft Azure enabling businesses to modernize infrastructure, improve operational resilience, and scale confidently as demand grows.",
       stats: [
-        { label: "Azure Projects Delivered", value: "70+" },
-        { label: "Cloud Deployments Managed", value: "100+" },
+        { label: "Azure Engagements Delivered", value: "70+" },
+        { label: "Cloud Environments Deployed", value: "100+" },
         { label: "Enterprise Workloads Migrated", value: "50+" },
-        { label: "Uptime & Reliability Focus", value: "99.9%" },
+        { label: "Average Production Uptime", value: "99.9%" },
       ],
     },
 
     sectionHeading: {
       sectionLabel: "Azure Expertise",
-      heading: "What We Build on Microsoft Azure",
+      heading: "How We Build on Microsoft Azure",
       subheading:
-        "From cloud infrastructure to application modernization, we use Azure to deliver secure, scalable, and resilient cloud solutions tailored to enterprise needs.",
+        "From infrastructure design to full application modernization, we use Azure to create resilient, secure, and scalable cloud ecosystems aligned with long-term business strategy.",
     },
 
     expertiseImage: {
@@ -521,63 +518,63 @@ export const technologies: TechnologyService[] = [
     expertise: [
       {
         chip: "Cloud Infra",
-        title: "Cloud Infrastructure & Architecture",
+        title: "Cloud Architecture & Infrastructure Design",
         description:
-          "Design and implement scalable Azure cloud architectures with high availability, fault tolerance, and cost efficiency.",
+          "Designing Azure environments with high availability, redundancy, and cost-aware resource planning to ensure performance and operational continuity.",
       },
       {
         chip: "App Hosting",
         title: "Application Hosting & Modernization",
         description:
-          "Host and modernize web and backend applications on Azure using app services, containers, and cloud-native patterns.",
+          "Deploying and modernizing web and backend applications using Azure App Services, containers, and cloud-native architectural patterns.",
       },
       {
         chip: "Migration",
-        title: "Cloud Migration Services",
+        title: "Structured Cloud Migration",
         description:
-          "Migrate on-premise or legacy systems to Azure with minimal downtime, improved performance, and enhanced security.",
+          "Transitioning legacy and on-premise systems to Azure through phased migration strategies that minimize downtime and preserve data integrity.",
       },
       {
         chip: "DevOps",
-        title: "CI/CD & DevOps Automation",
+        title: "CI/CD & DevOps Enablement",
         description:
-          "Implement automated build, test, and deployment pipelines on Azure to accelerate releases and improve reliability.",
+          "Implementing automated build and deployment pipelines with Azure DevOps to improve release velocity, testing reliability, and infrastructure consistency.",
       },
       {
         chip: "Security",
-        title: "Cloud Security & Compliance",
+        title: "Cloud Security & Governance",
         description:
-          "Secure Azure environments with identity management, access controls, monitoring, and compliance-ready configurations.",
+          "Establishing identity management, access controls, monitoring policies, and compliance-aligned configurations to protect enterprise workloads.",
       },
       {
         chip: "Data",
-        title: "Data & Storage Solutions",
+        title: "Data Platforms & Storage Solutions",
         description:
-          "Scalable cloud storage, databases, and data services optimized for performance, availability, and growth.",
+          "Designing scalable databases, cloud storage systems, and managed data services optimized for availability, performance, and future growth.",
       },
     ],
 
     faq: {
       items: [
         {
-          title: "Why choose Microsoft Azure for cloud solutions?",
+          title: "Why is Microsoft Azure a strong choice for cloud transformation?",
           content:
-            "Azure provides a robust, enterprise-grade cloud platform with strong security, global scalability, and seamless integration with modern applications and enterprise systems.",
+            "Azure provides a mature cloud ecosystem with enterprise-grade security, global infrastructure, and integrated tooling. It supports both modern cloud-native applications and legacy system modernization within a unified platform.",
         },
         {
-          title: "Can you migrate existing systems to Azure?",
+          title: "Can you migrate existing infrastructure to Azure?",
           content:
-            "Yes. We help migrate applications, databases, and infrastructure to Azure while minimizing downtime and ensuring data integrity.",
+            "Yes. We evaluate current systems, define migration roadmaps, and execute structured transitions to Azure while maintaining business continuity and system integrity.",
         },
         {
-          title: "Is Azure suitable for enterprise workloads?",
+          title: "Is Azure suitable for complex enterprise workloads?",
           content:
-            "Absolutely. Azure is widely used for enterprise workloads due to its reliability, compliance support, and ability to scale complex systems.",
+            "Absolutely. Azure supports high-demand enterprise environments with scalable compute resources, compliance tooling, identity management, and global availability.",
         },
         {
-          title: "Do you provide ongoing Azure management?",
+          title: "Do you provide ongoing Azure optimization and management?",
           content:
-            "Yes. We offer monitoring, optimization, security updates, and ongoing support to ensure your Azure environment runs smoothly.",
+            "Yes. We provide continuous monitoring, cost optimization, security updates, and performance tuning to ensure your Azure environment remains efficient and aligned with evolving business needs.",
         },
       ],
     },
@@ -588,20 +585,14 @@ export const technologies: TechnologyService[] = [
     hero: {
       title: "Amazon Web Services (AWS) Solutions",
       description:
-        "We design and manage scalable, secure, and highly available cloud solutions on AWS, enabling businesses to build resilient systems and scale with confidence.",
-      stats: [
-        { label: "AWS Projects Delivered", value: "75+" },
-        { label: "Cloud Environments Managed", value: "120+" },
-        { label: "High-Traffic Systems Deployed", value: "60+" },
-        { label: "Infrastructure Reliability Focus", value: "99.9%" },
-      ],
+        "We architect and operate secure, scalable cloud environments on AWS — helping businesses modernize infrastructure, handle high-demand workloads, and scale predictably as operations grow.",
     },
 
     sectionHeading: {
       sectionLabel: "AWS Expertise",
-      heading: "What We Build on AWS",
+      heading: "How We Build on AWS",
       subheading:
-        "From cloud infrastructure to modern application platforms, we use AWS to deliver flexible, secure, and cost-efficient cloud solutions for growing businesses and enterprises.",
+        "From foundational infrastructure to cloud-native application platforms, we use AWS to create resilient, flexible, and cost-optimized environments aligned with long-term business objectives.",
     },
 
     expertiseImage: {
@@ -612,39 +603,39 @@ export const technologies: TechnologyService[] = [
     expertise: [
       {
         chip: "Infrastructure",
-        title: "Scalable Cloud Infrastructure",
+        title: "Cloud Infrastructure Architecture",
         description:
-          "Design and deploy AWS infrastructure with high availability, fault tolerance, and on-demand scalability.",
+          "Designing AWS environments with redundancy, auto-scaling, and fault-tolerant configurations to ensure reliability and performance under varying traffic loads.",
       },
       {
         chip: "Compute",
-        title: "Application & Compute Services",
+        title: "Application & Compute Optimization",
         description:
-          "Run web applications and backend systems efficiently using AWS compute services optimized for performance and cost.",
+          "Deploying and tuning web applications and backend services using AWS compute resources selected for performance efficiency and cost balance.",
       },
       {
         chip: "Serverless",
-        title: "Serverless & Event-Driven Systems",
+        title: "Serverless & Event-Driven Architectures",
         description:
-          "Build event-driven architectures using serverless services to reduce operational overhead and improve scalability.",
+          "Building event-driven systems using serverless services to reduce infrastructure overhead while maintaining scalability and responsiveness.",
       },
       {
         chip: "Migration",
-        title: "Cloud Migration & Modernization",
+        title: "Cloud Migration & System Modernization",
         description:
-          "Migrate legacy systems and on-premise workloads to AWS while improving reliability and reducing infrastructure complexity.",
+          "Transitioning legacy applications and on-premise workloads to AWS through structured migration strategies that minimize downtime and operational risk.",
       },
       {
         chip: "Security",
-        title: "Cloud Security & Governance",
+        title: "Security & Governance Frameworks",
         description:
-          "Implement secure AWS environments with access controls, monitoring, and best-practice security configurations.",
+          "Implementing identity management, access controls, monitoring policies, and secure network configurations to protect cloud environments.",
       },
       {
         chip: "DevOps",
         title: "DevOps & Infrastructure Automation",
         description:
-          "Automate deployments and infrastructure management using AWS-native tools and modern DevOps practices.",
+          "Automating infrastructure provisioning and deployment workflows using AWS-native tools and infrastructure-as-code practices.",
       },
     ],
 
@@ -653,136 +644,156 @@ export const technologies: TechnologyService[] = [
         {
           title: "Why choose AWS for cloud infrastructure?",
           content:
-            "AWS offers a highly flexible and scalable cloud platform with a wide range of services, global availability, and strong security capabilities.",
+            "AWS provides a mature and flexible cloud ecosystem with global infrastructure, extensive service offerings, and built-in security controls. It supports both rapid scaling and long-term operational stability.",
         },
         {
-          title: "Is AWS suitable for large-scale applications?",
+          title: "Is AWS suitable for large-scale and high-traffic applications?",
           content:
-            "Yes. AWS is widely used to run large-scale and high-traffic applications due to its reliability and elastic infrastructure.",
+            "Yes. AWS infrastructure is designed to scale elastically, making it effective for applications that experience fluctuating demand or sustained high traffic.",
         },
         {
-          title: "Can you migrate existing systems to AWS?",
+          title: "Can you migrate existing applications to AWS?",
           content:
-            "Yes. We help migrate applications, data, and infrastructure to AWS with minimal downtime and improved performance.",
+            "Absolutely. We assess current systems, define migration roadmaps, and execute transitions to AWS while maintaining data integrity and minimizing service disruption.",
         },
         {
-          title: "Do you provide ongoing AWS support and optimization?",
+          title: "Do you provide ongoing AWS optimization and support?",
           content:
-            "Yes. We offer continuous monitoring, cost optimization, security updates, and operational support for AWS environments.",
+            "Yes. We provide continuous monitoring, cost management, security updates, and performance tuning to ensure your AWS environment remains efficient and aligned with evolving business requirements.",
         },
       ],
     },
   },
   {
-    slug: "mysql",
+    slug: "sql-server",
 
     hero: {
-      title: "My SQL Database Solutions",
+      title: "SQL Server Database Solutions",
       description:
-        "We design and manage reliable, high-performance MySQL databases that power web applications, SaaS platforms, and data-driven systems with consistency and speed.",
-      stats: [
-        { label: "MySQL Databases Delivered", value: "90+" },
-        { label: "Years with MySQL", value: "7+" },
-        { label: "High-Traffic Systems Supported", value: "60+" },
-        { label: "Data Reliability Focus", value: "99.9%" },
-      ],
+        "We architect and manage enterprise-grade database systems using Microsoft SQL Server, delivering structured data governance, performance optimization, and secure, scalable platforms for mission-critical applications. MySQL is supported where flexible or web-focused environments require it.",
     },
 
     sectionHeading: {
-      sectionLabel: "Database Expertise",
-      heading: "What We Build with MySQL & SQL Server",
+      sectionLabel: "SQL Server Expertise",
+      heading: "How We Engineer with SQL Server",
       subheading:
-        "From high-traffic application databases to enterprise-grade data systems, we work with MySQL and SQL Server to deliver reliable, secure, and scalable database solutions tailored to business needs.",
+        "From transactional enterprise systems to large-scale data platforms, we design and maintain SQL Server environments built for reliability, compliance, and long-term operational stability.",
     },
 
-
     expertiseImage: {
-      src: "/images/tech/mysql.svg",
-      alt: "MySQL database",
+      src: "/images/tech/sql-server-logo.svg",
+      alt: "Microsoft SQL Server database",
     },
 
     expertise: [
       {
-        chip: "Database Design",
-        title: "Relational Database Architecture",
+        chip: "Architecture",
+        title: "Enterprise SQL Server Architecture",
         description:
-          "Design normalized and optimized MySQL schemas that ensure data consistency, integrity, and long-term scalability.",
+          "Designing structured SQL Server environments using normalized schema design, indexing strategies, partitioning, and performance-focused database architecture aligned with enterprise standards.",
       },
       {
         chip: "Performance",
-        title: "Query & Performance Optimization",
+        title: "Query Optimization & Execution Planning",
         description:
-          "Improve database performance through indexing strategies, query optimization, and efficient data modeling.",
+          "Improving performance through execution plan analysis, index tuning, stored procedure optimization, and workload balancing for high-demand applications.",
       },
       {
-        chip: "SQL Server",
-        title: "Enterprise Database Systems",
+        chip: "Security",
+        title: "Advanced Security & Compliance Controls",
         description:
-          "Design and manage SQL Server databases built for enterprise applications that require strong data integrity, reliability, and governance.",
+          "Implementing role-based access control, Transparent Data Encryption (TDE), auditing, row-level security, and compliance-ready configurations for regulated industries.",
+      },
+      {
+        chip: "High Availability",
+        title: "High Availability & Disaster Recovery",
+        description:
+          "Configuring Always On Availability Groups, failover clustering, and backup strategies to ensure resilience and minimal downtime.",
       },
       {
         chip: "Scalability",
-        title: "Scalable Application Databases",
+        title: "Scalable Enterprise Data Platforms",
         description:
-          "Build MySQL databases capable of supporting growing workloads, high read/write traffic, and distributed systems.",
+          "Building SQL Server systems capable of handling high transaction volumes, complex reporting workloads, and distributed enterprise architectures.",
       },
       {
         chip: "Integration",
-        title: "Backend & API Integration",
+        title: ".NET & Enterprise Integration",
         description:
-          "Seamless integration of MySQL with backend services, APIs, and application layers for reliable data access.",
+          "Deep integration with .NET applications, APIs, reporting tools, and enterprise systems for consistent and secure data exchange.",
       },
       {
         chip: "Migration",
-        title: "Database Migration & Upgrades",
+        title: "Version Upgrades & Legacy Modernization",
         description:
-          "Migrate existing databases to MySQL or upgrade legacy versions with minimal downtime and data risk.",
+          "Upgrading legacy SQL Server environments, optimizing schema design, and transitioning to modern architectures without disrupting business operations.",
       },
       {
-        chip: "Maintenance",
-        title: "Monitoring & Maintenance",
+        chip: "MySQL",
+        title: "MySQL Support for Web & SaaS Platforms",
         description:
-          "Ongoing database monitoring, backups, and optimization to ensure performance, security, and reliability.",
-      },
-      {
-        chip: "SQL Server",
-        title: "Secure Data Management",
-        description:
-          "Implement role-based access control, encryption, and auditing features to protect sensitive business data and meet compliance needs.",
+          "Supporting MySQL deployments for web-driven or cost-sensitive applications where flexibility and lightweight infrastructure are priorities.",
       },
     ],
-
+    comparison: [
+      {
+        title: "Data Structure",
+        sql:
+          "Structured tables with fixed schema. Best for systems where data relationships and consistency matter.",
+        mongodb:
+          "Flexible document format. Better when data changes often or structure is not strictly relational.",
+      },
+      {
+        title: "Best Fit",
+        sql:
+          "ERP systems, finance platforms, enterprise applications requiring strong transactional control.",
+        mongodb:
+          "SaaS products, real-time apps, content-driven platforms that evolve quickly.",
+      },
+      {
+        title: "Scaling",
+        sql:
+          "Scales with performance tuning and high-availability setups. Predictable in enterprise environments.",
+        mongodb:
+          "Built for horizontal scaling across distributed systems and growing datasets.",
+      },
+      {
+        title: "Stability vs Flexibility",
+        sql:
+          "Prioritizes stability, governance, and long-term reliability.",
+        mongodb:
+          "Prioritizes flexibility and faster development cycles.",
+      },
+    ],
 
     faq: {
       items: [
         {
-          title: "When should I choose MySQL?",
+          title: "When should I choose SQL Server?",
           content:
-            "MySQL is a strong choice for web applications, SaaS platforms, and data-driven systems that require reliability, performance, and cost-effective scalability.",
+            "SQL Server is ideal for enterprise systems that require strong security controls, structured governance, advanced reporting capabilities, and close integration with Microsoft technologies.",
         },
         {
-          title: "Do you migrate existing databases to MySQL?",
+          title: "Is SQL Server suitable for high-transaction environments?",
           content:
-            "Yes. We handle database migrations carefully to preserve data integrity, minimize downtime, and ensure a smooth transition from legacy systems.",
-        },
-
-        {
-          title: "Choosing Between MySQL and SQL Server",
-          content:
-            "MySQL is well suited for web and SaaS applications that prioritize flexibility and cost efficiency, while SQL Server is typically preferred for enterprise systems that require advanced security, governance, and deep integration with Microsoft technologies. We help evaluate both based on your business needs.",
-        },
-
-        {
-          title: "When should I choose SQL Server instead of MySQL?",
-          content:
-            "SQL Server is often the better choice for enterprise applications that require strong security controls, compliance features, and close integration with .NET and other Microsoft-based systems.",
+            "Yes. With proper indexing, partitioning, and high-availability configurations, SQL Server can efficiently handle large transaction volumes and complex workloads.",
         },
         {
-          title: "Can you modernize or upgrade existing SQL Server databases?",
+          title: "Do you implement high availability in SQL Server?",
           content:
-            "Absolutely. We modernize SQL Server environments by upgrading versions, improving performance, strengthening security, and aligning databases with modern application architectures.",
+            "Absolutely. We configure Always On Availability Groups, failover clusters, replication strategies, and structured backup plans to ensure resilience and continuity.",
         },
-      ]
+        {
+          title: "When would MySQL be preferred instead?",
+          content:
+            "MySQL is often selected for web-focused and SaaS platforms where lightweight deployment and cost efficiency are primary considerations. We help evaluate the right fit based on system requirements.",
+        },
+        {
+          title: "Can you modernize legacy SQL Server environments?",
+          content:
+            "Yes. We assess existing database environments, upgrade versions, refactor schema design, optimize performance, and align infrastructure with modern application architecture.",
+        },
+      ],
     },
   },
   {
@@ -791,20 +802,14 @@ export const technologies: TechnologyService[] = [
     hero: {
       title: "MongoDB Database Solutions",
       description:
-        "We build flexible, scalable, and high-performance data solutions using MongoDB, ideal for modern applications that require speed, adaptability, and large-scale data handling.",
-      stats: [
-        { label: "MongoDB Projects Delivered", value: "65+" },
-        { label: "Years with MongoDB", value: "6+" },
-        { label: "High-Scale Applications Supported", value: "45+" },
-        { label: "Schema Flexibility Advantage", value: "100%" },
-      ],
+        "We design scalable and adaptable data platforms using MongoDB — enabling modern applications to handle dynamic data structures, real-time workloads, and large-scale growth with efficiency.",
     },
 
     sectionHeading: {
       sectionLabel: "MongoDB Expertise",
-      heading: "What We Build with MongoDB",
+      heading: "How We Engineer with MongoDB",
       subheading:
-        "From real-time applications to large-scale data platforms, we use MongoDB to deliver flexible, scalable, and performance-driven database solutions.",
+        "From real-time applications to distributed data platforms, we use MongoDB to build flexible, performance-focused database systems that evolve alongside growing business requirements.",
     },
 
     expertiseImage: {
@@ -815,159 +820,94 @@ export const technologies: TechnologyService[] = [
     expertise: [
       {
         chip: "NoSQL",
-        title: "Document-Based Data Modeling",
+        title: "Structured Document Data Modeling",
         description:
-          "Design flexible document schemas that adapt easily to changing application requirements without rigid table structures.",
+          "Designing flexible document schemas that allow applications to evolve without rigid relational constraints while maintaining data clarity and consistency.",
       },
       {
         chip: "Scalability",
-        title: "Horizontal Scalability & Sharding",
+        title: "Horizontal Scaling & Sharded Architectures",
         description:
-          "Build MongoDB databases that scale horizontally to support large datasets and growing traffic volumes.",
+          "Implementing sharding and distributed cluster strategies to support growing datasets and increasing traffic without compromising performance.",
       },
       {
         chip: "Performance",
-        title: "High-Performance Data Access",
+        title: "Query & Aggregation Optimization",
         description:
-          "Optimize queries, indexing strategies, and aggregation pipelines for fast data retrieval and processing.",
+          "Improving performance through index planning, aggregation pipeline tuning, and query pattern optimization for efficient data retrieval.",
       },
       {
         chip: "Real-Time",
-        title: "Real-Time & Event-Driven Applications",
+        title: "Real-Time & Event-Based Systems",
         description:
-          "Support real-time use cases such as analytics dashboards, activity feeds, and event-driven systems.",
+          "Supporting event-driven platforms, activity feeds, analytics dashboards, and streaming-based systems requiring fast and responsive data access.",
       },
       {
         chip: "Integration",
         title: "Backend & API Integration",
         description:
-          "Seamless integration with Node.js, APIs, and modern application stacks for efficient data flow.",
+          "Integrating MongoDB seamlessly with Node.js, APIs, and modern application stacks to ensure consistent and efficient data flow.",
       },
       {
         chip: "Migration",
-        title: "Data Migration & Optimization",
+        title: "Data Migration & Structural Refactoring",
         description:
-          "Migrate existing relational or NoSQL databases to MongoDB while improving structure, performance, and scalability.",
+          "Migrating relational or legacy NoSQL systems to MongoDB through structured planning, ensuring data integrity and optimized schema design.",
       },
     ],
+    comparison: [
+      {
+        title: "Data Structure",
+        sql:
+          "Structured tables with fixed schema. Best for systems where data relationships and consistency matter.",
+        mongodb:
+          "Flexible document format. Better when data changes often or structure is not strictly relational.",
+      },
+      {
+        title: "Best Fit",
+        sql:
+          "ERP systems, finance platforms, enterprise applications requiring strong transactional control.",
+        mongodb:
+          "SaaS products, real-time apps, content-driven platforms that evolve quickly.",
+      },
+      {
+        title: "Scaling",
+        sql:
+          "Scales with performance tuning and high-availability setups. Predictable in enterprise environments.",
+        mongodb:
+          "Built for horizontal scaling across distributed systems and growing datasets.",
+      },
+      {
+        title: "Stability vs Flexibility",
+        sql:
+          "Prioritizes stability, governance, and long-term reliability.",
+        mongodb:
+          "Prioritizes flexibility and faster development cycles.",
+      },
+    ],
+
 
     faq: {
       items: [
         {
-          title: "When should I choose MongoDB?",
+          title: "When is MongoDB the right choice?",
           content:
-            "MongoDB is ideal for applications that require flexible data models, rapid development, and the ability to scale horizontally as data grows.",
+            "MongoDB is well suited for applications that require flexible schemas, rapid iteration, and horizontal scalability — especially where data structures evolve frequently.",
         },
         {
-          title: "Is MongoDB suitable for large-scale applications?",
+          title: "Can MongoDB support large-scale applications?",
           content:
-            "Yes. MongoDB is widely used for large-scale and high-traffic applications due to its scalability and distributed architecture.",
+            "Yes. With proper indexing, sharding strategies, and distributed cluster design, MongoDB can effectively support high-traffic and large-volume data environments.",
         },
         {
           title: "How does MongoDB differ from relational databases?",
           content:
-            "MongoDB stores data in flexible document formats rather than fixed tables, making it easier to adapt schemas and handle evolving data structures.",
+            "Unlike relational databases that rely on fixed tables and predefined schemas, MongoDB stores data in document-based structures. This allows greater flexibility while still supporting indexing and structured query patterns.",
         },
         {
           title: "Do you migrate existing systems to MongoDB?",
           content:
-            "Yes. We handle MongoDB migrations carefully, ensuring data consistency, performance optimization, and minimal disruption.",
-        },
-      ],
-    },
-  },
-  {
-    slug: "blockchain",
-
-    hero: {
-      title: "Blockchain Technology Solutions",
-      description:
-        "We build secure, decentralized, and scalable blockchain solutions that enable trust, transparency, and automation across digital products and enterprise systems.",
-      stats: [
-        { label: "Blockchain Projects Delivered", value: "40+" },
-        { label: "Smart Contracts Deployed", value: "70+" },
-        { label: "Years in Blockchain Development", value: "4+" },
-        { label: "Security-First Implementations", value: "100%" },
-      ],
-    },
-
-    sectionHeading: {
-      sectionLabel: "Blockchain Expertise",
-      heading: "What We Build with Blockchain Technology",
-      subheading:
-        "From smart contracts and decentralized applications to secure blockchain integrations, we help businesses adopt blockchain technology with confidence and clarity.",
-    },
-
-    expertiseImage: {
-      src: "/images/tech/blockchain.svg",
-      alt: "Blockchain technology",
-    },
-
-    expertise: [
-      {
-        chip: "Smart Contracts",
-        title: "Solidity Smart Contract Development",
-        description:
-          "Design and develop secure, efficient smart contracts using Solidity to automate logic, enforce rules, and execute trustless transactions on blockchain networks.",
-      },
-      {
-        chip: "DApps",
-        title: "Decentralized Application Development",
-        description:
-          "Build end-to-end decentralized applications with blockchain-backed logic, intuitive user interfaces, and seamless wallet interactions.",
-      },
-      {
-        chip: "Web3",
-        title: "Web3 Integration & Connectivity",
-        description:
-          "Integrate blockchain functionality into web and backend systems using modern Web3 libraries and APIs for smooth on-chain interactions.",
-      },
-      {
-        chip: "Tokens",
-        title: "Token & Digital Asset Solutions",
-        description:
-          "Create and manage digital assets such as tokens and NFTs for payments, access control, governance, and digital ownership use cases.",
-      },
-      {
-        chip: "Networks",
-        title: "EVM-Compatible Blockchain Networks",
-        description:
-          "Deploy and manage solutions across Ethereum and other EVM-compatible networks with a focus on performance, cost efficiency, and scalability.",
-      },
-      {
-        chip: "Security",
-        title: "Blockchain Security & Optimization",
-        description:
-          "Review, test, and optimize smart contracts and blockchain logic to reduce vulnerabilities and ensure predictable, secure behavior.",
-      },
-    ],
-
-    faq: {
-      items: [
-        {
-          title: "What problems does blockchain technology solve?",
-          content:
-            "Blockchain enables trustless systems by providing transparency, immutability, and decentralized control, making it ideal for use cases such as digital identity, asset management, and secure transactions.",
-        },
-        {
-          title: "Is blockchain suitable for enterprise applications?",
-          content:
-            "Yes. When designed correctly, blockchain can support enterprise use cases that require data integrity, traceability, and controlled access across multiple parties.",
-        },
-        {
-          title: "Do you build smart contracts using Solidity?",
-          content:
-            "Yes. Solidity is our primary language for building smart contracts on Ethereum and other EVM-compatible blockchain networks.",
-        },
-        {
-          title: "Can blockchain solutions integrate with existing systems?",
-          content:
-            "Absolutely. We integrate blockchain components with existing web applications, backend services, and enterprise systems to ensure smooth adoption.",
-        },
-        {
-          title: "How do you ensure blockchain security?",
-          content:
-            "We follow security-first development practices including testing, code reviews, optimization, and controlled deployment strategies.",
+            "Yes. We evaluate existing data models, plan structured migrations, and optimize schemas to ensure performance, consistency, and minimal operational disruption.",
         },
       ],
     },
@@ -976,22 +916,16 @@ export const technologies: TechnologyService[] = [
     slug: "solidity",
 
     hero: {
-      title: "Solidity Programming Language",
+      title: "Solidity Smart Contract",
       description:
-        "Solidity is a smart contract programming language used to build decentralized logic on blockchain networks, enabling trustless execution, automation, and on-chain data handling.",
-      stats: [
-        { label: "Smart Contracts Built", value: "60+" },
-        { label: "Years Using Solidity", value: "4+" },
-        { label: "EVM Networks Deployed On", value: "8+" },
-        { label: "Security-Focused Implementations", value: "100%" },
-      ],
+        "Solidity is a contract-oriented programming language used to define and execute deterministic logic on blockchain networks. We use Solidity to build secure, upgradeable, and production-ready smart contracts that power decentralized systems and programmable digital assets.",
     },
 
     sectionHeading: {
-      sectionLabel: "Solidity Overview",
-      heading: "What Can Be Built with Solidity",
+      sectionLabel: "Solidity Engineering",
+      heading: "What We Build Using Solidity",
       subheading:
-        "Solidity enables the creation of programmable smart contracts that run on blockchain networks, supporting decentralized applications, token systems, and automated on-chain logic.",
+        "Solidity enables programmable on-chain logic for decentralized applications, token economies, identity systems, and automated governance models. We focus on secure design, gas optimization, and predictable contract behavior.",
     },
 
     expertiseImage: {
@@ -1002,63 +936,63 @@ export const technologies: TechnologyService[] = [
     expertise: [
       {
         chip: "Smart Contracts",
-        title: "On-Chain Business Logic",
+        title: "Deterministic On-Chain Logic",
         description:
-          "Write deterministic smart contracts that execute predefined rules directly on the blockchain without relying on centralized servers.",
+          "Developing structured smart contracts that enforce predefined rules on-chain, eliminating reliance on centralized intermediaries.",
       },
       {
         chip: "Tokens",
-        title: "Token Standards Implementation",
+        title: "ERC Token Standard Implementation",
         description:
-          "Develop fungible and non-fungible token contracts that support digital ownership, transfers, and on-chain permissions.",
+          "Building ERC-20, ERC-721, and ERC-1155 compliant contracts to support fungible tokens, NFTs, governance mechanisms, and programmable digital ownership.",
       },
       {
         chip: "Automation",
-        title: "Autonomous Contract Execution",
+        title: "Autonomous Execution & Escrow Systems",
         description:
-          "Enable automated workflows such as escrow, governance actions, and reward distribution through self-executing contracts.",
+          "Designing self-executing contracts for escrow flows, governance voting, reward distribution, and rule-based automation.",
       },
       {
         chip: "Security",
-        title: "Secure Contract Design",
+        title: "Security-First Contract Design",
         description:
-          "Apply defensive coding patterns, validation checks, and gas-efficient logic to reduce vulnerabilities and unexpected behavior.",
+          "Applying access control patterns, input validation, reentrancy protection, and structured testing to reduce vulnerabilities before deployment.",
       },
       {
         chip: "EVM",
-        title: "EVM-Compatible Development",
+        title: "EVM-Compatible Deployment",
         description:
-          "Build Solidity contracts that run on Ethereum and other EVM-compatible blockchain networks with consistent behavior.",
+          "Deploying contracts across Ethereum and other EVM-compatible networks while ensuring consistent bytecode behavior and gas efficiency.",
       },
       {
         chip: "Integration",
-        title: "DApp & Backend Integration",
+        title: "Frontend & Backend Integration",
         description:
-          "Connect Solidity contracts with web applications and backend systems for complete decentralized application workflows.",
+          "Connecting Solidity contracts to web interfaces and backend services using Web3 libraries for transaction handling, event listening, and state synchronization.",
       },
     ],
 
     faq: {
       items: [
         {
-          title: "What is Solidity used for?",
+          title: "What is Solidity primarily used for?",
           content:
-            "Solidity is used to write smart contracts that define and enforce rules on blockchain networks, enabling decentralized applications and on-chain automation.",
+            "Solidity is used to define smart contracts that execute logic on blockchain networks. These contracts manage digital assets, enforce rules, and automate interactions without centralized control.",
         },
         {
-          title: "Which blockchains support Solidity?",
+          title: "Which blockchain networks support Solidity?",
           content:
-            "Solidity is supported on Ethereum and other EVM-compatible blockchain networks, allowing contracts to be deployed across multiple ecosystems.",
+            "Solidity contracts run on Ethereum and other EVM-compatible networks, allowing deployment across multiple blockchain ecosystems with consistent behavior.",
         },
         {
-          title: "Is Solidity suitable for production applications?",
+          title: "Is Solidity suitable for production systems?",
           content:
-            "Yes. When written carefully and tested properly, Solidity contracts can power production-grade decentralized applications and systems.",
+            "Yes. With structured architecture, testing, and security validation, Solidity contracts can power production-grade decentralized platforms.",
         },
         {
-          title: "Can Solidity contracts interact with web applications?",
+          title: "How do smart contracts interact with web applications?",
           content:
-            "Yes. Solidity contracts can be accessed from web and backend applications using Web3 libraries to read data and trigger transactions.",
+            "Web applications interact with Solidity contracts through Web3 libraries that allow reading contract state, sending transactions, and listening to on-chain events.",
         },
       ],
     },
@@ -1067,22 +1001,16 @@ export const technologies: TechnologyService[] = [
     slug: "ethereum",
 
     hero: {
-      title: "Ethereum Blockchain Platform",
+      title: "Ethereum Blockchain Infrastructure",
       description:
-        "Ethereum is a decentralized blockchain platform that enables programmable smart contracts and decentralized applications to run without centralized control.",
-      stats: [
-        { label: "Ethereum-Based Projects", value: "45+" },
-        { label: "Years Working with Ethereum", value: "4+" },
-        { label: "Smart Contracts Deployed", value: "70+" },
-        { label: "EVM-Compatible Networks Used", value: "10+" },
-      ],
+        "Ethereum is a programmable blockchain network that enables decentralized logic, digital asset management, and trust-minimized execution. We use Ethereum to build production-ready decentralized systems with secure smart contracts and scalable on-chain architecture.",
     },
 
     sectionHeading: {
-      sectionLabel: "Ethereum Overview",
-      heading: "What Can Be Built on Ethereum",
+      sectionLabel: "Ethereum Platform",
+      heading: "How We Build on Ethereum",
       subheading:
-        "Ethereum provides a decentralized execution environment for smart contracts, enabling applications that require transparency, immutability, and trustless interaction.",
+        "Ethereum provides a distributed execution layer for smart contracts and decentralized applications. We design systems that leverage Ethereum’s security model, consensus mechanisms, and programmable infrastructure to support real-world digital products.",
     },
 
     expertiseImage: {
@@ -1092,66 +1020,67 @@ export const technologies: TechnologyService[] = [
 
     expertise: [
       {
-        chip: "Blockchain",
-        title: "Decentralized Application Platform",
+        chip: "Infrastructure",
+        title: "Decentralized Application Foundation",
         description:
-          "Use Ethereum as a base layer for decentralized applications that operate without centralized servers or intermediaries.",
+          "Using Ethereum as a base execution layer to power decentralized applications without centralized control or single points of failure.",
       },
       {
         chip: "Smart Contracts",
-        title: "Smart Contract Execution",
+        title: "Secure Smart Contract Deployment",
         description:
-          "Deploy and execute smart contracts on Ethereum using the EVM, ensuring predictable and transparent on-chain behavior.",
+          "Deploying deterministic smart contracts on the Ethereum Virtual Machine (EVM) with structured logic, gas optimization, and controlled upgrade strategies.",
       },
       {
         chip: "EVM",
-        title: "EVM-Based Network Compatibility",
+        title: "EVM-Compatible Ecosystem Development",
         description:
-          "Build applications that remain compatible across Ethereum and other EVM-based networks using common standards.",
+          "Building systems that remain interoperable across Ethereum and other EVM-compatible networks using standardized contract interfaces.",
       },
       {
         chip: "Tokens",
-        title: "Digital Assets & Tokenization",
+        title: "Tokenization & Digital Asset Systems",
         description:
-          "Support token-based systems for value transfer, access control, and on-chain ownership using standardized approaches.",
+          "Implementing ERC-compliant token models to support digital ownership, governance mechanisms, access permissions, and asset transfers.",
       },
       {
-        chip: "Decentralization",
-        title: "Trustless & Transparent Systems",
+        chip: "Security",
+        title: "Consensus-Based Execution",
         description:
-          "Enable systems where rules are enforced by code and consensus rather than centralized authorities.",
+          "Designing applications where transaction validation and rule enforcement are governed by blockchain consensus rather than centralized authorities.",
       },
       {
         chip: "Integration",
-        title: "Web & Backend Connectivity",
+        title: "Web & Backend Integration",
         description:
-          "Integrate Ethereum-based functionality with web applications and backend systems using Web3-compatible tooling.",
+          "Connecting Ethereum smart contracts with web interfaces and backend services using Web3 libraries, RPC endpoints, and event-based synchronization.",
       },
     ],
 
     faq: {
       items: [
         {
-          title: "What is Ethereum used for?",
+          title: "What is Ethereum used for in real-world systems?",
           content:
-            "Ethereum is used to run smart contracts and decentralized applications that require transparency, immutability, and decentralized execution.",
+            "Ethereum is used to run smart contracts that manage digital assets, enforce programmable rules, and coordinate decentralized workflows across multiple participants.",
         },
         {
-          title: "How is Ethereum different from Bitcoin?",
+          title: "How does Ethereum differ from Bitcoin?",
           content:
-            "Ethereum is designed to support programmable smart contracts and applications, while Bitcoin primarily focuses on peer-to-peer digital currency.",
+            "While Bitcoin primarily functions as a digital currency network, Ethereum provides a programmable execution environment that supports decentralized applications and smart contract logic.",
         },
         {
-          title: "Is Ethereum suitable for real-world applications?",
+          title: "Is Ethereum suitable for enterprise applications?",
           content:
-            "Yes. Ethereum is widely used as a foundation for decentralized applications, digital assets, and blockchain-based systems.",
+            "Yes. When architected carefully, Ethereum can support identity systems, asset tokenization, traceability platforms, and multi-party coordination systems that require transparent execution.",
         },
         {
-          title: "Can Ethereum integrate with web applications?",
+          title: "How do web applications interact with Ethereum?",
           content:
-            "Yes. Ethereum can be accessed from web and backend applications through Web3 libraries to read blockchain data and submit transactions.",
+            "Web and backend systems interact with Ethereum using Web3-compatible libraries to read blockchain state, submit transactions, and monitor smart contract events.",
         },
       ],
     },
   }
+
 ];
