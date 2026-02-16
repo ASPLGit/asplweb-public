@@ -48,7 +48,7 @@ export default function Footer() {
     after:content-['']
     after:absolute
     after:inset-0
-    after:bg-[url('/images/layer5.webp')]
+    after:bg-[url('/images/layer1.webp')]
     after:bg-cover
     sm:after:bg-center after:bg-left
     after:bg-no-repeat
@@ -189,18 +189,18 @@ export default function Footer() {
                             <ul className="space-y-3 text-sm text-slate-300">
                                 <li>
                                     <Link
-                                        href="/services/web-development"
-                                        className="hover:text-blue-400 transition"
-                                    >
-                                        Web / App Development
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
                                         href="/services/software-development"
                                         className="hover:text-blue-400 transition"
                                     >
                                         Software Development
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        href="/services/web-development"
+                                        className="hover:text-blue-400 transition"
+                                    >
+                                        Web / App Development
                                     </Link>
                                 </li>
                                 <li>
@@ -221,10 +221,10 @@ export default function Footer() {
                                 </li>
                                 <li>
                                     <Link
-                                        href="/services/devops"
+                                        href="/services/cloud-solutions"
                                         className="hover:text-blue-400 transition"
                                     >
-                                        Cloud & DevOps
+                                        Cloud Solutions
                                     </Link>
                                 </li>
                                 <li>

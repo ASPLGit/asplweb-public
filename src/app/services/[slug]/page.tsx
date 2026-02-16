@@ -68,6 +68,17 @@ export const SERVICE_META: Record<
         description:
             "Comprehensive cybersecurity services covering application security, network security, vulnerability assessments, risk management, and compliance.",
     },
+    "qa-testing": {
+        title: "QA & Software Testing Services",
+        description:
+            "Comprehensive QA and software testing services including manual testing, automation testing, performance testing, regression testing, and CI/CD-integrated quality assurance to ensure reliable and defect-free software releases.",
+    },
+
+    "salesforce": {
+        title: "Enterprise Salesforce Solutions",
+        description:
+            "Enterprise Salesforce consulting and implementation services including CRM customization, Sales Cloud, Service Cloud, workflow automation, integrations, and scalable Salesforce solutions tailored to complex business ecosystems.",
+    },
 };
 
 

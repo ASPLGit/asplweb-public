@@ -14,7 +14,7 @@ interface Props {
 export default function FounderCard({ data }: Props) {
     return (
         <div className="container" id="about">
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-5xl mx-auto pb-5">
                 <div
                     className="
                         group

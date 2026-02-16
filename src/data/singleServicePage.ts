@@ -65,8 +65,8 @@ export const services: Service[] = [
         stats: [
             { value: "10+", label: "Years Experience" },
             { value: "50+", label: "Projects Delivered" },
-            { value: "99%", label: "Client Satisfaction" },
-            { value: "24/7", label: "Support & Monitoring" },
+            { value: "45+", label: "Client Satisfaction" },
+            { value: "95%", label: "Performance Optimization Rate" }
         ],
         TechnologySection: {
             items: [
@@ -169,13 +169,6 @@ export const services: Service[] = [
                 },
             ],
         },
-
-        stats: [
-            { value: "10+", label: "Years Experience" },
-            { value: "50+", label: "Projects Delivered" },
-            { value: "99%", label: "Client Satisfaction" },
-            { value: "24/7", label: "Support & Monitoring" },
-        ],
         TechnologySection: {
             items: [
                 { logo: "/images/tech/react-native.svg", name: "React Native" },
@@ -269,10 +262,10 @@ export const services: Service[] = [
         },
 
         stats: [
-            { value: "8+", label: "Years Experience" },
-            { value: "120+", label: "Web Projects" },
+            { value: "10+", label: "Years Experience" },
+            { value: "50+", label: "Web Projects" },
             { value: "98%", label: "Client Retention" },
-            { value: "24/7", label: "Support" },
+            { value: "95%", label: "Performance Optimization Rate" }
         ],
 
         TechnologySection: {
@@ -311,7 +304,7 @@ export const services: Service[] = [
         slug: "cloud-solutions",
         title: "Microsoft & Cloud Solutions",
         description:
-            "Secure, scalable, and cost-efficient cloud solutions designed to modernize your infrastructure and operations.",
+            "Modern, secure, and performance-driven cloud ecosystems built to scale your business operations with confidence.",
 
         cta: {
             primary: {
@@ -322,89 +315,113 @@ export const services: Service[] = [
 
         section: {
             label: "Overview",
-            heading: "Cloud Infrastructure Built for Growth",
+            heading: "Cloud Infrastructure Engineered for Performance & Scale",
             subheading:
-                "We help businesses migrate, optimize, and manage cloud infrastructure with security and scalability at the core.",
+                "From migration to optimization, we design resilient cloud environments that improve agility, strengthen security, and reduce operational complexity.",
         },
 
         featureSection: {
             items: [
                 {
                     id: "01",
-                    title: "Cloud Migration",
+                    title: "Cloud Strategy & Consulting",
                     description:
-                        "Seamless transition from on-premise to cloud environments.",
+                        "Strategic cloud adoption planning aligned with your business objectives, compliance needs, and long-term growth roadmap.",
                 },
                 {
                     id: "02",
-                    title: "Azure Services",
+                    title: "Cloud Migration & Modernization",
                     description:
-                        "Expert implementation of Microsoft Azure services.",
+                        "End-to-end migration of legacy systems, applications, and databases with minimal disruption and optimized cloud architecture.",
                 },
                 {
                     id: "03",
-                    title: "Cloud Security",
+                    title: "Microsoft Azure Solutions",
                     description:
-                        "Enterprise-grade security and compliance strategies.",
+                        "Design and deployment of scalable Azure environments including compute, storage, networking, identity, and DevOps services.",
                 },
                 {
                     id: "04",
-                    title: "Infrastructure Setup",
+                    title: "AWS Cloud Services",
                     description:
-                        "Reliable and scalable cloud infrastructure architecture.",
+                        "Reliable and high-availability infrastructure built on AWS using EC2, Lambda, RDS, S3, and container-based deployments.",
                 },
                 {
                     id: "05",
-                    title: "Cost Optimization",
+                    title: "Google Cloud Platform (GCP)",
                     description:
-                        "Optimized cloud usage to reduce operational costs.",
+                        "Cloud-native solutions powered by GCP including Kubernetes, BigQuery, AI services, and scalable data pipelines.",
                 },
                 {
                     id: "06",
-                    title: "Managed Cloud",
+                    title: "Cloud Security & Compliance",
                     description:
-                        "Ongoing monitoring, maintenance, and support.",
+                        "Multi-layered security architecture, identity management, data encryption, and regulatory compliance implementation.",
+                },
+                {
+                    id: "07",
+                    title: "DevOps & CI/CD Automation",
+                    description:
+                        "Automated deployment pipelines, container orchestration, infrastructure as code, and monitoring for faster releases.",
+                },
+                {
+                    id: "08",
+                    title: "Cloud Infrastructure Architecture",
+                    description:
+                        "High-performance cloud networks, load balancing, failover systems, and disaster recovery planning.",
+                },
+                {
+                    id: "09",
+                    title: "Cost Optimization & FinOps",
+                    description:
+                        "Cloud usage analysis, resource right-sizing, reserved instances planning, and cost governance strategies.",
+                },
+                {
+                    id: "10",
+                    title: "Managed Cloud Operations",
+                    description:
+                        "24/7 monitoring, proactive performance tuning, system updates, and long-term cloud maintenance support.",
                 },
             ],
         },
-
-        stats: [
-            { value: "100%", label: "Secure Deployments" },
-            { value: "60%", label: "Cost Optimization" },
-            { value: "99.9%", label: "Uptime" },
-            { value: "24/7", label: "Monitoring" },
-        ],
-
         TechnologySection: {
             items: [
-                { logo: "/images/tech/docker.svg", name: "Docker" },
-                { logo: "/images/tech/mysql.svg", name: "MySQL" },
                 { logo: "/images/tech/azure.svg", name: "Microsoft Azure" },
-                { logo: "/images/tech/dotnet.svg", name: ".NET" },
+                { logo: "/images/tech/aws.svg", name: "Amazon Web Services" },
+                { logo: "/images/tech/google-cloud.svg", name: "Google Cloud Platform" },
+                { logo: "/images/tech/docker.svg", name: "Docker" },
                 { logo: "/images/tech/kubernetes.svg", name: "Kubernetes" },
+                { logo: "/images/tech/terraform.svg", name: "Terraform" },
                 { logo: "/images/tech/sql-server.svg", name: "SQL Server" },
+                { logo: "/images/tech/mysql.svg", name: "MySQL" },
+                { logo: "/images/tech/linux.svg", name: "Linux" },
             ],
-
         },
+
         faq: {
             items: [
                 {
-                    title: "Which cloud platforms do you work with?",
+                    title: "Which cloud platforms do you support?",
                     content:
-                        "We primarily work with Microsoft Azure along with other major cloud platforms to deliver scalable and secure cloud solutions.",
+                        "We work with Microsoft Azure, AWS, and Google Cloud Platform, selecting the right ecosystem based on your scalability, compliance, and performance requirements.",
                 },
                 {
-                    title: "Can you migrate existing systems to the cloud?",
+                    title: "Can you migrate legacy or on-premise systems?",
                     content:
-                        "Yes. We handle complete cloud migration, ensuring minimal downtime, data security, and optimized performance.",
+                        "Yes. We handle full-scale cloud migrations, including application refactoring, database transfer, and infrastructure redesign with minimal downtime.",
                 },
                 {
-                    title: "Do you offer managed cloud services?",
+                    title: "Do you provide ongoing cloud management?",
                     content:
-                        "We provide ongoing cloud monitoring, optimization, security, and maintenance support.",
+                        "We offer managed cloud services including monitoring, security updates, optimization, and continuous performance improvements.",
+                },
+                {
+                    title: "How do you ensure cloud security?",
+                    content:
+                        "We implement multi-layer security frameworks including IAM, encryption, network segmentation, threat monitoring, and compliance alignment.",
                 },
             ],
-        }
+        },
     },
     {
         slug: "devops",
@@ -471,7 +488,6 @@ export const services: Service[] = [
             { value: "70%", label: "Faster Deployments" },
             { value: "99.9%", label: "System Stability" },
             { value: "50%", label: "Cost Reduction" },
-            { value: "24/7", label: "Monitoring" },
         ],
 
         TechnologySection: {
@@ -568,13 +584,6 @@ export const services: Service[] = [
                 },
             ],
         },
-
-        stats: [
-            { value: "100%", label: "On-Chain Security" },
-            { value: "50+", label: "Smart Contracts" },
-            { value: "0%", label: "Data Tampering" },
-            { value: "24/7", label: "Network Availability" },
-        ],
 
         TechnologySection: {
             items: [
@@ -791,7 +800,7 @@ export const services: Service[] = [
         stats: [
             { value: "100%", label: "Threat Coverage" },
             { value: "0", label: "Breaches Reported" },
-            { value: "24/7", label: "Monitoring" },
+            { value: "100%", label: "Risk Management" },
             { value: "ISO", label: "Compliance Ready" },
         ],
 
@@ -893,8 +902,8 @@ export const services: Service[] = [
         stats: [
             { value: "100%", label: "Salesforce-Centric Solutions" },
             { value: "10+", label: "CRM Projects Delivered" },
-            { value: "24/7", label: "Support & Optimization" },
-            { value: "0", label: "Data Loss in Migration" },
+            { value: "95%", label: "Platform Optimization" },
+            { value: "12+", label: "Conga Integration" },
         ],
 
         TechnologySection: {
@@ -994,9 +1003,8 @@ export const services: Service[] = [
 
         stats: [
             { value: "99%", label: "Defect Detection Rate" },
-            { value: "50%", label: "Faster Release Cycles" },
-            { value: "0", label: "Critical Bugs in Production" },
-            { value: "24/7", label: "QA Support" },
+            { value: "85%", label: "Automation Coverage" },
+            { value: "100%", label: "CI/CD Pipeline Integration" },
         ],
 
         TechnologySection: {

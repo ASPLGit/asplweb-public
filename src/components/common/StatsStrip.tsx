@@ -33,7 +33,9 @@ export default function StatsStrip({ items }: StatsStripProps) {
                 />
                 <div
                     className="
-                        grid grid-cols-2 sm:grid-cols-4 gap-6 relative z-10
+                            flex flex-wrap
+    justify-between
+    gap-6 relative z-10
                         px-6 py-10
                     "
                 >
@@ -41,6 +43,8 @@ export default function StatsStrip({ items }: StatsStripProps) {
                         <div
                             key={index}
                             className={`
+                                flex-1
+                                min-w-[220px]
                                 flex flex-col items-center justify-center
                                 sm:rounded-2xl rounded-xl
                                 px-6 py-8

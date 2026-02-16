@@ -72,7 +72,6 @@ export default async function TechnologyPage({
                     subheading={technology.sectionHeading.subheading}
                 />
             </div>
-            <div>
                 {/* EXPERTISE */}
                 <TechnologyExpertiseSection
                     items={technology.expertise}
@@ -87,7 +86,6 @@ export default async function TechnologyPage({
                 )}
 
                 <FAQSection data={technology.faq} href="/contact" />
-            </div>
         </div>
     );
 }
