@@ -2,7 +2,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
 type PhoneFieldProps = {
-    label: string;
+    label?: string;
     value: string;
     onChange: (value: string) => void;
     error?: string;
@@ -16,9 +16,10 @@ export function PhoneField({
 }: PhoneFieldProps) {
     return (
         <div className="space-y-1">
-            <label className="text-xs font-medium text-slate-600">
-                {label}
-            </label>
+            {label &&
+                <label className="text-xs font-medium text-slate-600">
+                    {label}
+                </label>}
 
             <PhoneInput
                 country={"in"}

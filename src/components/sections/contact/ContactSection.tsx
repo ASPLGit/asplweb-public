@@ -5,6 +5,7 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { PhoneField } from "@/components/ui/PhoneField";
+import FormInput from "@/components/ui/FormInput";
 
 export default function ContactSection() {
     const { executeRecaptcha } = useGoogleReCaptcha();
@@ -12,7 +13,7 @@ export default function ContactSection() {
     const initialForm = {
         name: "",
         email: "",
-        phone: "91", // ✅ keep default country code (India)
+        phone: "91",
         message: "",
     };
 
@@ -175,18 +176,27 @@ export default function ContactSection() {
                             <form onSubmit={handleSubmit} className="space-y-4">
 
                                 {/* NAME */}
-                                <div className="space-y-1">
-                                    <label className="text-xs font-medium text-slate-600"> Full Name * </label>
-                                    <Input name="name" value={form.name} onChange={handleChange} placeholder="John Doe" error={errors.name} />
-                                </div>
+                                <FormInput
+                                    name="name"
+                                    value={form.name}
+                                    onChange={handleChange}
+                                    placeholder="John Doe"
+                                    label="Full Name *"
+                                    error={errors.name}
+                                />
+
 
                                 {/* EMAIL */}
                                 <div className=" grid sm:grid-cols-2 grid-cols-1 gap-4">
-                                    <div className="space-y-1">
-                                        <label className="text-xs font-medium text-slate-600"> Email Address * </label>
-                                        <Input type="email" name="email" value={form.email} onChange={handleChange} placeholder="you@example.com" error={errors.email} />
-                                    </div>
-                                    {/* PHONE */}
+                                    <FormInput
+                                        type="email"
+                                        name="email"
+                                        value={form.email}
+                                        onChange={handleChange}
+                                        placeholder="you@example.com"
+                                        label="Email Address *"
+                                        error={errors.email}
+                                    />
                                     <PhoneField
                                         label="Phone Number (Optional)"
                                         value={form.phone}
@@ -203,7 +213,7 @@ export default function ContactSection() {
                                     {errors.message && (<p className="text-xs text-red-500"> {errors.message} </p>)}
                                 </div>
 
-                                <Button variant="blue" type="submit">
+                                <Button variant="blue" type="submit" disabled={loading}>
                                     {loading ? "Submitting..." : "Send Message"}
                                 </Button>
 
@@ -218,49 +228,33 @@ export default function ContactSection() {
                                         Message failed. Please try again.
                                     </p>
                                 )}
+                                <p className="text-xs text-slate-500 mt-3">
+                                    This site is protected by reCAPTCHA and the Google{" "}
+                                    <a
+                                        href="https://policies.google.com/privacy"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="underline hover:text-slate-700"
+                                    >
+                                        Privacy Policy
+                                    </a>{" "}
+                                    and{" "}
+                                    <a
+                                        href="https://policies.google.com/terms"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="underline hover:text-slate-700"
+                                    >
+                                        Terms of Service
+                                    </a>{" "}
+                                    apply.
+                                </p>
+
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    );
-}
-
-/* INPUT COMPONENT */
-function Input({
-    type = "text",
-    name,
-    value,
-    onChange,
-    placeholder,
-    error,
-}: {
-    type?: string;
-    name: string;
-    value: string;
-    onChange: React.ChangeEventHandler<HTMLInputElement>;
-    placeholder: string;
-    error?: string;
-}) {
-    return (
-        <div>
-            <input
-                type={type}
-                name={name}
-                value={value}
-                onChange={onChange}
-                placeholder={placeholder}
-                className={`w-full rounded-lg border px-3 py-2.5 text-base outline-none ${error
-                    ? "border-red-400"
-                    : "border-slate-300 focus:border-blueTheme focus:ring-2 focus:ring-blueTheme/30"
-                    }`}
-            />
-            {error && (
-                <p className="mt-1 text-xs text-red-500">
-                    {error}
-                </p>
-            )}
-        </div>
     );
 }

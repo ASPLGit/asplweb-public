@@ -24,14 +24,20 @@ export async function POST(req: Request) {
         );
 
         const captchaData = await captchaRes.json();
+        // console.log("RECAPTCHA RESPONSE CONTACTFORM:", captchaData);
 
 
-        if (!captchaData.success || captchaData.score < 0.5) {
+        if (
+            !captchaData.success ||
+            captchaData.score < 0.5 ||
+            captchaData.action !== "contact_form"
+        ) {
             return NextResponse.json(
                 { error: "Bot detected" },
                 { status: 403 }
             );
         }
+
         const transporter = nodemailer.createTransport({
             host: "smtp.gmail.com",
             port: 465,

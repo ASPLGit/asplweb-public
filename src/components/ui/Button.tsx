@@ -11,6 +11,7 @@ interface ButtonProps {
   onClick?: () => void;
   className?: string;
   type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }
 
 export default function Button({
@@ -20,6 +21,7 @@ export default function Button({
   onClick,
   className = "",
   type = "button",
+  disabled = false,
 }: ButtonProps) {
   const base =
     "group inline-flex items-center justify-center gap-3 rounded-lg font-medium transition-all duration-300 ease-out";
@@ -44,14 +46,14 @@ export default function Button({
     black: `
       bg-black text-white border
       shadow-md
-      hover:text-black
-      hover:border-black
-      hover:bg-transparent
       hover:shadow-[inset_0_0_0_9999px_rgba(255,255,255,0.06)]
     `,
   };
+  const disabledStyles = disabled
+    ? "opacity-60 cursor-not-allowed pointer-events-none"
+    : "";
 
-  const classes = `${base} ${size} ${variants[variant]} ${className}`;
+  const classes = `${base} ${size} ${variants[variant]} ${disabledStyles} ${className}`;
 
   const content = (
     <>
@@ -63,24 +65,24 @@ export default function Button({
         alt=""
         width={20}
         height={20}
-        className="
+        className={`
           transition-transform duration-300 ease-out
-          group-hover:translate-x-1
-        "
+          ${!disabled ? "group-hover:translate-x-1" : ""}
+        `}
       />
     </>
   );
 
   if (to) {
     return (
-      <Link href={to} onClick={onClick} className={classes}>
+      <Link href={to} onClick={disabled ? undefined : onClick} className={classes}>
         {content}
       </Link>
     );
   }
 
   return (
-    <button type={type} onClick={onClick} className={classes}>
+    <button type={type} onClick={onClick} className={classes} disabled={disabled}>
       {content}
     </button>
   );

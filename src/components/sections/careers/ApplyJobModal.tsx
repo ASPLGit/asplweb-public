@@ -1,8 +1,12 @@
 "use client";
 
 import Button from "@/components/ui/Button";
+import FormInput from "@/components/ui/FormInput";
+import { PhoneField } from "@/components/ui/PhoneField";
 import Image from "next/image";
 import { useState } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+
 
 interface Props {
     open: boolean;
@@ -19,6 +23,9 @@ export default function ApplyJobModal({
     location,
     experience
 }: Props) {
+
+    const { executeRecaptcha } = useGoogleReCaptcha();
+
 
     const [formData, setFormData] = useState({
         firstName: "",
@@ -54,6 +61,26 @@ export default function ApplyJobModal({
             }));
             setErrors((prev) => ({ ...prev, resume: "" }));
         }
+
+        const MAX_FILE_SIZE = 5 * 1024 * 1024;
+
+        if (e.target.files?.[0]) {
+            const file = e.target.files[0];
+
+            if (file.size > MAX_FILE_SIZE) {
+                setErrors((prev) => ({
+                    ...prev,
+                    resume: "File must be under 5MB",
+                }));
+                return;
+            }
+
+            setFormData((prev) => ({
+                ...prev,
+                resume: file,
+            }));
+        }
+
     };
 
     const validate = () => {
@@ -66,6 +93,13 @@ export default function ApplyJobModal({
         else if (!/^\S+@\S+\.\S+$/.test(formData.email))
             newErrors.email = "Invalid email";
         if (!formData.phone.trim()) newErrors.phone = "Required";
+        const digits = formData.phone.replace(/\D/g, "");
+        const localPhone = digits.length > 2 ? digits.slice(2) : "";
+
+        if (localPhone.length > 0 && localPhone.length < 7) {
+            newErrors.phone = "Enter a valid phone number";
+        }
+
         if (!formData.experience.trim()) newErrors.experience = "Required";
         if (!formData.resume) newErrors.resume = "Resume required";
 
@@ -79,9 +113,15 @@ export default function ApplyJobModal({
 
         if (!validate()) return;
 
+        if (!executeRecaptcha) {
+            setError(true);
+            return;
+        }
+
         setLoading(true);
 
         try {
+            const token = await executeRecaptcha("apply_job");
             const payload = new FormData();
             Object.entries(formData).forEach(([key, value]) => {
                 if (typeof value === "string") {
@@ -93,6 +133,7 @@ export default function ApplyJobModal({
             });
 
             payload.append("jobTitle", jobTitle);
+            payload.append("captchaToken", token);
 
             const res = await fetch("/api/apply-job", {
                 method: "POST",
@@ -103,7 +144,6 @@ export default function ApplyJobModal({
 
             setSuccess(true);
 
-            // 🔥 Show success for a moment, then reset & close
             setTimeout(() => {
                 resetForm();
                 setSuccess(false);
@@ -192,16 +232,51 @@ export default function ApplyJobModal({
                         <form onSubmit={handleSubmit} className="sm:space-y-5 space-y-3">
                             {/* PERSONAL DETAILS */}
                             <div className="grid grid-cols-2 gap-4">
-                                <Input name="firstName" placeholder="First Name" onChange={handleChange} error={errors.firstName} />
-                                <Input name="lastName" placeholder="Last Name" onChange={handleChange} error={errors.lastName} />
-                                <Input name="email" type="email" placeholder="Email" onChange={handleChange} error={errors.email} />
-                                <Input name="phone" placeholder="Phone" onChange={handleChange} error={errors.phone} />
+                                <FormInput
+                                    name="firstName"
+                                    placeholder="First Name"
+                                    onChange={handleChange}
+                                    error={errors.firstName}
+                                />
+                                <FormInput
+                                    name="lastName"
+                                    placeholder="Last Name"
+                                    onChange={handleChange}
+                                    error={errors.lastName}
+                                />
+
+                                <FormInput
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    onChange={handleChange}
+                                    error={errors.email}
+                                />
+                                <PhoneField
+                                    value={formData.phone}
+                                    onChange={(value) =>
+                                        setFormData((prev) => ({ ...prev, phone: value }))
+                                    }
+                                    error={errors.phone}
+                                />
+
                             </div>
 
                             {/* PROFESSIONAL */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <Input name="company" placeholder="Current Company" onChange={handleChange} />
-                                <Input name="experience" placeholder="Years of Experience" onChange={handleChange} error={errors.experience} />
+                                <FormInput
+                                    name="company"
+                                    placeholder="Current Company"
+                                    onChange={handleChange}
+                                />
+
+                                <FormInput
+                                    name="experience"
+                                    placeholder="Years of Experience"
+                                    onChange={handleChange}
+                                    error={errors.experience}
+                                />
+
                             </div>
 
                             {/* RELOCATION */}
@@ -212,7 +287,7 @@ export default function ApplyJobModal({
                                     className="
                         w-full appearance-none rounded-lg outline-none
                         border border-slate-300 bg-white
-                        px-3 py-2.5 pr-10 text-sm
+                        px-3 py-2.5 pr-10 text-base
                         focus:ring-2 focus:ring-blueTheme/30
                     "
                                 >
@@ -237,7 +312,7 @@ export default function ApplyJobModal({
                                     type="file"
                                     accept=".pdf,.doc,.docx"
                                     onChange={handleFileChange}
-                                    className="w-full rounded-lg border border-dashed px-4 py-3 text-sm"
+                                    className="w-full rounded-lg border border-dashed px-4 py-3 text-base"
                                 />
                                 {errors.resume && (
                                     <p className="text-xs text-red-500 mt-1">
@@ -261,9 +336,14 @@ export default function ApplyJobModal({
                                         onClose()
                                         resetForm()
                                     }}>Cancel</button>
-                                <Button type="submit" variant="blue">
+                                <Button
+                                    type="submit"
+                                    variant="blue"
+                                    disabled={loading}
+                                >
                                     {loading ? "Submitting..." : "Submit"}
                                 </Button>
+
                             </div>
 
                             {success && (
@@ -277,43 +357,31 @@ export default function ApplyJobModal({
                                     Submission failed. Please try again or email us at biz@aplombsoft.com
                                 </p>
                             )}
+                            <p className="text-xs text-slate-500 mt-3 sm:text-right max-w-sm sm:ms-auto">
+                                This site is protected by reCAPTCHA and the Google{" "}
+                                <a
+                                    href="https://policies.google.com/privacy"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="underline hover:text-slate-700"
+                                >
+                                    Privacy Policy
+                                </a>{" "}
+                                and{" "}
+                                <a
+                                    href="https://policies.google.com/terms"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="underline hover:text-slate-700"
+                                >
+                                    Terms of Service
+                                </a>{" "}
+                                apply.
+                            </p>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    );
-}
-
-function Input({
-    type = "text",
-    placeholder,
-    name,
-    onChange,
-    error
-}: {
-    type?: string;
-    placeholder: string;
-    name: string;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    error?: string;
-}) {
-    return (
-        <div>
-            <input
-                type={type}
-                name={name}
-                placeholder={placeholder}
-                onChange={onChange}
-                className="
-                w-full rounded-lg border border-slate-300
-                px-3 py-2.5 text-sm
-                outline-none
-                focus:border-blueTheme focus:ring-1 focus:ring-blueTheme/30
-            "
-            />
-            {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
-        </div>
-
     );
 }

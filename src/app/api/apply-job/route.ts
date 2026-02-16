@@ -3,6 +3,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
     try {
+        const RECAPTCHA_SECRET = process.env.RECAPTCHA_SECRET_KEY!;
         const formData = await req.formData();
         const jobTitle = formData.get("jobTitle") as string;
         const firstName = formData.get("firstName") as string;
@@ -13,6 +14,68 @@ export async function POST(req: Request) {
         const experience = formData.get("experience") as string;
         const relocation = formData.get("relocation") as string;
         const resume = formData.get("resume") as File | null;
+        const captchaToken = formData.get("captchaToken") as string;
+
+        if (resume) {
+            const MAX_FILE_SIZE = 5 * 1024 * 1024;
+
+            if (resume.size > MAX_FILE_SIZE) {
+                return NextResponse.json(
+                    { error: "File size must be less than 5MB" },
+                    { status: 400 }
+                );
+            }
+        }
+
+        const allowedTypes = [
+            "application/pdf",
+            "application/msword",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        ];
+
+        if (resume && !allowedTypes.includes(resume.type)) {
+            return NextResponse.json(
+                { error: "Only PDF or Word documents allowed" },
+                { status: 400 }
+            );
+        }
+
+
+
+        if (!captchaToken) {
+            return NextResponse.json(
+                { error: "Captcha missing" },
+                { status: 400 }
+            );
+        }
+
+        const recaptchaRes = await fetch(
+            "https://www.google.com/recaptcha/api/siteverify",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: `secret=${RECAPTCHA_SECRET}&response=${captchaToken}`,
+            }
+        );
+
+        const recaptchaData = await recaptchaRes.json();
+        // console.log("RECAPTCHA RESPONSE APPLYJOBFORM:", recaptchaData);
+
+        if (
+            !recaptchaData.success ||
+            recaptchaData.score < 0.5 ||
+            recaptchaData.action !== "apply_job"
+        ) {
+            return NextResponse.json(
+                { error: "Bot detected" },
+                { status: 400 }
+            );
+        }
+
+
+
 
         if (!firstName || !email || !jobTitle) {
             return NextResponse.json(
