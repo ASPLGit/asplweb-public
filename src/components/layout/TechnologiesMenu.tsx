@@ -10,61 +10,79 @@ export default function TechnologiesMenu({
   onNavigate,
 }: TechnologiesMenuProps) {
   return (
-    <div className="relative">
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+    <div
+      className="
+        relative
+      "
+    >
+      {/* Subtle Background Glow */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute -top-10 left-1/3 w-72 h-72 bg-sky-200/30 blur-3xl rounded-full" />
+        <div className="absolute -bottom-10 right-1/4 w-72 h-72 bg-indigo-200/30 blur-3xl rounded-full" />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
         {TECHNOLOGY_GROUPS.map((group) => (
           <div key={group.category}>
             {/* CATEGORY */}
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-800">
+            <h3 className="mb-5 text-xs font-semibold uppercase tracking-widest text-slate-500">
               {group.category}
             </h3>
 
             {/* TECHNOLOGY CARDS */}
-            <div className="space-y-3">
+            <div className="space-y-4">
               {group.items.map((tech) => (
                 <Link
                   key={tech.slug}
                   href={`/technologies/${tech.slug}`}
                   onClick={onNavigate}
                   className="
-                    group
-                    relative
-                    block
-                    overflow-hidden
-                    rounded-lg
-                    border border-slate-200
-                    bg-white
-                    px-4 py-3
-                    transition-all duration-300 max-w-[200px]
-                    hover:-translate-y-0.5
-                    hover:border-sky-300
-                    hover:shadow-[0_10px_30px_rgba(2,132,199,0.05)]
-                  "
+    group
+    relative
+    flex items-center justify-between
+    overflow-hidden
+    rounded-xl
+    border border-slate-200
+    bg-white
+    px-4 py-3
+    transition-all duration-300
+    hover:-translate-y-1
+    hover:shadow-[0_15px_40px_-10px_rgba(2,132,199,0.15)]
+  "
                 >
-                  {/* TEXT */}
-                  <div className="relative z-10 flex items-center gap-2">
-                    <span className="text-sm font-medium text-slate-800 group-hover:text-sky-700 transition">
+                  <div className="relative z-10 flex items-center gap-4 w-full">
+                    <div
+                      className="
+        relative
+        transition-all duration-300
+ 
+        group-hover:scale-110
+        group-hover:rotate-6
+      "
+                      style={{ perspective: "800px" }}
+                    >
+                      <Image
+                        src={tech.icon}
+                        alt={tech.name}
+                        width={28}
+                        height={28}
+                        className="
+          transition-all duration-300
+          drop-shadow-sm
+          group-hover:drop-shadow-[0_8px_15px_rgba(0,0,0,0.25)]
+        "
+                      />
+                    </div>
+                    <span className="text-sm font-medium text-slate-800 transition-colors duration-300 group-hover:text-sky-700">
                       {tech.name}
                     </span>
-                  </div>
 
-                  {/* DECORATIVE ICON (BOTTOM RIGHT, HALF CUT) */}
-                  <Image
-                    src={tech.icon}
-                    alt={tech.name}
-                    width={40}
-                    height={40}
-                    className="
-                      pointer-events-none
-                      absolute
-                      -bottom-2
-                      -right-1
-                      opacity-50
-                      transition-transform duration-300
-                      group-hover:scale-100 group-hover:opacity-100
-                    "
-                  />
+                    {/* ICON WRAPPER */}
+
+                  </div>
                 </Link>
+
+
               ))}
             </div>
           </div>

@@ -10,7 +10,7 @@ export const TECHNOLOGY_GROUPS = [
             {
                 name: "Next.js",
                 slug: "nextjs",
-                icon: "/images/tech/nextjs.svg",
+                icon: "/images/tech/next-icon.svg",
             },
             {
                 name: "Angular",
@@ -54,14 +54,14 @@ export const TECHNOLOGY_GROUPS = [
         category: "Database",
         items: [
             {
-                name: "Microsoft SQL Server",
+                name: "SQL Server",
                 slug: "sql-server",
                 icon: "/images/tech/sql-server-logo.svg",
             },
             {
                 name: "MongoDB",
                 slug: "mongodb",
-                icon: "/images/tech/mongodb.svg",
+                icon: "/images/tech/mongodb-icon.svg",
             },
         ],
     },
