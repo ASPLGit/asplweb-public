@@ -26,7 +26,7 @@ export default function TechnologiesHeroSection({
     };
 
     return (
-        <section className="relative overflow-hidden">
+        <section className="relative overflow-hidden z-10">
 
             {/* Background */}
             <div

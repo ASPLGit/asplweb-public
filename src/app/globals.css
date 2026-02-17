@@ -21,7 +21,7 @@
 @layer components {
 
   .heading-xl {
-    @apply 2xl:text-[78px] lg:text-[52px] text-4xl font-normal !leading-tight text-white;
+    @apply 2xl:text-[78px] lg:text-[52px] text-4xl font-medium !leading-tight text-white;
   }
 
   .heading-lg {
@@ -76,4 +76,25 @@ body {
 
 .grecaptcha-badge {
   visibility: hidden;
+}
+
+
+.feature-card {
+  transition: all 0.4s ease;
+  transform: scale(0.9);
+  opacity: 0.4;
+  filter: blur(2px);
+}
+
+.swiper-slide-active .feature-card {
+  transform: scale(1);
+  opacity: 1;
+  filter: blur(0);
+}
+
+.swiper-slide-prev .feature-card,
+.swiper-slide-next .feature-card {
+  transform: scale(0.9);
+  opacity: 0.4;
+  filter: blur(2px);
 }

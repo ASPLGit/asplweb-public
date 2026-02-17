@@ -11,7 +11,7 @@ export default function ServicesHeroSection() {
     };
     return (
         <>
-            <section className="relative">
+            <section className="relative z-10">
 
                 <div
                     className="
@@ -24,7 +24,8 @@ export default function ServicesHeroSection() {
     after:content-['']
     after:absolute
     after:inset-0
-    after:bg-[url('/images/layer2.webp')]
+    sm:after:bg-[url('/images/layer2.webp')]
+    after:bg-[url('/images/layer3.webp')]
     after:bg-cover
     after:bg-bottom
     after:bg-no-repeat

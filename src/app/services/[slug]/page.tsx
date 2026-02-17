@@ -117,36 +117,31 @@ export default async function ServicePage({ params }: ServicePageProps) {
     return (
         <div className="space-y-[40px] sm:space-y-[80px] 2xl:space-y-[120px] sm:pb-20 pb-10">
             {/* HERO */}
-            <div>
                 <SingleServiceHeroSection
                     title={service.title}
                     description={service.description}
                     primaryCta={service.cta?.primary}
                     secondaryCta={service.cta?.secondary}
                 />
-                <div className="bg-[#F4F9FF] sm:pt-20 pt-10 flex flex-col sm:gap-20 gap-10" id="service">
-                    {/* SECTION HEADING */}
-                    <SectionHeading
-                        sectionLabel={service.section.label}
-                        heading={service.section.heading}
-                        subheading={service.section.subheading}
-                    />
-                    {/* FEATURE GRID */}
-                    <FeatureGrid data={service.featureSection} />
-                </div>
-            </div>
-            {service.stats && (
-                <StatsStrip items={service.stats} />
-            )}
+                <SectionHeading
+                    sectionLabel={service.section.label}
+                    heading={service.section.heading}
+                    subheading={service.section.subheading}
+                />
+                {/* FEATURE GRID */}
+                <FeatureGrid data={service.featureSection} />
+                {service.stats && (
+                    <StatsStrip items={service.stats} />
+                )}
 
-            <SectionHeading
-                sectionLabel='Tools & Technologies'
-                heading='Technologies We Work With'
-                subheading='A modern, reliable technology stack chosen to build secure, scalable, and high-performance software solutions.'
-            />
-            <TechnologyGrid data={service.TechnologySection} />
-            <FAQSection data={service.faq} href="/contact" />
-            <OtherServicesNav />
-        </div>
-    );
+                <SectionHeading
+                    sectionLabel='Tools & Technologies'
+                    heading='Technologies We Work With'
+                    subheading='A modern, reliable technology stack chosen to build secure, scalable, and high-performance software solutions.'
+                />
+                <TechnologyGrid data={service.TechnologySection} />
+                <FAQSection data={service.faq} href="/contact" />
+                <OtherServicesNav />
+            </div>
+            );
 }

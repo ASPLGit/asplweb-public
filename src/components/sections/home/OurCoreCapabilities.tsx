@@ -235,7 +235,7 @@ function CapabilitySlide({ title, desc, img, href }: CapabilityCardProps) {
 
             {/* Content */}
             <div className="relative z-10 h-full flex flex-col justify-end p-6 sm:p-8 text-white">
-                <h3 className="sm:text-2xl text-lg font-medium">
+                <h3 className="sm:text-2xl text-lg font-normal">
                     {title}
                 </h3>
 

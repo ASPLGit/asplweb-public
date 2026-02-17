@@ -12,7 +12,7 @@ export default function AboutHeroSection() {
         <section>
             <div
                 className="
-    relative
+    relative z-10
     bg-[url('/images/bg.webp')]
     bg-cover bg-center bg-no-repeat
     sm:h-screen h-[90vh] 2xl:py-[250px] 2xl:h-auto

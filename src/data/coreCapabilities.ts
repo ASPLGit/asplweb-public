@@ -12,7 +12,7 @@ export const CAPABILITIES = [
         href: "/services/web-development",
     },
     {
-        title: "Blockchain & Web3",
+        title: "Blockchain & Web3 Solutions",
         desc: "Secure blockchain and Web3 solutions including smart contracts and decentralized applications built for trust and transparency.",
         img: "/images/img4.jpg",
         href: "/services/blockchain",

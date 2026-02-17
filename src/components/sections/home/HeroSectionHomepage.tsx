@@ -4,7 +4,7 @@ import Button from "@/components/ui/Button";
 export default function HeroSectionHomepage() {
     return (
         <>
-            <section className="relative">
+            <section className="relative z-10">
                 <div
                     className="
     relative

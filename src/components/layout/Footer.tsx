@@ -84,66 +84,55 @@ export default function Footer() {
 
                         {/* SOCIALS */}
                         <div className="flex gap-3 mt-6">
+                            {/* LINKEDIN */}
                             <Link
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 href="https://www.linkedin.com/company/aplombsoft-pvt-ltd"
                                 className="
-                                    group
-                                    flex h-9 w-9 items-center justify-center
-                                    rounded-full
-                                    transition-all duration-300 bg-white/50
-                                    hover:bg-white
-                                "
+      group
+      flex h-9 w-9 items-center justify-center
+      rounded-full
+      transition-all duration-300
+    "
                             >
                                 <Image
                                     src="/images/icons/linkedin.svg"
                                     alt="LinkedIn"
                                     width={18}
                                     height={18}
+                                    className="
+        transition-all duration-300
+        group-hover:brightness-0 group-hover:invert
+      "
                                 />
                             </Link>
 
+                            {/* INSTAGRAM */}
                             <Link
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 href="https://www.instagram.com/aplombsoftpvtltd"
                                 className="
-                                    group
-                                    flex h-9 w-9 items-center justify-center
-                                    rounded-full
-                                    border border-slate-800
-                                    transition-all duration-300 bg-white/50
-                                    hover:bg-white
-                                "
+      group
+      flex h-9 w-9 items-center justify-center
+      rounded-full
+      transition-all duration-300
+    "
                             >
                                 <Image
                                     src="/images/icons/instagram.svg"
                                     alt="Instagram"
                                     width={18}
                                     height={18}
-                                />
-                            </Link>
-
-                            <Link
-                                href="#"
-                                className="
-                                    group
-                                    flex h-9 w-9 items-center justify-center
-                                    rounded-full
-                                    border border-slate-800
-                                    transition-all duration-300 bg-white/50
-                                    hover:bg-white
-                                "
-                            >
-                                <Image
-                                    src="/images/icons/x.svg"
-                                    alt="X (Twitter)"
-                                    width={18}
-                                    height={18}
+                                    className="
+        transition-all duration-300
+        group-hover:brightness-0 group-hover:invert
+      "
                                 />
                             </Link>
                         </div>
+
                     </div>
 
                     {/* RIGHT – LINKS */}

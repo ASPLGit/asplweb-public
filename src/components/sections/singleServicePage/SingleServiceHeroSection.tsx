@@ -30,7 +30,7 @@ export default function SingleServiceHeroSection({
     };
 
     return (
-        <section className="flex flex-col items-center justify-center relative">
+        <section className="flex flex-col items-center justify-center relative z-10">
             <div
                 className="
     relative

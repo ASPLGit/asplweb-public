@@ -130,7 +130,7 @@ export default function ContactSection() {
                                     Contact Us
                                 </p>
 
-                                <h2 className="sm:text-2xl text-xl font-semibold">
+                                <h2 className="sm:text-2xl text-xl font-medium">
                                     Let’s Start a Conversation
                                 </h2>
 

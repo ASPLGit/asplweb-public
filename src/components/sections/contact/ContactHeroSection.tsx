@@ -12,7 +12,7 @@ export default function ContactHeroSection() {
         <section className="relative">
             <div
                 className="
-    relative
+    relative z-10
     bg-[url('/images/bg.webp')]
     bg-cover bg-center bg-no-repeat
     sm:h-screen h-[90vh] 2xl:py-[250px] 2xl:h-auto
@@ -60,7 +60,7 @@ export default function ContactHeroSection() {
                 <button
                     onClick={handleScroll}
                     className="
-                        absolute bottom-8 z-50
+                        absolute bottom-8 z-10
                         flex flex-col items-center gap-2
                         text-white/80
                         text-sm font-normal

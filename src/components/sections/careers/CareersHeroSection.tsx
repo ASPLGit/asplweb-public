@@ -12,7 +12,7 @@ export default function CareersHeroSection() {
             <section className="relative flex flex-col items-center">
                 <div
                     className="
-    relative
+    relative z-10
     bg-[url('/images/bg.webp')]
     bg-cover bg-center bg-no-repeat
     sm:h-screen h-[90vh] 2xl:py-[250px] 2xl:h-auto
@@ -21,9 +21,9 @@ export default function CareersHeroSection() {
     after:content-['']
     after:absolute
     after:inset-0
-    after:bg-[url('/images/layer2.webp')]
+    after:bg-[url('/images/layer4.webp')]
     after:bg-cover
-    after:bg-bottom
+    after:bg-right-top
     after:bg-no-repeat
     sm:after:blur-[1px]
     after:opacity-50
