@@ -9,9 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@azure/msal-node": "^5.0.4",
+    "framer-motion": "^12.34.0",
     "leaflet": "^1.9.4",
     "next": "^16.1.6",
-    "nodemailer": "^7.0.12",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-google-recaptcha-v3": "^1.11.0",

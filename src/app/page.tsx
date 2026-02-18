@@ -49,7 +49,7 @@ export default function Home() {
         ]}
         backgroundLayerImage="/images/layer6.webp"
         caseImage={{
-          src: "/images/caseStudy/case1.jpg",
+          src: "/images/caseStudy/case-study1.jpg",
           alt: "KYC Case Study",
         }}
       />

@@ -98,3 +98,29 @@ body {
   opacity: 0.4;
   filter: blur(2px);
 }
+
+
+
+
+
+@keyframes scrollUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+.animate-scrollUp {
+  animation: scrollUp 30s linear infinite;
+}
+
+.animate-scrollDown {
+  animation: scrollDown 30s linear infinite;
+}
+
+.pause-on-hover:hover {
+  animation-play-state: paused;
+}

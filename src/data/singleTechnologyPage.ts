@@ -99,7 +99,7 @@ export const technologies: TechnologyService[] = [
       ],
       backgroundLayerImage: "/images/layer1.webp",
       caseImage: {
-        src: "/images/caseStudy/case1.jpg",
+        src: "/images/caseStudy/case-study1.jpg",
         alt: "React case study",
       },
     },

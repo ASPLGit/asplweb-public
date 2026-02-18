@@ -94,16 +94,14 @@ export default function FAQSection({ data, href }: FAQSectionProps) {
         setActiveIndex((prev) => (prev === index ? null : index));
     }, []);
 
-    const handleContactClick = useCallback(
-        (e: React.MouseEvent<HTMLAnchorElement>) => {
-            if (!data.href?.startsWith("#")) return;
+    const handleContactClick = () => {
 
-            e.preventDefault();
-            const el = document.getElementById("contact");
-            el?.scrollIntoView({ behavior: "smooth" });
-        },
-        [data.href]
-    );
+        const el = document.getElementById("contact");
+        if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+        }
+    }
+
 
     return (
         <section

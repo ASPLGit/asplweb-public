@@ -25,7 +25,6 @@ export default function ServiceCard({
         bg-black
         shadow-[0_30px_60px_-30px_rgba(0,0,0,0.45)]
         transition-all duration-300
-        sm:hover:-translate-y-2
       "
     >
       {/* BACKGROUND IMAGE */}
@@ -35,6 +34,8 @@ export default function ServiceCard({
         fill
         className="
           object-cover
+          transition-transform duration-700
+                    sm:group-hover:scale-110
         "
       />
 

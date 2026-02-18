@@ -68,7 +68,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
 
                     {/* LEFT – BRAND */}
-                    <div className="max-w-md">
+                    <div>
                         <Image
                             src="/logo-light.svg"
                             alt="AplombSoft logo"
@@ -256,7 +256,7 @@ export default function Footer() {
                 </div>
                 {/* COPYRIGHT */}
                 <div className="mt-10 border-t border-slate-600 pt-6 text-center text-xs text-slate-300">
-                    ©2026 AplombSoft Pvt Ltd. All rights reserved.
+                    © {new Date().getFullYear()} AplombSoft Pvt Ltd. All rights reserved.
                 </div>
             </div>
             {showTopBtn && (

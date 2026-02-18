@@ -24,7 +24,7 @@ export default function OpenPositions() {
         flex flex-col justify-between
         sm:rounded-2xl rounded-xl
         border border-slate-200
-        bg-white
+        bg-slate-50
         p-6
         transition-all duration-300 shadow-sm
         hover:-translate-y-1
