@@ -2,17 +2,16 @@
 
 import Button from "@/components/ui/Button";
 
+
+interface CTA {
+    label: string;
+    href: string;
+}
 interface HeroSectionProps {
     title: React.ReactNode;
     description: string;
-    primaryCta?: {
-        label: string;
-        href: string;
-    };
-    secondaryCta?: {
-        label: string;
-        href: string;
-    };
+    primaryCta?: CTA;
+    secondaryCta?: CTA;
 }
 
 export default function SingleServiceHeroSection({

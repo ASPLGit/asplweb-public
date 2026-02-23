@@ -21,7 +21,7 @@ export default function SectionHeading({
                 "
             >
                 {/* LEFT */}
-                <div className="lg:col-span-5 2xl:col-span-6">
+                <div className="lg:col-span-6">
                     <span
                         className={`section-label ${dark ? "text-slate-300" : ""
                             }`}
@@ -38,7 +38,7 @@ export default function SectionHeading({
                 </div>
 
                 {/* RIGHT */}
-                <div className="lg:col-span-7 2xl:col-span-6">
+                <div className="lg:col-span-6">
                     <p
                         className={`text-body ${dark ? "text-slate-300" : ""
                             }`}

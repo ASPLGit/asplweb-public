@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { technologies } from "@/data/singleTechnologyPage";
-
 import SectionHeading from "@/components/common/SectionHeading";
 import FAQSection from "@/components/common/FAQ";
 import FeaturedCaseStudy from "@/components/common/FeaturedCaseStudy";

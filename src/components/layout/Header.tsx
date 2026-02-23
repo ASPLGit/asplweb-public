@@ -27,6 +27,7 @@ export default function Header() {
         { label: "Home", href: "/" },
         { label: "About", href: "/about" },
         { label: "Careers", href: "/careers" },
+        { label: "Insights", href: "/insights" },
     ];
 
     const closeAllMenus = () => {
@@ -71,7 +72,10 @@ export default function Header() {
     const isTechnologiesActive = pathname.startsWith("/technologies");
 
     const headerWhiteRoutes = [
-        (path: string) => path.startsWith("/careers/"),
+        (path: string) =>
+            ["/careers/", "/insights"].some((route) =>
+                path.startsWith(route)
+            ),
     ];
 
     const headerWhite = headerWhiteRoutes.some((check) =>
@@ -221,6 +225,26 @@ export default function Header() {
                                     }`}
                             >
                                 Careers
+                            </Link>
+
+                            <Link
+                                href="/insights"
+                                onClick={() => {
+                                    setActiveMenu(null);
+                                    setMobileMenu(null);
+                                    setOpen(false);
+                                }}
+                                className={`relative px-2 py-1 transition
+      ${pathname.startsWith("/insights")
+                                        ? isScrolled || headerWhite
+                                            ? "text-blue-600 font-semibold underline underline-offset-8"
+                                            : "text-white underline underline-offset-8"
+                                        : isScrolled || headerWhite
+                                            ? "text-slate-600 hover:text-blueTheme"
+                                            : "text-white/70 hover:text-white"
+                                    }`}
+                            >
+                                Insights
                             </Link>
                         </div>
                         <div className="flex items-center justify-end gap-4">

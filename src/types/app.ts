@@ -63,7 +63,6 @@ export interface Service {
 
 export interface TechnologyService {
     slug: string;
-
     hero: {
         title: string;
         description: string;
@@ -122,4 +121,39 @@ export interface TechnologyService {
             alt: string;
         };
     };
+}
+
+export type BlogType =
+    | "Software"
+    | "Website"
+    | "Application"
+    | "QA & Testing"
+    | "Microsoft"
+    | "DevOps & Cloud"
+    | "Salesforce"
+    | "Cybersecurity"
+    | "AI"
+    | "Blockchain";
+
+
+export interface BlogSection {
+    heading?: string;
+    paragraphs?: string[];
+    list?: string[];
+}
+
+export interface BlogContent {
+    mainHeading: string;  
+    sections: BlogSection[];
+}
+export interface Blog {
+    id: number;
+    title: string;
+    excerpt: string;
+    content: BlogContent;
+    image: string;
+    category: string;
+    blogType: BlogType;
+    date: string;
+    slug: string;
 }
