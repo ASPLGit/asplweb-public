@@ -9,7 +9,7 @@ interface ServicesMenuProps {
 
 export default function ServicesMenu({ onNavigate }: ServicesMenuProps) {
   return (
-    <div className="relative">
+    <div className="relative p-10">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {SERVICE_GROUPS.map((group) => (
           <div key={group.category}>

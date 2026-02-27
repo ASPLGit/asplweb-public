@@ -1,10 +1,15 @@
 import SectionHeading from "@/components/common/SectionHeading";
 import StatsStrip from "@/components/common/StatsStrip";
 
-export default function WhoWeAre() {
+interface WhoWeAreProps {
+  dark?: boolean;
+}
+
+export default function WhoWeAre({ dark = false }: WhoWeAreProps) {
     return (
         <section className="sm:space-y-20 space-y-10">
             <SectionHeading
+                dark={dark}
                 sectionLabel="Who we are"
                 heading="A Technology Partner You Can Rely On."
                 subheading="We work closely with businesses to design and build dependable, scalable digital solutions. Our approach is simple clear communication, practical processes, and experienced teams focused on delivering real results."

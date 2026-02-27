@@ -34,15 +34,21 @@ export default function HeroSectionHomepage() {
                     <div className="container text-center relative z-10">
                         <div className="flex flex-col items-center 2xl:gap-8 sm:gap-6 gap-4">
 
-                            <h2 className="heading-xl">
+                            {/* <h2 className="heading-xl">
                                 <span className="italic font-lora">
                                     Purpose Driven IT Solutions</span>
                                 <br />
                                 for Competitive Growth.
+                            </h2> */}
+                            <h2 className="heading-xl">
+                                <span className="italic font-lora">
+                                    AI-Powered <br /> IT Solutions for</span>
+                                <br />
+                                 Businesses That Lead.
                             </h2>
 
                             <p className="subheading mx-auto">
-                                We deliver robust web, app, custom software, cloud computing, and data-driven solutions engineered for security, scalability, and long-term success.
+                                From AI automation and intelligent systems to custom software and cloud architecture we help enterprises build smarter, faster, and future-ready platforms.
                             </p>
 
                             <div className="flex gap-4 items-center justify-center">

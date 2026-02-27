@@ -8,6 +8,8 @@ import ServicesMenu from "./ServicesMenu";
 import Image from "next/image";
 import TechnologiesMenu from "./TechnologiesMenu";
 import { TECHNOLOGY_GROUPS } from "@/data/technologiesMenu";
+import AboutMenu from "./AboutMenu";
+import AiMenu from "./AiMenu";
 
 
 export default function Header() {
@@ -18,16 +20,13 @@ export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
 
     // Desktop mega menu
-    const [activeMenu, setActiveMenu] = useState<null | "services" | "technologies">(null);
+    const [activeMenu, setActiveMenu] = useState<null | "services" | "technologies" | "about" | "ai">(null);
 
     // Mobile accordion menu
-    const [mobileMenu, setMobileMenu] = useState<null | "services" | "technologies">(null);
+    const [mobileMenu, setMobileMenu] = useState<null | "services" | "technologies" | "about" | "ai">(null);
 
     const NAV_ITEMS = [
         { label: "Home", href: "/" },
-        { label: "About", href: "/about" },
-        { label: "Careers", href: "/careers" },
-        { label: "Insights", href: "/insights" },
     ];
 
     const closeAllMenus = () => {
@@ -60,27 +59,38 @@ export default function Header() {
 
 
     /* ================= Helpers ================= */
-    const toggleDesktopMenu = (menu: "services" | "technologies" | null) => {
+    const toggleDesktopMenu = (menu: "services" | "technologies" | "about" | "ai" | null) => {
         setActiveMenu((prev) => (prev === menu ? null : menu));
     };
 
-    const toggleMobileMenu = (menu: "services" | "technologies" | null) => {
+    const toggleMobileMenu = (menu: "services" | "technologies" | "about" | "ai" | null) => {
         setMobileMenu((prev) => (prev === menu ? null : menu));
+    };
+
+    const hoverCloseTimer = useRef<number | null>(null);
+    const cancelHoverClose = () => {
+        if (hoverCloseTimer.current) window.clearTimeout(hoverCloseTimer.current);
+        hoverCloseTimer.current = null;
+    };
+    const scheduleHoverClose = () => {
+        cancelHoverClose();
+        hoverCloseTimer.current = window.setTimeout(() => setActiveMenu(null), 180);
+    };
+    const openOnHover = (menu: "services" | "technologies" | "about" | "ai") => {
+        cancelHoverClose();
+        setActiveMenu(menu);
     };
 
     const isServicesActive = pathname.startsWith("/services");
     const isTechnologiesActive = pathname.startsWith("/technologies");
+    const isAiActive = pathname.startsWith("/ai") || pathname.startsWith("/ai-development");
+    const isAboutSectionActive =
+        pathname.startsWith("/about") ||
+        pathname.startsWith("/careers") ||
+        pathname.startsWith("/blogs") ||
+        pathname.startsWith("/case-studies");
 
-    const headerWhiteRoutes = [
-        (path: string) =>
-            ["/careers/", "/insights"].some((route) =>
-                path.startsWith(route)
-            ),
-    ];
-
-    const headerWhite = headerWhiteRoutes.some((check) =>
-        check(pathname)
-    );
+    const headerWhite = ["/careers", "/blogs", "/case-studies"].some((route) => pathname.startsWith(route));
 
 
     return (
@@ -108,8 +118,12 @@ export default function Header() {
                         </Link>
                     </div>
                     <div className="flex items-center gap-8">
-                        <div className={`hidden col-span-6 lg:flex items-center justify-center gap-6 text-sm
-    ${isScrolled || headerWhite ? "text-slate-800" : "text-white"}`}>
+                        <div
+                            className={`hidden col-span-6 lg:flex items-center justify-center gap-6 text-sm
+    ${isScrolled || headerWhite ? "text-slate-800" : "text-white"}`}
+                            onMouseEnter={cancelHoverClose}
+                            onMouseLeave={scheduleHoverClose}
+                        >
                             <Link
                                 href="/"
                                 onClick={() => {
@@ -129,17 +143,16 @@ export default function Header() {
                             >
                                 Home
                             </Link>
-
-                            {/* ABOUT */}
-                            <Link
-                                href="/about"
-                                onClick={() => {
-                                    setActiveMenu(null);
-                                    setMobileMenu(null);
-                                    setOpen(false);
+                            {/* DESKTOP ABOUT MENU */}
+                            <button
+                                type="button"
+                                onMouseEnter={() => openOnHover("about")}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    toggleDesktopMenu("about");
                                 }}
-                                className={`relative px-2 py-1 transition
-      ${pathname.startsWith("/about")
+                                className={`flex items-center gap-1 px-2 py-1 transition
+    ${activeMenu === "about" || isAboutSectionActive
                                         ? isScrolled || headerWhite
                                             ? "text-blue-600 font-semibold underline underline-offset-8"
                                             : "text-white underline underline-offset-8"
@@ -149,11 +162,23 @@ export default function Header() {
                                     }`}
                             >
                                 About
-                            </Link>
-
+                                <Image
+                                    src={
+                                        isScrolled || headerWhite
+                                            ? "/images/icons/chev-down-black.svg"
+                                            : "/images/icons/chev-down.svg"
+                                    }
+                                    className={`w-4 h-4 transition-transform ${activeMenu === "about" ? "rotate-180" : ""
+                                        }`}
+                                    alt="chev icon"
+                                    width={16}
+                                    height={16}
+                                />
+                            </button>
                             {/* DESKTOP SERVICES */}
                             <button
                                 type="button"
+                                onMouseEnter={() => openOnHover("services")}
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     toggleDesktopMenu("services");
@@ -181,6 +206,7 @@ export default function Header() {
                             {/* DESKTOP Technologies */}
                             <button
                                 type="button"
+                                onMouseEnter={() => openOnHover("technologies")}
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     toggleDesktopMenu("technologies");
@@ -206,57 +232,42 @@ export default function Header() {
                                     height={16}
                                 />
                             </button>
-                            {/* CAREERS */}
                             <Link
-                                href="/careers"
+                                href="/contact"
                                 onClick={() => {
                                     setActiveMenu(null);
                                     setMobileMenu(null);
                                     setOpen(false);
                                 }}
                                 className={`relative px-2 py-1 transition
-      ${pathname.startsWith("/careers")
+      ${pathname === "/contact"
                                         ? isScrolled || headerWhite
                                             ? "text-blue-600 font-semibold underline underline-offset-8"
                                             : "text-white underline underline-offset-8"
                                         : isScrolled || headerWhite
                                             ? "text-slate-600 hover:text-blueTheme"
                                             : "text-white/70 hover:text-white"
-                                    }`}
-                            >
-                                Careers
-                            </Link>
-
-                            <Link
-                                href="/insights"
-                                onClick={() => {
-                                    setActiveMenu(null);
-                                    setMobileMenu(null);
-                                    setOpen(false);
-                                }}
-                                className={`relative px-2 py-1 transition
-      ${pathname.startsWith("/insights")
-                                        ? isScrolled || headerWhite
-                                            ? "text-blue-600 font-semibold underline underline-offset-8"
-                                            : "text-white underline underline-offset-8"
-                                        : isScrolled || headerWhite
-                                            ? "text-slate-600 hover:text-blueTheme"
-                                            : "text-white/70 hover:text-white"
-                                    }`}
-                            >
-                                Insights
-                            </Link>
-                        </div>
-                        <div className="flex items-center justify-end gap-4">
-                            <Link href="/contact"
-                                className={`hidden sm:inline-flex px-4 py-2 rounded-md text-sm transition
-              ${isScrolled || headerWhite
-                                        ? "bg-[linear-gradient(131.31deg,#007BFF_50.33%,#00D4FF_100.33%)] text-white"
-                                        : "bg-white text-black hover:bg-transparent border border-white hover:text-white"
                                     }`}
                             >
                                 Contact Us
                             </Link>
+                            <div className="button-wrapper">
+                                <button
+                                    type="button"
+                                    onMouseEnter={() => openOnHover("ai")}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        toggleDesktopMenu("ai");
+                                    }}
+                                    className={`button px-6 py-3 relative`}
+                                >
+                                    <span className="star-animate">✦</span>
+                                    <span className="relative z-10">AI</span>
+                                </button>
+                                <div className="button-bg"></div>
+                            </div>
+                        </div>
+                        <div className="flex items-center justify-end gap-4">
                             <button className="lg:hidden" onClick={() => setOpen(true)}>
                                 <Image
                                     src={
@@ -275,11 +286,37 @@ export default function Header() {
             </header>
 
             {/* ================= DESKTOP MEGA MENU ================= */}
-            <MegaMenu open={activeMenu === "services"} onClose={closeAllMenus}>
+            <MegaMenu
+                open={activeMenu === "services"}
+                onClose={closeAllMenus}
+                onMouseEnter={cancelHoverClose}
+                onMouseLeave={scheduleHoverClose}
+            >
                 <ServicesMenu onNavigate={closeAllMenus} />
             </MegaMenu>
-            <MegaMenu open={activeMenu === "technologies"} onClose={closeAllMenus}>
+            <MegaMenu
+                open={activeMenu === "technologies"}
+                onClose={closeAllMenus}
+                onMouseEnter={cancelHoverClose}
+                onMouseLeave={scheduleHoverClose}
+            >
                 <TechnologiesMenu onNavigate={closeAllMenus} />
+            </MegaMenu>
+            <MegaMenu
+                open={activeMenu === "about"}
+                onClose={closeAllMenus}
+                onMouseEnter={cancelHoverClose}
+                onMouseLeave={scheduleHoverClose}
+            >
+                <AboutMenu onNavigate={closeAllMenus} />
+            </MegaMenu>
+            <MegaMenu
+                open={activeMenu === "ai"}
+                onClose={closeAllMenus}
+                onMouseEnter={cancelHoverClose}
+                onMouseLeave={scheduleHoverClose}
+            >
+                <AiMenu onNavigate={closeAllMenus} />
             </MegaMenu>
 
 
@@ -532,6 +569,210 @@ export default function Header() {
                                             </div>
                                         </div>
                                     ))}
+                                </div>
+                            )}
+                        </div>
+                        {/* MOBILE ABOUT MENU */}
+                        <div className="relative">
+                            <button
+                                onClick={() => toggleMobileMenu("about")}
+                                className={`flex w-full items-center gap-2 px-3 py-2 rounded relative z-10 transition
+      ${isAboutSectionActive
+                                        ? "bg-sky-100 text-sky-700 font-medium"
+                                        : "text-slate-700 hover:bg-slate-100"
+                                    }`}
+                            >
+                                About
+                                <Image
+                                    src="/images/icons/chev-down-black.svg"
+                                    className={`w-4 h-4 transition-transform ${mobileMenu === "about" ? "rotate-180" : ""
+                                        }`}
+                                    alt="black icon"
+                                    width={20}
+                                    height={20}
+                                />
+                            </button>
+
+                            {/* LEFT VERTICAL LINE */}
+                            {mobileMenu === "about" && (
+                                <span
+                                    className="
+        absolute
+        left-10
+        top-[20px]
+        bottom-0
+        w-[2px]
+        bg-sky-200
+        rounded-full
+        z-0
+      "
+                                />
+                            )}
+
+                            {/* ABOUT GROUP */}
+                            {mobileMenu === "about" && (
+                                <div className="ml-4 mt-3 space-y-4">
+                                    <div className="relative rounded-lg bg-sky-50 px-4 py-3">
+
+                                        <p className="mb-2 text-sm font-semibold text-slate-800">
+                                            Company & Insights
+                                        </p>
+
+                                        {/* LINKS */}
+                                        <div className="space-y-1">
+                                            {/* ABOUT US */}
+                                            <Link
+                                                href="/about"
+                                                onClick={() => setOpen(false)}
+                                                className={`group flex items-center justify-between rounded-md px-2 py-1.5 text-sm transition
+              ${pathname.startsWith("/about")
+                                                        ? "bg-white text-sky-700 font-medium"
+                                                        : "text-slate-700 hover:bg-white/70"
+                                                    }`}
+                                            >
+                                                <div className="flex items-center gap-2">
+                                                    <span>About Us</span>
+                                                </div>
+
+                                                <Image
+                                                    src="/images/icons/chev-right.svg"
+                                                    alt="arrow"
+                                                    width={20}
+                                                    height={20}
+                                                    className="h-5 w-5"
+                                                />
+                                            </Link>
+
+                                            {/* CAREERS */}
+                                            <Link
+                                                href="/careers"
+                                                onClick={() => setOpen(false)}
+                                                className={`group flex items-center justify-between rounded-md px-2 py-1.5 text-sm transition
+              ${pathname.startsWith("/careers")
+                                                        ? "bg-white text-sky-700 font-medium"
+                                                        : "text-slate-700 hover:bg-white/70"
+                                                    }`}
+                                            >
+                                                <div className="flex items-center gap-2">
+                                                    <span>Careers</span>
+                                                </div>
+
+                                                <Image
+                                                    src="/images/icons/chev-right.svg"
+                                                    alt="arrow"
+                                                    width={20}
+                                                    height={20}
+                                                    className="h-5 w-5"
+                                                />
+                                            </Link>
+
+                                            {/* BLOGS */}
+                                            <Link
+                                                href="/blogs"
+                                                onClick={() => setOpen(false)}
+                                                className={`group flex items-center justify-between rounded-md px-2 py-1.5 text-sm transition
+              ${pathname.startsWith("/blogs")
+                                                        ? "bg-white text-sky-700 font-medium"
+                                                        : "text-slate-700 hover:bg-white/70"
+                                                    }`}
+                                            >
+                                                <div className="flex items-center gap-2">
+                                                    <span>Blogs</span>
+                                                </div>
+
+                                                <Image
+                                                    src="/images/icons/chev-right.svg"
+                                                    alt="arrow"
+                                                    width={20}
+                                                    height={20}
+                                                    className="h-5 w-5"
+                                                />
+                                            </Link>
+
+                                            {/* CASE STUDIES */}
+                                            <Link
+                                                href="/case-studies"
+                                                onClick={() => setOpen(false)}
+                                                className={`group flex items-center justify-between rounded-md px-2 py-1.5 text-sm transition
+              ${pathname.startsWith("/case-studies")
+                                                        ? "bg-white text-sky-700 font-medium"
+                                                        : "text-slate-700 hover:bg-white/70"
+                                                    }`}
+                                            >
+                                                <div className="flex items-center gap-2">
+                                                    <span>Case Studies</span>
+                                                </div>
+
+                                                <Image
+                                                    src="/images/icons/chev-right.svg"
+                                                    alt="arrow"
+                                                    width={20}
+                                                    height={20}
+                                                    className="h-5 w-5"
+                                                />
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* MOBILE AI MENU */}
+                        <div className="relative">
+                            <button
+                                onClick={() => toggleMobileMenu("ai")}
+                                className={`flex w-full items-center gap-2 px-3 py-2 rounded relative z-10 transition
+      ${isAiActive ? "bg-violet-100 text-violet-700 font-medium" : "text-slate-700 hover:bg-slate-100"}`}
+                            >
+                                AI Services
+                                <Image
+                                    src="/images/icons/chev-down-black.svg"
+                                    className={`w-4 h-4 transition-transform ${mobileMenu === "ai" ? "rotate-180" : ""}`}
+                                    alt=""
+                                    width={20}
+                                    height={20}
+                                />
+                            </button>
+                            {mobileMenu === "ai" && (
+                                <span className="absolute left-10 top-[20px] bottom-0 w-[2px] bg-violet-200 rounded-full z-0" />
+                            )}
+                            {mobileMenu === "ai" && (
+                                <div className="ml-4 mt-3">
+                                    <div className="grid gap-2">
+                                        {[
+                                            { label: "AI Development", href: "/services/ai-ml", tag: null },
+                                            { label: "AI Agent Development", href: "/ai", tag: "Popular" },
+                                            { label: "AI Chatbot Development", href: "/ai", tag: null },
+                                            { label: "AI Automation & Integration", href: "/ai", tag: "New" },
+                                            { label: "ML Development", href: "/services/ai-ml", tag: null },
+                                            { label: "Computer Vision & NLP", href: "/services/ai-ml", tag: null },
+                                            { label: "View all AI", href: "/ai", tag: null },
+                                        ].map((item) => (
+                                            <Link
+                                                key={item.label}
+                                                href={item.href}
+                                                onClick={() => setOpen(false)}
+                                                className="group relative flex items-center justify-between overflow-hidden rounded-lg border border-violet-100 bg-white px-3 py-2 text-sm text-slate-700 transition hover:-translate-y-0.5 hover:border-violet-200 hover:bg-violet-50/40 hover:text-violet-700 hover:shadow-[0_12px_30px_-16px_rgba(139,92,246,0.45)]"
+                                            >
+                                                <span className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-violet-500 via-fuchsia-500 to-sky-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                                                <div className="flex items-center gap-2">
+                                                    <span>{item.label}</span>
+                                                    {item.tag && (
+                                                        <span className="rounded-full bg-gradient-to-r from-violet-500/90 to-fuchsia-500/90 px-2 py-0.5 text-[10px] font-semibold text-white">
+                                                            {item.tag}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                                <Image
+                                                    src="/images/icons/chev-right.svg"
+                                                    alt=""
+                                                    width={20}
+                                                    height={20}
+                                                    className="h-5 w-5 opacity-80 transition group-hover:translate-x-0.5 group-hover:opacity-100"
+                                                />
+                                            </Link>
+                                        ))}
+                                    </div>
                                 </div>
                             )}
                         </div>

@@ -1,4 +1,4 @@
-import { BLOGS } from "@/data/insights";
+import { BLOGS } from "@/data/blogs";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Metadata } from "next";
@@ -146,7 +146,7 @@ export default async function BlogDetailsPage({
                             )}
                         </div>
                     ))}
-                    <Button variant="black" to="/insights">Back to Insights</Button>
+                    <Button variant="black" to="/blogs">Back to Blogs</Button>
                 </div>
 
                 {/* RELATED BLOGS */}
@@ -160,7 +160,7 @@ export default async function BlogDetailsPage({
                             {currentBlogs.map((related) => (
                                 <Link
                                     key={related.id}
-                                    href={`/insights/${related.slug}`}
+                                    href={`/blogs/${related.slug}`}
                                     className="group border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl transition duration-300 bg-white"
                                 >
                                     <div className="relative h-[220px] overflow-hidden">
@@ -206,7 +206,7 @@ export default async function BlogDetailsPage({
                                     return (
                                         <Link
                                             key={pageNumber}
-                                            href={`/insights/${slug}?page=${pageNumber}`}
+                                            href={`/blogs/${slug}?page=${pageNumber}`}
                                             className={`px-4 min-w-10 min-h-10 py-2 rounded-lg text-sm border transition ${currentPage === pageNumber
                                                 ? "bg-gradient-to-r from-[#007BFF] to-[#00D4FF] text-white border-transparent"
                                                 : "border-slate-200 text-slate-600 hover:bg-slate-100"

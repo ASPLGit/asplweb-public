@@ -12,7 +12,7 @@ export default function TechnologiesMenu({
   return (
     <div
       className="
-        relative
+        relative p-10
       "
     >
       {/* Subtle Background Glow */}

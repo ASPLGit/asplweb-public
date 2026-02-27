@@ -23,8 +23,7 @@ export default function SectionHeading({
                 {/* LEFT */}
                 <div className="lg:col-span-6">
                     <span
-                        className={`section-label ${dark ? "text-slate-300" : ""
-                            }`}
+                        className={`section-label`}
                     >
                         {sectionLabel}
                     </span>

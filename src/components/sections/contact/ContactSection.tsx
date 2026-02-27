@@ -102,7 +102,7 @@ export default function ContactSection() {
     return (
         <section id="contact">
             <div className="container">
-                <div className="overflow-hidden sm:rounded-3xl rounded-xl border border-slate-200 bg-white shadow-[0_30px_60px_-30px_rgba(0,0,0,0.15)]">
+                <div className="overflow-hidden sm:rounded-3xl rounded-xl bg-white shadow-[0_30px_60px_-30px_rgba(0,0,0,0.15)]">
                     <div className="grid grid-cols-1 md:grid-cols-[1.1fr_2fr]">
 
                         {/* LEFT PANEL */}

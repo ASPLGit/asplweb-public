@@ -5,15 +5,20 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import Image from "next/image";
 import { TESTIMONIALS } from "@/data/testimonials";
+interface TestimonialsProps {
+    dark?: boolean;
+}
 
-
-export default function Testimonials() {
+export default function Testimonials({ dark = false }: TestimonialsProps) {
     return (
-        <section className="
-  relative overflow-hidden
-  bg-[linear-gradient(180deg,#f0f9ff_0%,#ffffff_60%)]
-  sm:pt-24 pt-10
-">
+        <section className={`
+        relative overflow-hidden
+        sm:pt-24 pt-10
+        ${dark
+                ? "bg-black"
+                : "bg-[linear-gradient(180deg,#f0f9ff_0%,#ffffff_60%)]"
+            }
+      `}>
             <div className="container">
                 <div className="grid lg:grid-cols-12 grid-cols-1 sm:gap-14 gap-4 relative">
 
@@ -21,11 +26,12 @@ export default function Testimonials() {
                     <div className="lg:col-span-5">
                         <h6 className="section-label mb-3">Testimonials</h6>
 
-                        <h2 className="heading-lg">
+                        <h2 className={`heading-lg ${dark ? "!text-white" : ""
+                            }`}>
                             Our Work Speaks<br />for It’s Self
                         </h2>
 
-                        <p className="mt-5 text-body">
+                        <p className={`mt-5 text-body ${dark ? "text-slate-300" : ""}`}>
                             Client experiences that reflect our commitment to quality,
                             performance, and long-term partnership.
                         </p>
