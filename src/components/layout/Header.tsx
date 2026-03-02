@@ -90,7 +90,7 @@ export default function Header() {
         pathname.startsWith("/blogs") ||
         pathname.startsWith("/case-studies");
 
-    const headerWhite = ["/careers", "/blogs", "/case-studies"].some((route) => pathname.startsWith(route));
+    const headerWhite = ["/blogs", "/case-studies"].some((route) => pathname.startsWith(route));
 
 
     return (
@@ -259,10 +259,10 @@ export default function Header() {
                                         e.stopPropagation();
                                         toggleDesktopMenu("ai");
                                     }}
-                                    className={`button px-6 py-3 relative`}
+                                    className={`button relative`}
                                 >
-                                    <span className="star-animate">✦</span>
                                     <span className="relative z-10">AI</span>
+                                     <span className="star-animate -mt-2 absolute">✦</span>
                                 </button>
                                 <div className="button-bg"></div>
                             </div>

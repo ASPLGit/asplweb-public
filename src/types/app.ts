@@ -2,6 +2,7 @@ export interface FeatureItem {
     id: string;
     title: string;
     description: string;
+    href?: string;
 }
 
 export interface StatItem {
@@ -143,7 +144,7 @@ export interface BlogSection {
 }
 
 export interface BlogContent {
-    mainHeading: string;  
+    mainHeading: string;
     sections: BlogSection[];
 }
 export interface Blog {

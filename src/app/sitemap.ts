@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { services } from "@/data/singleServicePage";
 import { technologies } from "@/data/singleTechnologyPage";
 import { OPEN_POSITIONS } from "@/data/openPositions";
-import { BLOGS } from "@/data/insights";
+import { BLOGS } from "@/data/blogs";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://aplombsoft.com";

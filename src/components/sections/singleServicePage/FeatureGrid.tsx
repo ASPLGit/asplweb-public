@@ -8,6 +8,8 @@ import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 
 import { Service } from "@/types/app";
+import Link from "next/link";
+import Button from "@/components/ui/Button";
 
 interface FeatureGridProps {
     data: Service["featureSection"];
@@ -92,17 +94,34 @@ export default function FeatureGrid({ data }: FeatureGridProps) {
                                     key={item.id}
                                     className="!h-[280px] flex items-center justify-center overflow-visible"
                                 >
-                                    <div className="feature-card w-full max-w-md">
-                                        <div className="rounded-2xl border border-slate-200 p-8 bg-white shadow-2xl">
-                                            <h3 className="text-xl font-semibold text-slate-900">
-                                                {item.title}
-                                            </h3>
+                                    {item.href ? (
+                                        <div
+                                            className="feature-card w-full max-w-md group"
+                                        >
+                                            <div className="rounded-2xl border border-slate-200 p-8 bg-white shadow-2xl transition group-hover:-translate-y-1 group-hover:shadow-3xl">
+                                                <h3 className="text-xl font-semibold text-slate-900 group-hover:text-blue-600 transition">
+                                                    {item.title}
+                                                </h3>
 
-                                            <p className="mt-3 text-base leading-relaxed text-slate-600">
-                                                {item.description}
-                                            </p>
+                                                <p className="mt-3 text-base leading-relaxed text-slate-600">
+                                                    {item.description}
+                                                </p>
+                                                <Button className="mt-4" variant="black" to={item.href}>Learn More</Button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    ) : (
+                                        <div className="feature-card w-full max-w-md">
+                                            <div className="rounded-2xl border border-slate-200 p-8 bg-white shadow-2xl">
+                                                <h3 className="text-xl font-semibold text-slate-900">
+                                                    {item.title}
+                                                </h3>
+
+                                                <p className="mt-3 text-base leading-relaxed text-slate-600">
+                                                    {item.description}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )}
                                 </SwiperSlide>
                             ))}
                         </Swiper>
@@ -128,6 +147,9 @@ export default function FeatureGrid({ data }: FeatureGridProps) {
                             <p className="text-sm leading-relaxed text-slate-600">
                                 {item.description}
                             </p>
+                            {item.href && (
+                                <Button className="mt-4" variant="black" to={item.href}>Learn More</Button>
+                            )}
                         </div>
                     ))}
                 </div>

@@ -36,20 +36,25 @@ export default function AIDevelopment() {
     return (
         <section className="space-y-[40px] sm:space-y-[80px] 2xl:space-y-[120px] bg-black overflow-hidden">
             {/* Hero */}
-            <section className="relative pt-24 sm:pt-28 lg:pt-32">
+            <section className="relative pt-24 sm:pt-28 lg:pt-36 sm:pb-20 pb-10">
                 {/* Ambient gradients */}
                 <div className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-sky-500/20 blur-3xl ai-float" />
                 <div
                     className="pointer-events-none absolute -right-28 top-10 h-80 w-80 rounded-full bg-fuchsia-500/15 blur-3xl ai-float"
                     style={{ animationDelay: "0.7s", animationDuration: "9.5s" }}
                 />
-                <div
-                    className="pointer-events-none absolute left-1/2 top-44 h-64 w-64 -translate-x-1/2 rounded-full bg-violet-500/10 blur-3xl ai-float"
-                    style={{ animationDelay: "1.2s", animationDuration: "11s" }}
-                />
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                    <div
+                        className="pointer-events-none absolute left-1/2 top-44 h-64 w-64 -translate-x-1/2 rounded-full bg-violet-500/10 blur-3xl ai-float"
+                        style={{ animationDelay: "1.2s", animationDuration: "11s" }} />
+                </motion.div>
 
                 {/* Soft scan beam */}
-                <div className="pointer-events-none absolute inset-x-0 top-[30%] h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent opacity-60 ai-scan" />
+                <div className="pointer-events-none absolute inset-x-0 top-[40%] h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent opacity-60 ai-scan" />
                 <div
                     className="pointer-events-none absolute inset-0 opacity-[0.06]"
                     style={{
@@ -134,16 +139,17 @@ export default function AIDevelopment() {
                                     </span>
                                 </button>
 
-                                <button className="group inline-flex items-center gap-2 text-sm font-medium text-slate-200 transition hover:text-white">
+                                <a href="/case-studies" className="group inline-flex items-center gap-2 text-sm font-medium text-slate-200 transition hover:text-white">
                                     View case studies
                                     <span className="transition-transform duration-300 group-hover:translate-x-0.5">
-                                        →
+                                        <Image
+                                            src="/images/icons/arrow-up.svg"
+                                            alt="icon"
+                                            width={20}
+                                            height={20}
+                                        />
                                     </span>
-                                </button>
-
-                                <p className="w-full text-xs text-slate-400 sm:w-auto">
-                                    Typical delivery: 6–10 weeks to production.
-                                </p>
+                                </a>
                             </motion.div>
                         </div>
 
@@ -158,15 +164,15 @@ export default function AIDevelopment() {
                                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
                                 className="relative lg:rounded-2xl rounded-xl p-[1px] bg-[linear-gradient(120deg,rgba(56,189,248,0.55),rgba(129,140,248,0.45),rgba(236,72,153,0.35),rgba(56,189,248,0.25))] bg-[length:220%_220%] animate-[aiShimmer_10s_ease-in-out_infinite]"
                             >
-                                <div className="relative lg:rounded-2xl rounded-xl border border-white/10 bg-black/70 p-8 shadow-[0_0_60px_rgba(56,189,248,0.25)] backdrop-blur-2xl overflow-hidden">
+                                <div className="relative lg:rounded-2xl rounded-xl border border-white/10 bg-black/70 sm:p-8 p-6 shadow-[0_0_60px_rgba(56,189,248,0.25)] backdrop-blur-2xl overflow-hidden">
                                     {/* inner scan */}
                                     <div className="pointer-events-none absolute -left-1/2 top-0 h-full w-[200%] bg-[linear-gradient(90deg,transparent,rgba(56,189,248,0.10),transparent)] ai-panel-scan opacity-40" />
 
-                                    <div className="flex items-center justify-between">
+                                    <div className="flex items-center justify-between gap-2">
                                         <p className="text-xs uppercase tracking-[0.18em] text-gradient">
                                             What we deliver
                                         </p>
-                                        <span className="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] text-slate-200">
+                                        <span className="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 sm:text-[10px] text-[8px] text-slate-200">
                                             AI Delivery Framework
                                         </span>
                                     </div>

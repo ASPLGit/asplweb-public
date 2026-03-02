@@ -108,7 +108,25 @@ export default function Testimonials({ dark = false }: TestimonialsProps) {
                         >
                             {TESTIMONIALS.map((item, index) => (
                                 <SwiperSlide key={index}>
-                                    <div className="h-full rounded-2xl bg-white sm:p-6 p-4 shadow-lg">
+                                    <div
+                                        className={`
+    h-full rounded-2xl sm:p-6 p-4
+    transition-all duration-300
+    ${dark
+                                                ? `
+        bg-white/5
+        backdrop-blur-xl
+        border border-white/10
+        shadow-[0_10px_40px_rgba(0,0,0,0.6)]
+      `
+                                                : `
+        bg-white
+        shadow-lg
+        border border-slate-100
+      `
+                                            }
+  `}
+                                    >
 
                                         {/* Stars */}
                                         <div className="flex gap-1 text-orange-400">
@@ -118,11 +136,11 @@ export default function Testimonials({ dark = false }: TestimonialsProps) {
                                         </div>
 
                                         {/* Text */}
-                                        <p className="mt-5 text-body-md">
+                                        <p className={`mt-5 text-body-md ${dark ? "text-slate-300" : ""}`}>
                                             {item.text}
                                         </p>
 
-                                        <div className="my-6 h-px bg-slate-200" />
+                                        <div className={`my-6 h-px ${dark ? "bg-white/10" : "bg-slate-200"}`} />
 
                                         {/* Author */}
                                         <div className="flex items-center gap-4">
@@ -135,10 +153,10 @@ export default function Testimonials({ dark = false }: TestimonialsProps) {
                                             />
 
                                             <div>
-                                                <p className="font-semibold text-slate-900">
+                                                <p className={`font-semibold ${dark ? "text-white" : "text-slate-900"}`}>
                                                     {item.name}
                                                 </p>
-                                                <p className="text-sm text-slate-500">
+                                                <p className={`text-sm ${dark ? "text-slate-400" : "text-slate-500"}`}>
                                                     {item.role}
                                                 </p>
                                             </div>

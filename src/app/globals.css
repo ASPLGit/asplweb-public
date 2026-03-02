@@ -145,50 +145,68 @@ body {
   display: block;
   font-size: 14px;
   line-height: 20px;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 2px;
-  background-color: rgba(0, 0, 0, 0);
+  padding: 10px 20px;
   color: white;
+
+  background:
+    linear-gradient(#000, #000) padding-box,
+    linear-gradient(
+      270deg,
+      #FF8038,
+      #FF0099,
+      #00EBEB,
+      #DB00FF,
+      #FF8038
+    ) border-box;
+
+  background-size: 100% 100%, 300% 300%;
+  border: 2px solid transparent;
   border-radius: 10px;
-  border: 0px;
   cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+
+  animation: AnimateBorder 6s ease infinite;
 }
 
 .button-bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  background: linear-gradient(90deg, #FF8038 0%, #FF0099 30.43%, #00EBEB 68.23%, #DB00FF 100%);
-  background-size: 600% 600%;
+  inset: 0;
   border-radius: 10px;
-  animation: AnimateBorder 4s ease infinite;
-  -webkit-animation: AnimateBorder 4s ease infinite;
-  -moz-animation: AnimateBorder 4s ease infinite;
   z-index: -1;
-  transform: translate(-2px, -2px);
-  transition: filter 1s ease-in;
+  background: linear-gradient(90deg,
+      #FF8038 0%,
+      #FF0099 30.43%,
+      #00EBEB 68.23%,
+      #DB00FF 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease, filter 0.4s ease;
+}
+
+.button-wrapper:hover .button-bg {
+  opacity: 1;
+  filter: blur(15px);
 }
 
 .button-wrapper:hover .button-bg {
   filter: blur(10px);
   transition: filter .4s ease-in;
+  background: linear-gradient(90deg, #FF8038 0%, #FF0099 30.43%, #00EBEB 68.23%, #DB00FF 100%);
 }
 
 
-@-webkit-keyframes AnimateBorder {
+@keyframes AnimateBorder {
   0% {
-    background-position: 0% 50%
+    background-position: 0% 50%, 0% 50%;
   }
-
   50% {
-    background-position: 100% 50%
+    background-position: 0% 50%, 100% 50%;
   }
-
   100% {
-    background-position: 0% 50%
+    background-position: 0% 50%, 0% 50%;
   }
 }
 
@@ -229,19 +247,34 @@ body {
 
 /* Smart life cycle animation */
 @keyframes starLife {
-  0%   { transform: scale(1) rotate(0deg); opacity: 1; }
-  
-  15%  { transform: scale(1.2) rotate(30deg); }
-  
-  30%  { transform: scale(1) rotate(0deg); }
-  
-  45%  { transform: scale(0.9) rotate(-30deg); }
-  
-  60%  { transform: scale(1.15) rotate(20deg); }
-  
-  75%  { transform: scale(1) rotate(0deg); }
-  
-  100% { transform: scale(1) rotate(0deg); }
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+
+  15% {
+    transform: scale(1.2) rotate(30deg);
+  }
+
+  30% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  45% {
+    transform: scale(0.9) rotate(-30deg);
+  }
+
+  60% {
+    transform: scale(1.15) rotate(20deg);
+  }
+
+  75% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
 }
 
 
@@ -249,15 +282,19 @@ body {
   0% {
     transform: rotate(0deg) scale(1) translateY(0px);
   }
+
   25% {
     transform: rotate(90deg) scale(1.03) translateY(-6px);
   }
+
   50% {
     transform: rotate(180deg) scale(1) translateY(0px);
   }
+
   75% {
     transform: rotate(270deg) scale(1.03) translateY(6px);
   }
+
   100% {
     transform: rotate(360deg) scale(1) translateY(0px);
   }
@@ -265,4 +302,119 @@ body {
 
 .ai-animate {
   animation: aiFloat 18s ease-in-out infinite;
+}
+
+/* =========================
+   AI page animations/utilities
+   ========================= */
+
+/* Alias used by AI development page */
+.ai-float {
+  animation: aiFloat 18s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes aiScanBeam {
+  0% {
+    background-position: 0% 50%;
+    opacity: 0.15;
+  }
+
+  15% {
+    opacity: 0.7;
+  }
+
+  50% {
+    opacity: 0.55;
+  }
+
+  85% {
+    opacity: 0.7;
+  }
+
+  100% {
+    background-position: 200% 50%;
+    opacity: 0.15;
+  }
+}
+
+.ai-scan {
+  animation: aiScanBeam 5.8s ease-in-out infinite;
+  background-image: linear-gradient(90deg,
+      transparent 0%,
+      rgba(56, 189, 248, 0.4) 30%,
+      rgba(56, 189, 248, 0.9) 50%,
+      rgba(56, 189, 248, 0.4) 70%,
+      transparent 100%);
+  background-size: 200% 100%;
+  will-change: background-position, opacity;
+}
+
+@keyframes aiPanelScan {
+  0% {
+    transform: translateX(-18%);
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+
+  100% {
+    transform: translateX(18%);
+    opacity: 0.25;
+  }
+}
+
+.ai-panel-scan {
+  animation: aiPanelScan 4.2s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes aiShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes textGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.text-gradient-animate {
+  background: linear-gradient(90deg, #38bdf8 0%, #a78bfa 30%, #fb7185 60%, #38bdf8 100%);
+  background-size: 220% 220%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: textGradientShift 8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .ai-float,
+  .ai-scan,
+  .ai-panel-scan,
+  .text-gradient-animate {
+    animation: none !important;
+  }
 }

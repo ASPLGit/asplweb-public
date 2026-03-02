@@ -626,71 +626,107 @@ export const services: Service[] = [
     },
     {
         slug: "ai-ml",
-        title: "AI & Machine Learning",
+
+        title: "AI Development Services",
         description:
-            "Practical AI systems designed to improve decision-making, automate workflows, and turn business data into measurable value.",
+            "Enterprise-grade AI solutions including intelligent agents, chatbots, machine learning systems, automation platforms, and computer vision applications designed for scalable business impact.",
 
         cta: {
             primary: {
-                label: "Discuss Your AI Initiative",
+                label: "Start Your AI Project",
                 href: "/contact",
             },
         },
 
         section: {
-            label: "Overview",
-            heading: "Intelligent Digital Solutions Powered by AI",
+            label: "AI Capabilities",
+            heading: "End-to-End Artificial Intelligence Solutions",
             subheading:
-                "We develop AI-enabled web platforms, mobile apps, and enterprise systems that transform data into actionable intelligence. Our solutions combine machine learning, automation, and advanced analytics to enhance performance, efficiency, and customer experience.",
+                "From strategic AI consulting to autonomous agents, machine learning pipelines, and intelligent automation systems, we design, build, and deploy production-ready AI solutions that integrate seamlessly into modern enterprise ecosystems.",
         },
-
 
         featureSection: {
             items: [
                 {
-                    id: "01",
-                    title: "AI Consulting & Strategy",
+                    id: "ai-development",
+                    title: "AI Development",
                     description:
-                        "We help you define a clear AI adoption strategy aligned with your business objectives. From identifying high-impact use cases to planning scalable implementation, we ensure your AI investments deliver measurable results.",
+                        "Custom AI solutions, model design & intelligent system integration.",
+                    href: "/ai-development",
                 },
                 {
-                    id: "02",
-                    title: "Machine Learning Solutions",
+                    id: "ai-agent-development",
+                    title: "AI Agent Development",
                     description:
-                        "Design and deploy machine learning systems that transform raw data into actionable insights. We build predictive, classification, and recommendation models tailored to real-world business environments.",
+                        "Autonomous AI agents that reason, plan, execute tasks & automate workflows.",
+                    href: "/ai-agent-development",
                 },
                 {
-                    id: "03",
-                    title: "Generative AI Applications",
+                    id: "ai-chatbot-development",
+                    title: "AI Chatbot Development",
                     description:
-                        "Develop intelligent applications powered by large language models and generative AI. From AI chatbots to content automation systems, we create secure and scalable generative experiences.",
+                        "Conversational AI assistants powered by LLMs for web, mobile & enterprise platforms.",
+                    href: "/ai-chatbot-development",
                 },
                 {
-                    id: "04",
-                    title: "AI-Powered Software Development",
+                    id: "ai-automation-integration",
+                    title: "AI Automation & Integration",
                     description:
-                        "Integrate AI capabilities directly into web and enterprise software. Whether it’s smart dashboards, automated workflows, or predictive analytics, we embed intelligence into your digital platforms.",
+                        "Workflow automation and system integrations enhanced with AI intelligence.",
+                    href: "/ai-automation-integration",
                 },
                 {
-                    id: "05",
-                    title: "AI MVP Development",
+                    id: "ml-development",
+                    title: "ML Development",
                     description:
-                        "Rapidly design and launch AI-driven MVPs to validate your product idea in the real market. We focus on core intelligent features, fast iteration cycles, and measurable user feedback to reduce risk and accelerate product-market fit.",
+                        "Machine learning models, training pipelines & scalable deployment systems.",
+                    href: "/ml-development",
                 },
                 {
-                    id: "06",
-                    title: "AI Mobile App Development",
+                    id: "computer-vision-nlp",
+                    title: "Computer Vision & NLP",
                     description:
-                        "Build mobile applications enhanced with AI features such as real-time recommendations, image recognition, voice interaction, and personalized user experiences.",
-                },
-                {
-                    id: "07",
-                    title: "Data Engineering for AI Systems",
-                    description:
-                        "Establish reliable data pipelines, storage systems, and processing frameworks that power high-performance AI models with clean, structured, and scalable data infrastructure.",
+                        "Image recognition, language models & advanced text analytics solutions.",
+                    href: "/computer-vision-nlp",
                 },
             ],
         },
+
+        faq: {
+            items: [
+                {
+                    title: "What AI services do you specialize in?",
+                    content:
+                        "We specialize in AI development, autonomous agent systems, AI chatbots, workflow automation, machine learning model engineering, and computer vision & NLP solutions. Our services span from strategy to full-scale deployment.",
+                },
+                {
+                    title: "Do you build custom AI agents for enterprise automation?",
+                    content:
+                        "Yes. We design and deploy autonomous AI agents capable of reasoning, planning, and executing complex tasks. These agents integrate with APIs, databases, SaaS tools, and enterprise systems to automate real operational workflows.",
+                },
+                {
+                    title: "Can AI be integrated into our existing software systems?",
+                    content:
+                        "Absolutely. We integrate AI into web platforms, mobile applications, SaaS products, and enterprise software without disrupting existing architecture. Our approach ensures scalable, secure, and modular implementation.",
+                },
+                {
+                    title: "How do you handle AI model training and deployment?",
+                    content:
+                        "We design structured data pipelines, train machine learning models using modern frameworks, and deploy them through scalable cloud infrastructure. Continuous monitoring and retraining pipelines ensure long-term performance stability.",
+                },
+                {
+                    title: "Do you provide computer vision and NLP solutions?",
+                    content:
+                        "Yes. We develop AI systems for image recognition, document processing, language understanding, sentiment analysis, and advanced text analytics tailored to industry-specific requirements.",
+                },
+                {
+                    title: "How long does it take to implement an AI solution?",
+                    content:
+                        "Project timelines depend on complexity and data readiness. MVP-level AI implementations can take weeks, while enterprise-grade AI platforms may follow a phased roadmap for optimal scalability and compliance.",
+                },
+            ],
+        },
+
         TechnologySection: {
             items: [
                 { logo: "/images/tech/python.svg", name: "Python" },
@@ -703,36 +739,6 @@ export const services: Service[] = [
                 { logo: "/images/tech/aws.svg", name: "AWS AI Services" },
                 { logo: "/images/tech/pandas.svg", name: "Pandas & Data Tools" },
                 { logo: "/images/tech/azure.svg", name: "Azure Machine Learning" },
-            ],
-        },
-
-        faq: {
-            items: [
-                {
-                    title: "What types of AI and machine learning solutions do you deliver?",
-                    content:
-                        "We design and deploy production-ready AI systems including predictive analytics engines, recommendation systems, intelligent automation workflows, computer vision solutions, and LLM-powered applications. Every solution is engineered around measurable business objectives — not proof-of-concept experiments.",
-                },
-                {
-                    title: "Can AI be embedded into our existing web, mobile, or enterprise software?",
-                    content:
-                        "Absolutely. We specialize in integrating AI capabilities directly into existing platforms, whether it’s a SaaS product, internal enterprise system, or mobile application. Our approach ensures seamless deployment without disrupting your current architecture or operations.",
-                },
-                {
-                    title: "How do you ensure data security and regulatory compliance?",
-                    content:
-                        "We implement secure development environments, role-based access controls, encrypted data pipelines, and compliance-aligned governance practices. From data collection to model deployment, security and privacy are embedded into every stage of the AI lifecycle.",
-                },
-                {
-                    title: "What happens after the AI system goes live?",
-                    content:
-                        "AI models evolve alongside your data. We provide continuous monitoring, performance evaluation, retraining pipelines, and optimization strategies to prevent model drift and maintain long-term accuracy, reliability, and business value.",
-                },
-                {
-                    title: "How long does it take to build an AI solution?",
-                    content:
-                        "Timelines depend on complexity, data readiness, and integration scope. MVP-level AI solutions can be delivered in weeks, while enterprise-grade systems may require phased development. We define a clear roadmap upfront to balance speed, scalability, and performance.",
-                },
             ],
         },
     },

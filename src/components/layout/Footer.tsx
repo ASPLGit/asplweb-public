@@ -39,30 +39,11 @@ export default function Footer() {
 
 
     return (
-        <footer
-            className="
-    relative
-    overflow-hidden
-    bg-[url('/images/bg.webp')]
-    bg-cover bg-center bg-no-repeat
-    after:content-['']
-    after:absolute
-    after:inset-0
-    after:bg-[url('/images/layer1.webp')]
-    after:bg-cover
-    sm:after:bg-center after:bg-left
-    after:bg-no-repeat
-    sm:after:blur-[1px]
-    after:opacity-50
-    after:pointer-events-none
-  "
-        >
-            <div
-                className="
-            absolute inset-0
-            bg-black/70
-        "
-            />
+        <footer className="relative overflow-hidden bg-[#0b0f19]">
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-r from-[#007BFF]/20 via-[#6C3BFF]/20 to-[#00D4FF]/20 blur-3xl opacity-40" />
+            </div>
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
             <div className="container pt-20 pb-10 relative z-10">
                 {/* TOP CONTENT */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">

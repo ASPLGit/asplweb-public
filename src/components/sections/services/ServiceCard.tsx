@@ -72,7 +72,7 @@ export default function ServiceCard({
                   border border-white/70
                   bg-white/5 backdrop-blur
                   px-3 py-1
-                  text-xs font-medium
+                  text-xs font-normal
                   text-white/90
                   transition
                 "
