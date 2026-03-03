@@ -23,7 +23,7 @@ export default function NotFound() {
             Error 404
           </p>
 
-          <h1 className="heading-xl text-white">
+          <h1 className="heading-2xl text-white">
             Page Not Found
           </h1>
 

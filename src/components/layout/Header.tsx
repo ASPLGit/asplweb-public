@@ -262,7 +262,7 @@ export default function Header() {
                                     className={`button relative`}
                                 >
                                     <span className="relative z-10">AI</span>
-                                     <span className="star-animate -mt-2 absolute">✦</span>
+                                    <span className="star-animate -mt-2 absolute">✦</span>
                                 </button>
                                 <div className="button-bg"></div>
                             </div>
@@ -740,13 +740,12 @@ export default function Header() {
                                 <div className="ml-4 mt-3">
                                     <div className="grid gap-2">
                                         {[
-                                            { label: "AI Development", href: "/services/ai-ml", tag: null },
-                                            { label: "AI Agent Development", href: "/ai", tag: "Popular" },
-                                            { label: "AI Chatbot Development", href: "/ai", tag: null },
-                                            { label: "AI Automation & Integration", href: "/ai", tag: "New" },
-                                            { label: "ML Development", href: "/services/ai-ml", tag: null },
-                                            { label: "Computer Vision & NLP", href: "/services/ai-ml", tag: null },
-                                            { label: "View all AI", href: "/ai", tag: null },
+                                            { label: "AI Development", href: "/ai-development", tag: null },
+                                            { label: "AI Agent Development", href: "/ai-agent-development", tag: "Popular" },
+                                            { label: "AI Chatbot Development", href: "/ai-chatbot-development", tag: null },
+                                            { label: "AI Automation & Integration", href: "/ai-automation", tag: "New" },
+                                            { label: "Generative AI Development", href: "/ai-generative-development", tag: null },
+                                            { label: "View all AI", href: "/services/ai-ml", tag: null },
                                         ].map((item) => (
                                             <Link
                                                 key={item.label}

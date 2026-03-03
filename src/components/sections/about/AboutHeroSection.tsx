@@ -38,7 +38,7 @@ export default function AboutHeroSection() {
                 />
                 <div className="container relative z-10">
                     <div className="flex flex-col 2xl:gap-8 sm:gap-6 gap-4 max-w-5xl mx-auto items-center justify-center text-center">
-                        <h2 className="heading-xl">
+                        <h2 className="heading-2xl">
                             We Are a <br />
                             <span className="italic font-lora ">Full Service</span> <br /> 
                             Technology Partner

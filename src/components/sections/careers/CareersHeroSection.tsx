@@ -39,7 +39,7 @@ export default function CareersHeroSection() {
                     <div className="container text-center relative z-10">
                         <div className="flex flex-col items-center 2xl:gap-8 sm:gap-6 gap-4 max-w-3xl mx-auto">
 
-                            <h2 className="heading-xl">
+                            <h2 className="heading-2xl">
                                 <>Build Your Career With<br />  <span className="italic font-lora">Aplombsoft</span>.</>
 
                             </h2>

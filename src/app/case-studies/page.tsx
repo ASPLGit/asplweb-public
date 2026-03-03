@@ -85,9 +85,6 @@ export default function CaseStudiesPage() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-24 top-16 h-72 w-72 rounded-full bg-sky-200/45 blur-3xl" />
-          <div className="absolute -right-28 top-10 h-80 w-80 rounded-full bg-blue-200/35 blur-3xl" />
-          <div className="absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-200/25 blur-3xl" />
           <div
             className="absolute inset-0 opacity-[0.025]"
             style={{

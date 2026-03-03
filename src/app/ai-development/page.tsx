@@ -1,6 +1,6 @@
 "use client";
 
-import AIFAQ from "@/components/common/Ai-FAQ";
+import AIFAQ, { FAQItem } from "@/components/common/Ai-FAQ";
 import SectionHeading from "@/components/common/SectionHeading";
 import ContactSection from "@/components/sections/contact/ContactSection";
 import Testimonials from "@/components/sections/home/Testimonials";
@@ -8,6 +8,35 @@ import WhoWeAre from "@/components/sections/home/WhoWeAre";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
+
+
+const AI_DEV_FAQS: FAQItem[] = [
+    {
+        question: "How do you approach custom AI development?",
+        answer:
+            "We begin with business discovery, data assessment, and feasibility analysis before designing any model. Our focus is measurable outcomes, not experimentation."
+    },
+    {
+        question: "Do you work with LLMs and AI agents?",
+        answer:
+            "Yes. We design and deploy LLM-powered systems, retrieval pipelines, and intelligent agents tailored to enterprise use cases."
+    },
+    {
+        question: "How do you ensure data security and compliance?",
+        answer:
+            "We implement strict data governance, encryption standards, access control, and audit mechanisms aligned with enterprise compliance requirements."
+    },
+    {
+        question: "Can you integrate AI into our existing systems?",
+        answer:
+            "Absolutely. We specialize in seamless integration into existing architectures including cloud, SaaS platforms, and legacy enterprise systems."
+    },
+    {
+        question: "What is the typical timeline?",
+        answer:
+            "Most AI initiatives move from discovery to production within 6–10 weeks depending on complexity and data readiness."
+    }
+];
 
 export default function AIDevelopment() {
     const ref = useRef(null);
@@ -37,192 +66,187 @@ export default function AIDevelopment() {
         <section className="space-y-[40px] sm:space-y-[80px] 2xl:space-y-[120px] bg-black overflow-hidden">
             {/* Hero */}
             <section className="relative pt-24 sm:pt-28 lg:pt-36 sm:pb-20 pb-10">
-                {/* Ambient gradients */}
-                <div className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-sky-500/20 blur-3xl ai-float" />
-                <div
-                    className="pointer-events-none absolute -right-28 top-10 h-80 w-80 rounded-full bg-fuchsia-500/15 blur-3xl ai-float"
-                    style={{ animationDelay: "0.7s", animationDuration: "9.5s" }}
-                />
-                <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                >
+                <div className="container">
+                    {/* Ambient gradients */}
+                    <div className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-sky-500/20 blur-3xl ai-float" />
                     <div
-                        className="pointer-events-none absolute left-1/2 top-44 h-64 w-64 -translate-x-1/2 rounded-full bg-violet-500/10 blur-3xl ai-float"
-                        style={{ animationDelay: "1.2s", animationDuration: "11s" }} />
-                </motion.div>
+                        className="pointer-events-none absolute -right-28 top-10 h-80 w-80 rounded-full bg-fuchsia-500/15 blur-3xl ai-float"
+                        style={{ animationDelay: "0.7s", animationDuration: "9.5s" }}
+                    />
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
+                        <div
+                            className="pointer-events-none absolute left-1/2 top-44 h-64 w-64 -translate-x-1/2 rounded-full bg-violet-500/10 blur-3xl ai-float"
+                            style={{ animationDelay: "1.2s", animationDuration: "11s" }} />
+                    </motion.div>
 
-                {/* Soft scan beam */}
-                <div className="pointer-events-none absolute inset-x-0 top-[40%] h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent opacity-60 ai-scan" />
-                <div
-                    className="pointer-events-none absolute inset-0 opacity-[0.06]"
-                    style={{
-                        backgroundImage:
-                            "radial-gradient(circle at 1px 1px, rgba(148,163,184,0.4) 1px, transparent 0)",
-                        backgroundSize: "26px 26px",
-                    }}
-                />
+                    {/* Soft scan beam */}
+                    <div className="pointer-events-none absolute inset-x-0 top-[40%] h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent opacity-60 ai-scan" />
+                    <div
+                        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+                        style={{
+                            backgroundImage:
+                                "radial-gradient(circle at 1px 1px, rgba(148,163,184,0.4) 1px, transparent 0)",
+                            backgroundSize: "26px 26px",
+                        }}
+                    />
 
-                <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
+                    <div className="relative">
 
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                        <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-                        {/* LEFT */}
-                        <div className="max-w-xl">
+                            {/* LEFT */}
+                            <div className="max-w-xl">
 
-                            <motion.div
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, ease: "easeOut" }}
-                                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-200 backdrop-blur"
-                            >
-                                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.7)]" />
-                                Enterprise AI Engineering
-                            </motion.div>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, ease: "easeOut" }}
+                                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-200 backdrop-blur"
+                                >
+                                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.7)]" />
+                                    Enterprise AI Engineering
+                                </motion.div>
 
-                            <motion.h1
-                                initial={{ opacity: 0, y: 14 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.7, ease: "easeOut", delay: 0.05 }}
-                                className="mt-6 heading-xl text-white"
-                            >
-                                Build{" "}
-                                <span className="text-gradient-animate">
-                                    intelligent systems
-                                </span>{" "}
-                                that drive measurable outcomes.
-                            </motion.h1>
+                                <motion.h1
+                                    initial={{ opacity: 0, y: 14 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.7, ease: "easeOut", delay: 0.05 }}
+                                    className="mt-6 heading-xl text-white"
+                                >
+                                    Build{" "}
+                                    <span className="text-gradient-animate">
+                                        intelligent systems
+                                    </span>{" "}
+                                    that drive measurable outcomes.
+                                </motion.h1>
 
-                            <motion.p
-                                initial={{ opacity: 0, y: 12 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.7, ease: "easeOut", delay: 0.12 }}
-                                className="mt-6 text-slate-300 text-base leading-relaxed"
-                            >
-                                We architect and deploy AI solutions from LLM-powered agents to
-                                predictive models—integrated seamlessly into your products and
-                                operations.
-                            </motion.p>
+                                <motion.p
+                                    initial={{ opacity: 0, y: 12 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.7, ease: "easeOut", delay: 0.12 }}
+                                    className="mt-6 text-slate-300 text-base leading-relaxed"
+                                >
+                                    We architect and deploy AI solutions from LLM-powered agents to
+                                    predictive models integrated seamlessly into your products and
+                                    operations.
+                                </motion.p>
 
-                            <motion.div
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.7, ease: "easeOut", delay: 0.18 }}
-                                className="mt-6 flex flex-wrap gap-3 text-xs text-slate-200"
-                            >
-                                <span className="rounded-full border border-sky-400/30 bg-sky-400/10 px-3 py-1">
-                                    LLMs & Agents
-                                </span>
-                                <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1">
-                                    ML Pipelines
-                                </span>
-                                <span className="rounded-full border border-fuchsia-400/30 bg-fuchsia-400/10 px-3 py-1">
-                                    Guardrails
-                                </span>
-                                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
-                                    Monitoring
-                                </span>
-                            </motion.div>
-
-                            {/* Clean CTA Row */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.7, ease: "easeOut", delay: 0.25 }}
-                                className="mt-10 flex flex-wrap items-center gap-4"
-                            >
-                                <button className="button-wrapper">
-                                    <span className="button-bg" />
-                                    <span className="button px-6 py-3">
-                                        Talk to an AI architect
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.7, ease: "easeOut", delay: 0.18 }}
+                                    className="mt-6 flex flex-wrap gap-3 text-xs text-slate-200"
+                                >
+                                    <span className="rounded-full border border-sky-400/30 bg-sky-400/10 px-3 py-1">
+                                        LLMs & Agents
                                     </span>
-                                </button>
-
-                                <a href="/case-studies" className="group inline-flex items-center gap-2 text-sm font-medium text-slate-200 transition hover:text-white">
-                                    View case studies
-                                    <span className="transition-transform duration-300 group-hover:translate-x-0.5">
-                                        <Image
-                                            src="/images/icons/arrow-up.svg"
-                                            alt="icon"
-                                            width={20}
-                                            height={20}
-                                        />
+                                    <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1">
+                                        ML Pipelines
                                     </span>
-                                </a>
-                            </motion.div>
-                        </div>
+                                    <span className="rounded-full border border-fuchsia-400/30 bg-fuchsia-400/10 px-3 py-1">
+                                        Guardrails
+                                    </span>
+                                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
+                                        Monitoring
+                                    </span>
+                                </motion.div>
 
-                        {/* RIGHT – Clean Visual Panel */}
-                        <div className="relative">
-
-                            <div className="pointer-events-none absolute -inset-8 bg-[conic-gradient(from_140deg_at_50%_50%,rgba(56,189,248,0.3),rgba(129,140,248,0.3),rgba(236,72,153,0.2),transparent_70%)] opacity-40 blur-3xl" />
-
-                            <motion.div
-                                initial={{ opacity: 0, y: 16 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-                                className="relative lg:rounded-2xl rounded-xl p-[1px] bg-[linear-gradient(120deg,rgba(56,189,248,0.55),rgba(129,140,248,0.45),rgba(236,72,153,0.35),rgba(56,189,248,0.25))] bg-[length:220%_220%] animate-[aiShimmer_10s_ease-in-out_infinite]"
-                            >
-                                <div className="relative lg:rounded-2xl rounded-xl border border-white/10 bg-black/70 sm:p-8 p-6 shadow-[0_0_60px_rgba(56,189,248,0.25)] backdrop-blur-2xl overflow-hidden">
-                                    {/* inner scan */}
-                                    <div className="pointer-events-none absolute -left-1/2 top-0 h-full w-[200%] bg-[linear-gradient(90deg,transparent,rgba(56,189,248,0.10),transparent)] ai-panel-scan opacity-40" />
-
-                                    <div className="flex items-center justify-between gap-2">
-                                        <p className="text-xs uppercase tracking-[0.18em] text-gradient">
-                                            What we deliver
-                                        </p>
-                                        <span className="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 sm:text-[10px] text-[8px] text-slate-200">
-                                            AI Delivery Framework
+                                {/* Clean CTA Row */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.7, ease: "easeOut", delay: 0.25 }}
+                                    className="mt-10 flex flex-wrap items-center gap-4"
+                                >
+                                    <a href="/case-studies" className="group inline-flex items-center gap-2 text-sm font-medium text-slate-200 transition hover:text-white">
+                                        View case studies
+                                        <span className="transition-transform duration-300 group-hover:translate-x-0.5">
+                                            <Image
+                                                src="/images/icons/arrow-up.svg"
+                                                alt="icon"
+                                                width={20}
+                                                height={20}
+                                            />
                                         </span>
-                                    </div>
+                                    </a>
+                                </motion.div>
+                            </div>
 
-                                    <ul className="mt-6 space-y-4 text-sm text-slate-200">
-                                        {deliverables.map((item, idx) => (
-                                            <motion.li
-                                                key={item.title}
-                                                initial={{ opacity: 0, y: 10 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                transition={{ duration: 0.55, ease: "easeOut", delay: 0.25 + idx * 0.08 }}
-                                                className="flex gap-3 rounded-xl border border-white/5 bg-white/[0.03] p-3 hover:bg-white/[0.06] transition"
-                                            >
-                                                <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-sky-400 shadow-[0_0_14px_rgba(56,189,248,0.85)]" />
-                                                <div className="min-w-0">
-                                                    <p className="font-medium text-white">
-                                                        {item.title}
-                                                    </p>
-                                                    <p className="mt-0.5 text-xs text-slate-400">
-                                                        {item.desc}
-                                                    </p>
-                                                </div>
-                                            </motion.li>
-                                        ))}
-                                    </ul>
+                            {/* RIGHT – Clean Visual Panel */}
+                            <div className="relative">
 
-                                    <div className="mt-6 grid grid-cols-3 gap-3 text-[11px] text-slate-300">
-                                        <div className="rounded-xl border border-white/10 bg-black/40 p-3">
-                                            <p className="text-[10px] uppercase tracking-[0.16em] text-slate-400">
-                                                Time to value
+                                <div className="pointer-events-none absolute -inset-8 bg-[conic-gradient(from_140deg_at_50%_50%,rgba(56,189,248,0.3),rgba(129,140,248,0.3),rgba(236,72,153,0.2),transparent_70%)] opacity-40 blur-3xl" />
+
+                                <motion.div
+                                    initial={{ opacity: 0, y: 16 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
+                                    className="relative lg:rounded-2xl rounded-xl p-[1px] bg-[linear-gradient(120deg,rgba(56,189,248,0.55),rgba(129,140,248,0.45),rgba(236,72,153,0.35),rgba(56,189,248,0.25))] bg-[length:220%_220%] animate-[aiShimmer_10s_ease-in-out_infinite]"
+                                >
+                                    <div className="relative lg:rounded-2xl rounded-xl border border-white/10 bg-black/70 sm:p-8 p-6 shadow-[0_0_60px_rgba(56,189,248,0.25)] backdrop-blur-2xl overflow-hidden">
+                                        {/* inner scan */}
+                                        <div className="pointer-events-none absolute -left-1/2 top-0 h-full w-[200%] bg-[linear-gradient(90deg,transparent,rgba(56,189,248,0.10),transparent)] ai-panel-scan opacity-40" />
+
+                                        <div className="flex items-center justify-between gap-2">
+                                            <p className="text-xs uppercase tracking-[0.18em] text-gradient">
+                                                What we deliver
                                             </p>
-                                            <p className="mt-1 font-medium text-white">Weeks</p>
+                                            <span className="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 sm:text-[10px] text-[8px] text-slate-200">
+                                                AI Delivery Framework
+                                            </span>
                                         </div>
-                                        <div className="rounded-xl border border-white/10 bg-black/40 p-3">
-                                            <p className="text-[10px] uppercase tracking-[0.16em] text-slate-400">
-                                                Reliability
-                                            </p>
-                                            <p className="mt-1 font-medium text-white">Observable</p>
-                                        </div>
-                                        <div className="rounded-xl border border-white/10 bg-black/40 p-3">
-                                            <p className="text-[10px] uppercase tracking-[0.16em] text-slate-400">
-                                                Security
-                                            </p>
-                                            <p className="mt-1 font-medium text-white">Aligned</p>
+
+                                        <ul className="mt-6 space-y-4 text-sm text-slate-200">
+                                            {deliverables.map((item, idx) => (
+                                                <motion.li
+                                                    key={item.title}
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    transition={{ duration: 0.55, ease: "easeOut", delay: 0.25 + idx * 0.08 }}
+                                                    className="flex gap-3 rounded-xl border border-white/5 bg-white/[0.03] p-3 hover:bg-white/[0.06] transition"
+                                                >
+                                                    <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-sky-400 shadow-[0_0_14px_rgba(56,189,248,0.85)]" />
+                                                    <div className="min-w-0">
+                                                        <p className="font-medium text-white">
+                                                            {item.title}
+                                                        </p>
+                                                        <p className="mt-0.5 text-xs text-slate-400">
+                                                            {item.desc}
+                                                        </p>
+                                                    </div>
+                                                </motion.li>
+                                            ))}
+                                        </ul>
+
+                                        <div className="mt-6 grid grid-cols-3 gap-3 text-[11px] text-slate-300">
+                                            <div className="rounded-xl border border-white/10 bg-black/40 p-3">
+                                                <p className="text-[10px] uppercase tracking-[0.16em] text-slate-400">
+                                                    Time to value
+                                                </p>
+                                                <p className="mt-1 font-medium text-white">Weeks</p>
+                                            </div>
+                                            <div className="rounded-xl border border-white/10 bg-black/40 p-3">
+                                                <p className="text-[10px] uppercase tracking-[0.16em] text-slate-400">
+                                                    Reliability
+                                                </p>
+                                                <p className="mt-1 font-medium text-white">Observable</p>
+                                            </div>
+                                            <div className="rounded-xl border border-white/10 bg-black/40 p-3">
+                                                <p className="text-[10px] uppercase tracking-[0.16em] text-slate-400">
+                                                    Security
+                                                </p>
+                                                <p className="mt-1 font-medium text-white">Aligned</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </motion.div>
+                                </motion.div>
+                            </div>
+
                         </div>
-
                     </div>
                 </div>
             </section>
@@ -250,9 +274,8 @@ export default function AIDevelopment() {
                             <Image
                                 src="/images/ai/robot-hand.png"
                                 alt="AI Robotics"
-                                width={100}
-                                height={400}
-                                className="relative z-10 !w-full !h-auto object-contain"
+                                fill
+                                className="relative z-10 !w-full !h-auto object-cover"
                             />
 
                         </div>
@@ -455,7 +478,12 @@ export default function AIDevelopment() {
             <WhoWeAre dark />
             <Testimonials dark />
             <ContactSection />
-            <AIFAQ />
+            <AIFAQ
+                title="AI Development FAQs"
+                subtitle="Everything you need to know about building AI systems."
+                items={AI_DEV_FAQS}
+                dark
+            />
         </section>
     );
 }

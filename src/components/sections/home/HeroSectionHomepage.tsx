@@ -34,13 +34,13 @@ export default function HeroSectionHomepage() {
                     <div className="container text-center relative z-10">
                         <div className="flex flex-col items-center 2xl:gap-8 sm:gap-6 gap-4">
 
-                            {/* <h2 className="heading-xl">
+                            {/* <h2 className="heading-2xl">
                                 <span className="italic font-lora">
                                     Purpose Driven IT Solutions</span>
                                 <br />
                                 for Competitive Growth.
                             </h2> */}
-                            <h2 className="heading-xl">
+                            <h2 className="heading-2xl">
                                 <span className="italic font-lora">
                                     AI-Powered <br /> IT Solutions for</span>
                                 <br />

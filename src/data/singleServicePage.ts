@@ -673,21 +673,14 @@ export const services: Service[] = [
                     title: "AI Automation & Integration",
                     description:
                         "Workflow automation and system integrations enhanced with AI intelligence.",
-                    href: "/ai-automation-integration",
+                    href: "/ai-automation",
                 },
                 {
-                    id: "ml-development",
-                    title: "ML Development",
+                    id: "ai-generative-development",
+                    title: "Generative AI Development",
                     description:
-                        "Machine learning models, training pipelines & scalable deployment systems.",
-                    href: "/ml-development",
-                },
-                {
-                    id: "computer-vision-nlp",
-                    title: "Computer Vision & NLP",
-                    description:
-                        "Image recognition, language models & advanced text analytics solutions.",
-                    href: "/computer-vision-nlp",
+                        "LLMs, content generation, copilots & AI-powered assistants.",
+                    href: "/ai-generative-development",
                 },
             ],
         },
@@ -1052,5 +1045,4 @@ export const services: Service[] = [
             ],
         },
     }
-
 ];

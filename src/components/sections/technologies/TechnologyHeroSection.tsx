@@ -60,7 +60,7 @@ export default function TechnologiesHeroSection({
                     <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
 
                         {/* TITLE */}
-                        <h1 className="heading-xl text-white !font-normal">
+                        <h1 className="heading-2xl text-white !font-normal">
                             <span>{title}</span>
                         </h1>
 

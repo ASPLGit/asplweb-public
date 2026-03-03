@@ -89,7 +89,7 @@ export default function AboutMenu({ onNavigate }: AboutMenuProps) {
                     <Link
                         href="/about"
                         onClick={onNavigate}
-                        className="mt-4 inline-flex items-center gap-2 rounded-lg bg-white/10 px-3 py-2 text-xs font-medium text-white backdrop-blur-sm transition hover:bg-white/20"
+                        className="mt-4 inline-flex justify-between w-full items-center gap-2 rounded-lg bg-white/10 px-3 py-2 text-xs font-medium text-white backdrop-blur-sm transition hover:bg-white/20"
                     >
                         Explore about
                         <ArrowRight

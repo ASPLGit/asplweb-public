@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Bot, Brain, Eye, LineChart, MessageSquare, Workflow } from "lucide-react";
+import { ArrowRight, Bot, Brain, Eye, LineChart, MessageSquare, Sparkles, Workflow } from "lucide-react";
 import Link from "next/link";
 
 interface AiMenuProps {
@@ -17,38 +17,31 @@ const AI_SERVICES = [
     },
     {
         title: "AI Agent Development",
-        href: "/ai",
+        href: "/ai-agent-development",
         description: "Autonomous agents that reason, plan & act.",
         icon: "agent",
         tag: "Popular",
     },
     {
         title: "AI Chatbot Development",
-        href: "/ai",
+        href: "/ai-chatbot-development",
         description: "Conversational AI & intelligent virtual assistants.",
         icon: "chatbot",
         tag: null,
     },
     {
         title: "AI Automation & Integration",
-        href: "/ai",
+        href: "/ai-automation",
         description: "Workflow automation and system integrations with AI.",
         icon: "automation",
         tag: "New",
     },
     {
-        title: "ML Development",
-        href: "/services/ai-ml",
-        description: "Machine learning models, training & deployment.",
-        icon: "ml",
-        tag: null,
-    },
-    {
-        title: "Computer Vision & NLP",
-        href: "/services/ai-ml",
-        description: "Image recognition, language models & text analytics.",
-        icon: "vision",
-        tag: null,
+        title: "Generative AI Development",
+        href: "/ai-generative-development",
+        description: "LLMs, content generation, copilots & AI-powered assistants.",
+        icon: "genai",
+        tag: "Trending",
     },
 ];
 
@@ -60,8 +53,8 @@ const icons: Record<string, React.ReactNode> = {
     agent: <Bot className={iconClass} strokeWidth={1.5} />,
     chatbot: <MessageSquare className={iconClass} strokeWidth={1.5} />,
     automation: <Workflow className={iconClass} strokeWidth={1.5} />,
+    genai: <Sparkles className={iconClass} strokeWidth={1.5} />,
     ml: <LineChart className={iconClass} strokeWidth={1.5} />,
-    vision: <Eye className={iconClass} strokeWidth={1.5} />,
 };
 
 export default function AiMenu({ onNavigate }: AiMenuProps) {
@@ -94,9 +87,9 @@ export default function AiMenu({ onNavigate }: AiMenuProps) {
                         From agents to ML pipelines build what’s next with expert AI development.
                     </p>
                     <Link
-                        href="/ai"
+                        href="/services/ai-ml"
                         onClick={onNavigate}
-                        className="mt-4 inline-flex items-center gap-2 rounded-lg bg-white/10 px-3 py-2 text-xs font-medium text-white backdrop-blur-sm transition hover:bg-white/20"
+                        className="mt-4 inline-flex items-center justify-between w-full gap-2 rounded-lg bg-white/10 px-3 py-2 text-xs font-medium text-white backdrop-blur-sm transition hover:bg-white/20"
                     >
                         View all AI
                         <ArrowRight className="h-3.5 w-3.5" strokeWidth={2} />

@@ -42,7 +42,7 @@ export default function ContactHeroSection() {
 
                 <div className="container relative z-10">
                     <div className="flex items-center justify-center flex-col 2xl:gap-8 sm:gap-6 gap-4 max-w-5xl mx-auto text-center">
-                        <h2 className="heading-xl">
+                        <h2 className="heading-2xl">
                             <span className="italic font-lora">Let’s Talk</span>
                             <br />
                             About Your Project.
