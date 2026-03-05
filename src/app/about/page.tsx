@@ -4,7 +4,6 @@ import AboutHeroSection from "@/components/sections/about/AboutHeroSection";
 import BusinessPhilosophySection from "@/components/sections/about/BusinessPhilosophySection";
 import CoreValuesSection from "@/components/sections/about/CoreValuesSection";
 import FounderCard from "@/components/sections/about/FounderCard";
-import FounderSection from "@/components/sections/about/FounderCard";
 import WhoWeAre from "@/components/sections/home/WhoWeAre";
 import { FOUNDERS } from "@/data/founders";
 

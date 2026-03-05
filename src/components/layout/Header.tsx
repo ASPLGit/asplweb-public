@@ -321,11 +321,9 @@ export default function Header() {
 
 
             {/* ================= MOBILE MENU ================= */}
-            <aside
-                className={`fixed top-0 left-0 z-50 h-full w-[80%] max-w-[320px]
+            <aside className={`fixed top-0 left-0 z-50 h-full w-[80%] max-w-[320px]
         bg-white transition-transform duration-300 lg:hidden
-        ${open ? "translate-x-0" : "-translate-x-full"}`}
-            >
+        ${open ? "translate-x-0" : "-translate-x-full"}`}>
                 <div className="flex items-center justify-between px-5 py-4 border-b">
                     <Image src="/logo-dark.svg" className="2xl:h-12 sm:h-9 h-8 w-auto" alt="logo" width={130} height={28} />
                     <button onClick={() => setOpen(false)}>

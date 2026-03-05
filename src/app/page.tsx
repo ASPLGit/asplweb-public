@@ -42,7 +42,7 @@ export default function Home() {
             label: "Faster onboarding",
           },
           {
-            value: "40%",
+            value: "90%",
             variant: "dark",
             label: "Cost reduction",
           },

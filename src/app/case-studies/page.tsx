@@ -2,6 +2,7 @@ import SectionHeading from "@/components/common/SectionHeading";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { CASE_STUDIES } from "@/data/caseStudy";
 
 export const metadata: Metadata = {
   title: "Case Studies | ASPL",
@@ -9,75 +10,6 @@ export const metadata: Metadata = {
     "Explore real-world implementations and measurable outcomes across AI, cloud, and product engineering.",
 };
 
-type CaseStudy = {
-  id: string;
-  category: string;
-  title: string;
-  description: string;
-  metrics: Array<{ value: string; label: string; variant?: "light" | "dark" }>;
-  tags: string[];
-  layerImage: string;
-  visual: { src: string; alt: string };
-};
-
-const CASE_STUDIES: CaseStudy[] = [
-  {
-    id: "agentic-ops",
-    category: "Agentic AI Operations",
-    title: "Automated Support Triage with Tool‑Using Agents",
-    description:
-      "Built an agentic workflow that classifies tickets, drafts responses, and routes escalation—reducing manual work while maintaining safe guardrails.",
-    metrics: [
-      { value: "48%", label: "Faster resolution" },
-      { value: "30%", label: "Less manual triage", variant: "dark" },
-    ],
-    tags: ["LLM Agents", "RAG", "Guardrails", "Observability"],
-    layerImage: "/images/ellipse.svg",
-    visual: { src: "/images/tech/openai.svg", alt: "OpenAI" },
-  },
-  {
-    id: "cloud-modernization",
-    category: "Cloud Modernization",
-    title: "Reliable Azure Migration for a Multi‑Tenant Platform",
-    description:
-      "Modernized infrastructure and delivery pipelines to improve deployment reliability and cost controls across environments.",
-    metrics: [
-      { value: "3×", label: "Release cadence" },
-      { value: "22%", label: "Lower infra cost", variant: "dark" },
-    ],
-    tags: ["Azure", "CI/CD", "IaC", "Monitoring"],
-    layerImage: "/images/ellipse.svg",
-    visual: { src: "/images/tech/azure.svg", alt: "Azure" },
-  },
-  {
-    id: "data-ml",
-    category: "ML & Analytics",
-    title: "Predictive Models for Demand Forecasting",
-    description:
-      "Delivered production-grade ML pipelines with monitoring and drift checks—improving forecast accuracy and planning confidence.",
-    metrics: [
-      { value: "17%", label: "Better accuracy" },
-      { value: "99.9%", label: "Pipeline uptime", variant: "dark" },
-    ],
-    tags: ["Python", "Pandas", "TensorFlow", "MLOps"],
-    layerImage: "/images/ellipse.svg",
-    visual: { src: "/images/tech/tensorflow.svg", alt: "TensorFlow" },
-  },
-  {
-    id: "web3-security",
-    category: "Web3 Engineering",
-    title: "Smart Contract Delivery with Security‑First Reviews",
-    description:
-      "Implemented a contract system with test automation and review gates—reducing risk while accelerating iteration cycles.",
-    metrics: [
-      { value: "65%", label: "Faster iteration" },
-      { value: "0", label: "Critical issues shipped", variant: "dark" },
-    ],
-    tags: ["Solidity", "Testing", "Audits", "Integration"],
-    layerImage: "/images/ellipse.svg",
-    visual: { src: "/images/tech/ethereum.svg", alt: "Ethereum" },
-  },
-];
 
 export default function CaseStudiesPage() {
   return (
@@ -147,22 +79,18 @@ export default function CaseStudiesPage() {
             >
               {/* Subtle Background Glow */}
               <div className="absolute -right-20 -top-20 h-60 w-60 rounded-full bg-sky-100/60 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-
               <div className="relative grid lg:grid-cols-2 gap-10 p-8 lg:p-12 items-center">
 
                 {/* LEFT CONTENT */}
-                <div>
-                  {/* Category */}
+                <div className="w-full">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-sky-600">
                     {cs.category}
                   </p>
 
-                  {/* Title */}
                   <h3 className="mt-4 text-2xl lg:text-3xl font-semibold text-slate-900 leading-snug">
                     {cs.title}
                   </h3>
 
-                  {/* Description */}
                   <p className="mt-5 text-sm leading-relaxed text-slate-600 max-w-xl">
                     {cs.description}
                   </p>
@@ -172,18 +100,17 @@ export default function CaseStudiesPage() {
                     {cs.metrics.map((m) => (
                       <div
                         key={m.label}
-                        className="
-                  min-w-[150px]
-                  rounded-xl
-                  border border-slate-200
-                  bg-slate-50
-                  px-5 py-4
-                "
+                        className={` ${m.variant === "dark" ? "bg-slate-50 text-slate-900 border-slate-200" : "bg-gradient text-white"}
+              min-w-[150px]
+              rounded-xl
+              border
+              px-5 py-4
+            `}
                       >
-                        <p className="text-xl font-semibold text-slate-900">
+                        <p className="text-xl font-semibold">
                           {m.value}
                         </p>
-                        <p className="text-xs text-slate-500">
+                        <p className={`text-xs ${m.variant === "dark" ? "text-slate-500" : "text-white"}`}>
                           {m.label}
                         </p>
                       </div>
@@ -196,51 +123,50 @@ export default function CaseStudiesPage() {
                       <span
                         key={t}
                         className="
-                  rounded-full
-                  border border-slate-200
-                  bg-white
-                  px-3 py-1
-                  text-[11px]
-                  text-slate-600
-                "
+              rounded-full
+              border border-slate-200
+              bg-white
+              px-3 py-1
+              text-[11px]
+              text-slate-600
+            "
                       >
                         {t}
                       </span>
                     ))}
                   </div>
 
-                  {/* Footer */}
                   <div className="mt-8 text-xs text-slate-400">
                     NDA-safe summary • anonymized metrics
                   </div>
                 </div>
 
-                {/* RIGHT VISUAL PANEL */}
-                <div className="relative">
-                  <div className="
-            relative overflow-hidden rounded-2xl
-            border border-slate-200
-            bg-gradient-to-br from-sky-50 via-white to-blue-50
-            p-10
-            flex items-center justify-center
-            transition-all duration-500
-            group-hover:scale-[1.02]
-          ">
-                    <Image
-                      src={cs.visual.src}
-                      alt={cs.visual.alt}
-                      width={120}
-                      height={120}
-                      className="object-contain"
-                    />
-                  </div>
+                {/* RIGHT IMAGE PANEL */}
+                <div className="
+        relative
+        w-full
+        h-[320px] lg:h-[420px]
+        rounded-2xl
+        border border-slate-200
+        overflow-hidden
+        group-hover:scale-[1.02]
+        transition-all duration-500
+      ">
+                  <Image
+                    src={cs.visual.src}
+                    alt={cs.visual.alt}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
 
               </div>
             </article>
           ))}
+
         </div>
       </section>
+
     </section>
   );
 }
