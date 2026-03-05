@@ -77,9 +77,6 @@ export default function IndustriesWeServe() {
                         </div>
                     ))}
                 </div>
-
-
-
             </div>
         </section>
     );

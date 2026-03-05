@@ -6,11 +6,15 @@ import CoreValuesSection from "@/components/sections/about/CoreValuesSection";
 import FounderCard from "@/components/sections/about/FounderCard";
 import WhoWeAre from "@/components/sections/home/WhoWeAre";
 import { FOUNDERS } from "@/data/founders";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "About Us",
     description:
-        "Learn more about Aplomb Soft, our mission, expertise, and how we help businesses build scalable digital solutions.",
+        "Learn about our company, leadership, and mission. We are a global technology partner helping businesses design, build, and scale reliable digital products through innovative and cost-effective solutions.",
+    alternates: {
+        canonical: "/about",
+    },
 };
 
 

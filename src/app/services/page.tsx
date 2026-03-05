@@ -3,6 +3,16 @@ import IndustriesWeServe from "@/components/sections/home/IndustriesWeServe";
 import ServicesHeroSection from "@/components/sections/services/ServicesHeroSection";
 import ServiceSection from "@/components/sections/services/ServicesSection";
 import ServicesTicker from "@/components/sections/services/ServicesTicker";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Our Services",
+    description:
+        "Explore our technology services including AI development, AI automation, chatbot development, generative AI solutions, and custom software development for modern businesses.",
+    alternates: {
+        canonical: "/services",
+    },
+};
 
 export default function Service() {
     return (

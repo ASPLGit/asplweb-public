@@ -90,7 +90,7 @@ export default function Header() {
         pathname.startsWith("/blogs") ||
         pathname.startsWith("/case-studies");
 
-    const headerWhite = ["/blogs", "/case-studies"].some((route) => pathname.startsWith(route));
+    const headerWhite = ["/blogs", "/case-studies" , "/careers/"].some((route) => pathname.startsWith(route));
 
 
     return (

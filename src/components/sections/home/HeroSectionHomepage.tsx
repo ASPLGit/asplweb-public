@@ -40,12 +40,12 @@ export default function HeroSectionHomepage() {
                                 <br />
                                 for Competitive Growth.
                             </h2> */}
-                            <h2 className="heading-2xl">
+                            <h1 className="heading-2xl">
                                 <span className="italic font-lora">
                                     AI-Powered <br /> IT Solutions for</span>
                                 <br />
                                  Businesses That Lead.
-                            </h2>
+                            </h1>
 
                             <p className="subheading mx-auto">
                                 From AI automation and intelligent systems to custom software and cloud architecture we help enterprises build smarter, faster, and future-ready platforms.

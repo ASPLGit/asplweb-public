@@ -25,7 +25,7 @@ export default function AIFAQ({
 
   return (
     <section
-      className={`relative py-24 overflow-hidden ${
+      className={`relative py-16 overflow-hidden ${
         dark ? "bg-black" : "bg-white"
       }`}
     >
