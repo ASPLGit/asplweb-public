@@ -6,7 +6,7 @@ type CaseStudy = {
     metrics: Array<{ value: string; label: string; variant?: "light" | "dark" }>;
     tags: string[];
     layerImage: string;
-    visual: { src: string; alt: string };
+    visual: { image?: string; alt?: string; video?: string };
 };
 
 export const CASE_STUDIES: CaseStudy[] = [
@@ -23,8 +23,32 @@ export const CASE_STUDIES: CaseStudy[] = [
         tags: ["FinTech", "Identity Verification", "Compliance", "KYC Automation"],
         layerImage: "/images/layer6.webp",
         visual: {
-            src: "/images/caseStudy/case-study1.jpg",
+            image: "/images/caseStudy/case-study1.jpg",
             alt: "KYC Case Study",
         },
     },
+    {
+        id: "aplombsync-employee-sync",
+        category: "HR Data Infrastructure",
+        title: "Enterprise Employee Data Synchronization Platform",
+        description:
+            "AplombSync is an enterprise platform that synchronizes employee data across multiple HR systems, eliminating manual updates, preventing data inconsistencies, and ensuring compliance through automated bidirectional synchronization and intelligent conflict resolution.",
+        metrics: [
+            { value: "70%", label: "Less HR admin workload", variant: "dark" },
+            { value: "99%", label: "Data accuracy across systems" },
+        ],
+        tags: [
+            "HR Technology",
+            "Data Synchronization",
+            "Enterprise Integration",
+            "Employee Data Management",
+            "Automation",
+            "HRIS Integration"
+        ],
+        layerImage: "/images/layer6.webp",
+        visual: {
+            image: "/images/caseStudy/case-study2.webp",
+            alt: "AplombSync Case Study",
+        },
+    }
 ];

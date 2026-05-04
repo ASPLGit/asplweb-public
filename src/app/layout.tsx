@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Lora } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
-import "leaflet/dist/leaflet.css";
 import Footer from "@/components/layout/Footer";
 import RecaptchaProvider from "@/components/providers/RecaptchaProvider";
 
@@ -29,6 +28,10 @@ export const metadata: Metadata = {
   title: {
     default: "Aplomb Soft | IT & Software Solutions Company",
     template: "%s | Aplomb Soft",
+  },
+
+  verification: {
+    google: "uBGsrE12eYDB_J5wA1IykK61UnIsxlxOmnwe5Yo98aw",
   },
 
   description:

@@ -90,7 +90,7 @@ export default function Header() {
         pathname.startsWith("/blogs") ||
         pathname.startsWith("/case-studies");
 
-    const headerWhite = ["/blogs", "/case-studies" , "/careers/"].some((route) => pathname.startsWith(route));
+    const headerWhite = ["/blogs", "/case-studies", "/careers/"].some((route) => pathname.startsWith(route));
 
 
     return (
@@ -124,6 +124,7 @@ export default function Header() {
                             onMouseEnter={cancelHoverClose}
                             onMouseLeave={scheduleHoverClose}
                         >
+                            {/* home */}
                             <Link
                                 href="/"
                                 onClick={() => {
@@ -143,14 +144,15 @@ export default function Header() {
                             >
                                 Home
                             </Link>
-                            {/* DESKTOP ABOUT MENU */}
-                            <button
-                                type="button"
-                                onMouseEnter={() => openOnHover("about")}
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    toggleDesktopMenu("about");
+                            {/* about */}
+                            <Link
+                                href="/about"
+                                onClick={() => {
+                                    setActiveMenu(null);
+                                    setMobileMenu(null);
+                                    setOpen(false);
                                 }}
+                                onMouseEnter={() => openOnHover("about")}
                                 className={`flex items-center gap-1 px-2 py-1 transition
     ${activeMenu === "about" || isAboutSectionActive
                                         ? isScrolled || headerWhite
@@ -174,25 +176,25 @@ export default function Header() {
                                     width={16}
                                     height={16}
                                 />
-                            </button>
-                            {/* DESKTOP SERVICES */}
-                            <button
-                                type="button"
-                                onMouseEnter={() => openOnHover("services")}
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    toggleDesktopMenu("services");
+                            </Link>
+                            {/* services */}
+                            <Link
+                                href="/services"
+                                onClick={() => {
+                                    setActiveMenu(null);
+                                    setMobileMenu(null);
+                                    setOpen(false);
                                 }}
+                                onMouseEnter={() => openOnHover("services")}
                                 className={`flex items-center gap-1 px-2 py-1 transition
-              ${activeMenu === "services" || isServicesActive
+    ${activeMenu === "services" || isServicesActive
                                         ? isScrolled || headerWhite
                                             ? "text-blue-600 font-semibold underline underline-offset-8"
                                             : "text-white underline underline-offset-8"
                                         : isScrolled || headerWhite
                                             ? "text-slate-600 hover:text-blueTheme"
                                             : "text-white/70 hover:text-white"
-                                    }`}
-                            >
+                                    }`}>
                                 Services
                                 <Image
                                     src={isScrolled || headerWhite ? '/images/icons/chev-down-black.svg' : '/images/icons/chev-down.svg'}
@@ -202,7 +204,7 @@ export default function Header() {
                                     width={16}
                                     height={16}
                                 />
-                            </button>
+                            </Link>
                             {/* DESKTOP Technologies */}
                             <button
                                 type="button"
@@ -232,6 +234,7 @@ export default function Header() {
                                     height={16}
                                 />
                             </button>
+                            {/* contact link */}
                             <Link
                                 href="/contact"
                                 onClick={() => {
@@ -251,21 +254,23 @@ export default function Header() {
                             >
                                 Contact Us
                             </Link>
-                            <div className="button-wrapper">
-                                <button
-                                    type="button"
-                                    onMouseEnter={() => openOnHover("ai")}
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        toggleDesktopMenu("ai");
-                                    }}
-                                    className={`button relative`}
-                                >
-                                    <span className="relative z-10">AI</span>
-                                    <span className="star-animate -mt-2 absolute">✦</span>
-                                </button>
-                                <div className="button-bg"></div>
-                            </div>
+                            <Link href="/ai-development">
+                                <div className="button-wrapper">
+                                    <div
+                                        onMouseEnter={() => openOnHover("ai")}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            toggleDesktopMenu("ai");
+                                        }}
+                                        className={`button relative`}
+                                    >
+                                        <span className="relative z-10">AI</span>
+                                        <span className="star-animate -mt-2 absolute">✦</span>
+                                    </div>
+                                    <div className="button-bg"></div>
+                                </div>
+                            </Link>
+
                         </div>
                         <div className="flex items-center justify-end gap-4">
                             <button className="lg:hidden" onClick={() => setOpen(true)}>

@@ -12,7 +12,7 @@ const LOGOS = [
     "/images/brands/ukg.svg",
     "/images/brands/aspire.svg",
     "/images/brands/Inova.png",
-    "/images/brands/bridgeHR.svg",
+    "/images/brands/aplombsync.svg",
 ];
 
 export default function TrustedBy() {

@@ -108,7 +108,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const insightRoutes: MetadataRoute.Sitemap = BLOGS.map((blog) => ({
-    url: `${baseUrl}/insights/${blog.slug}`,
+    url: `${baseUrl}/blogs/${blog.slug}`,
     lastModified: new Date(blog.date),
     changeFrequency: "monthly" as const,
     priority: 0.7,

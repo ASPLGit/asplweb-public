@@ -11,7 +11,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "About Us",
     description:
-        "Learn about our company, leadership, and mission. We are a global technology partner helping businesses design, build, and scale reliable digital products through innovative and cost-effective solutions.",
+        "AplombSoft is Global software development company offering custom web, mobile, and enterprise solutions. We help businesses design, build, and scale reliable digital products with modern and cost-effective technologies.",
     alternates: {
         canonical: "/about",
     },

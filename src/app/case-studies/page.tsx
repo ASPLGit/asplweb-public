@@ -142,22 +142,35 @@ export default function CaseStudiesPage() {
                 </div>
 
                 {/* RIGHT IMAGE PANEL */}
-                <div className="
-        relative
-        w-full
-        h-[320px] lg:h-[420px]
-        rounded-2xl
-        border border-slate-200
-        overflow-hidden
-        group-hover:scale-[1.02]
-        transition-all duration-500
-      ">
-                  <Image
-                    src={cs.visual.src}
-                    alt={cs.visual.alt}
-                    fill
-                    className="object-cover"
-                  />
+                <div
+                  className="
+    relative
+    w-full
+    h-[320px] lg:h-[420px]
+    rounded-2xl
+    border border-slate-200
+    overflow-hidden
+    group-hover:scale-[1.02]
+    transition-all duration-500
+  "
+                >
+                  {cs.visual?.video ? (
+                    <video
+                      src={cs.visual.video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  ) : cs.visual?.image ? (
+                    <Image
+                      src={cs.visual.image}
+                      alt={cs.visual.alt || "Case study visual"}
+                      fill
+                      className="object-cover"
+                    />
+                  ) : (<p className="text-slate-500">Visual content unavailable</p>)}
                 </div>
 
               </div>
