@@ -2,15 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { BLOGS } from "@/data/blogs";
 import SectionHeading from "@/components/common/SectionHeading";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Blog } from "@/types/app";
+import { BlogPost } from "@/types/app";
 import { ArrowUpDown, Funnel, Search } from "lucide-react";
 import Button from "@/components/ui/Button";
 
 const ITEMS_PER_PAGE = 6;
-export default function BlogsPage() {
+
+interface BlogsPageProps {
+    initialBlogs: BlogPost[];
+}
+
+export default function BlogsPage({ initialBlogs }: BlogsPageProps) {
     const [search, setSearch] = useState("");
     const [sortBy, setSortBy] = useState("newest");
     const [typeFilter, setTypeFilter] = useState("all");
@@ -36,7 +40,7 @@ export default function BlogsPage() {
         });
     }, [currentPage]);
     const filteredBlogs = useMemo(() => {
-        let blogs: Blog[] = [...BLOGS];
+        let blogs: BlogPost[] = [...initialBlogs];
 
         // Filter by blog type
         if (typeFilter !== "all") {
@@ -62,8 +66,11 @@ export default function BlogsPage() {
                             score += 5;
                         }
 
-                        // CONTENT
-                        if (blog.content.mainHeading.toLowerCase().includes(token)) {
+                        // CONTENT / DESCRIPTION
+                        if (
+                            blog.description.toLowerCase().includes(token) ||
+                            blog.content.toLowerCase().includes(token)
+                        ) {
                             score += 3;
                         }
 
@@ -79,8 +86,8 @@ export default function BlogsPage() {
 
                     return { ...blog, score };
                 })
-                .filter((blog) => blog.score > 0)
-                .sort((a, b) => b.score - a.score);
+                .filter((blog) => (blog.score ?? 0) > 0)
+                .sort((a, b) => (b.score ?? 0) - (a.score ?? 0));
         }
 
         // Sort
@@ -92,7 +99,7 @@ export default function BlogsPage() {
         });
 
         return blogs;
-    }, [search, sortBy, typeFilter]);
+    }, [initialBlogs, search, sortBy, typeFilter]);
 
     const totalPages = Math.ceil(filteredBlogs.length / ITEMS_PER_PAGE);
 
@@ -259,14 +266,14 @@ export default function BlogsPage() {
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {paginatedBlogs.map((blog) => (
                         <Link
-                            key={blog.id}
+                            key={blog.slug}
                             href={`/blogs/${blog.slug}`}
                             className="group border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl transition duration-300 bg-white"
                         >
                             {/* IMAGE */}
                             <div className="relative h-[220px] overflow-hidden">
                                 <Image
-                                    src={blog.image}
+                                    src={blog.coverImage}
                                     alt={blog.title}
                                     fill
                                     className="object-cover group-hover:scale-105 transition duration-500"
@@ -294,12 +301,12 @@ export default function BlogsPage() {
                                 <h3 className="text-lg font-semibold leading-snug transition duration-300
       text-slate-900 group-hover:text-blue-600"
                                 >
-                                    {blog.content.mainHeading}
+                                    {blog.title}
                                 </h3>
 
                                 {/* EXCERPT */}
                                 <p className="text-sm text-slate-600 line-clamp-3">
-                                    {blog.excerpt}
+                                    {blog.description}
                                 </p>
                             </div>
                         </Link>

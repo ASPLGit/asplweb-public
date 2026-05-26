@@ -1,4 +1,5 @@
 import BlogsPage from "@/components/sections/blogs/BlogsPage";
+import { getAllBlogPosts } from "@/lib/blogs";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,10 +12,11 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
+    const posts = getAllBlogPosts();
 
     return (
         <section>
-            <BlogsPage />
+            <BlogsPage initialBlogs={posts} />
         </section>
     );
-}
+}

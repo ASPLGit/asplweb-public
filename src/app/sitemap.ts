@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { services } from "@/data/singleServicePage";
 import { technologies } from "@/data/singleTechnologyPage";
 import { OPEN_POSITIONS } from "@/data/openPositions";
-import { BLOGS } from "@/data/blogs";
+import { getAllBlogPosts } from "@/lib/blogs";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://aplombsoft.com";
@@ -107,12 +107,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  const insightRoutes: MetadataRoute.Sitemap = BLOGS.map((blog) => ({
-    url: `${baseUrl}/blogs/${blog.slug}`,
-    lastModified: new Date(blog.date),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+  const dynamicBlogs = getAllBlogPosts();
+
+  const insightRoutes: MetadataRoute.Sitemap = dynamicBlogs.map((blog) => {
+    const blogDate = new Date(blog.date);
+    const validDate = isNaN(blogDate.getTime()) ? new Date() : blogDate;
+    return {
+      url: `${baseUrl}/blogs/${blog.slug}`,
+      lastModified: validDate,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    };
+  });
 
   return [...staticRoutes, ...serviceRoutes, ...technologyRoutes, ...jobRoutes, ...insightRoutes];
 }

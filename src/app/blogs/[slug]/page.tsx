@@ -1,9 +1,10 @@
-import { BLOGS } from "@/data/blogs";
+import { getAllBlogPosts, getBlogPostBySlug, getRelatedPosts } from "@/lib/blogs";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Metadata } from "next";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
+import { MDXRemote } from "next-mdx-remote/rsc";
 
 interface PageProps {
     params: Promise<{
@@ -15,7 +16,8 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-    return BLOGS.map((blog) => ({
+    const posts = getAllBlogPosts();
+    return posts.map((blog) => ({
         slug: blog.slug,
     }));
 }
@@ -24,63 +26,148 @@ export async function generateMetadata(
     { params }: PageProps
 ): Promise<Metadata> {
     const { slug } = await params;
-
-    const blog = BLOGS.find((b) => b.slug === slug);
+    const blog = getBlogPostBySlug(slug);
 
     if (!blog) return {};
 
+    const baseUrl = "https://aplombsoft.com";
+    const postUrl = `${baseUrl}/blogs/${blog.slug}`;
+    const imageUrl = blog.coverImage.startsWith("http") 
+        ? blog.coverImage 
+        : `${baseUrl}${blog.coverImage}`;
+
     return {
         title: blog.title,
-        description: blog.excerpt,
+        description: blog.description,
+        alternates: {
+            canonical: `/blogs/${blog.slug}`,
+        },
+        openGraph: {
+            title: blog.title,
+            description: blog.description,
+            url: postUrl,
+            siteName: "Aplomb Soft",
+            type: "article",
+            publishedTime: blog.date,
+            authors: ["Aplomb Soft Pvt. Ltd."],
+            tags: blog.tags,
+            images: [
+                {
+                    url: imageUrl,
+                    width: 1200,
+                    height: 630,
+                    alt: blog.title,
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: blog.title,
+            description: blog.description,
+            images: [imageUrl],
+        },
     };
 }
+
+function extractFaqsFromContent(content: string): { question: string; answer: string }[] {
+    const faqs: { question: string; answer: string }[] = [];
+    const faqSectionIndex = content.indexOf("## Frequently Asked Questions");
+    if (faqSectionIndex === -1) return faqs;
+
+    const faqContent = content.substring(faqSectionIndex);
+    const parts = faqContent.split("### ");
+    for (let i = 1; i < parts.length; i++) {
+        const part = parts[i];
+        const lines = part.split("\n");
+        const question = lines[0].trim();
+        const answer = lines.slice(1).join("\n").trim();
+        if (question && answer) {
+            faqs.push({ question, answer });
+        }
+    }
+    return faqs;
+}
+
+const mdxComponents = {
+    h2: (props: any) => <h2 className="text-2xl font-semibold text-slate-900 mt-8 mb-4" {...props} />,
+    h3: (props: any) => <h3 className="text-xl font-semibold text-slate-900 mt-6 mb-3" {...props} />,
+    p: (props: any) => <p className="text-slate-700 leading-relaxed mb-4" {...props} />,
+    ul: (props: any) => <ul className="list-disc pl-6 mb-4 space-y-2" {...props} />,
+    ol: (props: any) => <ol className="list-decimal pl-6 mb-4 space-y-2" {...props} />,
+    li: (props: any) => <li className="text-slate-700" {...props} />,
+    a: (props: any) => <a className="text-blue-600 hover:underline" {...props} />,
+};
 
 export default async function BlogDetailsPage({
     params,
     searchParams,
 }: PageProps) {
     const { slug } = await params;
-
-    const blog = BLOGS.find((b) => b.slug === slug);
+    const blog = getBlogPostBySlug(slug);
 
     if (!blog) return notFound();
 
+    const faqs = extractFaqsFromContent(blog.content);
+
+    // BlogPosting Schema
+    const blogPostingSchema = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": blog.title,
+        "description": blog.description,
+        "image": blog.coverImage.startsWith("http") ? blog.coverImage : `https://aplombsoft.com${blog.coverImage}`,
+        "datePublished": blog.date,
+        "author": {
+            "@type": "Organization",
+            "name": "Aplomb Soft"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Aplomb Soft",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://aplombsoft.com/favicon.svg"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://aplombsoft.com/blogs/${blog.slug}`
+        }
+    };
+
+    // FAQPage Schema
+    const faqSchema = faqs.length > 0 ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+            }
+        }))
+    } : null;
+
+
     /* ---------------- RELATED BLOG LOGIC ---------------- */
-
-    let relatedBlogs = BLOGS.filter(
-        (b) =>
-            b.slug !== blog.slug &&
-            b.blogType === blog.blogType
-    );
-
-    if (relatedBlogs.length < 3) {
-        const additionalBlogs = BLOGS.filter(
-            (b) =>
-                b.slug !== blog.slug &&
-                !relatedBlogs.some((r) => r.slug === b.slug)
-        );
-
-        relatedBlogs = [...relatedBlogs, ...additionalBlogs];
-    }
+    const relatedBlogs = getRelatedPosts(slug, 9);
 
     /* ---------------- PAGINATION ---------------- */
-
     const blogsPerPage = 3;
     const resolvedSearchParams = searchParams
         ? await searchParams
         : {};
 
-    const currentPage =
-        Number(resolvedSearchParams.page) || 1;
-    const totalPages = Math.ceil(
-        relatedBlogs.length / blogsPerPage
-    );
+    const currentPage = Number(resolvedSearchParams.page) || 1;
+    const totalPages = Math.ceil(relatedBlogs.length / blogsPerPage);
 
     const startIndex = (currentPage - 1) * blogsPerPage;
     const currentBlogs = relatedBlogs.slice(
         startIndex,
         startIndex + blogsPerPage
     );
+
     const BLOG_TYPE_COLORS: Record<string, string> = {
         Software: "bg-blue-50 text-blue-600",
         Website: "bg-purple-50 text-purple-600",
@@ -96,6 +183,17 @@ export default async function BlogDetailsPage({
 
     return (
         <section className="bg-white pt-24 md:pt-32 pb-16 sm:pb-24 relative">
+            {/* JSON-LD Structured Data Schema */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+            />
+            {faqSchema && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+                />
+            )}
             <div className="container max-w-4xl mx-auto space-y-12">
                 {/* BLOG HEADER */}
                 <div className="flex flex-col gap-4">
@@ -115,7 +213,7 @@ export default async function BlogDetailsPage({
 
                     <div className="relative w-full h-[400px] rounded-3xl overflow-hidden">
                         <Image
-                            src={blog.image}
+                            src={blog.coverImage}
                             alt={blog.title}
                             fill
                             className="object-cover"
@@ -124,34 +222,16 @@ export default async function BlogDetailsPage({
                 </div>
 
                 {/* BLOG CONTENT */}
-                <div className="space-y-12 text-slate-700 leading-relaxed">
-                    {blog.content.sections.map((section, index) => (
-                        <div key={index} className="space-y-4">
-                            {section.heading && (
-                                <h2 className="text-2xl font-semibold text-slate-900">
-                                    {section.heading}
-                                </h2>
-                            )}
-
-                            {section.paragraphs?.map((p, i) => (
-                                <p key={i}>{p}</p>
-                            ))}
-
-                            {section.list && (
-                                <ul className="list-disc pl-6 space-y-2">
-                                    {section.list.map((item, i) => (
-                                        <li key={i}>{item}</li>
-                                    ))}
-                                </ul>
-                            )}
-                        </div>
-                    ))}
-                    <Button variant="black" to="/blogs">Back to Blogs</Button>
+                <div className="text-slate-700 leading-relaxed">
+                    <MDXRemote source={blog.content} components={mdxComponents} />
+                    <div className="pt-8">
+                        <Button variant="black" to="/blogs">Back to Blogs</Button>
+                    </div>
                 </div>
 
                 {/* RELATED BLOGS */}
                 {currentBlogs.length > 0 && (
-                    <div className="pt-10 border-t border-slate-200 space-y-10">
+                    <div className="pt-10 border-t border-slate-200 space-y-10" id="related-blogs">
                         <h3 className="text-2xl font-semibold text-slate-900">
                             Related Articles
                         </h3>
@@ -159,13 +239,13 @@ export default async function BlogDetailsPage({
                         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                             {currentBlogs.map((related) => (
                                 <Link
-                                    key={related.id}
+                                    key={related.slug}
                                     href={`/blogs/${related.slug}`}
                                     className="group border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl transition duration-300 bg-white"
                                 >
                                     <div className="relative h-[220px] overflow-hidden">
                                         <Image
-                                            src={related.image}
+                                            src={related.coverImage}
                                             alt={related.title}
                                             fill
                                             className="object-cover group-hover:scale-105 transition duration-500"
@@ -175,8 +255,9 @@ export default async function BlogDetailsPage({
                                     <div className="p-6 space-y-4">
                                         <div className="flex items-center justify-between">
                                             <span
-                                                className={`text-xs font-medium px-3 py-1 rounded-full ${BLOG_TYPE_COLORS[related.blogType]
-                                                    }`}
+                                                className={`text-xs font-medium px-3 py-1 rounded-full ${
+                                                    BLOG_TYPE_COLORS[related.blogType] || "bg-blue-50 text-blue-600"
+                                                }`}
                                             >
                                                 {related.blogType}
                                             </span>
@@ -187,18 +268,17 @@ export default async function BlogDetailsPage({
                                         </div>
 
                                         <h3 className="text-lg font-semibold leading-snug transition duration-300 text-slate-900 group-hover:text-blue-600">
-                                            {related.content.mainHeading}
+                                            {related.title}
                                         </h3>
 
                                         <p className="text-sm text-slate-600 line-clamp-3">
-                                            {related.excerpt}
+                                            {related.description}
                                         </p>
                                     </div>
                                 </Link>
                             ))}
                         </div>
 
-                        {/* PAGINATION */}
                         {/* PAGINATION */}
                         {totalPages > 1 && (
                             <div className="flex items-center justify-center gap-3 pt-10">
@@ -207,10 +287,11 @@ export default async function BlogDetailsPage({
                                     scroll={false}
                                     href={`/blogs/${slug}?page=${currentPage - 1}#related-blogs`}
                                     className={`h-11 px-4 rounded-xl border text-sm font-medium transition-all duration-300 flex items-center justify-center
-            ${currentPage === 1
-                                            ? "pointer-events-none opacity-40 border-slate-200 text-slate-400"
-                                            : "border-slate-200 text-slate-700 hover:bg-slate-100 hover:-translate-y-0.5"
-                                        }`}
+            ${
+                currentPage === 1
+                    ? "pointer-events-none opacity-40 border-slate-200 text-slate-400"
+                    : "border-slate-200 text-slate-700 hover:bg-slate-100 hover:-translate-y-0.5"
+            }`}
                                 >
                                     Prev
                                 </Link>
@@ -226,10 +307,11 @@ export default async function BlogDetailsPage({
                                                 scroll={false}
                                                 href={`/blogs/${slug}?page=${pageNumber}#related-blogs`}
                                                 className={`w-11 h-11 rounded-xl text-sm font-medium flex items-center justify-center transition-all duration-300
-                        ${currentPage === pageNumber
-                                                        ? "bg-gradient-to-r from-[#007BFF] to-[#00D4FF] text-white shadow-lg shadow-blue-100 scale-105"
-                                                        : "border border-slate-200 text-slate-600 hover:bg-slate-100 hover:-translate-y-0.5"
-                                                    }`}
+                        ${
+                            currentPage === pageNumber
+                                ? "bg-gradient-to-r from-[#007BFF] to-[#00D4FF] text-white shadow-lg shadow-blue-100 scale-105"
+                                : "border border-slate-200 text-slate-600 hover:bg-slate-100 hover:-translate-y-0.5"
+                        }`}
                                             >
                                                 {pageNumber}
                                             </Link>
@@ -242,10 +324,11 @@ export default async function BlogDetailsPage({
                                     scroll={false}
                                     href={`/blogs/${slug}?page=${currentPage + 1}#related-blogs`}
                                     className={`h-11 px-4 rounded-xl border text-sm font-medium transition-all duration-300 flex items-center justify-center
-            ${currentPage === totalPages
-                                            ? "pointer-events-none opacity-40 border-slate-200 text-slate-400"
-                                            : "border-slate-200 text-slate-700 hover:bg-slate-100 hover:-translate-y-0.5"
-                                        }`}
+            ${
+                currentPage === totalPages
+                    ? "pointer-events-none opacity-40 border-slate-200 text-slate-400"
+                    : "border-slate-200 text-slate-700 hover:bg-slate-100 hover:-translate-y-0.5"
+            }`}
                                 >
                                     Next
                                 </Link>

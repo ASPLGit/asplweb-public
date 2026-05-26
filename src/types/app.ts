@@ -162,3 +162,20 @@ export interface Blog {
     date: string;
     slug: string;
 }
+
+export interface BlogPostFrontmatter {
+    title: string;
+    description: string;
+    date: string;
+    tags: string[];
+    coverImage: string;
+    category: string;
+    blogType: BlogType;
+}
+
+export interface BlogPost extends BlogPostFrontmatter {
+    slug: string;
+    content: string;
+}
+
+
