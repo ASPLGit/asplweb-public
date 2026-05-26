@@ -1,5 +1,6 @@
 import PartnersStrip from "@/components/common/PartnersStrip";
 import Button from "@/components/ui/Button";
+import Link from "next/link";
 
 export default function HeroSectionHomepage() {
     return (
@@ -44,11 +45,19 @@ export default function HeroSectionHomepage() {
                                 <span className="italic font-lora">
                                     AI-Powered <br /> IT Solutions for</span>
                                 <br />
-                                 Businesses That Lead.
+                                Businesses That Lead.
                             </h1>
 
                             <p className="subheading mx-auto">
-                                From AI automation and intelligent systems to custom software and cloud architecture we help enterprises build smarter, faster, and future-ready platforms.
+                                From AI automation and intelligent systems to custom software and cloud architecture,
+                                including scalable{" "}
+                                <Link
+                                    href="/technologies/dotnet"
+                                    className=" opacity-80"
+                                >
+                                    .NET development solutions
+                                </Link>
+                                , we help enterprises build smarter, faster, and future-ready platforms.
                             </p>
 
                             <div className="flex gap-4 items-center justify-center">

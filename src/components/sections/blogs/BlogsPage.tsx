@@ -7,6 +7,7 @@ import SectionHeading from "@/components/common/SectionHeading";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Blog } from "@/types/app";
 import { ArrowUpDown, Funnel, Search } from "lucide-react";
+import Button from "@/components/ui/Button";
 
 const ITEMS_PER_PAGE = 6;
 export default function BlogsPage() {
@@ -109,6 +110,50 @@ export default function BlogsPage() {
                     subheading="Thoughtful perspectives on software engineering, AI, cloud,
                         blockchain, and scalable product development."
                 />
+
+
+
+                <div className="relative overflow-hidden rounded-3xl bg-slate-900 text-white px-6 sm:px-10 py-10 sm:py-12">
+
+                    {/* subtle gradient overlay */}
+
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-indigo-600/10 to-transparent" />
+
+                    <div className="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+
+
+                        {/* LEFT CONTENT */}
+                        <div className="max-w-2xl">
+
+                            <p className="text-xs uppercase tracking-widest text-blue-400">
+                                Featured Insight
+                            </p>
+
+                            <h2 className="mt-3 text-2xl sm:text-3xl font-semibold leading-tight">
+                                How to Migrate Legacy Systems to Modern .NET Without Breaking Your Business
+                            </h2>
+
+                            <p className="mt-4 text-sm text-slate-300 leading-relaxed">
+                                A practical guide to modernizing legacy .NET applications using incremental and hybrid strategies.
+                                Learn how to reduce technical debt, redesign architecture, and achieve zero downtime migration
+                                while keeping your business running smoothly.
+                            </p>
+
+                        </div>
+
+                        {/* RIGHT CTA */}
+                        <div className="flex items-center gap-4">
+                            <Button variant="white" to="/blogs/migrate-legacy-to-modern-dotnet">
+                                Read Article
+                            </Button>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
 
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
 

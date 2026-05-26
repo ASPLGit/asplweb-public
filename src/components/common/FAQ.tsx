@@ -14,6 +14,10 @@ interface FAQSectionProps {
 interface FAQItemProps {
     title: string;
     content: string;
+    link?: {
+        label: string;
+        href: string;
+    };
     isOpen: boolean;
     onToggle: () => void;
 }
@@ -21,6 +25,7 @@ interface FAQItemProps {
 const FAQItem = memo(function FAQItem({
     title,
     content,
+    link,
     isOpen,
     onToggle,
 }: FAQItemProps) {
@@ -78,7 +83,18 @@ const FAQItem = memo(function FAQItem({
                         <p className="px-6 pb-6 text-sm leading-relaxed text-slate-600">
                             {content}
                         </p>
+                        {link && (
+                            <div className="px-6 pb-6">
+                                <Link
+                                    href={link.href}
+                                    className="text-sm font-medium text-blue-600 underline underline-offset-4 hover:text-blue-700"
+                                >
+                                    {link.label} →
+                                </Link>
+                            </div>
+                        )}
                     </div>
+
                 </div>
             </div>
         </div>
@@ -108,7 +124,7 @@ export default function FAQSection({ data, href }: FAQSectionProps) {
             className="
                 relative
                 bg-[linear-gradient(180deg,#f0f9ff_0%,#ffffff_60%)]
-                sm:pt-24 pt-10 sm:pb-10 pb-0
+                sm:pt-20 pt-10 sm:pb-10 pb-0
             "
         >
             <div className="container">
@@ -185,6 +201,7 @@ export default function FAQSection({ data, href }: FAQSectionProps) {
                                 key={index}
                                 title={item.title}
                                 content={item.content}
+                                link={item.link}
                                 isOpen={activeIndex === index}
                                 onToggle={() => toggleItem(index)}
                             />

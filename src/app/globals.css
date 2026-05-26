@@ -25,7 +25,7 @@
   }
 
   .heading-xl {
-    @apply 2xl:text-[58px] lg:text-[42px] text-4xl font-medium text-white !leading-normal;
+    @apply 2xl:text-[58px] lg:text-[42px] text-4xl font-medium text-white !leading-tight;
   }
   .heading-lg {
     @apply text-2xl sm:text-3xl 2xl:text-5xl lg:text-4xl sm:font-normal font-semibold text-slate-900 !leading-normal;

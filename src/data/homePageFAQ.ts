@@ -23,6 +23,10 @@ export const homepageFAQ: FAQSectionData = {
             title: "Can you modernize existing or legacy systems?",
             content:
                 "Absolutely. We modernize legacy systems by improving performance, migrating to cloud infrastructure, enhancing security, and upgrading user experience with minimal disruption.",
+            link: {
+                label: "Explore our .NET development services",
+                href: "/technologies/dotnet",
+            },
         },
         {
             title: "How is project communication handled?",

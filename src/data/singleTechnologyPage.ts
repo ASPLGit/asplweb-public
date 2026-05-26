@@ -288,7 +288,7 @@ export const technologies: TechnologyService[] = [
   {
     slug: "dotnet",
     hero: {
-      title: ".NET & ASP.NET Development",
+      title: "DOT NET & ASP DOT NET Development",
       description:
         "We engineer secure and scalable applications using the .NET platform and ASP.NET Core, designed to support complex enterprise requirements, modern deployment environments, and long-term operational reliability.",
       stats: [
@@ -340,7 +340,7 @@ export const technologies: TechnologyService[] = [
         chip: "Web Apps",
         title: "Structured MVC Web Platforms",
         description:
-          "Implementing proven MVC patterns to clearly separate business logic, data layers, and presentation — ensuring maintainable and stable applications over time.",
+          "Implementing proven MVC patterns to clearly separate business logic, data layers, and presentation ensuring maintainable and stable applications over time.",
       },
       {
         chip: "Enterprise",

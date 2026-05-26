@@ -23,7 +23,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         tags: ["FinTech", "Identity Verification", "Compliance", "KYC Automation"],
         layerImage: "/images/layer6.webp",
         visual: {
-            image: "/images/caseStudy/case-study1.jpg",
+            image: "/images/caseStudy/case-study4.png",
             alt: "KYC Case Study",
         },
     },
@@ -49,6 +49,30 @@ export const CASE_STUDIES: CaseStudy[] = [
         visual: {
             image: "/images/caseStudy/case-study2.webp",
             alt: "AplombSync Case Study",
+        },
+    },
+    {
+        id: "dotnet-legacy-modernization",
+        category: ".NET Modernization",
+        title: "Legacy .NET to Cloud-Native Microservices",
+        description:
+            "Transformed a legacy monolithic .NET application into a modern, cloud-native microservices architecture using .NET Core. The migration reduced technical debt, improved system scalability, and enabled faster feature delivery without disrupting existing business operations.",
+        metrics: [
+            { value: "70%", label: "Performance improvement", variant: "dark" },
+            { value: "0 Downtime", label: "Seamless migration" },
+        ],
+        tags: [
+            ".NET Core",
+            "Microservices Architecture",
+            "Legacy Modernization",
+            "Cloud Migration",
+            "API Development",
+            "Scalable Systems"
+        ],
+        layerImage: "/images/layer6.webp",
+        visual: {
+            image: "/images/caseStudy/case-study3.png",
+            alt: ".NET Migration Case Study",
         },
     }
 ];

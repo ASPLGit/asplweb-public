@@ -26,6 +26,10 @@ export interface FAQSectionData {
 export interface FAQItem {
     title: string;
     content: string;
+    link?: {
+        label: string;
+        href: string;
+    };
 }
 
 export interface Service {

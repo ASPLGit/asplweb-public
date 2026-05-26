@@ -199,23 +199,56 @@ export default async function BlogDetailsPage({
                         </div>
 
                         {/* PAGINATION */}
+                        {/* PAGINATION */}
                         {totalPages > 1 && (
-                            <div className="flex items-center justify-center gap-2 pt-10">
-                                {Array.from({ length: totalPages }).map((_, i) => {
-                                    const pageNumber = i + 1;
-                                    return (
-                                        <Link
-                                            key={pageNumber}
-                                            href={`/blogs/${slug}?page=${pageNumber}`}
-                                            className={`px-4 min-w-10 min-h-10 py-2 rounded-lg text-sm border transition ${currentPage === pageNumber
-                                                ? "bg-gradient-to-r from-[#007BFF] to-[#00D4FF] text-white border-transparent"
-                                                : "border-slate-200 text-slate-600 hover:bg-slate-100"
-                                                }`}
-                                        >
-                                            {pageNumber}
-                                        </Link>
-                                    );
-                                })}
+                            <div className="flex items-center justify-center gap-3 pt-10">
+                                {/* PREV BUTTON */}
+                                <Link
+                                    scroll={false}
+                                    href={`/blogs/${slug}?page=${currentPage - 1}#related-blogs`}
+                                    className={`h-11 px-4 rounded-xl border text-sm font-medium transition-all duration-300 flex items-center justify-center
+            ${currentPage === 1
+                                            ? "pointer-events-none opacity-40 border-slate-200 text-slate-400"
+                                            : "border-slate-200 text-slate-700 hover:bg-slate-100 hover:-translate-y-0.5"
+                                        }`}
+                                >
+                                    Prev
+                                </Link>
+
+                                {/* PAGE NUMBERS */}
+                                <div className="flex items-center gap-2">
+                                    {Array.from({ length: totalPages }).map((_, i) => {
+                                        const pageNumber = i + 1;
+
+                                        return (
+                                            <Link
+                                                key={pageNumber}
+                                                scroll={false}
+                                                href={`/blogs/${slug}?page=${pageNumber}#related-blogs`}
+                                                className={`w-11 h-11 rounded-xl text-sm font-medium flex items-center justify-center transition-all duration-300
+                        ${currentPage === pageNumber
+                                                        ? "bg-gradient-to-r from-[#007BFF] to-[#00D4FF] text-white shadow-lg shadow-blue-100 scale-105"
+                                                        : "border border-slate-200 text-slate-600 hover:bg-slate-100 hover:-translate-y-0.5"
+                                                    }`}
+                                            >
+                                                {pageNumber}
+                                            </Link>
+                                        );
+                                    })}
+                                </div>
+
+                                {/* NEXT BUTTON */}
+                                <Link
+                                    scroll={false}
+                                    href={`/blogs/${slug}?page=${currentPage + 1}#related-blogs`}
+                                    className={`h-11 px-4 rounded-xl border text-sm font-medium transition-all duration-300 flex items-center justify-center
+            ${currentPage === totalPages
+                                            ? "pointer-events-none opacity-40 border-slate-200 text-slate-400"
+                                            : "border-slate-200 text-slate-700 hover:bg-slate-100 hover:-translate-y-0.5"
+                                        }`}
+                                >
+                                    Next
+                                </Link>
                             </div>
                         )}
                     </div>
