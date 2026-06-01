@@ -857,27 +857,38 @@ ${blogData.content.trim()}${faqText}`;
                   </button>
                 </div>
 
-                {/* Device controls for Reader Preview */}
-                {previewTab === "render" && (
-                  <div className="flex items-center gap-1 bg-slate-100 p-1 border border-slate-200 rounded-xl max-w-fit">
-                    <button
-                      onClick={() => setPreviewDevice("desktop")}
-                      className={`p-1.5 rounded-lg transition ${previewDevice === "desktop" ? "bg-white text-slate-800 shadow-sm" : "text-slate-500 hover:text-slate-800"
-                        }`}
-                      title="Desktop view"
-                    >
-                      <Laptop className="w-3.5 h-3.5" />
-                    </button>
-                    <button
-                      onClick={() => setPreviewDevice("mobile")}
-                      className={`p-1.5 rounded-lg transition ${previewDevice === "mobile" ? "bg-white text-slate-800 shadow-sm" : "text-slate-500 hover:text-slate-800"
-                        }`}
-                      title="Mobile view"
-                    >
-                      <Smartphone className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                )}
+                <div className="flex flex-wrap items-center gap-2 justify-end">
+                  {previewTab === "render" && (
+                    <div className="flex items-center gap-1 bg-slate-100 p-1 border border-slate-200 rounded-xl max-w-fit">
+                      <button
+                        onClick={() => setPreviewDevice("desktop")}
+                        className={`p-1.5 rounded-lg transition ${previewDevice === "desktop" ? "bg-white text-slate-800 shadow-sm" : "text-slate-500 hover:text-slate-800"
+                          }`}
+                        title="Desktop view"
+                      >
+                        <Laptop className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        onClick={() => setPreviewDevice("mobile")}
+                        className={`p-1.5 rounded-lg transition ${previewDevice === "mobile" ? "bg-white text-slate-800 shadow-sm" : "text-slate-500 hover:text-slate-800"
+                          }`}
+                        title="Mobile view"
+                      >
+                        <Smartphone className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  )}
+
+                  <button
+                    type="button"
+                    onClick={handlePublish}
+                    disabled={isPublishing}
+                    className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-2 text-xs font-bold text-white shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:bg-slate-300"
+                  >
+                    {isPublishing ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
+                    {isPublishing ? "Publishing..." : "Publish Article"}
+                  </button>
+                </div>
               </div>
 
               {/* TAB 1: RENDERED SIMULATOR VIEW */}
