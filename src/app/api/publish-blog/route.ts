@@ -1,10 +1,28 @@
+
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    const formData = await request.formData();
+
+    const blogDataString = formData.get("blogData") as string;
+    const imageFile = formData.get("coverImage") as File | null;
+
+    if (!blogDataString) {
+      return NextResponse.json(
+        {
+          error: "Missing blog data.",
+        },
+        {
+          status: 400,
+        }
+      );
+    }
+
+    const blogData = JSON.parse(blogDataString);
+
     const {
       title,
       description,
@@ -17,17 +35,28 @@ export async function POST(request: Request) {
       tags,
       content,
       faqs,
-    } = body;
+    } = blogData;
 
-    // 1. Validation
+    // =====================================================
+    // VALIDATION
+    // =====================================================
+
     if (!title || !slug || !content) {
       return NextResponse.json(
-        { error: "Missing required fields: title, slug, and content are mandatory." },
-        { status: 400 }
+        {
+          error:
+            "Missing required fields: title, slug, and content are mandatory.",
+        },
+        {
+          status: 400,
+        }
       );
     }
 
-    // Clean slug: lowercase, hyphenated, alphanumeric and hyphens only
+    // =====================================================
+    // CLEAN SLUG
+    // =====================================================
+
     const cleanSlug = slug
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
@@ -35,74 +64,215 @@ export async function POST(request: Request) {
 
     if (!cleanSlug) {
       return NextResponse.json(
-        { error: "Invalid slug provided." },
-        { status: 400 }
+        {
+          error: "Invalid slug provided.",
+        },
+        {
+          status: 400,
+        }
       );
     }
 
-    // 2. Prepare content and format FAQs in markdown if provided
+    // =====================================================
+    // IMAGE UPLOAD
+    // =====================================================
+
+    let finalCoverImage = coverImage || "/images/blogs/ai.png";
+
+    if (imageFile) {
+      const uploadDir = path.join(
+        process.cwd(),
+        "public",
+        "images",
+        "blogs"
+      );
+
+      if (!fs.existsSync(uploadDir)) {
+        fs.mkdirSync(uploadDir, {
+          recursive: true,
+        });
+      }
+
+      const existingFiles = fs
+        .readdirSync(uploadDir)
+        .filter((file) =>
+          /^blog\d+\.(png|jpg|jpeg|webp)$/i.test(file)
+        );
+
+      const nextIndex = existingFiles.length;
+
+      const extension =
+        imageFile.name.split(".").pop()?.toLowerCase() || "webp";
+
+      const allowedExtensions = [
+        "png",
+        "jpg",
+        "jpeg",
+        "webp",
+      ];
+
+      if (!allowedExtensions.includes(extension)) {
+        return NextResponse.json(
+          {
+            error:
+              "Only PNG, JPG, JPEG and WEBP files are allowed.",
+          },
+          {
+            status: 400,
+          }
+        );
+      }
+
+      const imageName = `blog${nextIndex}.${extension}`;
+
+      const imagePath = path.join(
+        uploadDir,
+        imageName
+      );
+
+      const bytes = await imageFile.arrayBuffer();
+
+      fs.writeFileSync(
+        imagePath,
+        Buffer.from(bytes)
+      );
+
+      finalCoverImage = `/images/blogs/${imageName}`;
+    }
+
+    // =====================================================
+    // APPEND FAQS TO CONTENT
+    // =====================================================
+
     let finalContent = content.trim();
-    if (faqs && Array.isArray(faqs) && faqs.length > 0) {
-      // Filter out empty FAQs
-      const validFaqs = faqs.filter(f => f.question?.trim() && f.answer?.trim());
+
+    if (
+      faqs &&
+      Array.isArray(faqs) &&
+      faqs.length > 0
+    ) {
+      const validFaqs = faqs.filter(
+        (f) =>
+          f.question?.trim() &&
+          f.answer?.trim()
+      );
+
       if (validFaqs.length > 0) {
-        finalContent += "\n\n## Frequently Asked Questions\n";
+        finalContent +=
+          "\n\n## Frequently Asked Questions\n";
+
         validFaqs.forEach((faq) => {
-          finalContent += `\n### ${faq.question.trim()}\n\n${faq.answer.trim()}\n`;
+          finalContent += `
+### ${faq.question.trim()}
+
+${faq.answer.trim()}
+`;
         });
       }
     }
 
-    // 3. Format frontmatter
-    const blogDate = date || new Date().toISOString().split("T")[0];
-    const finalDescription = description || excerpt || "";
-    const finalCover = coverImage || "/images/blogs/ai.png";
-    const finalCategory = category || "AI & ML";
-    const finalBlogType = blogType || "AI";
+    // =====================================================
+    // FRONTMATTER DATA
+    // =====================================================
+
+    const blogDate =
+      date ||
+      new Date().toISOString().split("T")[0];
+
+    const finalDescription =
+      description || excerpt || "";
+
+    const finalCategory =
+      category || "AI & ML";
+
+    const finalBlogType =
+      blogType || "AI";
 
     let finalTags: string[] = [];
+
     if (Array.isArray(tags)) {
       finalTags = tags;
-    } else if (typeof tags === "string") {
+    } else if (
+      typeof tags === "string"
+    ) {
       finalTags = [tags];
     } else {
-      finalTags = [finalCategory, finalBlogType];
+      finalTags = [
+        finalCategory,
+        finalBlogType,
+      ];
     }
 
-    // Build the MDX string
+    // =====================================================
+    // MDX FILE
+    // =====================================================
+
     const mdxString = `---
 title: ${JSON.stringify(title)}
-description: ${JSON.stringify(finalDescription)}
+description: ${JSON.stringify(
+      finalDescription
+    )}
 date: ${JSON.stringify(blogDate)}
 tags: ${JSON.stringify(finalTags)}
-coverImage: ${JSON.stringify(finalCover)}
-category: ${JSON.stringify(finalCategory)}
-blogType: ${JSON.stringify(finalBlogType)}
+coverImage: ${JSON.stringify(
+      finalCoverImage
+    )}
+category: ${JSON.stringify(
+      finalCategory
+    )}
+blogType: ${JSON.stringify(
+      finalBlogType
+    )}
 ---
 
 ${finalContent}
 `;
 
-    // 4. Save to content/blog/[slug].mdx
-    const blogDir = path.join(process.cwd(), "content/blog");
+    const blogDir = path.join(
+      process.cwd(),
+      "content/blog"
+    );
+
     if (!fs.existsSync(blogDir)) {
-      fs.mkdirSync(blogDir, { recursive: true });
+      fs.mkdirSync(blogDir, {
+        recursive: true,
+      });
     }
 
-    const filePath = path.join(blogDir, `${cleanSlug}.mdx`);
-    fs.writeFileSync(filePath, mdxString, "utf8");
+    const filePath = path.join(
+      blogDir,
+      `${cleanSlug}.mdx`
+    );
+
+    fs.writeFileSync(
+      filePath,
+      mdxString,
+      "utf8"
+    );
 
     return NextResponse.json({
       success: true,
-      message: "Blog post published successfully!",
+      message:
+        "Blog post published successfully!",
       slug: cleanSlug,
+      coverImage: finalCoverImage,
       filePath: `/content/blog/${cleanSlug}.mdx`,
     });
   } catch (error: any) {
-    console.error("Error in publish-blog API route:", error);
+    console.error(
+      "Error in publish-blog API route:",
+      error
+    );
+
     return NextResponse.json(
-      { error: error?.message || "An unexpected error occurred while publishing." },
-      { status: 500 }
+      {
+        error:
+          error?.message ||
+          "An unexpected error occurred while publishing.",
+      },
+      {
+        status: 500,
+      }
     );
   }
 }

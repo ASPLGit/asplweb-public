@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getAllBlogPosts, getBlogPostBySlug, getRelatedPosts } from "@/lib/blogs";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -13,13 +15,6 @@ interface PageProps {
     searchParams?: Promise<{
         page?: string;
     }>;
-}
-
-export async function generateStaticParams() {
-    const posts = getAllBlogPosts();
-    return posts.map((blog) => ({
-        slug: blog.slug,
-    }));
 }
 
 export async function generateMetadata(

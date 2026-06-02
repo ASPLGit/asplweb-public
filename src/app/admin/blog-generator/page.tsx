@@ -1,31 +1,26 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import {
   Sparkles,
-  BookOpen,
   Tag,
   Calendar,
-  ChevronRight,
   Loader2,
   CheckCircle2,
   AlertCircle,
   Plus,
   Trash2,
-  ArrowLeft,
   Save,
-  Settings,
   Eye,
   Code,
   Laptop,
   Smartphone,
   ExternalLink,
   Search,
-  RefreshCw,
   FileText
 } from "lucide-react";
+import Image from "next/image";
 
 // Types matching /types/app.ts
 type BlogType =
@@ -60,16 +55,12 @@ interface BlogData {
 }
 
 export default function BlogGeneratorPage() {
-  const router = useRouter();
 
   // --- State for Generation Form ---
-  const [topic, setTopic] = useState("");
-  const [keyword, setKeyword] = useState("");
-  const [category, setCategory] = useState("AI & ML");
+  const [title, setTitle] = useState("");
   const [blogType, setBlogType] = useState<BlogType>("AI");
-  const [tone, setTone] = useState("Professional & Informative");
-  const [targetAudience, setTargetAudience] = useState("CTOs & Tech Leaders");
-
+  const [description, setDescription] = useState("");
+  const [targetCountry, setTargetCountry] = useState("Global");
   // --- Loading / Flow states ---
   const [isGenerating, setIsGenerating] = useState(false);
   const [loadingStepIndex, setLoadingStepIndex] = useState(0);
@@ -86,25 +77,28 @@ export default function BlogGeneratorPage() {
   const [previewTab, setPreviewTab] = useState<"render" | "raw">("render");
   const [previewDevice, setPreviewDevice] = useState<"desktop" | "mobile">("desktop");
   const [faqOpenStates, setFaqOpenStates] = useState<Record<number, boolean>>({});
-
+  const [coverImageFile, setCoverImageFile] = useState<File | null>(null);
+  const [coverImagePreview, setCoverImagePreview] = useState<string>("");
   // Loading Steps texts
   const loadingSteps = [
-    "Contacting OpenAI GPT-4o-mini...",
-    "Analyzing topic & keyword optimization...",
-    "Structuring deep technical article outline...",
-    "Drafting MDX body content with rich prose...",
-    "Formulating helpful interactive FAQs...",
-    "Executing SEO schema review & final adjustments..."
+    "Contacting Gemini AI...",
+    "Analyzing title & keyword opportunities...",
+    "Researching SEO strategy...",
+    "Structuring article outline with best practices...",
+    "Drafting high-quality markdown content...",
+    "Generating helpful FAQs...",
+    "Finalizing SEO optimization & validation..."
   ];
 
-  // Simulating step-by-step progress while waiting for OpenAI API
+  // Simulating step-by-step progress while waiting for Gemini API
   useEffect(() => {
     let interval: NodeJS.Timeout;
     if (isGenerating) {
       setLoadingStepIndex(0);
+      const stepsLength = loadingSteps.length;
       interval = setInterval(() => {
         setLoadingStepIndex((prev) => {
-          if (prev < loadingSteps.length - 1) {
+          if (prev < stepsLength - 1) {
             return prev + 1;
           }
           return prev;
@@ -112,13 +106,39 @@ export default function BlogGeneratorPage() {
       }, 3000);
     }
     return () => clearInterval(interval);
-  }, [isGenerating]);
+  }, [isGenerating, loadingSteps.length]);
+
+
+  const handleCoverImageUpload = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const file = e.target.files?.[0];
+
+    if (!file) return;
+
+    const allowedTypes = [
+      "image/png",
+      "image/jpeg",
+      "image/jpg",
+      "image/webp",
+    ];
+
+    if (!allowedTypes.includes(file.type)) {
+      alert("Only PNG, JPG, JPEG and WEBP files are allowed.");
+      return;
+    }
+
+    setCoverImageFile(file);
+
+    const previewUrl = URL.createObjectURL(file);
+    setCoverImagePreview(previewUrl);
+  };
 
   // Handle generation call
   const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!topic || !keyword) {
-      setError("Please provide both a topic and a primary keyword.");
+    if (!title) {
+      setError("Please provide a blog title.");
       return;
     }
 
@@ -132,11 +152,10 @@ export default function BlogGeneratorPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          topic,
-          keyword,
-          category,
-          tone,
-          targetAudience,
+          title,
+          description,
+          blogType,
+          targetCountry,
         }),
       });
 
@@ -157,20 +176,21 @@ export default function BlogGeneratorPage() {
         faqs: data.faqs || [],
         coverImage: "/images/blogs/ai.png",
         date: new Date().toISOString().split("T")[0],
-        category: category,
+        category: data.category || "Technology",
         blogType: blogType,
-        tags: [keyword.toLowerCase(), category.toLowerCase()],
+        tags: data.tags || [],
       });
       setEditorTab("content");
-    } catch (err: any) {
-      setError(err.message || "An unexpected error occurred during generation.");
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : "An unexpected error occurred during generation.";
+      setError(message);
     } finally {
       setIsGenerating(false);
     }
   };
 
   // Handle direct field updates
-  const updateBlogField = (field: keyof BlogData, value: any) => {
+  const updateBlogField = (field: keyof BlogData, value: string | string[] | FAQ[]) => {
     if (!blogData) return;
     setBlogData({
       ...blogData,
@@ -224,10 +244,24 @@ export default function BlogGeneratorPage() {
     setSuccessMessage(null);
 
     try {
+      const formData = new FormData();
+
+      formData.append(
+        "blogData",
+        JSON.stringify(blogData)
+      );
+
+      if (coverImageFile) {
+        formData.append(
+          "coverImage",
+          coverImageFile
+        );
+      }
+
+
       const response = await fetch("/api/publish-blog", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(blogData),
+        body: formData,
       });
 
       if (!response.ok) {
@@ -241,8 +275,9 @@ export default function BlogGeneratorPage() {
 
       // Auto scroll to top of window to see the success state
       window.scrollTo({ top: 0, behavior: "smooth" });
-    } catch (err: any) {
-      setError(err.message || "An unexpected error occurred while publishing.");
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : "An unexpected error occurred while publishing.";
+      setError(message);
     } finally {
       setIsPublishing(false);
     }
@@ -385,41 +420,40 @@ ${blogData.content.trim()}${faqText}`;
                 <Sparkles className="w-5 h-5 text-blue-600" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-slate-900">Generate Blog Parameters</h2>
-                <p className="text-slate-500 text-xs">Define options to structure a highly engaging, SEO-optimized post.</p>
+                <h2 className="text-xl font-bold text-slate-900">SEO Blog Generator</h2>
+                <p className="text-slate-500 text-xs">Provide basic info and AI will generate SEO-optimized content with automatic keyword research, category determination, and FAQs.</p>
               </div>
             </div>
 
             <form onSubmit={handleGenerate} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                {/* Topic */}
+                {/* Title */}
                 <div className="md:col-span-2 space-y-2">
                   <label className="text-xs uppercase tracking-wider font-semibold text-slate-500">
-                    Target Blog Topic / Title Idea <span className="text-red-500">*</span>
+                    Blog Title <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
                     required
                     placeholder="e.g. Migration from WCF to modern gRPC on .NET 9"
-                    value={topic}
-                    onChange={(e) => setTopic(e.target.value)}
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
                     className="w-full bg-white border border-slate-200 hover:border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 transition duration-300 outline-none text-sm"
                   />
                 </div>
 
-                {/* Focus Keyword */}
-                <div className="space-y-2">
+                {/* Description */}
+                <div className="md:col-span-2 space-y-2">
                   <label className="text-xs uppercase tracking-wider font-semibold text-slate-500">
-                    Focus SEO Keyword <span className="text-red-500">*</span>
+                    Blog Description
                   </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. migrate wcf to grpc"
-                    value={keyword}
-                    onChange={(e) => setKeyword(e.target.value)}
+                  <textarea
+                    placeholder="Enter a brief description of the blog post..."
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                     className="w-full bg-white border border-slate-200 hover:border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 transition duration-300 outline-none text-sm"
+                    rows={3}
                   />
                 </div>
 
@@ -445,53 +479,33 @@ ${blogData.content.trim()}${faqText}`;
                     <option value="Blockchain">Blockchain</option>
                   </select>
                 </div>
-
-                {/* Custom Category */}
+                {/* Target Country */}
                 <div className="space-y-2">
                   <label className="text-xs uppercase tracking-wider font-semibold text-slate-500">
-                    Category Name
+                    Target Country
                   </label>
-                  <input
-                    type="text"
-                    placeholder="e.g. .NET Migration"
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                    className="w-full bg-white border border-slate-200 hover:border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 transition duration-300 outline-none text-sm"
-                  />
+                  <select
+                    value={targetCountry}
+                    onChange={(e) => setTargetCountry(e.target.value)}
+                    className="w-full bg-white border border-slate-200 hover:border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 rounded-xl px-4 py-3 text-slate-900 transition duration-300 outline-none text-sm"
+                  >
+                    <option value="Global">Global</option>
+                    <option value="US">United States</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="CA">Canada</option>
+                    <option value="AU">Australia</option>
+                  </select>
                 </div>
 
-                {/* Writing Tone */}
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-wider font-semibold text-slate-500">
-                    Tone of voice
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="e.g. Professional, authoritative"
-                    value={tone}
-                    onChange={(e) => setTone(e.target.value)}
-                    className="w-full bg-white border border-slate-200 hover:border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 rounded-xl px-4 py-3 text-slate-900 transition duration-300 outline-none text-sm"
-                  />
-                </div>
 
-                {/* Target Audience */}
-                <div className="md:col-span-2 space-y-2">
-                  <label className="text-xs uppercase tracking-wider font-semibold text-slate-500">
-                    Target Audience
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="e.g. Enterprise Architect, C-Suite, IT Lead"
-                    value={targetAudience}
-                    onChange={(e) => setTargetAudience(e.target.value)}
-                    className="w-full bg-white border border-slate-200 hover:border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 rounded-xl px-4 py-3 text-slate-900 transition duration-300 outline-none text-sm"
-                  />
-                </div>
+
+
+
 
               </div>
 
               <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-4">
-                <span className="text-slate-400 text-xs italic">Powered by gpt-4o-mini</span>
+                <span className="text-slate-400 text-xs italic">Powered by Gemini 2.5 Flash</span>
                 <button
                   type="submit"
                   className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold shadow-sm hover:shadow-md active:scale-95 transition-all duration-300 flex items-center gap-2 hover:-translate-y-0.5"
@@ -517,9 +531,9 @@ ${blogData.content.trim()}${faqText}`;
             </div>
 
             <div className="text-center space-y-2">
-              <h2 className="text-2xl font-extrabold tracking-tight text-slate-900 animate-pulse">Drafting Article Content</h2>
+              <h2 className="text-2xl font-extrabold tracking-tight text-slate-900 animate-pulse">Generating SEO-Optimized Article</h2>
               <p className="text-slate-500 text-sm max-w-md mx-auto">
-                OpenAI is busy generating copy, SEO keywords, headers, and FAQs based on your input.
+                Initializing AI and performing keyword research, determining category, generating SEO-rich content, and creating helpful FAQs.
               </p>
             </div>
 
@@ -666,15 +680,34 @@ ${blogData.content.trim()}${faqText}`;
 
                       {/* Cover Image Url */}
                       <div className="space-y-2 md:col-span-2">
-                        <label className="text-xs uppercase tracking-wider font-semibold text-slate-500">
-                          Cover Image Path
-                        </label>
-                        <input
-                          type="text"
-                          value={blogData.coverImage}
-                          onChange={(e) => updateBlogField("coverImage", e.target.value)}
-                          className="w-full bg-slate-50/50 border border-slate-200 focus:bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-100 rounded-xl px-4 py-3 text-slate-800 text-sm outline-none transition duration-200"
-                        />
+                        <div className="space-y-3 md:col-span-2">
+                          <label className="text-xs uppercase tracking-wider font-semibold text-slate-500">
+                            Cover Image Upload
+                          </label>
+
+                          <input
+                            type="file"
+                            accept=".png,.jpg,.jpeg,.webp"
+                            onChange={handleCoverImageUpload}
+                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm"
+                          />
+
+                          {coverImagePreview && (
+                            <div className="border border-slate-200 rounded-xl overflow-hidden">
+                              <Image
+                                width={192}
+                                height={192}
+                                src={coverImagePreview}
+                                alt="Preview"
+                                className="w-full h-48 object-cover"
+                              />
+                            </div>
+                          )}
+
+                          <p className="text-xs text-slate-400">
+                            Supported: PNG, JPG, JPEG, WEBP
+                          </p>
+                        </div>
                       </div>
 
                       {/* Category */}
@@ -781,7 +814,7 @@ ${blogData.content.trim()}${faqText}`;
 
                     {blogData.faqs.length === 0 ? (
                       <div className="bg-slate-50 border border-slate-100 p-8 rounded-2xl text-center">
-                        <p className="text-slate-400 text-sm italic">No FAQs configured yet. Click 'Add FAQ' to insert a question row.</p>
+                        <p className="text-slate-400 text-sm italic">No FAQs configured yet. Click `&apos;` Add FAQ `&apos;` to insert a question row.</p>
                       </div>
                     ) : (
                       <div className="space-y-4">
@@ -942,9 +975,22 @@ ${blogData.content.trim()}${faqText}`;
 
                       {/* Cover Image Placeholder */}
                       <div className="relative w-full h-[220px] bg-slate-100 rounded-xl overflow-hidden flex flex-col items-center justify-center border border-slate-200">
-                        <FileText className="w-12 h-12 text-slate-300 mb-2" />
-                        <span className="text-slate-400 text-xs font-mono">{blogData.coverImage}</span>
-                        <div className="absolute bottom-2 left-2 bg-slate-950/70 text-[9px] font-bold text-white px-2 py-0.5 rounded">Cover Image</div>
+                        {coverImagePreview ? (
+                          <Image
+                            width={600}
+                            height={400}
+                            src={coverImagePreview}
+                            alt="Cover"
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <>
+                            <FileText className="w-12 h-12 text-slate-300 mb-2" />
+                            <span className="text-slate-400 text-xs">
+                              No Cover Image Selected
+                            </span>
+                          </>
+                        )}
                       </div>
 
                       {/* Markdown rendered paragraphs */}
