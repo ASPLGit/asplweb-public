@@ -18,7 +18,10 @@ import {
   Smartphone,
   ExternalLink,
   Search,
-  FileText
+  FileText,
+  ArrowLeft,
+  LogOut,
+  KeyRound
 } from "lucide-react";
 import Image from "next/image";
 
@@ -90,6 +93,19 @@ export default function BlogGeneratorPage() {
     "Finalizing SEO optimization & validation..."
   ];
 
+  async function handleLogout() {
+    await fetch(
+      "/api/auth/logout",
+      {
+        method: "POST",
+      }
+    );
+
+    window.location.href =
+      "/admin/login";
+  }
+
+
   // Simulating step-by-step progress while waiting for Gemini API
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -107,6 +123,7 @@ export default function BlogGeneratorPage() {
     }
     return () => clearInterval(interval);
   }, [isGenerating, loadingSteps.length]);
+
 
 
   const handleCoverImageUpload = (
@@ -373,7 +390,7 @@ ${blogData.content.trim()}${faqText}`;
   };
 
   return (
-    <div className="min-h-screen bg-slate-50/50 text-slate-800 font-inter antialiased pb-20 pt-24 md:pt-32 px-4 sm:px-6 lg:px-8 relative">
+    <div className="min-h-screen bg-slate-50/50 text-slate-800 font-inter antialiased pb-20 sm:pt-16 pt-10 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-7xl mx-auto space-y-8">
 
         {/* --- Notifications/Alerts Block --- */}
@@ -504,14 +521,12 @@ ${blogData.content.trim()}${faqText}`;
 
               </div>
 
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-4">
-                <span className="text-slate-400 text-xs italic">Powered by Gemini 2.5 Flash</span>
-                <button
-                  type="submit"
-                  className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold shadow-sm hover:shadow-md active:scale-95 transition-all duration-300 flex items-center gap-2 hover:-translate-y-0.5"
-                >
-                  <Sparkles className="w-5 h-5 text-white" /> Generate Blog Draft
-                </button>
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-end gap-4">                <button
+                type="submit"
+                className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold shadow-sm hover:shadow-md active:scale-95 transition-all duration-300 flex items-center gap-2 hover:-translate-y-0.5"
+              >
+                <Sparkles className="w-5 h-5 text-white" /> Generate Blog Draft
+              </button>
               </div>
             </form>
           </div>
@@ -1076,6 +1091,78 @@ ${blogData.content.trim()}${faqText}`;
             </div>
           </div>
         )}
+
+      </div>
+      <div className="sm:mt-16 mt-8 max-w-3xl mx-auto bg-white border border-slate-200 p-8 rounded-2xl shadow-sm relative">
+
+        <div className="mb-4">
+          <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+            Account & Security
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+          <Link
+            href="/admin/change-password"
+            className="
+        rounded-2xl
+        border
+        border-amber-200
+        bg-amber-50
+        p-5
+        transition-all
+        hover:bg-amber-100
+      "
+          >
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100">
+                <KeyRound className="w-5 h-5 text-amber-700" />
+              </div>
+
+              <div>
+                <p className="font-semibold text-amber-900">
+                  Change Password
+                </p>
+
+                <p className="text-xs text-amber-700">
+                  Update administrator credentials
+                </p>
+              </div>
+            </div>
+          </Link>
+
+          <button
+            onClick={handleLogout}
+            className="
+        text-left
+        rounded-2xl
+        border
+        border-red-200
+        bg-red-50
+        p-5
+        transition-all
+        hover:bg-red-100
+      "
+          >
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-100">
+                <LogOut className="w-5 h-5 text-red-700" />
+              </div>
+
+              <div>
+                <p className="font-semibold text-red-900">
+                  Logout
+                </p>
+
+                <p className="text-xs text-red-700">
+                  End current admin session
+                </p>
+              </div>
+            </div>
+          </button>
+
+        </div>
 
       </div>
     </div>

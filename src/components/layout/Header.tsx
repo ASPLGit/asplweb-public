@@ -81,16 +81,19 @@ export default function Header() {
         setActiveMenu(menu);
     };
 
-    const isServicesActive = pathname.startsWith("/services");
-    const isTechnologiesActive = pathname.startsWith("/technologies");
-    const isAiActive = pathname.startsWith("/ai") || pathname.startsWith("/ai-development");
+    const isServicesActive = pathname?.startsWith("/services");
+    const isTechnologiesActive = pathname?.startsWith("/technologies");
+    const isAiActive = pathname?.startsWith("/ai") || pathname?.startsWith("/ai-development");
     const isAboutSectionActive =
-        pathname.startsWith("/about") ||
-        pathname.startsWith("/careers") ||
-        pathname.startsWith("/blogs") ||
-        pathname.startsWith("/case-studies");
+        pathname?.startsWith("/about") ||
+        pathname?.startsWith("/careers") ||
+        pathname?.startsWith("/blogs") ||
+        pathname?.startsWith("/case-studies");
 
-    const headerWhite = ["/blogs", "/case-studies", "/careers/", "/admin/blog-generator"].some((route) => pathname.startsWith(route));
+    const isAdminRoute = pathname?.startsWith("/admin");
+    if (isAdminRoute) return null;
+
+    const headerWhite = ["/blogs", "/case-studies", "/careers/", "/admin"].some((route) => pathname?.startsWith(route));
 
 
     return (

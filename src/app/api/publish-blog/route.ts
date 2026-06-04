@@ -2,9 +2,25 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import {
+  requireAdmin,
+} from "@/lib/require-admin";
 
 export async function POST(request: Request) {
   try {
+    try {
+      await requireAdmin();
+    } catch {
+      return NextResponse.json(
+        {
+          error: "Unauthorized",
+        },
+        {
+          status: 401,
+        }
+      );
+    }
+
     const formData = await request.formData();
 
     const blogDataString = formData.get("blogData") as string;

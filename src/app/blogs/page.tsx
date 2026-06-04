@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import BlogsPage from "@/components/sections/blogs/BlogsPage";
 import { getAllBlogPosts } from "@/lib/blogs";
 import { Metadata } from "next";
@@ -19,4 +20,4 @@ export default function BlogPage() {
             <BlogsPage initialBlogs={posts} />
         </section>
     );
-}
+}
