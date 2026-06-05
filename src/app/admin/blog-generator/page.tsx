@@ -1114,6 +1114,7 @@ ${blogData.content.trim()}${faqText}`;
         )}
 
       </div>
+      {/* Account & Security */}
       <div className="sm:mt-16 mt-8 max-w-3xl mx-auto bg-white border border-slate-200 p-8 rounded-2xl shadow-sm relative">
 
         <div className="mb-4">

@@ -153,7 +153,7 @@ export async function POST(request: Request) {
         Buffer.from(bytes)
       );
 
-      finalCoverImage = `/images/blogs/${imageName}`;
+      finalCoverImage = `https://aplombsoft.com/public/images/blogs/${imageName}`;
     }
 
     // =====================================================
