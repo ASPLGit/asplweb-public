@@ -165,14 +165,14 @@ const mdxComponents = {
         return (
             <h2
                 id={id}
-                className="scroll-mt-28 pt-8 text-2xl sm:text-3xl font-semibold tracking-tight text-slate-950 leading-tight"
+                className="scroll-mt-28 pt-8 mb-4 text-2xl sm:text-3xl font-semibold tracking-tight text-slate-950 leading-tight"
                 {...props}
             />
         );
     },
     h3: (props: ComponentProps<"h3">) => (
         <h3
-            className="pt-4 text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 leading-snug"
+            className="pt-4 text-xl sm:text-2xl mb-2 font-semibold tracking-tight text-slate-900 leading-snug"
             {...props}
         />
     ),

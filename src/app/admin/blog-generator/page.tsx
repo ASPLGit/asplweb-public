@@ -507,10 +507,31 @@ ${blogData.content.trim()}${faqText}`;
                     className="w-full bg-white border border-slate-200 hover:border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 rounded-xl px-4 py-3 text-slate-900 transition duration-300 outline-none text-sm"
                   >
                     <option value="Global">Global</option>
+
+                    {/* North America */}
                     <option value="US">United States</option>
-                    <option value="UK">United Kingdom</option>
                     <option value="CA">Canada</option>
+
+                    {/* Offshore / Financial */}
+                    <option value="Cayman Islands">Cayman Islands</option>
+
+                    {/* Europe */}
+                    <option value="UK">United Kingdom</option>
+
+                    {/* APAC */}
                     <option value="AU">Australia</option>
+
+                    {/* Middle East */}
+                    <option value="Middle East">Middle East</option>
+                    <option value="UAE">United Arab Emirates</option>
+                    <option value="Saudi Arabia">Saudi Arabia</option>
+                    <option value="Qatar">Qatar</option>
+                    <option value="Kuwait">Kuwait</option>
+                    <option value="Oman">Oman</option>
+                    <option value="Bahrain">Bahrain</option>
+
+
+
                   </select>
                 </div>
 

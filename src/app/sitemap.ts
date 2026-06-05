@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { MetadataRoute } from "next";
 import { services } from "@/data/singleServicePage";
 import { technologies } from "@/data/singleTechnologyPage";
